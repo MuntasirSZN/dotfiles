@@ -105,10 +105,11 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export HOMEBREW_NO_ENV_HINTS=1
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias)
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
+eval $(fzf --zsh)
 # Antigen
 source /home/linuxbrew/.linuxbrew/share/antigen/antigen.zsh
 # Bat
@@ -125,30 +126,18 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Alien Theme
-export ALIEN_THEME="blue"
-source ~/alien/alien.zsh
-export ALIEN_PROMPT_SYM=⇒
-export ALIEN_SECTIONS_LEFT=(
-  exit
-  user
-  path
-  vcs_branch:async
-  vcs_status:async
-  vcs_dirty:async
-  newline
-  ssh
-  venv
-  prompt
-)
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/powerlevel10k_rainbow.omp.json)"
 
-export ALIEN_SECTIONS_RIGHT=(
-  time
-)
-export ALIEN_USE_NERD_FONT=1
 # Fzf
 source <(fzf --zsh)
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+
+. "$HOME/.cargo/env"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+source /home/muntasir/.rvm/scripts/rvm

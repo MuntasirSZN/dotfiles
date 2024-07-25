@@ -1,4 +1,5 @@
 return {
+  { "folke/neodev.nvim" },
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -104,30 +105,42 @@ return {
     end,
   },
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("lspconfig").clangd.setup({})
-      require("lspconfig").cmake.setup({})
-      require("lspconfig").emmet_language_server.setup({})
-      require("lspconfig").dockerls.setup({})
-      require("lspconfig").eslint.setup({})
-      require("lspconfig").html.setup({})
-      require("lspconfig").jsonls.setup({})
-      require("lspconfig").lua_ls.setup({})
-      require("lspconfig").tsserver.setup({})
-      require("lspconfig").yamlls.setup({})
-      require("lspconfig").biome.setup({})
-      require("lspconfig").tailwindcss.setup({})
-      require("lspconfig").docker_compose_language_service.setup({})
-      require("lspconfig").cssls.setup({})
-      require("lspconfig").bashls.setup({})
-      require("lspconfig").phpactor.setup({})
-      require("lspconfig").rust_analyzer.setup({})
-      require("lspconfig").julials.setup({})
-      require("lspconfig").markdown_oxide.setup({})
-      require("lspconfig").pylsp.setup({})
-      require("lspconfig").autotools_ls.setup({})
-    end,
+    {
+      "neovim/nvim-lspconfig",
+      config = function()
+        require("lspconfig").clangd.setup({})
+        require("lspconfig").cmake.setup({})
+        require("lspconfig").emmet_language_server.setup({})
+        require("lspconfig").dockerls.setup({})
+        require("lspconfig").eslint.setup({})
+        require("lspconfig").html.setup({})
+        require("lspconfig").jsonls.setup({})
+        require("lspconfig").lua_ls.setup({})
+        require("lspconfig").tsserver.setup({})
+        require("lspconfig").yamlls.setup({})
+        require("lspconfig").biome.setup({})
+        require("lspconfig").tailwindcss.setup({})
+        require("lspconfig").docker_compose_language_service.setup({})
+        require("lspconfig").cssls.setup({})
+        require("lspconfig").bashls.setup({})
+        require("lspconfig").phpactor.setup({})
+        require("lspconfig").rust_analyzer.setup({})
+        require("lspconfig").julials.setup({})
+        require("lspconfig").markdown_oxide.setup({})
+        require("lspconfig").pylsp.setup({})
+        require("lspconfig").autotools_ls.setup({})
+      end,
+    },
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        setup = {
+          rust_analyzer = function()
+            return true
+          end,
+        },
+      },
+    },
   },
 
   {
