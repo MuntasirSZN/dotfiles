@@ -268,14 +268,6 @@ return {
         color_overrides = {},
         highlight_overrides = {},
       })
-
-      -- Automatically switch Catppuccin flavor based on background setting
-      vim.api.nvim_create_autocmd("OptionSet", {
-        pattern = "background",
-        callback = function()
-          vim.cmd("Catppuccin " .. (vim.v.option_new == "light" and "mocha"))
-        end,
-      })
     end,
   },
 }
