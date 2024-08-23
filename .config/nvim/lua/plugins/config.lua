@@ -44,14 +44,20 @@ return {
       colorscheme = "catppuccin",
     },
   },
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     require("fzf-lua").setup({})
+  --   end,
+  -- },
   {
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("fzf-lua").setup({})
-    end,
+      "nvim-telescope/telescope.nvim",
+      dependencies = { 'nvim-lua/plenary.nvim' }
+      config = function()
+        require("telescope").setup({})
+      end,
   },
-
   {
     "nvim-telescope/telescope-ui-select.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
