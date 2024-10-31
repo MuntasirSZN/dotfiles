@@ -146,5 +146,3 @@ export CM_LAUNCHER="rofi"
 # Turso
 export PATH="$PATH:/home/muntasir/.turso"
 
-# Nix
-export NIX_CONFIG_DIR="/home/muntasir/.config/nix"
