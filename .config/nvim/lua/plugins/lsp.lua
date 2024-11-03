@@ -68,161 +68,42 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = { "saghen/blink.cmp" },
 		opts = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-			local lspconfig = require("lspconfig")
-
 			local servers = {
-				"bashls",
-				"phpactor",
-				"cssls",
-				"clangd",
-				"cmake",
-				"rust_analyzer",
-				"julials",
-				"dockerls",
-				"docker_compose_language_service",
-				"eslint",
-				"emmet_language_server",
-				"lua_ls",
-				"html",
-				"ts_ls",
-				"autotools_ls",
-				"markdown_oxide",
-				"pylsp",
-				"tailwindcss",
-				"yamlls",
-				"jsonls",
-				"biome",
+				bashls = {},
+				phpactor = {},
+				cssls = {},
+				clangd = {},
+				cmake = {},
+				rust_analyzer = {},
+				julials = {},
+				dockerls = {},
+				docker_compose_language_service = {},
+				eslint = {},
+				emmet_language_server = {},
+				lua_ls = {},
+				html = {},
+				ts_ls = {},
+				autotools_ls = {},
+				markdown_oxide = {},
+				pylsp = {},
+				tailwindcss = {},
+				yamlls = {},
+				jsonls = {},
+				biome = {},
 			}
-			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
-					-- on_attach = my_custom_on_attach,
-					capabilities = capabilities,
-				})
-			end
-			local luasnip = require("luasnip")
-			local cmp = require("cmp")
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-d>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<CR>"] = cmp.mapping.confirm({
-						behavior = cmp.ConfirmBehavior.Replace,
-						select = true,
-					}),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_next_item()
-						elseif luasnip.expand_or_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-				}),
-			})
-			local null_ls = require("null-ls")
-			null_ls.setup({
-				sources = {
-					-- snippets support
-					null_ls.builtins.completion.luasnip,
-				},
-			})
 
-			---@class PluginLspOpts
-			local ret = {
-				-- options for vim.diagnostic.config()
-				---@type vim.diagnostic.Opts
-				diagnostics = {
-					underline = true,
-					update_in_insert = false,
-					virtual_text = {
-						spacing = 4,
-						source = "if_many",
-						prefix = "●",
-						-- this will set set the prefix to a function that returns the diagnostics icon based on the severity
-						-- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
-						-- prefix = "icons",
-					},
-					severity_sort = true,
-					signs = {
-						text = {
-							[vim.diagnostic.severity.WARN] = " ",
-							[vim.diagnostic.severity.ERROR] = " ",
-							[vim.diagnostic.severity.HINT] = " ",
-							[vim.diagnostic.severity.INFO] = " ",
-						},
-					},
-				},
-				inlay_hints = {
-					enabled = true,
-					exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
-				},
-				codelens = {
-					enabled = false,
-				},
-				-- Enable lsp cursor word highlighting
-				document_highlight = {
-					enabled = true,
-				},
-				-- add any global capabilities here
-				capabilities = {
-					workspace = {
-						fileOperations = {
-							didRename = true,
-							willRename = true,
-						},
-					},
-				},
-				format = {
-					formatting_options = nil,
-					timeout_ms = nil,
-				},
+			return {
+				servers = servers,
 			}
-			return ret
 		end,
-		config = function()
-      require("lspconfig").clangd.setup({})
-			require("lspconfig").cmake.setup({})
-			require("lspconfig").emmet_language_server.setup({})
-			require("lspconfig").dockerls.setup({})
-			require("lspconfig").eslint.setup({})
-			require("lspconfig").html.setup({})
-			require("lspconfig").jsonls.setup({})
-			require("lspconfig").lua_ls.setup({})
-			require("lspconfig").ts_ls.setup({})
-			require("lspconfig").yamlls.setup({})
-			require("lspconfig").biome.setup({})
-			require("lspconfig").tailwindcss.setup({})
-			require("lspconfig").docker_compose_language_service.setup({})
-			require("lspconfig").cssls.setup({})
-			require("lspconfig").bashls.setup({})
-			require("lspconfig").phpactor.setup({})
-			require("lspconfig").julials.setup({})
-			require("lspconfig").markdown_oxide.setup({})
-			require("lspconfig").pylsp.setup({})
-			require("lspconfig").autotools_ls.setup({})
+
+		config = function(_, opts)
+			for server, config in pairs(opts.servers) do
+				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+				require("lspconfig")[server].setup(config)
+			end
 		end,
 	},
 	{

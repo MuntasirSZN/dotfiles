@@ -211,12 +211,6 @@ return {
 		end,
 	},
 	{
-		"onsails/lspkind.nvim",
-		config = function()
-			require("lspkind").init({})
-		end,
-	},
-	{
 		"luckasRanarison/tailwind-tools.nvim",
 		name = "tailwind-tools",
 		build = ":UpdateRemotePlugins",
