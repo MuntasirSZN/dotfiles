@@ -30,3 +30,5 @@
     colorMoved = default
 [credential "https://github.com"]
 	username = MuntasirSZN
+[commit]
+	gpgsign = true
