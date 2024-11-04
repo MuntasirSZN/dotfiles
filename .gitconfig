@@ -1,6 +1,7 @@
 [user]
 	email = muntasir.joypurhat@gmail.com
 	name = MuntasirSZN
+	signingkey = E7FE5EC876734CA2
 [credential]
 	helper = /usr/local/bin/git-credential-manager
 	credentialStore = gpg
