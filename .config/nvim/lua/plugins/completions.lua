@@ -3,10 +3,11 @@ return {
 		"saghen/blink.cmp",
 		lazy = false,
 		dependencies = "rafamadriz/friendly-snippets",
+    version="*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			keymap = { preset = "enter" },
+			keymap = { preset = "default" },
 			vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#212136", fg = "#cdd6f4" }),
 			vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1e1e2e", fg = "#585b70" }),
 			vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#212136", fg = "#cdd6f4" }),
