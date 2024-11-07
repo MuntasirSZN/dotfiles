@@ -7,7 +7,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			keymap = { preset = "default" },
+			keymap = { preset = "enter" },
 			vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#212136", fg = "#cdd6f4" }),
 			vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1e1e2e", fg = "#585b70" }),
 			vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#212136", fg = "#cdd6f4" }),
