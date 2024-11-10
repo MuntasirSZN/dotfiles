@@ -5,4 +5,4 @@ rofi_clipboard() {
 }
 export -f rofi_clipboard
 
-env CM_LAUNCHER=rofi_clipboard CM_OUTPUT_CLIP=1 clipmenu | clipcopy
+env CM_LAUNCHER=rofi_clipboard CM_OUTPUT_CLIP=1 clipmenu | pbcopy

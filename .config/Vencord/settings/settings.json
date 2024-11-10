@@ -250,16 +250,7 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": true,
-            "collapseDeleted": false,
-            "deleteStyle": "text",
-            "ignoreBots": false,
-            "ignoreSelf": false,
-            "ignoreUsers": "",
-            "ignoreChannels": "",
-            "ignoreGuilds": "",
-            "logEdits": true,
-            "logDeletes": true
+            "enabled": true
         },
         "MessageTags": {
             "enabled": false
@@ -623,6 +614,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1729785854770
+        "settingsSyncVersion": 1730989491273
     }
 }
