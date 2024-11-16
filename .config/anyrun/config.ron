@@ -45,7 +45,6 @@ Config(
     "libwebsearch.so",
     "libkidex.so",
     "libtranslate.so",
-    "librandr.so",
     "libstdin.so",
     "libdictionary.so",
     "libsymbols.so"
