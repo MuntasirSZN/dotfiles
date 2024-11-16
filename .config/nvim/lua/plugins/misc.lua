@@ -219,7 +219,14 @@ return {
 			"nvim-telescope/telescope.nvim", -- optional
 			"neovim/nvim-lspconfig", -- optional
 		},
-		opts = {}, -- your configuration
+		opts = {
+      conceal = {
+        enabled = true,
+      },
+      document_color = {
+        enabled = false,
+      },
+    }, -- your configuration
 	},
 	{
 		"windwp/nvim-ts-autotag",
