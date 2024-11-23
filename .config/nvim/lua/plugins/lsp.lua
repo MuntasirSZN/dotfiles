@@ -92,6 +92,13 @@ return {
 				yamlls = {},
 				jsonls = {},
 				biome = {},
+        astro= {},
+        dotls= {},
+        prismals= {},
+        gitlab_ci_ls= {},
+        css_variables= {},
+        cssmodules_ls= {},
+        hyprls= {},
 			}
 
 			return {

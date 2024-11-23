@@ -4,6 +4,14 @@ local function augroup(name)
   return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
+-- Run Treesitter on BufEnter If It Encounters Prisma Files As It Doesn's Enable Automatically
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "prisma",
+  callback = function()
+    vim.cmd("TSEnable highlight")
+  end,
+})
+
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),

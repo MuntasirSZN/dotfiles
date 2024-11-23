@@ -204,31 +204,6 @@ return {
 		},
 	},
 	{
-		"max397574/colortils.nvim",
-		cmd = "Colortils",
-		config = function()
-			require("colortils").setup()
-		end,
-	},
-	{
-		"luckasRanarison/tailwind-tools.nvim",
-		name = "tailwind-tools",
-		build = ":UpdateRemotePlugins",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-telescope/telescope.nvim", -- optional
-			"neovim/nvim-lspconfig", -- optional
-		},
-		opts = {
-      conceal = {
-        enabled = true,
-      },
-      document_color = {
-        enabled = false,
-      },
-    }, -- your configuration
-	},
-	{
 		"windwp/nvim-ts-autotag",
 		event = "VeryLazy",
 		opts = {},
@@ -282,17 +257,6 @@ return {
 		config = function()
 			require("render-markdown").setup({})
 		end,
-	},
-	{
-		"declancm/cinnamon.nvim",
-		version = "*",
-		opts = {
-			-- Enable all provided keymaps
-			keymaps = {
-				basic = true,
-				extra = true,
-			},
-		},
 	},
 	{
 		"mbbill/undotree",

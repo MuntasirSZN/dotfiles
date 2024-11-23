@@ -1,116 +1,166 @@
+// Load with --load-config examples/2.jsonc
+// Note that you must replace the image path to an existing image to display it.
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "source": "~/.config/fastfetch/archlogo.txt",
-    // "type": "kitty-direct",
+    "source": "~/.config/fastfetch/archlogo.txt", // Path to your archlogo.txt
+    "padding": {
+      "top": 3,
+    },
     "color": {
       "1": "blue",
       "2": "cyan",
     },
-    "height": 15,
-    "width": 30,
-    "padding": {
-      "top": 1,
-    },
   },
   "display": {
-    "separator": " ➜  ",
+    "separator": " 󰑃 ",
   },
-
   "modules": [
-    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m╭──────────────────────────────   ───────────────────────────────╮",
+    },
+    {
+      "type": "custom",
+      "keyWidth": 10,
+      "format": "                           🖥️ Hyprpc",
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m╰──────────────────────────────   ───────────────────────────────╯",
+    },
+    // {
+    //   "type": "custom",
+    //   "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m        \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m ",
+    // },
+    {
+      "type": "colors",
+      "paddingLeft": 25,
+      "symbol": "circle",
+    },
+    // {
+    //   "type": "colors",
+    //   "symbol": "circle",
+    // },
+    {
+      "type": "custom",
+      "format": "\u001b[90m╭──────────────────────────────   ───────────────────────────────╮",
+    },
     {
       "type": "os",
       "key": " DISTRO",
-      "keyColor": "31",
+      "keyColor": "yellow",
+      "format": "Arch Linux",
     },
     {
       "type": "kernel",
-      "key": " ├  ",
-      "keyColor": "31",
+      "key": "│ ├",
+      "keyColor": "yellow",
     },
     {
       "type": "packages",
-      "key": " ├ 󰏖 ",
-      "keyColor": "31",
+      "key": "│ ├󰏖",
+      "keyColor": "yellow",
     },
     {
       "type": "shell",
-      "key": " └  ",
-      "keyColor": "31",
+      "key": "│ └",
+      "keyColor": "yellow",
     },
-    "break",
     {
       "type": "wm",
-      "key": " DE/WM",
-      "keyColor": "32",
+      "key": "  DE/WM",
+      "keyColor": "blue",
     },
     {
       "type": "wmtheme",
-      "key": " ├ 󰉼 ",
-      "keyColor": "32",
+      "key": "│ ├󰉼",
+      "keyColor": "blue",
     },
     {
       "type": "icons",
-      "key": " ├ 󰀻 ",
-      "keyColor": "32",
-    },
-    {
-      "type": "cursor",
-      "key": " ├  ",
-      "keyColor": "32",
+      "key": "│ ├󰀻",
+      "keyColor": "blue",
     },
     {
       "type": "terminal",
-      "key": " ├  ",
-      "keyColor": "32",
+      "key": "│ ├",
+      "keyColor": "blue",
     },
     {
-      "type": "terminalfont",
-      "key": " └  ",
-      "keyColor": "32",
+      "type": "wallpaper",
+      "key": "│ └󰸉",
+      "keyColor": "blue",
     },
-    "break",
     {
       "type": "host",
-      "format": "{2}",
       "key": "󰌢 SYSTEM",
-      "keyColor": "33",
+      "keyColor": "green",
     },
     {
       "type": "cpu",
-      "format": "{1} @ {7}",
-      "key": " ├  ",
-      "keyColor": "33",
+      "key": "│ ├󰻠",
+      "keyColor": "green",
     },
     {
       "type": "gpu",
-      "format": "{2}",
-      "key": " ├ 󰢮 ",
-      "keyColor": "33",
-    },
-    {
-      "type": "memory",
-      "key": " ├  ",
-      "keyColor": "33",
-    },
-    {
-      "type": "swap",
-      "key": " ├ 󰓡 ",
-      "keyColor": "33",
-    },
-    {
-      "type": "disk",
-      "key": " ├ 󰋊 ",
-      "keyColor": "33",
+      "key": "│ ├󰻑",
+      "keyColor": "green",
     },
     {
       "type": "display",
-      "key": " └  ",
+      "key": "│ ├󰍹",
+      "keyColor": "green",
       "compactType": "original-with-refresh-rate",
-      "keyColor": "33",
     },
-    "break",
+    {
+      "type": "memory",
+      "key": "│ ├󰾆",
+      "keyColor": "green",
+    },
+    {
+      "type": "swap",
+      "key": "│ ├󰓡",
+      "keyColor": "green",
+    },
+    {
+      "type": "uptime",
+      "key": "│ ├󰅐",
+      "keyColor": "green",
+    },
+    {
+      "type": "display",
+      "key": "│ └󰍹",
+      "keyColor": "green",
+    },
+    {
+      "type": "sound",
+      "key": "  AUDIO",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "player",
+      "key": "│ ├󰥠",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "media",
+      "key": "│ └󰝚",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[90m╰─────────────────────────────   ──────────────────────────────╯",
+    },
+    // {
+    //   "type": "custom",
+    //   "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m        \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m ",
+    // },
+    {
+      "type": "colors",
+      "paddingLeft": 24,
+      "symbol": "circle",
+    },
     "break",
   ],
 }

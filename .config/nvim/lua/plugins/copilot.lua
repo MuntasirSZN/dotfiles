@@ -43,7 +43,7 @@ return {
 
 			local opts = {
 				debug = false, -- Enable Debugging
-				model = "gpt-4",
+				model = "gpt-4o",
 				auto_insert_mode = true,
 				show_help = true,
 				question_header = "  " .. user .. " ",
