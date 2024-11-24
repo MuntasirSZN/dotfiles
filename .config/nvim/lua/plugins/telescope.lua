@@ -14,7 +14,7 @@ return {
       _G.find_nvim_files = function()
         local builtin = require('telescope.builtin')
         builtin.find_files({
-          prompt_title = "< NVIM CONFIG >",
+          prompt_title = " Neovim Config",
           cwd = "~/.config/nvim", -- Set the directory to search in
           hidden = true           -- Show hidden files, useful in config directories
         })

@@ -3,7 +3,7 @@ return {
 
   {
     "NvChad/base46",
-    lazy = true,
+    lazy = false,
     build = function()
       require("base46").load_all_highlights()
     end,
@@ -51,6 +51,6 @@ return {
     end,
   },
   { "nvzone/timerly", cmd = "TimerlyToggle" },
-  { "nvzone/typr", opts = {} },
+  { "nvzone/typr", lazy= true, opts = {} },
   { "nvzone/showkeys", cmd = "ShowkeysToggle" }
 }

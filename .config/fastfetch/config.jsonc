@@ -123,6 +123,11 @@
       "key": "│ ├󰓡",
       "keyColor": "green",
     },
+     {
+        "type": "disk",
+        "key": "│ ├󰋊 ",
+        "keyColor": "green",
+      },
     {
       "type": "uptime",
       "key": "│ ├󰅐",
