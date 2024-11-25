@@ -2,11 +2,39 @@ return {
 	{
 		"saghen/blink.cmp",
 		lazy = false,
-		dependencies = "rafamadriz/friendly-snippets",
-    version="*",
+		version = "*",
+		dependencies = {
+			{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
+			{ "saghen/blink.compat", version = "*", opts = { impersonate_nvim_cmp = true } },
+		},
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
+			accept = {
+				expand_snippet = function(snippet)
+					require("luasnip").lsp_expand(snippet)
+				end,
+			},
+			sources = {
+				completion = {
+					enabled_providers = { "luasnip", "lsp", "path", "snippets", "buffer" },
+				},
+				providers = {
+					luasnip = {
+						name = "luasnip",
+						module = "blink.compat.source",
+
+						score_offset = -3,
+
+						opts = {
+							use_show_condition = false,
+							show_autosnippets = true,
+						},
+					},
+				},
+			},
 			keymap = { preset = "enter" },
 			vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#212136", fg = "#cdd6f4" }),
 			vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1e1e2e", fg = "#585b70" }),
@@ -18,7 +46,9 @@ return {
 			nerd_font_variant = "normal",
 			windows = {
 				autocomplete = {
-					draw = "reversed",
+					draw = {
+						columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+					},
 				},
 			},
 			kind_icons = {
