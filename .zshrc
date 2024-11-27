@@ -146,3 +146,7 @@ export CM_LAUNCHER="rofi"
 # Turso
 export PATH="$PATH:/home/muntasir/.turso"
 
+# Start agsv1 if it's not already running
+if ! pgrep -x "agsv1" > /dev/null; then
+    agsv1 &
+fi
