@@ -33,10 +33,11 @@ return {
       end,
       offsets = {
         {
-          filetype = "neo-tree", -- For file explorers like NvimTree
-          text = " File Explorer",
+          filetype = "neo-tree", -- File Explorer
+          text = "  File Explorer",
           highlight = "Directory",
           text_align = "left",
+          separator = true,
         },
       },
     },

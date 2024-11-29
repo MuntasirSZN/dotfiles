@@ -68,10 +68,19 @@ return {
 			-- Implement your own LSP rename logic here
 			-- For example, you can use vim.lsp.buf.rename()
 		end
-		require("image").setup({})
+		require("image").setup()
 		local events = require("neo-tree.events")
+		local sources = {
+			{ source = "filesystem", display_name = "  Files" },
+			{ source = "git_status", display_name = "󰊢 Git" },
+		}
 		local opts = {
 			sources = { "filesystem", "buffers", "git_status" },
+			source_selector = {
+				winbar = true,
+				content_layout = "center",
+				sources = sources,
+			},
 			open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
 			filesystem = {
 				bind_to_cwd = false,

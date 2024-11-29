@@ -4,6 +4,10 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Disable Netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.opt.termguicolors = true
 
 -- Enable auto write
@@ -28,7 +32,6 @@ vim.o.cursorline = true
 
 -- Use spaces instead of tabs
 vim.o.expandtab = true
-
 
 -- Set fold level
 vim.o.foldlevel = 99
@@ -135,13 +138,13 @@ vim.o.wrap = false
 
 -- Smooth scroll for Neovim 0.10+
 if vim.fn.has("nvim-0.10") == 1 then
-  vim.o.smoothscroll = true
-  vim.o.foldexpr = "v:lua.require'utils'.ui.foldexpr()"
-  vim.o.foldmethod = "expr"
-  vim.o.foldtext = ""
+	vim.o.smoothscroll = true
+	vim.o.foldexpr = "v:lua.require'utils'.ui.foldexpr()"
+	vim.o.foldmethod = "expr"
+	vim.o.foldtext = ""
 else
-  vim.o.foldmethod = "indent"
-  vim.o.foldtext = "v:lua.require'utils'.ui.foldtext()"
+	vim.o.foldmethod = "indent"
+	vim.o.foldtext = "v:lua.require'utils'.ui.foldtext()"
 end
 
 -- Fix markdown indentation settings

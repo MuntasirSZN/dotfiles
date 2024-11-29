@@ -152,4 +152,8 @@ if ! pgrep -x "agsv1" > /dev/null; then
     1password --silent &
 fi
 
+if ! pgrep -x "1password" > /dev/null; then
+    1password --silent &
+fi
+
 source ~/ai.zsh
