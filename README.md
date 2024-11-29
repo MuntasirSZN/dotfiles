@@ -43,7 +43,7 @@ These files are located in the root directory of the repository.
 
 The `.config` directory contains various stow packages for different applications:
 
-- ags
+- ags (HyprPanel)
 - anyrun
 - bat
 - fastfetch
@@ -59,6 +59,8 @@ The `.config` directory contains various stow packages for different application
 - waybar
 - wlogout
 - yazi
+
+The `.cache/ags/hyprpanel` directory contains the configuration files for the HyprPanel application.
 
 Each subdirectory in `.config` represents a separate stow package.
 
@@ -85,7 +87,12 @@ stow .config # The .config folder
 
 4. For `.config` packages, use:
 ```
-stow .config/nvim # For Other Folders In .config
+stow .config/ # For Other Folders In .config
+```
+
+5. For `.cache` packages, use:
+```
+stow .cache/ags/hyprpanel # Hyprpanel
 ```
 
 Replace `package_name` with the desired package (e.g., `kitty`, `nvim`, etc.).
@@ -96,4 +103,4 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 ## License
 
-This dotfiles repository is released under the MIT License. See the LICENSE file for details.
+This dotfiles repository is released under the MIT License. See the [LICENSE](./LICENSE) file for details.
