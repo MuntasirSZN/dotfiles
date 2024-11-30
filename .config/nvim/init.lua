@@ -11,7 +11,6 @@ vim.g.base46_cache = vim.fn.stdpath('data') .. '/base46_cache/'
 dofile(vim.g.base46_cache .. "statusline")
 dofile(vim.g.base46_cache .. "devicons")
 dofile(vim.g.base46_cache .. "telescope")
-dofile(vim.g.base46_cache .. "colors")
 dofile(vim.g.base46_cache .. "git")
 dofile(vim.g.base46_cache .. "mason")
 dofile(vim.g.base46_cache .. "nvcheatsheet")
