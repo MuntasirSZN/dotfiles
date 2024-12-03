@@ -50,7 +50,7 @@ return {
 							schema = {
 								model = {
 									-- Or any GLHF model!
-									default = "hf:meta-llama/Meta-Llama-3.1-405B-Instruct",
+									default = "hf:Qwen/Qwen2.5-72B-Instruct",
 								},
 								num_ctx = {
 									default = 32768,
