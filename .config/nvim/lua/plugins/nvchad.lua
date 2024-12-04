@@ -28,9 +28,9 @@ return {
       require("nvim-web-devicons").setup(opts)
     end,
   },
-  {
-    "FredrikAleksander/volt-nvim",
-  },
+  -- {
+  --   "FredrikAleksander/volt-nvim",
+  -- },
   {
     "nvzone/volt",
     lazy = true,
