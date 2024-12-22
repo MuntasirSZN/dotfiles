@@ -47,6 +47,7 @@ return {
 					},
 					dashboard = true,
           neotree=true,
+          blink_cmp = true,
 				},
 			})
 			vim.cmd.colorscheme("catppuccin")
