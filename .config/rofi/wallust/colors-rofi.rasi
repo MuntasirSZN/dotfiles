@@ -2,30 +2,30 @@
  /* wallust template - colors-rofi */
 
 * {
-active-background: #2C3040;
-active-foreground: #F5ECD8;
-normal-background: #2A2B2E;
-normal-foreground: #F5ECD8;
-urgent-background: #EE9C78;
-urgent-foreground: #F5ECD8;
+active-background: #322334;
+active-foreground: #FDF9E8;
+normal-background: #211F23;
+normal-foreground: #FDF9E8;
+urgent-background: #BA7D6E;
+urgent-foreground: #FDF9E8;
 
-alternate-active-background: #629791;
-alternate-active-foreground: #F5ECD8;
-alternate-normal-background: #2A2B2E;
-alternate-normal-foreground: #F5ECD8;
-alternate-urgent-background: #2A2B2E;
-alternate-urgent-foreground: #F5ECD8;
+alternate-active-background: #A56F5E;
+alternate-active-foreground: #FDF9E8;
+alternate-normal-background: #211F23;
+alternate-normal-foreground: #FDF9E8;
+alternate-urgent-background: #211F23;
+alternate-urgent-foreground: #FDF9E8;
 
-selected-active-background: #2C3040;
-selected-active-foreground: #F5ECD8;
-selected-normal-background: #E9DBBF;
-selected-normal-foreground: #F5ECD8;
-selected-urgent-background: #EE9C78;
-selected-urgent-foreground: #F5ECD8;
+selected-active-background: #322334;
+selected-active-foreground: #FDF9E8;
+selected-normal-background: #F4EED6;
+selected-normal-foreground: #FDF9E8;
+selected-urgent-background: #BA7D6E;
+selected-urgent-foreground: #FDF9E8;
 
-background-color: #2A2B2E;
+background-color: #211F23;
 background: rgba(0,0,0,0.7);
-foreground: #E9DBBF;
-border-color: #2C3040;
+foreground: #F4EED6;
+border-color: #322334;
 }
 
