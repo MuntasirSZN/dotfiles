@@ -149,7 +149,6 @@ export PATH="$PATH:/home/muntasir/.turso"
 # Start agsv1 if it's not already running
 if ! pgrep -x "agsv1" > /dev/null; then
     agsv1 &
-    1password --silent &
 fi
 
 if ! pgrep -x "1password" > /dev/null; then
@@ -157,3 +156,4 @@ if ! pgrep -x "1password" > /dev/null; then
 fi
 
 source ~/ai.zsh
+alias clock="tty-clock -tcBrsSC 6"
