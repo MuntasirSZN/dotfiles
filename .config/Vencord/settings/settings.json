@@ -3,7 +3,9 @@
     "autoUpdateNotification": true,
     "useQuickCss": true,
     "themeLinks": [],
-    "enabledThemes": [],
+    "enabledThemes": [
+        "ClearVision_v6.theme.css"
+    ],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
@@ -113,7 +115,8 @@
             "enabled": false
         },
         "ClientTheme": {
-            "enabled": false
+            "enabled": true,
+            "color": "313338"
         },
         "ColorSighted": {
             "enabled": false
@@ -174,7 +177,8 @@
             "emojiSize": 48,
             "hyperLinkText": "{{NAME}}",
             "useHyperLinks": true,
-            "disableEmbedPermissionCheck": false
+            "disableEmbedPermissionCheck": true,
+            "stickerSize": 160
         },
         "FakeProfileThemes": {
             "enabled": true,
@@ -202,7 +206,7 @@
             "enabled": false
         },
         "GifPaste": {
-            "enabled": false
+            "enabled": true
         },
         "GreetStickerPicker": {
             "enabled": false
@@ -250,7 +254,16 @@
             "enabled": false
         },
         "MessageLogger": {
-            "enabled": true
+            "enabled": true,
+            "collapseDeleted": false,
+            "deleteStyle": "text",
+            "ignoreBots": false,
+            "ignoreSelf": false,
+            "ignoreUsers": "",
+            "ignoreChannels": "",
+            "ignoreGuilds": "",
+            "logEdits": true,
+            "logDeletes": true
         },
         "MessageTags": {
             "enabled": false
@@ -410,7 +423,7 @@
             "enabled": false
         },
         "ServerInfo": {
-            "enabled": false
+            "enabled": true
         },
         "ServerListIndicators": {
             "enabled": false
@@ -592,7 +605,8 @@
             "enabled": false
         },
         "AccountPanelServerProfile": {
-            "enabled": true
+            "enabled": true,
+            "prioritizeServerProfile": false
         },
         "UserMessagesPronouns": {
             "enabled": false
@@ -614,6 +628,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1730989491273
+        "settingsSyncVersion": 1733992038042
     }
 }
