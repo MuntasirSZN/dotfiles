@@ -2,7 +2,6 @@ return {
   "nvimdev/dashboard-nvim",
   lazy = false, -- As https://github.com/nvimdev/dashboard-nvim/pull/450, dashboard-nvim shouldn't be lazy-loaded to properly handle stdin.
   opts = function()
-    vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#F9E2AE" })
     local logo = [[
                                                                                
                                                                                
@@ -18,6 +17,7 @@ return {
 
 
     logo = string.rep("\n", 8) .. logo .. "\n\n"
+    vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#F9E2AE" })
 
     local opts = {
       theme = "doom",
