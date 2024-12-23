@@ -46,11 +46,34 @@ return {
 						indentscope_color = "",
 					},
 					dashboard = true,
-          neotree=true,
-          blink_cmp = true,
+					neotree = true,
+					blink_cmp = true,
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
+		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
+	{
+		"zaldih/themery.nvim",
+		lazy = false,
+		config = function()
+			require("themery").setup({
+				themes = {
+					"catppuccin-mocha",
+					"catppuccin-macchiato",
+					"catppuccin-frappe",
+					"catppuccin-latte",
+					"tokyonight-moon",
+					"tokyonight-storm",
+					"tokyonight-night",
+					"tokyonight-day",
+				},
+			})
 		end,
 	},
 }

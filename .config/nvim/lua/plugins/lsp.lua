@@ -70,6 +70,7 @@ return {
     dependencies = { "saghen/blink.cmp" },
     version = "*",
     opts = function()
+      local util = require("lspconfig/util")
       local servers = {
         bashls = {},
         phpactor = {},
@@ -98,7 +99,20 @@ return {
         css_variables = {},
         cssmodules_ls = {},
         hyprls = {},
-        gopls = {},
+        gopls = {
+          cmd = {"gopls"},
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+          settings = {
+            gopls = {
+              completeUnimported = true,
+              usePlaceholders = true,
+              analyses = {
+                unusedparams = true,
+              },
+            },
+          },
+        },
       }
 
       return {

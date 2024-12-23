@@ -15,6 +15,7 @@ return {
 			"tomblind/local-lua-debugger-vscode",
 			"mfussenegger/nvim-dap-python",
 			"suketa/nvim-dap-ruby",
+			"leoluz/nvim-dap-go",
 			-- virtual text for the debugger
 			{
 				"theHamsta/nvim-dap-virtual-text",
@@ -50,10 +51,12 @@ return {
 				debugger_path = "~/vscode-js-debug", -- Path to vscode-js-debug installation.
 				debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
 				adapters = { "pwa-node" }, -- which adapters to register in nvim-dap
-				-- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
-				-- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
-				-- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
+				log_file_path = "(stdpath cache)/dap_vscode_js.log", -- Path for file logging
+				log_file_level = false, -- Logging level for output to file. Set to false to disable file logging.
+				log_console_level = vim.log.levels.ERROR, -- Logging level for output to console. Set to false to disable console output.
 			})
+
+			require("dap-go").setup()
 
 			for _, language in ipairs({ "typescript", "javascript" }) do
 				require("dap").configurations[language] = {
@@ -102,7 +105,6 @@ return {
 				BreakpointRejected = { "", "DiagnosticError" },
 				LogPoint = ".>",
 			}
-			local dap = require("dap")
 			dap.adapters.bashdb = {
 				type = "executable",
 				command = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/bash-debug-adapter",
@@ -213,8 +215,12 @@ return {
 				vscode.load_launchjs()
 			end
 
-			-- Setup nvim-dap-ui
-			require("dapui").setup()
+			local dapui = require("dapui")
+			vim.api.nvim_create_autocmd("VimEnter", {
+				callback = function()
+					dapui.setup()
+				end,
+			})
 
 			-- Setup nvim-dap-virtual-text
 			require("nvim-dap-virtual-text").setup({})
