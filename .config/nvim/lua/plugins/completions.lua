@@ -5,204 +5,19 @@ return {
     lazy = false,
     build = "cargo build --release",
     dependencies = {
-      {
-        "L3MON4D3/LuaSnip",
-        build = "make install_jsregexp",
-        enabled = true,
-        opts = function(_, opts)
-          local ls = require("luasnip")
-
-          local s = ls.snippet
-          local t = ls.text_node
-          local i = ls.insert_node
-          local f = ls.function_node
-
-          local function clipboard()
-            return vim.fn.getreg("+")
-          end
-
-          -- Custom snippets
-          -- the "all" after ls.add_snippets("all" is the filetype, you can know a
-          -- file filetype with :set ft
-          -- Custom snippets
-
-          -- #####################################################################
-          --                            Markdown
-          -- #####################################################################
-
-          -- Helper function to create code block snippets
-          local function create_code_block_snippet(lang)
-            return s({
-              trig = lang,
-              name = "Codeblock",
-              desc = lang .. " codeblock",
-            }, {
-              t({ "```" .. lang, "" }),
-              i(1),
-              t({ "", "```" }),
-            })
-          end
-
-          -- Define languages for code blocks
-          local languages = {
-            "txt",
-            "lua",
-            "sql",
-            "go",
-            "regex",
-            "bash",
-            "markdown",
-            "markdown_inline",
-            "yaml",
-            "json",
-            "jsonc",
-            "cpp",
-            "csv",
-            "java",
-            "javascript",
-            "python",
-            "dockerfile",
-            "html",
-            "css",
-            "templ",
-            "php",
-          }
-
-          -- Generate snippets for all languages
-          local snippets = {}
-
-          for _, lang in ipairs(languages) do
-            table.insert(snippets, create_code_block_snippet(lang))
-          end
-
-          table.insert(
-            snippets,
-            s({
-              trig = "chirpy",
-              name = "Disable markdownlint and prettier for chirpy",
-              desc = "Disable markdownlint and prettier for chirpy",
-            }, {
-              t({
-                " ",
-                "<!-- markdownlint-disable -->",
-                "<!-- prettier-ignore-start -->",
-                " ",
-                "<!-- tip=green, info=blue, warning=yellow, danger=red -->",
-                " ",
-                "> ",
-              }),
-              i(1),
-              t({
-                "",
-                "{: .prompt-",
-              }),
-              -- In case you want to add a default value "tip" here, but I'm having
-              -- issues with autosave
-              -- i(2, "tip"),
-              i(2),
-              t({
-                " }",
-                " ",
-                "<!-- prettier-ignore-end -->",
-                "<!-- markdownlint-restore -->",
-              }),
-            })
-          )
-
-          table.insert(
-            snippets,
-            s({
-              trig = "markdownlint",
-              name = "Add markdownlint disable and restore headings",
-              desc = "Add markdownlint disable and restore headings",
-            }, {
-              t({
-                " ",
-                "<!-- markdownlint-disable -->",
-                " ",
-                "> ",
-              }),
-              i(1),
-              t({
-                " ",
-                " ",
-                "<!-- markdownlint-restore -->",
-              }),
-            })
-          )
-
-          table.insert(
-            snippets,
-            s({
-              trig = "prettierignore",
-              name = "Add prettier ignore start and end headings",
-              desc = "Add prettier ignore start and end headings",
-            }, {
-              t({
-                " ",
-                "<!-- prettier-ignore-start -->",
-                " ",
-                "> ",
-              }),
-              i(1),
-              t({
-                " ",
-                " ",
-                "<!-- prettier-ignore-end -->",
-              }),
-            })
-          )
-
-          table.insert(
-            snippets,
-            s({
-              trig = "linkt",
-              name = 'Add this -> [](){:target="_blank"}',
-              desc = 'Add this -> [](){:target="_blank"}',
-            }, {
-              t("["),
-              i(1),
-              t("]("),
-              i(2),
-              t('){:target="_blank"}'),
-            })
-          )
-
-          table.insert(
-            snippets,
-            s({
-              trig = "todo",
-              name = "Add TODO: item",
-              desc = "Add TODO: item",
-            }, {
-              t("<!-- TODO: "),
-              i(1),
-              t(" -->"),
-            })
-          )
-
-          -- Paste clipboard contents in link section, move cursor to ()
-          table.insert(
-            snippets,
-            s({
-              trig = "linkclip",
-              name = "Paste clipboard as .md link",
-              desc = "Paste clipboard as .md link",
-            }, {
-              t("["),
-              i(1),
-              t("]("),
-              f(clipboard, {}),
-              t(")"),
-            })
-          )
-
-          ls.add_snippets("markdown", snippets)
-
-          return opts
-        end,
-      },
       "rafamadriz/friendly-snippets",
+      "L3MON4D3/LuaSnip",
+      {
+        "saghen/blink.compat",
+        optional = true, -- make optional so it's only enabled if any extras need it
+        opts = {},
+        version = "*",
+      },
+    },
+    opts_extend = {
+      "sources.completion.enabled_providers",
+      "sources.compat",
+      "sources.default",
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -222,7 +37,18 @@ return {
         end,
       },
       sources = {
-        default = { "luasnip", "lsp", "path", "snippets", "buffer", "codecompanion", "copilot" },
+        compat = {},
+        default = {
+          "luasnip",
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+          "codecompanion",
+          "copilot",
+          "lazydev",
+          "dadbod",
+        },
         providers = {
           codecompanion = {
             name = "CodeCompanion",
@@ -235,22 +61,50 @@ return {
             score_offset = 100,
             async = true,
           },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100, -- show at a higher priority than lsp
+          },
+          dadbod = {
+            name = "Dadbod",
+            module = "vim_dadbod_completion.blink",
+            score_offset = 85, -- the higher the number, the higher the priority
+          },
         },
       },
       keymap = { preset = "super-tab" },
       completion = {
+        accept = {
+          -- experimental auto-brackets support
+          auto_brackets = {
+            enabled = true,
+          },
+        },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
+        },
         menu = {
           draw = {
+            treesitter = { "lsp" },
             columns = { { "kind_icon", "label", gap = 1 }, { "kind" } },
+            components = {
+              kind_icon = {
+                text = function(ctx)
+                  if
+                      require("blink.cmp.completion.windows.render.tailwind").get_hex_color(ctx.item)
+                  then
+                    return "󱓻"
+                  end
+                  return ctx.kind_icon .. ctx.icon_gap
+                end,
+              },
+            },
           },
         },
       },
-      vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#212136", fg = "#cdd6f4" }),
-      vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#1e1e2e", fg = "#585b70" }),
-      vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#212136", fg = "#cdd6f4" }),
-      vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#1e1e2e", fg = "#585b70" }),
       appearance = {
-        use_nvim_cmp_as_default = true,
         nerd_font_variant = "normal",
         kind_icons = {
           Array = " ",
@@ -295,5 +149,50 @@ return {
         },
       },
     },
+    ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
+    config = function(_, opts)
+      -- setup compat sources
+      local enabled = opts.sources.default
+      for _, source in ipairs(opts.sources.compat or {}) do
+        opts.sources.providers[source] = vim.tbl_deep_extend(
+          "force",
+          { name = source, module = "blink.compat.source" },
+          opts.sources.providers[source] or {}
+        )
+        if type(enabled) == "table" and not vim.tbl_contains(enabled, source) then
+          table.insert(enabled, source)
+        end
+      end
+      opts.sources.compat = nil
+      -- check if we need to override symbol kinds
+      for _, provider in pairs(opts.sources.providers or {}) do
+        ---@cast provider blink.cmp.SourceProviderConfig|{kind?:string}
+        if provider.kind then
+          local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+          local kind_idx = #CompletionItemKind + 1
+
+          CompletionItemKind[kind_idx] = provider.kind
+          ---@diagnostic disable-next-line: no-unknown
+          CompletionItemKind[provider.kind] = kind_idx
+
+          ---@type fun(ctx: blink.cmp.Context, items: blink.cmp.CompletionItem[]): blink.cmp.CompletionItem[]
+          local transform_items = provider.transform_items
+          ---@param ctx blink.cmp.Context
+          ---@param items blink.cmp.CompletionItem[]
+          provider.transform_items = function(ctx, items)
+            items = transform_items and transform_items(ctx, items) or items
+            for _, item in ipairs(items) do
+              item.kind = kind_idx or item.kind
+            end
+            return items
+          end
+
+          -- Unset custom prop to pass blink.cmp validation
+          provider.kind = nil
+        end
+      end
+
+      require("blink.cmp").setup(opts)
+    end,
   },
 }

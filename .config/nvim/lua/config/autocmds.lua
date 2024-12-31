@@ -12,6 +12,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Database specific
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "DBUIReady",
+  callback = function()
+    vim.g.postgres_tables_and_views = [[
+      SELECT table_schema, table_name FROM information_schema.tables ;
+    ]]
+  end,
+})
+
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   group = augroup("checktime"),

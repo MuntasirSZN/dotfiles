@@ -52,7 +52,7 @@ return {
             return require("codecompanion.adapters").extend("openai_compatible", {
               env = {
                 url = "https://glhf.chat",
-                api_key = "cmd:op read op://personal/OpenAI/credential --no-newline",
+                api_key = "cmd:echo $OPENAI_API_KEY",
                 chat_url = "/api/openai/v1/chat/completions",
               },
               schema = {

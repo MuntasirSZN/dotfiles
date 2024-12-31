@@ -19,20 +19,14 @@ return {
 					"vim",
 					"yaml",
 					"css",
-					"c",
-					"cpp",
-					"c_sharp",
 					"ruby",
 					"rust",
-					"php",
-					"julia",
-					"go",
 				},
 				auto_install = true,
 				highlight = {
 					enable = true,
 					disable = function(lang)
-						local allowed_filetypes = { "markdown", "vimwiki", "norg", "rst","markdown_inline" }
+						local allowed_filetypes = { "markdown", "vimwiki", "norg", "rst", "markdown_inline" }
 						for _, filetype in ipairs(allowed_filetypes) do
 							if lang == filetype then
 								return false -- Do not disable highlighting for these file types

@@ -11,6 +11,7 @@ return {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"nvim-telescope/telescope-ui-select.nvim",
+			"nvim-telescope/telescope-project.nvim",
 		},
 		config = function()
 			-- Define the function globally to ensure it is accessible for keymaps
@@ -111,6 +112,7 @@ return {
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("noice")
+			require("telescope").load_extension("project")
 		end,
 	},
 }
