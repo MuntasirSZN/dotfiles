@@ -1,0 +1,26 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "assistant": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-haiku-latest"
+    },
+    "version": "2"
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "ui_font_family": "FiraCode Nerd Font",
+  "ui_font_fallbacks": ["Inter 18pt", "Roboto", "JetBrains Mono"]
+}
