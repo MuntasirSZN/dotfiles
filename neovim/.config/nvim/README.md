@@ -1,4 +1,4 @@
-<h3 align="center"><img src="https://readme-typing-svg.demolab.com/\?lines=%20+My+Neovim+Configuration&font=Poppins"></h3>
+<h3 align="center"><img src="https://readme-typing-svg.demolab.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins"></h3>
 
 ## Table Of Contents
 <!--toc:start-->
