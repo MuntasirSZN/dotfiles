@@ -26,18 +26,7 @@ sudo pacman -S stow # Arch-based systems
 brew install stow # macOS (using Homebrew)
 ```
 
-
 ## Configuration Files
-
-The repository contains the following configuration files:
-
-- `.bashrc`: Bash shell configuration
-- `.gitconfig`: Git configuration
-- `.tmux.conf`: Tmux terminal multiplexer configuration
-- `.vimrc`: Vim text editor configuration
-- `.zshrc`: Zsh shell configuration
-
-These files are located in the root directory of the repository.
 
 ## Stow Packages
 
@@ -48,6 +37,7 @@ The `.config` directory contains various stow packages for different application
 - bat
 - fastfetch
 - hypr
+- hyprpanel
 - kidex.ron
 - kitty
 - Kvantum
@@ -60,8 +50,6 @@ The `.config` directory contains various stow packages for different application
 - wlogout
 - yazi
 
-The `.cache/ags/hyprpanel` directory contains the configuration files for the HyprPanel application.
-
 Each subdirectory in `.config` represents a separate stow package.
 
 ## Usage
@@ -69,31 +57,26 @@ Each subdirectory in `.config` represents a separate stow package.
 To use this dotfiles repository:
 
 1. Clone the repository to your home directory:
+
 ```bash
 git clone https://github.com/MuntasirSZN/dotfiles.git ~/.dotfiles
 ```
 
 2. Navigate to the cloned repository:
+
 ```
 cd ~/.dotfiles
 ```
 
 3. Create symlinks for the desired configurations using stow:
+
 ```bash
-stow . # For All Configs
-stow .zshrc # Individual
-stow .config # The .config folder
+stow */ # For All Configs
+stow zshrc # Individual
 ```
 
-4. For `.config` packages, use:
-```
-stow .config/ # For Other Folders In .config
-```
-
-5. For `.cache` packages, use:
-```
-stow .cache/ags/hyprpanel # Hyprpanel
-```
+> [!Important]
+> If you want to use my use my neovim configurations, then please read its [README.md](./neovim/.config/nvim/README.md)
 
 Replace `package_name` with the desired package (e.g., `kitty`, `nvim`, etc.).
 
