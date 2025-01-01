@@ -86,4 +86,4 @@ Contributions are welcome! Feel free to fork this repository and submit pull req
 
 ## License
 
-This dotfiles repository is released under the MIT License. See the [LICENSE](./LICENSE) file for details.
+This dotfiles repository is released under the MIT License. See the [LICENSE](./LICENSE) file for more information.
