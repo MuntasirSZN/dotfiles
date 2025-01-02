@@ -170,3 +170,5 @@ alias clock="tty-clock -tcBrsSC 6"
 
 # I Don't know why but my current dir starts at my dotfiles dir. So I set it here.
 cd ~
+
+export PATH=$PATH:/home/muntasir/.spicetify
