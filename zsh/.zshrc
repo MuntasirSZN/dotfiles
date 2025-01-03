@@ -73,19 +73,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light loiccoyle/zsh-github-copilot
-zinit light marlonrichert/zsh-autocomplete
-
-() {
-   local -a prefix=( '\e'{\[,O} )
-   local -a up=( ${^prefix}A ) down=( ${^prefix}B )
-   local key=
-   for key in $up[@]; do
-      bindkey "$key" up-line-or-history
-   done
-   for key in $down[@]; do
-      bindkey "$key" down-line-or-history
-   done
-}
 
 bindkey '^[|' zsh_gh_copilot_explain
 bindkey '^[\' zsh_gh_copilot_suggest
@@ -175,3 +162,5 @@ export PATH=$PATH:/home/muntasir/.spicetify
 
 # Set xdg-open as open command
 alias open=xdg-open
+
+eval "$(atuin init zsh)"
