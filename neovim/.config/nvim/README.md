@@ -33,15 +33,16 @@
 ## :eyes: Showcase
 
 | ![Image 1](./images/buffer-neotree-markdown.png) | ![Image 2](./images/cmp-colorPicker.png) |
-| ------------------------------------------------ | ---------------------------------------- |
-| ![Image 3](./images/Dashboard.png)               | ![Image 4](./images/Telescope.png)       |
+| ------- | ------- |
+| ![Image 3](./images/Dashboard.png) | ![Image 4](./images/Telescope.png) |
+| ![Image 5](./images/copilot-cmp.png) | ![Image 6](./images/testing-terminal.png) |
 
 ## :file_folder: File Structure
 
 <details>
 
 <summary> </summary>
-     
+
 ```
     📂 ~/.config/nvim
     ├── 📂 lua
