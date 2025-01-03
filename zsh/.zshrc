@@ -172,3 +172,6 @@ alias clock="tty-clock -tcBrsSC 6"
 cd ~
 
 export PATH=$PATH:/home/muntasir/.spicetify
+
+# Set xdg-open as open command
+alias open=xdg-open
