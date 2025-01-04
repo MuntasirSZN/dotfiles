@@ -2,7 +2,7 @@ return {
 	{
 		"zbirenbaum/copilot.lua",
 		config = function()
-			local opts = {
+			require("copilot").setup({
 				suggestion = {
 					enabled = false,
 					auto_trigger = true,
@@ -15,9 +15,7 @@ return {
 					markdown = true,
 					help = true,
 				},
-			}
-
-			require("copilot").setup(opts)
+			})
 		end,
 	},
 	{
@@ -50,30 +48,21 @@ return {
 			require("codecompanion").setup({
 				strategies = {
 					chat = {
-						adapter = "openai_compatible",
+						adapter = "copilot",
 					},
 					inline = {
-						adapter = "openai_compatible",
+						adapter = "copilot",
 					},
 					agent = {
-						adapter = "openai_compatible",
+						adapter = "copilot",
 					},
 				},
 				adapters = {
-					openai_compatible = function()
-						return require("codecompanion.adapters").extend("openai_compatible", {
-							env = {
-								url = "https://glhf.chat",
-								api_key = "cmd:echo $OPENAI_API_KEY",
-								chat_url = "/api/openai/v1/chat/completions",
-							},
+					copilot = function()
+						return require("codecompanion.adapters").extend("copilot", {
 							schema = {
 								model = {
-									-- Or any GLHF model!
-									default = "hf:Qwen/Qwen2.5-72B-Instruct",
-								},
-								num_ctx = {
-									default = 32768,
+									default = "claude-3.5-sonnet",
 								},
 							},
 						})
