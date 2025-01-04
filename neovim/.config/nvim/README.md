@@ -118,10 +118,12 @@
 ## :zap: Requirements
 
 - [Neovim](https://github.com/neovim/neovim) >= **0.9.0** (needs to be built with **LuaJIT**)
+- [Imagemagick](https://imagemagick.org/index.php)  (required, for [image.nvim](https://github.com/3rd/image.nvim))
 - [git](https://git-scm.com) >= **2.40.0** (Gitsigns)
 - A [Nerd Font](https://www.nerdfonts.com/) (Important, Otherwise icons won't show.)
 - [Silicon](https://github.com/Aloxaf/silicon) cli tool (Optional, see [screenshots.lua](./lua/plugins/screenshots.lua))
 - [Gnu Stow](https://github.com/aspiers/stow) for symlinking (optional, can be done manually)
+- Github CLI [gh](https://github.com/cli/cli) for [gh.nvim](https://github.com/ldelossa/gh.nvim) (optional, if you use Github)
 
 ## :rocket: Getting Started
 
