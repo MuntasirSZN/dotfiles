@@ -21,9 +21,6 @@ require("lazy").setup({
 	defaults = {
 		lazy = false,
 		version = false,
-		rocks = {
-			hererocks = true,
-		},
 	},
 	install = { colorscheme = { "tokyonight", "habamax" } },
 	checker = {
