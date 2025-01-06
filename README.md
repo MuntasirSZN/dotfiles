@@ -1,4 +1,6 @@
-# Dotfiles Repository
+<h1 align="center">
+  <img src="https://readme-typing-svg.demolab.com/?lines=👋+Welcome+To+My+Dotfiles!;&font=Poppins">
+</h1>
 
 This repository contains my personal dotfiles configuration managed using GNU Stow. It includes configurations for various tools and applications I commonly use on my Linux system.
 
@@ -72,7 +74,7 @@ cd ~/.dotfiles
 
 ```bash
 stow */ # For All Configs
-stow zshrc # Individual
+stow zsh # Individual
 ```
 
 > [!Important]
