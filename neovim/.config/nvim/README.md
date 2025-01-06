@@ -23,8 +23,8 @@
 - 📦 Linters and static analysis through [none-ls](https://github.com/nvimtools/none-ls.nvim) and [mason.nvim](https://github.com/williamboman/mason.nvim)
 - 🥂 Lsp servers configured with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - 🧹 Autocompletion using the new [blink.cmp](https://github.com/saghen/blink.cmp)
-- ⚒️  Testing using the fantastic [neotest](https://github.com/nvim-neotest/neotest) plugin
-- ✴️  Treesitter syntax highlighting
+- ⚒️ Testing using the fantastic [neotest](https://github.com/nvim-neotest/neotest) plugin
+- 💫 Treesitter syntax highlighting
 - 💤 Easily customize and extend config
 - 🎨 A theme switcher using [themery.nvim](https://github.com/zaldih/themery.nvim)
 - 📷 Take code screenshots using [nvim-silicon](https://github.com/michaelrommel/nvim-silicon)
@@ -117,6 +117,7 @@
 
 - [Neovim](https://github.com/neovim/neovim) >= **0.9.0** (needs to be built with **LuaJIT**)
 - [Imagemagick](https://imagemagick.org/index.php)  (required, for [image.nvim](https://github.com/3rd/image.nvim))
+- [Python](https://www.python.org/) (required, for [image.nvim](https://github.com/3rd/image.nvim))
 - [git](https://git-scm.com) >= **2.40.0** (Gitsigns)
 - A [Nerd Font](https://www.nerdfonts.com/) (Important, Otherwise icons won't show.)
 - [Silicon](https://github.com/Aloxaf/silicon) cli tool (Optional, see [screenshots.lua](./lua/plugins/screenshots.lua))
