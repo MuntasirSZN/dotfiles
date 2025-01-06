@@ -35,7 +35,7 @@ return {
 				color_overrides = {},
 				custom_highlights = {
 					SnacksDashboardHeader = { fg = "#F9E2AE" },
-					SnacksNotifierInfo = { fg = NORMAL },
+					SnacksNotifierInfo = { fg = "#FFFFFF" },
 					SnacksNotifierIconInfo = { fg = "#A9FF68" },
 					SnacksNotifierTitleInfo = { fg = "#A9FF68" },
 					SnacksNotifierBorderInfo = { fg = "#88de47" },
