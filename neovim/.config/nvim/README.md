@@ -7,7 +7,6 @@
 - [:zap: Requirements](#zap-requirements)
 - [:file_folder: File Structure](#file_folder-file-structure)
 - [:rocket: Getting Started](#rocket-getting-started)
-- [:scroll: License](#scroll-license)
 - [:wave: Credits](#wave-credits)
 <!--toc:end-->
 ## :sparkles: Features Supported
@@ -149,10 +148,6 @@ stow neovim
 ```sh
 nvim
 ```
-
-## :scroll: License
-
-This config is licensed under the [MIT license](./LICENSE). Feel free to use, do any pr or the way you want it.
 
 ## :wave: Credits
 
