@@ -35,10 +35,6 @@ return {
 				color_overrides = {},
 				custom_highlights = {
 					SnacksDashboardHeader = { fg = "#F9E2AE" },
-					SnacksNotifierInfo = { fg = "#FFFFFF" },
-					SnacksNotifierIconInfo = { fg = "#A9FF68" },
-					SnacksNotifierTitleInfo = { fg = "#A9FF68" },
-					SnacksNotifierBorderInfo = { fg = "#88de47" },
 					BlinkCmpMenu = { bg = "#212136", fg = "#cdd6f4" },
 					BlinkCmpMenuBorder = { bg = "#1e1e2e", fg = "#585b70" },
 					BlinkCmpDoc = { bg = "#212136", fg = "#cdd6f4" },
