@@ -102,7 +102,6 @@
     │
     ├──  init.lua
     ├──  lazy-lock.json
-    ├──  LICENSE
     └──  README.md
 ```
 
@@ -111,7 +110,6 @@
 - The [lazy-lock.json](./lazy-lock.json) is lazy.nvim package managers lockfile.
 - The [images](./images) directory contains the images that are showcased above.
 - The [init.lua](./init.lua) file is the starting point for the neovim configuration.
-- The [LICENSE](./LICENSE) file is the license for this folder.
 
 </details>
 
