@@ -1,5 +1,7 @@
 # Fonts
 font-family = MonaspiceNe NF
+# Turn of italic, I don't like it
+font-style-italic = false
 # Turn On Ligatures
 font-feature = calt
 font-feature = liga
