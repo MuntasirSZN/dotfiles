@@ -74,7 +74,7 @@
     │      ├──  lsp.lua
     │      ├──  markdown.lua
     │      ├──  mdx.lua
-    │      ├──  mini-ai.lua
+    │      ├──  mini-textobjects.lua
     │      ├──  neogit.lua
     │      ├──  neotest.lua
     │      ├──  neotree.lua

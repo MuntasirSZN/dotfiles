@@ -11,7 +11,7 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       "nvim-tree/nvim-web-devicons",
       "nvim-telescope/telescope-ui-select.nvim",
-      "nvim-telescope/telescope-project.nvim",
+      "ahmedkhalf/project.nvim",
     },
     config = function()
       function telescope_image_preview()
@@ -238,7 +238,7 @@ return {
       require("telescope").load_extension("ui-select")
       require("telescope").load_extension("fzf")
       require("telescope").load_extension("noice")
-      require("telescope").load_extension("project")
+      require("telescope").load_extension("projects")
     end,
   },
 }
