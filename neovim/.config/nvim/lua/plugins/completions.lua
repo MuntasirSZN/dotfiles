@@ -6,10 +6,9 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"L3MON4D3/LuaSnip",
-			"giuxtaposition/blink-cmp-copilot",
 			{
 				"saghen/blink.compat",
-				optional = true, -- make optional so it's only enabled if any extras need it
+				optional = true, -- make optional so it's only enabled if any plugins need it
 				opts = {},
 				version = "*",
 			},
@@ -47,7 +46,6 @@ return {
 					"codecompanion",
 					"lazydev",
 					"dadbod",
-					"copilot",
 				},
 				providers = {
 					codecompanion = {
@@ -65,24 +63,27 @@ return {
 						module = "vim_dadbod_completion.blink",
 						score_offset = 85, -- the higher the number, the higher the priority
 					},
-					copilot = {
-						name = "copilot",
-						module = "blink-cmp-copilot",
-						score_offset = 100,
-						async = true,
-						transform_items = function(_, items)
-							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-							local kind_idx = #CompletionItemKind + 1
-							CompletionItemKind[kind_idx] = "Copilot"
-							for _, item in ipairs(items) do
-								item.kind = kind_idx
-							end
-							return items
-						end,
-					},
 				},
 			},
-			keymap = { preset = "super-tab" },
+			keymap = {
+				preset = "super-tab",
+				["<Tab>"] = {
+					function(cmp)
+						if require("copilot.suggestion").is_visible() then
+							return false -- Do nothing if Copilot has suggestions
+						else
+							if cmp.snippet_active() then
+								cmp.accept()
+							else
+								cmp.select_and_accept()
+							end
+							return true -- Proceed with next commands
+						end
+					end,
+					"snippet_forward",
+					"fallback",
+				},
+			},
 			signature = { enabled = true },
 			completion = {
 				accept = {

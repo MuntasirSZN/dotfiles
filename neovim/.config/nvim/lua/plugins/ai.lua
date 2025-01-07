@@ -4,13 +4,11 @@ return {
 		config = function()
 			require("copilot").setup({
 				suggestion = {
-					enabled = false,
 					auto_trigger = true,
 					keymap = {
-						accept = false,
+						accept = "<Tab>",
 					},
 				},
-				panel = { enabled = false },
 				filetypes = {
 					markdown = true,
 					help = true,
