@@ -68,7 +68,7 @@
     │      ├──  harpoon.lua
     │      ├──  icons.lua
     │      ├──  img-clip.lua
-    │      ├──  indentation.lua
+    │      ├──  indent-guides.lua
     │      ├──  lazydev.lua
     │      ├──  live-server.lua
     │      ├──  lsp.lua
