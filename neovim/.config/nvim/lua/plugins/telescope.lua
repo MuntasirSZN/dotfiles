@@ -126,6 +126,7 @@ return {
           last_file_path = filepath
 
           if is_supported_image(filepath) then
+            filepath = string.gsub(filepath, " ", "%%20"):gsub("\\", "")
             create_image(filepath, opts.winid, bufnr)
           else
             previewers.buffer_previewer_maker(filepath, bufnr, opts)
@@ -143,7 +144,7 @@ return {
         builtin.find_files({
           prompt_title = " Neovim Config",
           cwd = "~/.config/nvim", -- Set the directory to search in
-          hidden = true,     -- Show hidden files, useful in config directories
+          hidden = true,          -- Show hidden files, useful in config directories
         })
       end
 
