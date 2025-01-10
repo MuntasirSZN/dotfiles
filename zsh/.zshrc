@@ -164,3 +164,5 @@ export PATH=$PATH:/home/muntasir/.spicetify
 alias open=xdg-open
 
 eval "$(atuin init zsh)"
+
+eval "$(direnv hook zsh)"
