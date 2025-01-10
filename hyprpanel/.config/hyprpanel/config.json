@@ -444,5 +444,6 @@
   "bar.workspaces.workspaceMask": false,
   "bar.workspaces.applicationIconOncePerWorkspace": false,
   "bar.workspaces.workspaces": 5,
-  "bar.workspaces.monitorSpecific": false
+  "bar.workspaces.monitorSpecific": false,
+  "menus.dashboard.powermenu.sleep": "hyprlock"
 }
