@@ -178,3 +178,10 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = "*",
+	callback = function()
+		vim.cmd(":ColorizerAttachToBuffer")
+	end,
+})

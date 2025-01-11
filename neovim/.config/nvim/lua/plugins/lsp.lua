@@ -60,7 +60,7 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"saghen/blink.cmp",
-			"williamoman/mason-lspconfig.nvim",
+			"williamboman/mason-lspconfig.nvim",
 		},
 		opts = function()
 			local servers = {
