@@ -152,7 +152,6 @@ if [[ "$current_cursor_theme" != "'Bibata-Modern-Ice'" ]]; then
   dconf write /org/gnome/desktop/interface/cursor-theme "'Bibata-Modern-Ice'"
 fi
 
-source ~/ai.zsh
 alias clock="tty-clock -tcBrsSC 6"
 
 # I Don't know why but my current dir starts at my dotfiles dir. So I set it here.
@@ -166,3 +165,5 @@ alias open=xdg-open
 eval "$(atuin init zsh)"
 
 eval "$(direnv hook zsh)"
+
+alias ai-enable='source ~/.local/bin/ai-enable'

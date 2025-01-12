@@ -178,28 +178,3 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 		end
 	end,
 })
-
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = "*",
-	callback = function()
-		local current_ft = vim.bo.filetype:lower()
-		local excluded_filetypes = {
-			"trouble",
-			"alpha",
-			"dashboard",
-			"help",
-			"lazy",
-			"mason",
-			"neo-tree",
-			"notify",
-			"snacks_dashboard",
-			"snacks_notif",
-			"snacks_terminal",
-			"snacks_win",
-			"toggleterm",
-		}
-		if not vim.tbl_contains(excluded_filetypes, current_ft) then
-			vim.cmd(":ColorizerAttachToBuffer")
-		end
-	end,
-})

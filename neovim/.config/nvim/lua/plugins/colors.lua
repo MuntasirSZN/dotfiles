@@ -1,6 +1,10 @@
 return {
-  "norcalli/nvim-colorizer.lua",
-  config = function()
-    require("colorizer").setup({})
-  end,
+	"catgoose/nvim-colorizer.lua",
+	event = "BufReadPre",
+	keys = {
+		{ "<leader>ce", "<cmd>ColorizerToggle<CR>", desc = "Toggle colorizer" },
+	},
+	opts = {
+		filetypes = {},
+	},
 }
