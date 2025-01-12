@@ -445,5 +445,9 @@
   "bar.workspaces.applicationIconOncePerWorkspace": false,
   "bar.workspaces.workspaces": 5,
   "bar.workspaces.monitorSpecific": false,
-  "menus.dashboard.powermenu.sleep": "hyprlock"
+  "menus.dashboard.powermenu.sleep": "hyprlock",
+  "theme.bar.buttons.padding_x": "0.7rem",
+  "theme.bar.buttons.padding_y": "0.2rem",
+  "theme.bar.border_radius": "0.4em",
+  "theme.bar.buttons.radius": "0.3em"
 }
