@@ -26,6 +26,7 @@ fastfetch
 
 # Prompt
 eval "$(starship init zsh)"
+getquotes --offline
 
 # pnpm
 export PNPM_HOME="/home/muntasir/.local/share/pnpm"

@@ -14,17 +14,17 @@ return {
     -- Define key mappings
     local map = vim.keymap.set
 
-    map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { desc = "Diagnostics (Trouble)" })
-    map("n", "<leader>xX", "<cmd>TroubleToggle document_diagnostics<cr>", { desc = "Buffer Diagnostics (Trouble)" })
-    map("n", "<leader>cs", "<cmd>TroubleToggle lsp_document_symbols<cr>", { desc = "Symbols (Trouble)" })
+    map("n", "<leader>xx", "<cmd>Trouble<cr>", { desc = "Diagnostics (Trouble)" })
+    map("n", "<leader>xX", "<cmd>Trouble document_diagnostics<cr>", { desc = "Buffer Diagnostics (Trouble)" })
+    map("n", "<leader>cs", "<cmd>Trouble lsp_document_symbols<cr>", { desc = "Symbols (Trouble)" })
     map(
       "n",
       "<leader>cS",
-      "<cmd>TroubleToggle lsp_references<cr>",
+      "<cmd>Trouble lsp_references<cr>",
       { desc = "LSP references/definitions/... (Trouble)" }
     )
-    map("n", "<leader>xL", "<cmd>TroubleToggle loclist<cr>", { desc = "Location List (Trouble)" })
-    map("n", "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", { desc = "Quickfix List (Trouble)" })
+    map("n", "<leader>xL", "<cmd>Trouble loclist<cr>", { desc = "Location List (Trouble)" })
+    map("n", "<leader>xQ", "<cmd>Trouble quickfix<cr>", { desc = "Quickfix List (Trouble)" })
 
     map("n", "[q", function()
       if require("trouble").is_open() then

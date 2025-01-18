@@ -42,6 +42,7 @@ Config(
     "libapplications.so",
     "libshell.so",
     "librink.so",
+    "librandr.so",
     "libwebsearch.so",
     "libkidex.so",
     "libtranslate.so",

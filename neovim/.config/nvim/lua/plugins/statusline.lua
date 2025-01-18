@@ -15,6 +15,14 @@ return {
 			sections = {
 				lualine_x = {
 					{
+						function()
+							return require("lazydo").get_lualine_stats() -- status
+						end,
+						cond = function()
+							return require("lazydo")._initialized -- condition for lualine
+						end,
+					},
+					{
 						"copilot",
 						show_colors = true,
 					},
@@ -22,6 +30,15 @@ return {
 					"fileformat",
 					"filetype",
 				},
+			},
+			extensions = {
+				"lazy",
+				"man",
+				"mason",
+				"quickfix",
+				"neo-tree",
+				"nvim-dap-ui",
+				"trouble",
 			},
 		})
 	end,
