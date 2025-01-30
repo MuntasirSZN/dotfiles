@@ -10,6 +10,7 @@
 - [:eyes: Showcase](#eyes-showcase)
 - [:zap: Requirements](#zap-requirements)
 - [:file_folder: File Structure](#file_folder-file-structure)
+- [:star: Plugins](#star-plugins)
 - [:rocket: Getting Started](#rocket-getting-started)
 - [:wave: Credits](#wave-credits)
 <!--toc:end-->
@@ -116,6 +117,37 @@
 - The [images](./images) directory contains the images that are showcased above.
 - The [init.lua](./init.lua) file is the starting point for the neovim configuration.
 - The [Custom](./lua/custom) directory contains custom configurations for plugins.
+
+</details>
+
+## :star: Plugins
+
+<details>
+
+### syntax
+
++ [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
++ [echasnovski/mini.surround](https://dotfyle.com/plugins/echasnovski/mini.surround)
++ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+### tabline
+
++ [akinsho/bufferline.nvim](https://dotfyle.com/plugins/akinsho/bufferline.nvim)
+### test
+
++ [nvim-neotest/neotest](https://dotfyle.com/plugins/nvim-neotest/neotest)
+### utility
+
++ [michaelrommel/nvim-silicon](https://dotfyle.com/plugins/michaelrommel/nvim-silicon)
++ [jbyuki/instant.nvim](https://dotfyle.com/plugins/jbyuki/instant.nvim)
++ [Dan7h3x/LazyDo](https://dotfyle.com/plugins/Dan7h3x/LazyDo)
++ [echasnovski/mini.animate](https://dotfyle.com/plugins/echasnovski/mini.animate)
++ [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
+### web-development
+
++ [luckasRanarison/tailwind-tools.nvim](https://dotfyle.com/plugins/luckasRanarison/tailwind-tools.nvim)
+## Language Servers
+
++ html
 
 </details>
 
