@@ -1,5 +1,9 @@
 <h3 align="center"><img src="https://readme-typing-svg.demolab.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins"></h3>
 
+<a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugin-manager?style=flat" /></a>
+
 ## Table Of Contents
 <!--toc:start-->
 - [:sparkles: Features Supported](#sparkles-features-supported)
