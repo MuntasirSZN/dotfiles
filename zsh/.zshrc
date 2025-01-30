@@ -26,7 +26,7 @@ fastfetch
 
 # Prompt
 eval "$(starship init zsh)"
-getquotes --offline
+timeout 2s getquotes --offline
 
 # pnpm
 export PNPM_HOME="/home/muntasir/.local/share/pnpm"
@@ -168,3 +168,6 @@ eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"
 
 alias ai-enable='source ~/.local/bin/ai-enable'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

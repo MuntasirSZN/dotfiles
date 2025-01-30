@@ -1,11 +1,15 @@
-<h3 align="center"><img src="https://readme-typing-svg.demolab.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins"></h3>
+<h3 align="center">
+   <img src="https://readme-typing-svg.demolab.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins">
+</h3>
 
 <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugins?style=for-the-badge" /></a>
 <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/leaderkey?style=for-the-badge" /></a>
 <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugin-manager?style=for-the-badge" /></a>
 
 ## Table Of Contents
+
 <!--toc:start-->
+
 - [:sparkles: Features Supported](#sparkles-features-supported)
 - [:eyes: Showcase](#eyes-showcase)
 - [:zap: Requirements](#zap-requirements)
@@ -13,7 +17,9 @@
 - [:star: Plugins](#star-plugins)
 - [:rocket: Getting Started](#rocket-getting-started)
 - [:wave: Credits](#wave-credits)
+
 <!--toc:end-->
+
 ## :sparkles: Features Supported
 
 - ⚡ The following languages and all other language support
@@ -36,10 +42,10 @@
 
 ## :eyes: Showcase
 
-| ![Image 1](./images/buffer-neotree-markdown.png) | ![Image 2](./images/cmp-colorPicker.png) |
-| ------- | ------- |
-| ![Image 3](./images/Dashboard.png) | ![Image 4](./images/Telescope.png) |
-| ![Image 5](./images/copilot-cmp.png) | ![Image 6](./images/testing-terminal.png) |
+| ![Image 1](./images/buffer-neotree-markdown.png) | ![Image 2](./images/cmp-colorPicker.png)  |
+| ------------------------------------------------ | ----------------------------------------- |
+| ![Image 3](./images/Dashboard.png)               | ![Image 4](./images/Telescope.png)        |
+| ![Image 5](./images/copilot-cmp.png)             | ![Image 6](./images/testing-terminal.png) |
 
 ## :file_folder: File Structure
 
@@ -287,7 +293,7 @@
 ## :zap: Requirements
 
 - [Neovim](https://github.com/neovim/neovim) >= **0.9.0** (needs to be built with **LuaJIT**)
-- [Imagemagick](https://imagemagick.org/index.php)  (required, for [image.nvim](https://github.com/3rd/image.nvim))
+- [Imagemagick](https://imagemagick.org/index.php) (required, for [image.nvim](https://github.com/3rd/image.nvim))
 - [Python](https://www.python.org/) (required, for [image.nvim](https://github.com/3rd/image.nvim))
 - [git](https://git-scm.com) >= **2.40.0** (Gitsigns)
 - A [Nerd Font](https://www.nerdfonts.com/) (Important, Otherwise icons won't show.)

@@ -10,7 +10,26 @@ return {
 				icons_enabled = true,
 				theme = "catppuccin",
 				globalstatus = vim.o.laststatus == 3,
-				disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_terminal" } },
+				disabled_filetypes = {
+					winbar = {
+						"aerial",
+						"NvimTree",
+						"neo-tree",
+						"starter",
+						"Trouble",
+						"qf",
+						"NeogitStatus",
+						"NeogitCommitMessage",
+						"NeogitPopup",
+					},
+					statusline = {
+						"starter",
+						"dashboard",
+						"alpha",
+						"ministarter",
+						"snacks_terminal",
+					},
+				},
 			},
 			sections = {
 				lualine_x = {
