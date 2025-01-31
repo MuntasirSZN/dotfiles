@@ -163,7 +163,7 @@ export PATH=$PATH:/home/muntasir/.spicetify
 # Set xdg-open as open command
 alias open=xdg-open
 
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-ctrl-r)"
 
 eval "$(direnv hook zsh)"
 
