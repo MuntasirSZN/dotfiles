@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
 	callback = function()
-		vim.opt_local.wrap = true
+		vim.opt_local.wrap = false
 		vim.opt_local.spell = true
 	end,
 })
@@ -163,6 +163,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		vim.schedule(function()
 			vim.bo[ev.buf].syntax = vim.filetype.match({ buf = ev.buf }) or ""
 		end)
+	end,
+})
+
+-- Attach copilot always
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = "*",
+	callback = function()
+		vim.cmd("Copilot! attach")
 	end,
 })
 
