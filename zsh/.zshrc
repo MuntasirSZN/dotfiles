@@ -73,7 +73,18 @@ zinit snippet OMZP::command-not-found
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light marlonrichert/zsh-autocomplete
 zinit light loiccoyle/zsh-github-copilot
+
+bindkey              '^I'         menu-complete
+bindkey "$terminfo[kcbt]" reverse-menu-complete
+
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
+
+bindkey -M menuselect              '^I'         menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 
 bindkey '^[|' zsh_gh_copilot_explain
 bindkey '^[\' zsh_gh_copilot_suggest
@@ -168,6 +179,3 @@ eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(direnv hook zsh)"
 
 alias ai-enable='source ~/.local/bin/ai-enable'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
