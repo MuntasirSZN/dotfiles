@@ -2,6 +2,15 @@
 
 local map = vim.keymap.set
 
+-- Posting CLI
+map("n", "<leader>cp", function() end, { desc = "Open Posting CLI" })
+map("n", "<leader>cpb", function()
+	require("custom.posting").open_posting_in_buffer()
+end, { desc = "Open Posting CLI (New Buffer)" })
+map("n", "<leader>cpp", function()
+	require("custom.posting").open_posting_in_popup()
+end, { desc = "Open Posting CLI (Popup)" })
+
 -- Better up/down movement
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -42,8 +51,12 @@ map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 
 -- Clear search, diff update and redraw
-map("n", "<leader>ur", "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / Clear hlsearch / Diff Update" })
+map(
+	"n",
+	"<leader>ur",
+	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+	{ desc = "Redraw / Clear hlsearch / Diff Update" }
+)
 
 -- Saner behavior of n and N
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
@@ -83,16 +96,16 @@ map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- Formatting
 map({ "n", "v" }, "<leader>cf", function()
-  vim.lsp.buf.format({ async = true })
+	vim.lsp.buf.format({ async = true })
 end, { desc = "Format" })
 
 -- Diagnostic
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
+	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		go({ severity = severity })
+	end
 end
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
@@ -111,8 +124,8 @@ map("n", "<leader>uI", "<cmd>InspectTree<cr>", { desc = "Inspect Tree" })
 
 -- Floating terminal
 local lazyterm = function()
-  vim.cmd("terminal")
-  vim.cmd("startinsert")
+	vim.cmd("terminal")
+	vim.cmd("startinsert")
 end
 map("n", "<leader>ft", lazyterm, { desc = "Terminal (Root Dir)" })
 map("n", "<leader>fT", lazyterm, { desc = "Terminal (cwd)" })
