@@ -14,6 +14,7 @@ return {
 			"L3MON4D3/LuaSnip",
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
+			"fang2hou/blink-copilot",
 			{
 				"saghen/blink.compat",
 				optional = true, -- make optional so it's only enabled if any plugins need it
@@ -46,19 +47,43 @@ return {
 			},
 			sources = {
 				compat = {},
-				default = {
-					"lsp",
-					"path",
-					"snippets",
-					"buffer",
-					"codecompanion",
-					"lazydev",
-					"dadbod",
-					-- "markdown",
-					"ripgrep",
-					"emoji",
-				},
+				default = function()
+					local sources = {
+						"lsp",
+						"path",
+						"snippets",
+						"buffer",
+						"codecompanion",
+						"lazydev",
+						"dadbod",
+						"ripgrep",
+						"copilot",
+					}
+					local filetype = vim.bo.filetype
+					local emoji_filetypes = {
+						"markdown",
+						"norg",
+						"rmd",
+						"org",
+						"mdx",
+						"codecompanion",
+					}
+
+					if vim.tbl_contains(emoji_filetypes, filetype) then
+						table.insert(sources, "emoji")
+					end
+					return sources
+				end,
 				providers = {
+					lsp = {
+						override = {
+							get_trigger_characters = function(self)
+								local trigger_characters = self:get_trigger_characters()
+								vim.list_extend(trigger_characters, { "\n", "\t", " " })
+								return trigger_characters
+							end,
+						},
+					},
 					codecompanion = {
 						name = "CodeCompanion",
 						module = "codecompanion.providers.completion.blink",
@@ -74,11 +99,6 @@ return {
 						module = "vim_dadbod_completion.blink",
 						score_offset = 85, -- the higher the number, the higher the priority
 					},
-					-- markdown = {
-					--   name = "RenderMarkdown",
-					--   module = "render-markdown.integ.blink",
-					--   fallbacks = { "lsp" },
-					-- },
 					ripgrep = {
 						module = "blink-ripgrep",
 						name = "Ripgrep",
@@ -89,31 +109,28 @@ return {
 					emoji = {
 						module = "blink-emoji",
 						name = "Emoji",
-						score_offset = 15, -- Tune by preference
 						opts = { insert = true }, -- Insert emoji (default) or complete its name
+					},
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
+						opts = {
+							max_completions = 3,
+							max_attempts = 4,
+						},
 					},
 				},
 			},
 			keymap = {
 				preset = "super-tab",
-				["<Tab>"] = {
-					function(cmp)
-						if require("copilot.suggestion").is_visible() then
-							require("copilot.suggestion").accept()
-						else
-							if cmp.snippet_active() then
-								cmp.accept()
-							else
-								cmp.select_and_accept()
-							end
-						end
-					end,
-					"snippet_forward",
-					"fallback",
-				},
 			},
 			signature = { enabled = true },
 			completion = {
+				trigger = {
+					show_on_blocked_trigger_characters = {},
+				},
 				list = {
 					selection = {
 						auto_insert = false,
