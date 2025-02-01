@@ -2,15 +2,13 @@ return {
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false, -- Recommended
-		branch = "dev",
 
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			local markview = require("markview")
-			markview.setup({
+			require("markview").setup({
 				filetypes = {
 					"markdown",
 					"norg",
@@ -19,6 +17,12 @@ return {
 					"mdx",
 					"codecompanion",
 				},
+				markdown = {
+					list_items = {
+						indent_size = 0,
+					},
+				},
+				icon_provider = "devicons",
 			})
 
 			require("markview.extras.editor").setup()
@@ -41,7 +45,7 @@ return {
 		ft = { "markdown" },
 		keys = {
 			{
-				"<leader>cp",
+				"<leader>cmp",
 				ft = "markdown",
 				"<cmd>MarkdownPreviewToggle<cr>",
 				desc = "Markdown Preview",
