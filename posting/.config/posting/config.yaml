@@ -1,0 +1,4 @@
+theme: catppuccin-mocha-blue
+heading:
+  visible: true
+  show_host: false
