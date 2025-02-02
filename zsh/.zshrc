@@ -76,6 +76,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light marlonrichert/zsh-autocomplete
 zinit light loiccoyle/zsh-github-copilot
+zinit light olets/zsh-abbr
 
 bindkey              '^I'         menu-complete
 bindkey "$terminfo[kcbt]" reverse-menu-complete
@@ -179,3 +180,5 @@ eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(direnv hook zsh)"
 
 alias ai-enable='source ~/.local/bin/ai-enable'
+
+alias ltree="eza --tree --level=2  --icons --git"
