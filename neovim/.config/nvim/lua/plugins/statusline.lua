@@ -93,6 +93,19 @@ return {
 					{
 						"copilot",
 						show_colors = true,
+						cond = function()
+							return not require("custom.lualine").processing
+						end,
+					},
+					{
+						function()
+							require("custom.lualine"):init()
+							return require("custom.lualine"):update_status()
+						end,
+						cond = function()
+							require("custom.lualine"):init()
+							return require("custom.lualine").processing
+						end,
 					},
 					"encoding",
 					"fileformat",
