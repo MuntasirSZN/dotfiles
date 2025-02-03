@@ -19,7 +19,7 @@ return {
 
 			-- If cache is empty or file has changed, reload
 			if cache.last_modified ~= current_mod_time then
-				local command = (vim.loop.os_uname().sysname == "Windows") and "type " .. ascii_path
+				local command = (vim.uv.os_uname().sysname == "Windows") and "type " .. ascii_path
 					or "/bin/cat " .. ascii_path
 
 				cache.ascii_art = vim.fn.system(command)
@@ -30,14 +30,20 @@ return {
 		end
     -- stylua: ignore
     local opts = {
+      animate = { enabled = true },
       bigfile = { enabled = true },
-      indent = { enabled = true },
+      indent = {
+        enabled = true,
+        scope = { treesitter = { enabled = true } },
+      },
+      scope = { enabled = true },
       input = { enabled = true },
       notifier = { enabled = true },
-      scroll = { enabled = false, },
+      scroll = { enabled = true, },
       statuscolumn = { enabled = true },
       words = { enabled = true },
       quickfile = { enabled = true },
+      spell = { enabled = true },
       dashboard = {
         enabled = true,
         preset = {

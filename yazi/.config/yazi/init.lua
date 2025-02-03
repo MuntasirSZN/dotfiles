@@ -11,3 +11,9 @@ require("eza-preview"):setup({
 
 require("starship"):setup()
 require("yaziline"):setup()
+require("git"):setup()
+require("full-border"):setup()
+require("copy-file-contents"):setup({
+	append_char = "\n",
+	notification = true,
+})

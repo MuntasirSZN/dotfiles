@@ -46,6 +46,9 @@ return {
 				end,
 			},
 			sources = {
+				per_filetype = {
+					codecompanion = { "codecompanion" },
+				},
 				compat = {},
 				default = function()
 					local sources = {
@@ -53,7 +56,6 @@ return {
 						"path",
 						"snippets",
 						"buffer",
-						"codecompanion",
 						"lazydev",
 						"dadbod",
 						"ripgrep",
@@ -66,7 +68,6 @@ return {
 						"rmd",
 						"org",
 						"mdx",
-						"codecompanion",
 					}
 
 					if vim.tbl_contains(emoji_filetypes, filetype) then
@@ -83,11 +84,6 @@ return {
 								return trigger_characters
 							end,
 						},
-					},
-					codecompanion = {
-						name = "CodeCompanion",
-						module = "codecompanion.providers.completion.blink",
-						enabled = true,
 					},
 					lazydev = {
 						name = "LazyDev",

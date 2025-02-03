@@ -9,17 +9,20 @@ return {
 		},
 		config = function()
 			require("markview").setup({
-				filetypes = {
-					"markdown",
-					"norg",
-					"rmd",
-					"org",
-					"mdx",
-					"codecompanion",
-				},
-				markdown = {
-					list_items = {
-						indent_size = 0,
+				preview = {
+					filetypes = {
+						"markdown",
+						"norg",
+						"rmd",
+						"org",
+						"mdx",
+						"codecompanion",
+					},
+					ignore_buftypes = {},
+					markdown = {
+						list_items = {
+							indent_size = 0,
+						},
 					},
 				},
 				icon_provider = "devicons",

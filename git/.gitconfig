@@ -31,3 +31,5 @@
     colorMoved = default
 [commit]
 	gpgsign = true
+[maintenance]
+	repo = /home/muntasir/getquotes
