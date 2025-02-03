@@ -65,3 +65,6 @@ elseif
 fira
 Manpages
 dotfyle
+CodeCompanion
+statusline
+lualine
