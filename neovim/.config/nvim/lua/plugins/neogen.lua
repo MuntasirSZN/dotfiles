@@ -1,5 +1,6 @@
 return {
 	"danymat/neogen",
+	event = "InsertEnter",
 	cmd = "Neogen",
 	keys = {
 		{

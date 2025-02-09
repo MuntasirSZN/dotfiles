@@ -166,14 +166,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- Attach copilot always
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = "*",
-	callback = function()
-		vim.cmd("Copilot! attach")
-	end,
-})
-
 -- Add project with project.nvim automatically
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	pattern = "*",

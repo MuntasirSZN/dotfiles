@@ -135,15 +135,32 @@ vim.o.wrap = false
 -- Smooth scroll for Neovim 0.10+
 if vim.fn.has("nvim-0.10") == 1 then
 	vim.o.smoothscroll = true
-	vim.o.foldexpr = "v:lua.require'utils'.ui.foldexpr()"
-	vim.o.foldmethod = "expr"
-	vim.o.foldtext = ""
-else
-	vim.o.foldmethod = "indent"
-	vim.o.foldtext = "v:lua.require'utils'.ui.foldtext()"
 end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
-vim.opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
+vim.diagnostic.config({
+	underline = true,
+	virtual_text = false,
+	document_highlight = {
+		enabled = true,
+	},
+	capabilities = {
+		workspace = {
+			fileOperations = {
+				didRename = true,
+				willRename = true,
+			},
+		},
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅙",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "󰌵",
+		},
+	},
+	severity_sort = true,
+})
