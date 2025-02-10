@@ -7,6 +7,8 @@ set maxgraphpct 50
 set maxwidth 16
 set cmitmode patch
 set wrapcomment none
+set wrapdefault none
+set autocopy 0
 set autoselect 1
 set autosellen 40
 set showneartags 1
@@ -53,12 +55,12 @@ set linkfgcolor blue
 set circleoutlinecolor black
 set diffbgcolors {"#fff3f3" "#f0fff0"}
 set web_browser xdg-open
-set geometry(main) 1900x989+10+49
+set geometry(main) 1900x971+10+67
 set geometry(state) normal
 set geometry(topwidth) 1900
 set geometry(topheight) 255
-set geometry(pwsash0) "658 1"
-set geometry(pwsash1) "986 1"
-set geometry(botwidth) 818
-set geometry(botheight) 729
+set geometry(pwsash0) "656 1"
+set geometry(pwsash1) "984 1"
+set geometry(botwidth) 816
+set geometry(botheight) 711
 set permviews {}

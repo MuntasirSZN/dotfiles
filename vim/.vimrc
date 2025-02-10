@@ -8,8 +8,7 @@ colorscheme catppuccin_mocha
 let g:mapleader = " "
 let g:maplocalleader = " "
 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+set cursorline
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 

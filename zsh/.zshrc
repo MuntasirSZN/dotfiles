@@ -78,6 +78,11 @@ zinit light marlonrichert/zsh-autocomplete
 zinit light loiccoyle/zsh-github-copilot
 zinit light olets/zsh-abbr
 
+abbr erase 1 > /dev/null 2>&1
+
+export ABBR_GET_AVAILABLE_ABBREVIATION=1
+export ABBR_LOG_AVAILABLE_ABBREVIATION=1
+
 bindkey              '^I'         menu-complete
 bindkey "$terminfo[kcbt]" reverse-menu-complete
 
@@ -167,9 +172,6 @@ fi
 
 alias clock="tty-clock -tcBrsSC 6"
 
-# I Don't know why but my current dir starts at my dotfiles dir. So I set it here.
-cd ~
-
 export PATH=$PATH:/home/muntasir/.spicetify
 
 # Set xdg-open as open command
@@ -180,6 +182,7 @@ eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(direnv hook zsh)"
 
 alias ai-enable='source ~/.local/bin/ai-enable'
+alias aur-enable='source ~/.local/bin/aur'
 
 alias ltree="eza --tree --level=2  --icons --git"
 eval "$(gh copilot alias -- zsh)"

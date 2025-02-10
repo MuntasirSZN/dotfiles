@@ -31,5 +31,5 @@
     colorMoved = default
 [commit]
 	gpgsign = true
-[maintenance]
-	repo = /home/muntasir/getquotes
+[credential "https://github.com"]
+	username = MuntasirSZN

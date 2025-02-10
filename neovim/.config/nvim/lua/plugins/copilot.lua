@@ -16,13 +16,5 @@ return {
 				help = true,
 			},
 		})
-
-		-- Attach copilot always
-		vim.api.nvim_create_autocmd({ "BufEnter" }, {
-			pattern = "*",
-			callback = function()
-				vim.cmd("Copilot! attach")
-			end,
-		})
 	end,
 }
