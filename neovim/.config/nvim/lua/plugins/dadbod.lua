@@ -14,7 +14,7 @@ To add a new dtabase, toggle DBUI, then hit capital `A` to add a new connection
 mysql://root:pass@mysql.home.linkarzu.com:3310
 mysql://root:pass@mariadb.home.linkarzu.com:3309/
 postgres://postgres:pass@postgres.home.linkarzu.com:5432/
-Then you will be asked for the name of the database that will show in the toogle
+Then you will be asked for the name of the database that will show in the toggle
 
 https://github.com/kristijanhusak/vim-dadbod-completion
 
@@ -50,28 +50,28 @@ How to's
 --]=====]
 
 return {
-	"kristijanhusak/vim-dadbod-ui",
-	event = "InsertEnter",
-	dependencies = {
-		{ "tpope/vim-dadbod" },
-		{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
-	},
-	keys = { -- Mapping to toggle DBUI
-		{ "<leader>cD", "<cmd>DBUIToggle<CR>", desc = "Toggle DBUI" },
-	},
-	cmd = {
-		"DBUI",
-		"DBUIToggle",
-		"DBUIAddConnection",
-		"DBUIFindBuffer",
-	},
-	init = function()
-		vim.g.db_ui_show_help = 0
-		vim.g.db_ui_win_position = "right"
-		vim.g.db_ui_use_nerd_fonts = 1
+  "kristijanhusak/vim-dadbod-ui",
+  event = "InsertEnter",
+  dependencies = {
+    { "tpope/vim-dadbod" },
+    { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" } },
+  },
+  keys = { -- Mapping to toggle DBUI
+    { "<leader>cD", "<cmd>DBUIToggle<CR>", desc = "Toggle DBUI" },
+  },
+  cmd = {
+    "DBUI",
+    "DBUIToggle",
+    "DBUIAddConnection",
+    "DBUIFindBuffer",
+  },
+  init = function()
+    vim.g.db_ui_show_help = 0
+    vim.g.db_ui_win_position = "right"
+    vim.g.db_ui_use_nerd_fonts = 1
 
-		vim.g.db_ui_use_nvim_notify = 1
+    vim.g.db_ui_use_nvim_notify = 1
 
-		vim.g.db_ui_hide_schemas = { "pg_toast_temp.*" }
-	end,
+    vim.g.db_ui_hide_schemas = { "pg_toast_temp.*" }
+  end,
 }
