@@ -36,6 +36,7 @@ return {
 			pylsp = {},
 			tailwindcss = {},
 			yamlls = {},
+			typos_lsp = {},
 		}
 
 		return {
@@ -49,12 +50,6 @@ return {
 			config.capabilities.textDocument.foldingRange = {
 				dynamicRegistration = false,
 				lineFoldingOnly = true,
-			}
-			config.handlers = {
-				["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-					-- Disable virtual_text
-					virtual_text = false,
-				}),
 			}
 			require("lspconfig")[server].setup(config)
 		end
