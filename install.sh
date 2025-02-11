@@ -1,14 +1,11 @@
 #!/bin/sh
 
 set -o errexit
-set -o nounset
 set -o pipefail
 
-DOTFILES_DIR="$HOME/.dotfiles"
-printf " Enter the directory to install dotfiles (default: $DOTFILES_DIR): "
-read -r USER_INPUT || true
-DOTFILES_DIR="${USER_INPUT:-$DOTFILES_DIR}"
-
+printf " Enter the directory to install dotfiles (default: $HOME/.dotfiles): "
+read -r USER_INPUT
+DOTFILES_DIR="${USER_INPUT:-$HOME/.dotfiles}"
 REPO_URL="https://github.com/MuntasirSZN/dotfiles.git"
 
 # Check if dotfiles directory exists
@@ -48,6 +45,9 @@ elif command -v zypper >/dev/null 2>&1; then
 	sudo zypper install -y stow
 elif command -v nix-env >/dev/null 2>&1; then
 	nix-env -i stow
+elif [ -n "$WINDIR" ]; then
+	echo " Error: Windows is not supported (but wsl is). Please install Stow In WSL."
+	exit 1
 else
 	echo " Error: No suitable package manager found. Please install Stow manually."
 	exit 1
