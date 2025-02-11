@@ -4,11 +4,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-printf " Enter the directory to install dotfiles (default: $HOME/.dotfiles): "
-USER_INPUT=""
+DOTFILES_DIR="$HOME/.dotfiles"
+printf " Enter the directory to install dotfiles (default: $DOTFILES_DIR): "
 read -r USER_INPUT || true
-DOTFILES_DIR="${USER_INPUT:-$HOME/.dotfiles}"
-REPO_URL="https://github.com/MuntasirSZN/dotfiles.git" # Replace with actual dotfiles repo URL
+DOTFILES_DIR="${USER_INPUT:-$DOTFILES_DIR}"
+
+REPO_URL="https://github.com/MuntasirSZN/dotfiles.git"
 
 # Check if dotfiles directory exists
 if [ -d "$DOTFILES_DIR" ]; then
