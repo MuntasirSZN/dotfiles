@@ -29,6 +29,7 @@ return {
 			return cache.ascii_art
 		end
     -- stylua: ignore
+    ---@type snacks.Config
     local opts = {
       animate = { enabled = true },
       bigfile = { enabled = true },
@@ -38,7 +39,9 @@ return {
       },
       scope = { enabled = true },
       input = { enabled = true },
-      notifier = { enabled = true },
+      notifier = {
+        enabled = true,
+      },
       scroll = { enabled = true, },
       words = { enabled = true },
       quickfile = { enabled = true },

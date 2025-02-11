@@ -2,7 +2,7 @@ return {
 	-- nvim-dap configuration
 	{
 		"mfussenegger/nvim-dap",
-		event = "InsertEnter",
+		event = "VeryLazy",
 		recommended = true,
 		desc = "Debugging support. Requires language specific adapters to be configured.",
 
