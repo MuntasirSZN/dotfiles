@@ -9,8 +9,7 @@ This repository contains my personal dotfiles configuration managed using GNU St
 - [Overview](#overview)
 - [Installation](#installation)
 - [Configuration Files](#configuration-files)
-- [Stow Packages](#stow-packages)
-- [Usage](#usage)
+- [Advanced Installation](#advanced-installation)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -20,19 +19,18 @@ This dotfiles repository is designed to be easily managed and deployed across mu
 
 ## Installation
 
-To install GNU Stow, you can use your distribution's package manager. On most systems, you can install it with:
+Run the bash script to install the required packages and create symlinks for the configurations:
 
-```bash
-sudo apt-get install stow # Debian-based systems
-sudo pacman -S stow # Arch-based systems
-brew install stow # macOS (using Homebrew)
+> [!Note]
+> Check the script first before running it.
+
+```sh
+curl -s https://raw.githubusercontent.com/MuntasirSZN/dotfiles/main/install.sh | bash
 ```
 
-## Configuration Files
+### Configuration Files
 
-## Stow Packages
-
-The `.config` directory contains various stow packages for different applications:
+The `.config` directory contains various files for different applications:
 
 - ags (HyprPanel)
 - anyrun
@@ -54,9 +52,7 @@ The `.config` directory contains various stow packages for different application
 
 Each subdirectory in `.config` represents a separate stow package.
 
-## Usage
-
-To use this dotfiles repository:
+## Advanced Installation
 
 1. Clone the repository to your home directory:
 
@@ -66,7 +62,7 @@ git clone https://github.com/MuntasirSZN/dotfiles.git ~/.dotfiles
 
 2. Navigate to the cloned repository:
 
-```
+```sh
 cd ~/.dotfiles
 ```
 
@@ -78,7 +74,7 @@ stow zsh # Individual
 ```
 
 > [!Important]
-> If you want to use my use my neovim configurations, then please read its [README.md](./neovim/.config/nvim/README.md)
+> If you want to use my neovim configurations, then please read its [README.md](./neovim/.config/nvim/README.md)
 
 Replace `package_name` with the desired package (e.g., `kitty`, `nvim`, etc.).
 
