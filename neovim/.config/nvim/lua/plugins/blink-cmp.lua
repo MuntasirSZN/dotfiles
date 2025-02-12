@@ -135,7 +135,14 @@ return {
 					nerdfont = {
 						module = "blink-nerdfont",
 						name = "Nerd Fonts",
-						opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
+						opts = {
+							insert = true,
+						}, -- Insert nerdfont icon (default) or complete its name
+						override = {
+							get_trigger_characters = function()
+								return { "!" }
+							end,
+						},
 						transform_items = function(_, items)
 							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
 							local kind_idx = #CompletionItemKind + 1
@@ -269,6 +276,9 @@ return {
 								not_plannedIssue = "",
 								duplicateIssue = "",
 								lockedIssue = "",
+							},
+							commit = {
+								triggers = { ";" },
 							},
 							git_centers = {
 								github = {

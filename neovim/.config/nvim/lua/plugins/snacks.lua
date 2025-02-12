@@ -126,7 +126,7 @@ return {
               icon = " ",
               key = "c",
               desc = "Config",
-              action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+              action = ":lua find_nvim_files()",
             },
             { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
@@ -137,10 +137,11 @@ return {
       },
     }
 		require("snacks").setup(opts)
-		_G.find_nvim_files_snacks = function()
+		_G.find_nvim_files = function()
 			local picker = require("snacks.picker")
-			picker.files({
-				prompt_title = " Neovim Config",
+			picker.pick({
+				source = "files",
+				title = " Neovim Config",
 				cwd = "~/.config/nvim", -- Set the directory to search in
 				hidden = true, -- Show hidden files, useful in config directories
 			})
@@ -285,7 +286,7 @@ return {
 		{
 			"<leader>fc",
 			function()
-				find_nvim_files_snacks()
+				find_nvim_files()
 			end,
 			desc = "Find Config File",
 		},

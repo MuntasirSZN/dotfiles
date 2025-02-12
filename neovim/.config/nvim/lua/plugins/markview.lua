@@ -17,6 +17,7 @@ return {
 					"org",
 					"mdx",
 					"codecompanion",
+					"octo",
 				},
 				ignore_buftypes = {},
 			},
@@ -41,6 +42,13 @@ return {
 				},
 			},
 			icon_provider = "devicons",
+		})
+
+		vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged" }, {
+			pattern = { "octo://*", "octo" },
+			callback = function()
+				vim.cmd("Markview attach")
+			end,
 		})
 
 		require("markview.extras.editor").setup()

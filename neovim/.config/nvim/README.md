@@ -139,10 +139,6 @@
 - [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
 - [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 
-### github
-
-- [ldelossa/gh.nvim](https://dotfyle.com/plugins/ldelossa/gh.nvim)
-
 ### icon
 
 - [echasnovski/mini.icons](https://dotfyle.com/plugins/echasnovski/mini.icons)
@@ -155,8 +151,9 @@
 ### lsp
 
 - [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-- [ldelossa/litee.nvim](https://dotfyle.com/plugins/ldelossa/litee.nvim)
-- [rachartier/tiny-code-action.nvim](https://dotfyle.com/plugins/rachartier/tiny-code-action.nvim)
+
+<!-- - [rachartier/tiny-code-action.nvim](https://dotfyle.com/plugins/rachartier/tiny-code-action.nvim) -->
+
 - [nvimtools/none-ls.nvim](https://dotfyle.com/plugins/nvimtools/none-ls.nvim)
 - [mrcjkb/rustaceanvim](https://dotfyle.com/plugins/mrcjkb/rustaceanvim)
 - [zeioth/none-ls-autoload.nvim](https://dotfyle.com/plugins/zeioth/none-ls-autoload.nvim)
@@ -179,7 +176,6 @@
 ### media
 
 - [HakonHarnes/img-clip.nvim](https://dotfyle.com/plugins/HakonHarnes/img-clip.nvim)
-- [3rd/image.nvim](https://dotfyle.com/plugins/3rd/image.nvim)
 
 ### motion
 
@@ -196,10 +192,6 @@
 ### plugin-manager
 
 - [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-
-### project
-
-- [ahmedkhalf/project.nvim](https://dotfyle.com/plugins/ahmedkhalf/project.nvim)
 
 ### remote-development
 
@@ -259,8 +251,7 @@
 ## :zap: Requirements
 
 - [Neovim](https://github.com/neovim/neovim) >= **0.9.0** (needs to be built with **LuaJIT**)
-- [Imagemagick](https://imagemagick.org/index.php) (required, for [image.nvim](https://github.com/3rd/image.nvim))
-- [Python](https://www.python.org/) (required, for [image.nvim](https://github.com/3rd/image.nvim))
+- [Imagemagick](https://imagemagick.org/index.php) (required, for [snacks.nvim](https://github.com/folke/snacks.nvim) image module)
 - [git](https://git-scm.com) >= **2.40.0** (Gitsigns)
 - A [Nerd Font](https://www.nerdfonts.com/) (Important, Otherwise icons won't show.)
 - [Silicon](https://github.com/Aloxaf/silicon) cli tool (Optional, see [screenshots.lua](./lua/plugins/screenshots.lua))
