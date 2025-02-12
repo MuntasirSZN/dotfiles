@@ -1,49 +1,49 @@
 return {
-  "zbirenbaum/copilot.lua",
-  event = "BufEnter",
-  config = function()
-    require("copilot").setup({
-      panel = { enabled = false },
-      suggestion = {
-        enabled = false,
-        auto_trigger = true,
-        keymap = {
-          accept = "<Tab>",
-        },
-      },
-      filetypes = {
-        markdown = true,
-        help = true,
-      },
-    })
+	"MuntasirSZN/copilot.lua",
+	event = "BufEnter",
+	config = function()
+		require("copilot").setup({
+			panel = { enabled = false },
+			suggestion = {
+				enabled = false,
+				auto_trigger = true,
+				keymap = {
+					accept = "<Tab>",
+				},
+			},
+			filetypes = {
+				yaml = true,
+				markdown = true,
+				help = true,
+				gitcommit = true,
+				gitrebase = true,
+				hgcommit = true,
+				svn = true,
+				cvs = false,
+				["."] = true,
+			},
+		})
+		vim.api.nvim_create_autocmd("BufEnter", {
+			pattern = "*",
+			callback = function(args)
+				local active_clients = vim.lsp.get_clients()
 
-    vim.api.nvim_create_autocmd("BufEnter", {
-      pattern = "*",
-      callback = function(bufnr)
-        -- From TJDevries
-        -- https://github.com/tjdevries/lazy-require.nvim
-        local function lazy_require(require_path)
-          return setmetatable({}, {
-            __index = function(_, key)
-              return require(require_path)[key]
-            end,
+				-- Check if copilot is among the active clients
+				local copilot_attached = false
+				for _, client in ipairs(active_clients) do
+					if client.name == "copilot" then
+						copilot_attached = true
+						break
+					end
+				end
 
-            __newindex = function(_, key, value)
-              require(require_path)[key] = value
-            end,
-          })
-        end
-
-        local c = lazy_require("copilot.client")
-
-        local is_current_buffer_attached = function()
-          return c.buf_is_attached(bufnr)
-        end
-
-        if is_current_buffer_attached() then
-          vim.cmd([[ Copilot! attach ]])
-        end
-      end,
-    })
-  end,
+				if copilot_attached then
+					vim.cmd([[ Copilot detach ]])
+				else
+					vim.bo[args.buf].buflisted = true
+					vim.cmd([[ Copilot! attach ]])
+				end
+			end,
+		})
+	end,
 }
