@@ -101,12 +101,17 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
 #Fzf
 source <(fzf --zsh)
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
+  --style=full
   --preview 'fzf-preview.sh {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+export FZF_CTRL_R_OPTS="--style=full"
 
 # History
 HISTFILE=~/.zsh_history
@@ -188,3 +193,22 @@ alias ltree="eza --tree --level=2  --icons --git"
 eval "$(gh copilot alias -- zsh)"
 
 export GLAMOUR_STYLE="/home/muntasir/.config/glow/catppucin-mocha.json"
+
+# ripgrep->fzf->vim [QUERY]
+rfv() (
+  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            vim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            vim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi --style=full \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --preview-window '~4,+{2}+4/3,<80(up)' \
+      --query "$*"
+)
