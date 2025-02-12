@@ -16,5 +16,7 @@ return {
 				help = true,
 			},
 		})
+
+		require("copilot.client").buf_attach(true)
 	end,
 }

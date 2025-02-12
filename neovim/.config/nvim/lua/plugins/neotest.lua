@@ -11,7 +11,7 @@ return {
 		"marilari88/neotest-vitest",
 		-- Playwright
 		"thenbe/neotest-playwright",
-		"nvim-telescope/telescope.nvim",
+		"folke/snacks.nvim",
 		-- There are two rust adapters, one uses lsp (rustaceanvim),
 		-- and another uses treesitter, you can use what you like.
 		-- I am using rustaceanvim
