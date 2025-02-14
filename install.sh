@@ -60,7 +60,9 @@ stow */
 
 if [ $? -eq 0 ]; then
 	echo " Dotfiles installed successfully."
+	rm install.sh
 else
 	echo " Dotfiles installation failed. Ensure dependencies are installed."
+	rm install.sh
 	exit 1
 fi
