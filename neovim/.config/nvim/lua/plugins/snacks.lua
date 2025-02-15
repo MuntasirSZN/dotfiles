@@ -59,7 +59,12 @@ return {
     local opts = {
       animate = { enabled = true },
       bigfile = { enabled = true },
-      image = { enabled = true },
+      image = {
+        enabled = true,
+        markdown = {
+          inline = false,
+        },
+      },
       indent = {
         enabled = true,
         scope = { treesitter = { enabled = true } },
