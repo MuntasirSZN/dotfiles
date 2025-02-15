@@ -10,7 +10,7 @@ vim.opt.termguicolors = true
 vim.o.autowrite = true
 
 -- Sync with system clipboard, only if not in an SSH session
-vim.o.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
+vim.o.clipboard = vim.env.SSH_TTY ~= nil and "" or "unnamedplus"
 
 vim.g.loaded_perl_provider = 0
 
@@ -137,35 +137,35 @@ vim.o.wrap = false
 
 -- Smooth scroll for Neovim 0.10+
 if vim.fn.has("nvim-0.10") == 1 then
-	vim.o.smoothscroll = true
+  vim.o.smoothscroll = true
 end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
 vim.diagnostic.config({
-	underline = true,
-	virtual_text = false,
-	document_highlight = {
-		enabled = true,
-	},
-	capabilities = {
-		workspace = {
-			fileOperations = {
-				didRename = true,
-				willRename = true,
-			},
-		},
-	},
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "󰅙",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "󰌵",
-		},
-	},
-	severity_sort = true,
+  underline = true,
+  virtual_text = false,
+  document_highlight = {
+    enabled = true,
+  },
+  capabilities = {
+    workspace = {
+      fileOperations = {
+        didRename = true,
+        willRename = true,
+      },
+    },
+  },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅙",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "󰌵",
+    },
+  },
+  severity_sort = true,
 })
 
 local sign = vim.fn.sign_define
