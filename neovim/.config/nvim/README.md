@@ -2,18 +2,20 @@
    <img src="https://readme-typing-svg.demolab.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins">
 </h3>
 
-<a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugins?style=for-the-badge" /></a>
-<a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/leaderkey?style=for-the-badge" /></a>
-<a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugin-manager?style=for-the-badge" /></a>
+<p align="center">
+  <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugins?style=for-the-badge" /></a>
+  <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/leaderkey?style=for-the-badge" /></a>
+  <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugin-manager?style=for-the-badge" /></a>
+</p>
 
 ## 🚦 Table Of Contents
 
 <!--toc:start-->
 
-- [:vertical_traffic_light: Table Of Contents](#verticaltrafficlight-table-of-contents)
+- [:vertical_traffic_light: Table Of Contents](#vertical_traffic_light-table-of-contents)
 - [:sparkles: Features Supported](#sparkles-features-supported)
 - [:eyes: Showcase](#eyes-showcase)
-- [:file_folder: File Structure](#filefolder-file-structure)
+- [:file_folder: File Structure](#file_folder-file-structure)
 - [:star: Plugins](#star-plugins)
 - [:zap: Requirements](#zap-requirements)
 - [:rocket: Getting Started](#rocket-getting-started)
