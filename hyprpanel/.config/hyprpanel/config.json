@@ -420,7 +420,7 @@
   "bar.workspaces.workspaceIconMap": {},
   "bar.windowtitle.title_map": [
     [
-      "zen-beta",
+      "zen",
       "",
       "Zen Browser"
     ],
@@ -431,7 +431,7 @@
     ]
   ],
   "bar.workspaces.applicationIconMap": {
-    "title:Zen Browser": "",
+    "class:zen": "",
     "class:com.mitchellh.ghostty": ""
   },
   "menus.power.showLabel": true,
