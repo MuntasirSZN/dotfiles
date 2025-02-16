@@ -1,7 +1,8 @@
 return {
-	dir = "~/projects/octo.nvim",
+	dir = "~/projects/octo.nvim/fork",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"folke/snacks.nvim",
 	},
 	config = function()
 		require("octo").setup({

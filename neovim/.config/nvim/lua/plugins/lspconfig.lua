@@ -38,6 +38,7 @@ return {
       tailwindcss = {},
       yamlls = {},
       typos_lsp = {},
+      ["bacon_ls"] = {},
     }
 
     return {
@@ -52,6 +53,10 @@ return {
         dynamicRegistration = false,
         lineFoldingOnly = true,
       }
+      config.capabilities.textDocument.inlayHint = {
+        enable = true,
+      }
+      vim.lsp.inlay_hint.enable(true)
       require("lspconfig")[server].setup(config)
     end
   end,

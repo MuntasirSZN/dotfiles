@@ -32,7 +32,8 @@ return {
 			"prettierd",
 			"sqlfmt",
 			"yamlfmt",
-			"taplo",
+			"bacon",
+			"bacon-ls",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

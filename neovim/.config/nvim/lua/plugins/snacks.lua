@@ -183,6 +183,17 @@ return {
 	end,
 	keys = {
 		{
+			"<leader>se",
+			function()
+				if vim.fn.executable("cliphist") then
+					Snacks.picker.cliphist()
+				else
+					vim.notify("cliphist not found", "warn", { title = "Snacks" })
+				end
+			end,
+			desc = "Cliphist",
+		},
+		{
 			"gd",
 			function()
 				Snacks.picker.lsp_definitions()
