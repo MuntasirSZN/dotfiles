@@ -1,6 +1,7 @@
 return {
 	"gbprod/yanky.nvim",
 	recommended = true,
+	lazy = true,
 	event = "VeryLazy",
 	desc = "Better Yank/Paste",
 	opts = {

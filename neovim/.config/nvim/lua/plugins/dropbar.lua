@@ -1,5 +1,6 @@
 return {
 	"Bekaboo/dropbar.nvim",
+	lazy = true,
 	event = "VeryLazy",
 	opts = {
 		["icons.kinds.symbols"] = {

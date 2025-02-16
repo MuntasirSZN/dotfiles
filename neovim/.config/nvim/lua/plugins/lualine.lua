@@ -89,7 +89,7 @@ return {
 							return require("lazydo").get_lualine_stats() -- status
 						end,
 						cond = function()
-							return require("lazydo")._initialized -- condition for lualine
+							return lazy_require("lazydo")._initialized -- condition for lualine
 						end,
 					},
 					{

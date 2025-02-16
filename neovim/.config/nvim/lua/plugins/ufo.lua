@@ -3,6 +3,7 @@ return {
 	event = {
 		"LspAttach",
 	},
+	lazy = true,
 	dependencies = {
 		"kevinhwang91/promise-async",
 		{

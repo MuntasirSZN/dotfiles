@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
+		lazy = true,
 		event = "VeryLazy",
 		config = function()
 			local theme_colors = require("catppuccin.palettes").get_palette()

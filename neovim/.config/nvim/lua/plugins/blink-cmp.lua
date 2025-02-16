@@ -37,6 +37,7 @@ return {
 	{
 		"xzbdmw/colorful-menu.nvim",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("colorful-menu").setup({})
 		end,

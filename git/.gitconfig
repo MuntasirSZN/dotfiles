@@ -33,3 +33,5 @@
 	gpgsign = true
 [credential "https://github.com"]
 	username = MuntasirSZN
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*

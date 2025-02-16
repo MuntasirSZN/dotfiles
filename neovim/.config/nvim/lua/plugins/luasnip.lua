@@ -1,15 +1,5 @@
 return {
 	{
-		"mireq/luasnip-snippets",
-		event = "VeryLazy",
-		lazy = true,
-		dependencies = { "L3MON4D3/LuaSnip" },
-		init = function()
-			-- Mandatory setup function
-			require("luasnip_snippets.common.snip_utils").setup()
-		end,
-	},
-	{
 		"L3MON4D3/LuaSnip",
 		build = "make install_jsregexp",
 		event = "VeryLazy",
@@ -20,7 +10,6 @@ return {
 			{
 				"rafamadriz/friendly-snippets",
 				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
 					require("luasnip.loaders.from_vscode").lazy_load({
 						paths = { vim.fn.stdpath("config") .. "/snippets" },
 					})
@@ -246,6 +235,16 @@ return {
 			ls.add_snippets("markdown", snippets)
 
 			return opts
+		end,
+	},
+	{
+		"mireq/luasnip-snippets",
+		event = "VeryLazy",
+		lazy = true,
+		dependencies = { "L3MON4D3/LuaSnip" },
+		init = function()
+			-- Mandatory setup function
+			lazy_require("luasnip_snippets.common.snip_utils").setup()
 		end,
 	},
 }

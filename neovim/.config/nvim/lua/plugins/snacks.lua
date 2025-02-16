@@ -61,8 +61,9 @@ return {
       bigfile = { enabled = true },
       image = {
         enabled = true,
-        markdown = {
+        doc = {
           inline = false,
+          float = false,
         },
       },
       indent = {
@@ -230,13 +231,6 @@ return {
 				Snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
-		},
-		{
-			"<leader>cl",
-			function()
-				vim.lsp.buf.code_action()
-			end,
-			desc = "Code Actions",
 		},
 		{
 			"<leader>,",

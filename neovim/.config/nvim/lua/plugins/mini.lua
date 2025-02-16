@@ -2,6 +2,7 @@ return {
 	{
 		"echasnovski/mini.ai",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.ai").setup()
 		end,
@@ -9,6 +10,7 @@ return {
 	{
 		"echasnovski/mini.basics",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.basics").setup()
 		end,
@@ -16,6 +18,7 @@ return {
 	{
 		"echasnovski/mini.bracketed",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.bracketed").setup()
 		end,
@@ -23,6 +26,7 @@ return {
 	{
 		"echasnovski/mini.comment",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.comment").setup()
 		end,
@@ -30,6 +34,7 @@ return {
 	{
 		"echasnovski/mini.move",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.move").setup()
 		end,
@@ -37,6 +42,7 @@ return {
 	{
 		"echasnovski/mini.operators",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.operators").setup()
 		end,
@@ -44,6 +50,7 @@ return {
 	{
 		"echasnovski/mini.splitjoin",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.splitjoin").setup()
 		end,
@@ -51,6 +58,7 @@ return {
 	{
 		"echasnovski/mini.surround",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.surround").setup()
 		end,
@@ -58,6 +66,7 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		event = "VeryLazy",
+		lazy = true,
 		config = function()
 			require("mini.pairs").setup({
 				modes = { insert = true, command = true, terminal = false },

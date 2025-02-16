@@ -4,7 +4,7 @@ return {
 	branch = "harpoon2",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	keys = function()
-		local harpoon = require("harpoon")
+		local harpoon = lazy_require("harpoon")
 		local keys = {
 			{
 				"<leader>h",
