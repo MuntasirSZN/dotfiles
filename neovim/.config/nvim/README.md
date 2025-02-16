@@ -6,15 +6,16 @@
 <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/leaderkey?style=for-the-badge" /></a>
 <a href="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim"><img src="https://dotfyle.com/MuntasirSZN/dotfiles-neovim-config-nvim/badges/plugin-manager?style=for-the-badge" /></a>
 
-## Table Of Contents
+## 🚦 Table Of Contents
 
 <!--toc:start-->
 
+- [:vertical_traffic_light: Table Of Contents](#verticaltrafficlight-table-of-contents)
 - [:sparkles: Features Supported](#sparkles-features-supported)
 - [:eyes: Showcase](#eyes-showcase)
-- [:zap: Requirements](#zap-requirements)
-- [:file_folder: File Structure](#file_folder-file-structure)
+- [:file_folder: File Structure](#filefolder-file-structure)
 - [:star: Plugins](#star-plugins)
+- [:zap: Requirements](#zap-requirements)
 - [:rocket: Getting Started](#rocket-getting-started)
 - [:wave: Credits](#wave-credits)
 
