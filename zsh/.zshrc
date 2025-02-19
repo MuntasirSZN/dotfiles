@@ -52,6 +52,9 @@ fi
 
 export PATH="/home/muntasir/go/bin:$PATH"
 
+# ZSh syntax highlighting
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 export PATH="/home/muntasir/.config/composer/vendor/bin:$PATH"
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download Zinit, if it's not there yet
@@ -105,6 +108,12 @@ export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 #Fzf
 source <(fzf --zsh)
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --style=full
@@ -187,7 +196,8 @@ eval "$(atuin init zsh --disable-ctrl-r)"
 eval "$(direnv hook zsh)"
 
 alias ai-enable='source ~/.local/bin/ai-enable'
-alias aur-enable='source ~/.local/bin/aur'
+alias aur-enable='source ~/.local/bin/aur-enable'
+alias pop-enable='source ~/.local/bin/pop-enable'
 
 alias ltree="eza --tree --level=2  --icons --git"
 eval "$(gh copilot alias -- zsh)"

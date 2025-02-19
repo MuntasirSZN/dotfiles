@@ -19,13 +19,10 @@ require("lazy").setup({
 		{ import = "plugins" },
 	},
 	defaults = {
-		lazy = false,
+		lazy = true,
 		version = false,
-		rocks = {
-			hererocks = true,
-		},
 	},
-	install = { colorscheme = { "tokyonight", "habamax" } },
+	install = { colorscheme = { "catppuccin", "habamax" } },
 	checker = {
 		enabled = true,
 		notify = true,

@@ -24,6 +24,5 @@ window-padding-y = 1
 # Shader
 # custom-shader = shaders/gradient-background.glsl
 
-# Catppuccin Theme
-# For all available themes, run `ghostty +list-themes`
-theme = catppuccin-mocha
+# Theme
+theme = catppuccin-mocha.conf

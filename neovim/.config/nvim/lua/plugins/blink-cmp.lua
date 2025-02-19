@@ -42,6 +42,16 @@ return {
 			require("colorful-menu").setup({})
 		end,
 	},
+	-- Compatibility Layer
+	{
+		"saghen/blink.compat",
+		lazy = true,
+		main = "blink-compat",
+		---@module 'blink.compat'
+		---@type blink.compat.Config
+		opts = {},
+		version = "*",
+	},
 	{
 		"saghen/blink.cmp",
 		lazy = false,
@@ -64,16 +74,6 @@ return {
 				"Kaiser-Yang/blink-cmp-git",
 				dependencies = { "nvim-lua/plenary.nvim" },
 			},
-			-- Compatibility Layer
-			{
-				"saghen/blink.compat",
-				---@module 'blink.compat'
-				---@type blink.compat.Config
-				opts = {
-					impersonate_nvim_cmp = true,
-				},
-				version = "*",
-			},
 		},
 		opts_extend = {
 			"sources.completion.enabled_providers",
@@ -83,6 +83,28 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
+			cmdline = {
+				enabled = true,
+				keymap = nil,
+				sources = function()
+					local type = vim.fn.getcmdtype()
+
+					if type == "/" or type == "?" then
+						return { "buffer" }
+					end
+					if type == ":" or type == "@" then
+						return { "cmdline" }
+					end
+					return {}
+				end,
+				completion = {
+					menu = {
+						draw = {
+							columns = { { "kind_icon", "label", "label_description" } },
+						},
+					},
+				},
+			},
 			snippets = {
 				preset = "luasnip",
 				expand = function(snippet)
@@ -428,7 +450,9 @@ return {
 				lockedIssue = { default = false, fg = "#f5c2e7" },
 			}
 			for kind_name, hl in pairs(blink_cmp_git_kind_name_highlight) do
-				vim.api.nvim_set_hl(0, "BlinkCmpKind" .. kind_name, hl)
+				vim.api.nvim_set_hl(0, "BlinkCmpGitKind" .. kind_name, hl)
+				vim.api.nvim_set_hl(0, "BlinkCmpGitKindIcon" .. kind_name, hl)
+				vim.api.nvim_set_hl(0, "BlinkCmpGitLabel" .. kind_name .. "Id", hl)
 			end
 
 			local blink_cmp_kind_name_highlight = {

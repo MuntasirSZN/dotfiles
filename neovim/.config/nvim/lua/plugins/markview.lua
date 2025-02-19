@@ -11,6 +11,9 @@ return {
 		require("markview").setup({
 			preview = {
 				filetypes = {
+					"yaml",
+					"latex",
+					"typst",
 					"markdown",
 					"norg",
 					"rmd",

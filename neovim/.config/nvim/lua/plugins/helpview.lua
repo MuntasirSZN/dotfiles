@@ -1,9 +1,6 @@
 return {
   "OXY2DEV/helpview.nvim",
-
-  -- In case you still want to lazy load
-  ft = "help",
-
+  lazy = false,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },

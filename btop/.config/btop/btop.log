@@ -71,3 +71,94 @@ btop++ needs an interactive shell to run.
 
 2025/01/14 (17:15:40) | ===> btop++ v.1.4.0
 2025/01/14 (17:15:40) | WARNING: Intel GPU: Failed to initialize PMU
+
+2025/02/17 (18:45:26) | ===> btop++ v.1.4.0
+2025/02/17 (18:45:26) | WARNING: Intel GPU: Failed to initialize PMU
+
+2025/02/17 (18:45:30) | ===> btop++ v.1.4.0
+2025/02/17 (18:45:30) | WARNING: Intel GPU: Failed to initialize PMU
+
+2025/02/17 (18:45:45) | ===> btop++ v.1.4.0
+2025/02/17 (18:45:45) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:45) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:45) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:45) | WARNING: Intel GPU: Failed to initialize PMU
+2025/02/17 (18:45:45) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:46) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:47) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:48) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:49) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:50) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:51) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:52) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:53) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:55) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:56) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:57) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:58) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:45:59) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:00) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:01) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:02) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:03) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:05) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:06) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:07) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:08) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:09) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:11) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:12) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:13) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:14) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:15) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:16) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:17) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:19) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:20) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:21) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:22) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:23) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:24) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:25) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:26) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:27) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:28) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:29) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:30) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:31) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:32) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:33) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:34) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:35) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:36) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:37) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:38) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:39) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:41) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:43) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:45) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:46) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:47) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:49) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:49) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:50) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:51) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:52) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:53) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:54) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:55) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:57) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:46:59) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:01) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:02) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:03) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:05) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:07) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:08) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:09) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:11) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:13) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:13) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:15) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:17) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+2025/02/17 (18:47:18) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
