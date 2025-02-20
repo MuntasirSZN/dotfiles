@@ -165,3 +165,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		end)
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*.md","*.yaml","*.yml" },
+  callback = function ()
+    vim.cmd("Markview splitToggle")
+  end
+})

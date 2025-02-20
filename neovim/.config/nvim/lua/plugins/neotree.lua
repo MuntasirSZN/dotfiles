@@ -64,8 +64,7 @@ return {
 	end,
 	config = function()
 		local function on_move(data)
-			-- Implement your own LSP rename logic here
-			-- For example, you can use vim.lsp.buf.rename()
+			Snacks.rename.on_rename_file(data.source, data.destination)
 		end
 		local events = require("neo-tree.events")
 		local sources = {
