@@ -30,7 +30,7 @@
       ]
     }
   },
-  "menus.dashboard.powermenu.avatar.image": "/home/muntasir/.config/hyprpanel/MuntasirDiscordpfp.webp",
+  "menus.dashboard.powermenu.avatar.image": "/home/muntasir/.config/hyprpanel/pfp.jpg",
   "theme.bar.menus.background": "#11111b",
   "theme.bar.background": "#11111b",
   "theme.bar.buttons.media.icon": "#b4befe",
