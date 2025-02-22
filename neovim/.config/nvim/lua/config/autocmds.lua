@@ -166,9 +166,16 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*.md","*.yaml","*.yml" },
-  callback = function ()
-    vim.cmd("Markview splitToggle")
-  end
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+	pattern = { "*.md", "*.yaml", "*.yml" },
+	callback = function()
+		vim.cmd([[
+      Markview splitOpen
+    ]])
+		vim.cmd("Markview detach")
+		local mode = vim.api.nvim_get_mode().mode
+		if mode == "i" and vim.bo.filetype == "yaml" then
+			Snacks.indent.disable()
+		end
+	end,
 })

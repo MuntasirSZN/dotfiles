@@ -25,7 +25,7 @@ Run the bash script to install the required packages and create symlinks for the
 > Check the script first before running it.
 
 ```sh
-curl -s https://raw.githubusercontent.com/MuntasirSZN/dotfiles/main/install.sh -o install && chmod +x install && ./install
+curl -s https://raw.githubusercontent.com/MuntasirSZN/dotfiles/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 
 ### Configuration Files

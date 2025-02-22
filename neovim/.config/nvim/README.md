@@ -132,10 +132,6 @@
 
 - [nvim-neo-tree/neo-tree.nvim](https://dotfyle.com/plugins/nvim-neo-tree/neo-tree.nvim)
 
-### fuzzy-finder
-
-- [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
-
 ### git
 
 - [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)

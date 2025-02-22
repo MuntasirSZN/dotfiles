@@ -2,6 +2,10 @@ return {
 	"Bekaboo/dropbar.nvim",
 	lazy = false,
 	event = "VeryLazy",
+	dependencies = {
+		"nvim-telescope/telescope-fzf-native.nvim",
+		build = "make",
+	},
 	opts = {
 		["icons.kinds.symbols"] = {
 			Emoji = "󰞅",
