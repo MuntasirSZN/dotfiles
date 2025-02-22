@@ -80,8 +80,7 @@ zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light marlonrichert/zsh-autocomplete
 zinit light loiccoyle/zsh-github-copilot
 zinit light olets/zsh-abbr
-
-abbr erase 1 > /dev/null 2>&1
+zinit light olets/zsh-autosuggestions-abbreviations-strategy
 
 export ABBR_GET_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION=1
@@ -113,14 +112,12 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
---multi"
+"
 export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --style=full
   --preview 'fzf-preview.sh {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-
-export FZF_CTRL_R_OPTS="--style=full"
 
 # History
 HISTFILE=~/.zsh_history
