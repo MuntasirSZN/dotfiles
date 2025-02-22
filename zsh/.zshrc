@@ -1,8 +1,9 @@
+################
+#   .zshrc     #
+################
+
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH="/home/muntasir/.zsh/completions:$FPATH"; fi
-#
-#.zshrc
-#
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -162,7 +163,7 @@ alias cat="bat"
 
 # tabtab source for packages
 # uninstall by removing these lines
-# [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 rm -rf /tmp/hypr
 ln -s $XDG_RUNTIME_DIR/hypr /tmp/hypr
@@ -219,3 +220,5 @@ rfv() (
       --preview-window '~4,+{2}+4/3,<80(up)' \
       --query "$*"
 )
+
+source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
