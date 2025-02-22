@@ -52,61 +52,13 @@ fi
 
 export PATH="/home/muntasir/go/bin:$PATH"
 
-# ZSh syntax highlighting
+# Zsh syntax highlighting
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-
-export PATH="/home/muntasir/.config/composer/vendor/bin:$PATH"
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-source "${ZINIT_HOME}/zinit.zsh"
-zinit light ohmyzsh/ohmyzsh
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::rust
-zinit snippet OMZP::command-not-found
-
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light marlonrichert/zsh-autocomplete
-zinit light loiccoyle/zsh-github-copilot
-zinit light olets/zsh-abbr
-zinit light olets/zsh-autosuggestions-abbreviations-strategy
-
-export ABBR_GET_AVAILABLE_ABBREVIATION=1
-export ABBR_LOG_AVAILABLE_ABBREVIATION=1
-
-bindkey              '^I'         menu-complete
-bindkey "$terminfo[kcbt]" reverse-menu-complete
-
-bindkey              '^I' menu-select
-bindkey "$terminfo[kcbt]" menu-select
-
-bindkey -M menuselect              '^I'         menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-
-bindkey '^[|' zsh_gh_copilot_explain
-bindkey '^[\' zsh_gh_copilot_suggest
-
-export EDITOR='nvim'
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 #Fzf
 source <(fzf --zsh)
+source ~/.zsh/fzf-git.sh
+KEYTIMEOUT=100
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -118,6 +70,54 @@ export FZF_CTRL_T_OPTS="
   --style=full
   --preview 'fzf-preview.sh {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Composer
+export PATH="/home/muntasir/.config/composer/vendor/bin:$PATH"
+
+# Zinit plugin manager
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light ohmyzsh/ohmyzsh
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::aws
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::rust
+zinit snippet OMZP::command-not-found
+
+zinit light zsh-users/zsh-completions
+zinit light Aloxaf/fzf-tab
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light loiccoyle/zsh-github-copilot
+zinit light olets/zsh-abbr
+zinit light olets/zsh-autosuggestions-abbreviations-strategy
+
+# Respect fzf opts
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
+export ABBR_GET_AVAILABLE_ABBREVIATION=1
+export ABBR_LOG_AVAILABLE_ABBREVIATION=1
+
+bindkey '^[|' zsh_gh_copilot_explain
+bindkey '^[\' zsh_gh_copilot_suggest
+
+export EDITOR='nvim'
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # History
 HISTFILE=~/.zsh_history
@@ -162,7 +162,7 @@ alias cat="bat"
 
 # tabtab source for packages
 # uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 rm -rf /tmp/hypr
 ln -s $XDG_RUNTIME_DIR/hypr /tmp/hypr
