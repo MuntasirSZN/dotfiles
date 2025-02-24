@@ -74,18 +74,19 @@ return {
       input = { enabled = true },
       notifier = {
         enabled = true,
-        filter = function(notif)
-          if notif.msg == "Error loading picker provider telescope" then
-            return false
-          end
-          return true
-        end
       },
-      scroll = { enabled = true, },
+      scroll = { enabled = true },
       words = { enabled = true },
       quickfile = { enabled = true },
       spell = { enabled = true },
       picker = {
+        sources = {
+          select = {
+            layout = {
+              preset = "telescope-custom-select",
+            },
+          },
+        },
         enabled = true,
         matcher = {
           frecency = true,
@@ -95,6 +96,27 @@ return {
           preset = "telescope-custom",
         },
         layouts = {
+          ["telescope-custom-select"] = {
+            reverse = false,
+            layout = {
+              box = "horizontal",
+              backdrop = false,
+              width = 0.5,
+              height = 2,
+              border = "none",
+              {
+                box = "vertical",
+                { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
+                {
+                  win = "list",
+                  title = " Results ",
+                  title_pos = "center",
+                  border = "rounded",
+                  height = 30
+                },
+              },
+            },
+          },
           ["telescope-custom"] = {
             reverse = false,
             layout = {

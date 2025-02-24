@@ -3,7 +3,6 @@ return {
 	event = "VeryLazy",
 	lazy = true,
 	dependencies = {
-		"saghen/blink.cmp",
 		"williamboman/mason-lspconfig.nvim",
 	},
 	opts = function()
@@ -48,6 +47,33 @@ return {
 
 	config = function(_, opts)
 		for server, config in pairs(opts.servers) do
+			local on_attach = function(client, bufnr)
+				if client.server_capabilities.inlayHintProvider then
+					vim.lsp.inlay_hint.enable(vim.lsp.inlay_hint.is_enabled({}), { bufnr = bufnr })
+				end
+
+				if client.server_capabilities.inlayHintProvider then
+					local codelens = vim.api.nvim_create_augroup("LSPCodeLens", { clear = true })
+					vim.api.nvim_create_autocmd({ "BufEnter" }, {
+						group = codelens,
+						callback = function()
+							vim.lsp.codelens.refresh()
+						end,
+						buffer = bufnr,
+						once = true,
+					})
+					vim.api.nvim_create_autocmd({ "BufWritePost", "CursorHold" }, {
+						group = codelens,
+						callback = function()
+							vim.lsp.codelens.refresh()
+						end,
+						buffer = bufnr,
+					})
+				end
+			end
+
+			config.on_attach = on_attach
+
 			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 			config.capabilities.textDocument.foldingRange = {
 				dynamicRegistration = false,

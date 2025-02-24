@@ -34,6 +34,7 @@ return {
 			"yamlfmt",
 			"bacon",
 			"bacon-ls",
+			"copilot-language-server",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

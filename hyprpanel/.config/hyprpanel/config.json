@@ -15,7 +15,8 @@
       "left": [
         "dashboard",
         "media",
-        "windowtitle"
+        "windowtitle",
+        "cava"
       ],
       "middle": [
         "workspaces"
@@ -449,5 +450,16 @@
   "theme.bar.buttons.padding_x": "0.7rem",
   "theme.bar.buttons.padding_y": "0.2rem",
   "theme.bar.border_radius": "0.4em",
-  "theme.bar.buttons.radius": "0.3em"
+  "theme.bar.buttons.radius": "0.3em",
+  "theme.bar.menus.monochrome": false,
+  "wallpaper.pywal": false,
+  "wallpaper.enable": true,
+  "theme.bar.menus.opacity": 100,
+  "theme.bar.enableShadow": false,
+  "theme.matugen": false,
+  "theme.bar.transparent": false,
+  "theme.bar.opacity": 80,
+  "theme.bar.buttons.opacity": 90,
+  "theme.bar.buttons.background_opacity": 100,
+  "theme.bar.buttons.monochrome": false
 }

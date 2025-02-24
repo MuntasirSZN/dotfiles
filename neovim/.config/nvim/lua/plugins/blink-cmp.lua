@@ -54,7 +54,6 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
-		lazy = false,
 		event = "VeryLazy",
 		version = "*",
 		dependencies = {
@@ -83,28 +82,6 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			cmdline = {
-				enabled = true,
-				keymap = nil,
-				sources = function()
-					local type = vim.fn.getcmdtype()
-
-					if type == "/" or type == "?" then
-						return { "buffer" }
-					end
-					if type == ":" or type == "@" then
-						return { "cmdline" }
-					end
-					return {}
-				end,
-				completion = {
-					menu = {
-						draw = {
-							columns = { { "kind_icon", "label", "label_description" } },
-						},
-					},
-				},
-			},
 			snippets = {
 				preset = "luasnip",
 				expand = function(snippet)
@@ -188,7 +165,7 @@ return {
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
-						score_offset = 100, -- show at a higher priority than lsp
+						score_offset = 99, -- show at a higher priority than lsp
 					},
 					dadbod = {
 						name = "Dadbod",
@@ -237,6 +214,15 @@ return {
 							max_completions = 3,
 							max_attempts = 4,
 						},
+						transform_items = function(_, items)
+							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
+							local kind_idx = #CompletionItemKind + 1
+							CompletionItemKind[kind_idx] = "Copilot"
+							for _, item in ipairs(items) do
+								item.kind = kind_idx
+							end
+							return items
+						end,
 					},
 					dictionary = {
 						module = "blink-cmp-dictionary",
