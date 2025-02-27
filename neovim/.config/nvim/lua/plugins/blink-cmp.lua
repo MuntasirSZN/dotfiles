@@ -154,6 +154,9 @@ return {
 						end,
 					},
 					lsp = {
+						opts = {
+							tailwind_color_icon = "󱓻",
+						},
 						override = {
 							get_trigger_characters = function(self)
 								local trigger_characters = self:get_trigger_characters()
@@ -227,8 +230,6 @@ return {
 					dictionary = {
 						module = "blink-cmp-dictionary",
 						name = "Dict",
-						-- Make sure this is at least 2.
-						-- 3 is recommended
 						async = true,
 						min_keyword_length = 3,
 						opts = {
@@ -264,7 +265,9 @@ return {
 						enabled = true,
 						async = true,
 						should_show_items = function()
-							return vim.o.filetype == "gitcommit" or vim.o.filetype == "markdown"
+							return vim.o.filetype == "gitcommit"
+								or vim.o.filetype == "markdown"
+								or vim.bo.filetype == "octo"
 						end,
 						---@module "blink-cmp-git"
 						---@type blink-cmp-git.Options
@@ -351,16 +354,6 @@ return {
 								end,
 								highlight = function(ctx)
 									return require("colorful-menu").blink_components_highlight(ctx)
-								end,
-							},
-							kind_icon = {
-								text = function(ctx)
-									if
-										require("blink.cmp.completion.windows.render.tailwind").get_hex_color(ctx.item)
-									then
-										return "󱓻"
-									end
-									return ctx.kind_icon .. ctx.icon_gap
 								end,
 							},
 						},

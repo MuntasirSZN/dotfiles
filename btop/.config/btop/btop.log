@@ -162,3 +162,12 @@ btop++ needs an interactive shell to run.
 2025/02/17 (18:47:15) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
 2025/02/17 (18:47:17) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
 2025/02/17 (18:47:18) | ERROR: Couldn't determine terminal size of "STDOUT_FILENO"!
+
+2025/02/24 (18:08:32) | ===> btop++ v.1.4.0
+2025/02/24 (18:08:32) | WARNING: Intel GPU: Failed to initialize PMU
+
+2025/02/24 (18:08:58) | ===> btop++ v.1.4.0
+2025/02/24 (18:08:58) | WARNING: Intel GPU: Failed to initialize PMU
+
+2025/02/26 (15:13:06) | ===> btop++ v.1.4.0
+2025/02/26 (15:13:06) | WARNING: Intel GPU: Failed to initialize PMU

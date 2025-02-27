@@ -457,7 +457,7 @@
   "theme.bar.menus.opacity": 100,
   "theme.bar.enableShadow": false,
   "theme.matugen": false,
-  "theme.bar.transparent": false,
+  "theme.bar.transparent": true,
   "theme.bar.opacity": 80,
   "theme.bar.buttons.opacity": 90,
   "theme.bar.buttons.background_opacity": 100,

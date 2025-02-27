@@ -9,6 +9,6 @@ if vim.env.PROF then
 end
 
 require("config.options")
-require("config.keymaps")
-require("config.autocmds")
 require("config.lazy")
+require("config.autocmds")
+require("config.keymaps")

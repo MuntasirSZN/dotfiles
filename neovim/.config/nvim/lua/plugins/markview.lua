@@ -2,7 +2,20 @@ return {
 	"OXY2DEV/markview.nvim",
 	lazy = false, -- Recommended
 	event = "VeryLazy",
-
+	keys = {
+		{
+			"<leader>m",
+			function() end,
+			desc = "Markdown",
+		},
+		{
+			"<leader>mc",
+			function()
+				vim.cmd("Checkbox")
+			end,
+			desc = "Checkbox",
+		},
+	},
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
