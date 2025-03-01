@@ -236,38 +236,30 @@ return {
 							dictionary_files = {
 								vim.fn.expand("~/.config/nvim/words/words.txt"),
 							},
-							separate_output = function(output)
-								local items = {}
-								for line in output:gmatch("[^\r\n]+") do
-									table.insert(items, {
-										label = line,
-										insert_text = line,
-										-- If you want to disable the documentation feature, just set it to nil
-										documentation = {
-											get_command = "dict",
-											get_command_args = {
-												line,
-											},
-											---@diagnostic disable-next-line: redefined-local
-											resolve_documentation = function(output)
-												return output
-											end,
-										},
-									})
-								end
-								return items
+							get_documentation = function(item)
+								-- use return nil to disable the documentation
+								-- return nil
+								return {
+									get_command = function()
+										return "dict"
+									end,
+									get_command_args = function()
+										return { item }
+									end,
+									resolve_documentation = function(output)
+										return output
+									end,
+									on_error = require("blink-cmp-dictionary.default").on_error,
+								}
 							end,
 						},
 					},
 					git = {
 						module = "blink-cmp-git",
 						name = "Git",
-						enabled = true,
 						async = true,
-						should_show_items = function()
-							return vim.o.filetype == "gitcommit"
-								or vim.o.filetype == "markdown"
-								or vim.bo.filetype == "octo"
+						enabled = function()
+							return vim.tbl_contains({ "octo", "gitcommit", "markdown" }, vim.bo.filetype)
 						end,
 						---@module "blink-cmp-git"
 						---@type blink-cmp-git.Options

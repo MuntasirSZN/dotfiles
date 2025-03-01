@@ -461,5 +461,10 @@
   "theme.bar.opacity": 80,
   "theme.bar.buttons.opacity": 90,
   "theme.bar.buttons.background_opacity": 100,
-  "theme.bar.buttons.monochrome": false
+  "theme.bar.buttons.monochrome": false,
+  "menus.media.displayTime": true,
+  "menus.media.displayTimeTooltip": true,
+  "menus.dashboard.shortcuts.left.shortcut2.command": "spotify",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen Browser",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "zen-browser"
 }

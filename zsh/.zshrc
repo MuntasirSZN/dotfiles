@@ -10,6 +10,24 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 autoload -Uz compinit
 compinit
 
+SESSION_NAME="startup"
+
+# Only run if not inside an existing tmux session
+if [[ -z "$TMUX" ]]; then
+    # Check if the session exists
+    if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+        # Check if the session has no attached clients (all terminals closed)
+        if [[ $(tmux list-clients -t "$SESSION_NAME" | wc -l) -eq 0 ]]; then
+            tmux kill-session -t "$SESSION_NAME"
+            tmux new-session -s "$SESSION_NAME"
+        fi
+        tmux attach-session -t "$SESSION_NAME"
+    else
+        # If session doesn't exist, create a new one
+        tmux new-session -s "$SESSION_NAME"
+    fi
+fi
+
 export MANPATH="/usr/local/man:$MANPATH"
 
 if [[ -n $SSH_CONNECTION ]]; then
