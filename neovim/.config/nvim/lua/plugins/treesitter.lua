@@ -46,4 +46,7 @@ return {
 			},
 		}
 	end,
+	dependencies = {
+		{ "uncenter/tree-sitter-tera", build = ":TSUpdate tera", lazy = false },
+	},
 }

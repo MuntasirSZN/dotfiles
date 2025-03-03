@@ -108,6 +108,11 @@ return {
 							return require("custom.lualine").processing
 						end,
 					},
+					{
+						require("lazy.status").updates,
+						cond = require("lazy.status").has_updates,
+						color = { fg = "#DDB2D1" },
+					},
 					"encoding",
 					"fileformat",
 					"filetype",

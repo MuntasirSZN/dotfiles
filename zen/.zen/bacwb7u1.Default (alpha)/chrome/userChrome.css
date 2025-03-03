@@ -125,7 +125,7 @@
   }
 
   #nav-bar {
-    min-height: calc(var(--zen-toolbar-height) + 5px) !important;
+    min-height: calc(var(--zen-toolbar-height) + 10px) !important;
   }
 
   #nav-bar,
@@ -149,7 +149,7 @@
 @media (-moz-bool-pref: "zen.view.compact") and (-moz-bool-pref: "uc.floatingtoolbar.compact.enabled") {
   #nav-bar,
   #PersonalToolbar {
-    width: 75vw !important;
+    width: 80vw !important;
     margin-left: calc(14.5vw - var(--zen-element-separation) * 2) !important;
   }
 }
