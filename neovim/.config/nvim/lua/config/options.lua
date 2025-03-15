@@ -149,6 +149,7 @@ vim.g.markdown_recommended_style = 0
 vim.diagnostic.config({
 	underline = true,
 	virtual_text = false,
+	update_in_insert = true,
 	document_highlight = {
 		enabled = true,
 	},
@@ -197,3 +198,5 @@ vim.filetype.add({
 		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
+
+vim.filetype.add({ extension = { tera = "tera" } })

@@ -1,5 +1,5 @@
 return {
-	dir = "~/projects/octo.nvim/fork",
+	"pwntester/octo.nvim",
 	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",

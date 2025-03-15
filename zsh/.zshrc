@@ -161,6 +161,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias man="batman"
+eval "$(batpipe)"
+export BATPIPE_ENABLE_COLOR=true
+export BATDIFF_USE_DELTA=true
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
@@ -175,7 +178,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 . "/home/muntasir/.deno/env"
 
-alias cat="bat"
+alias cat="bat --paging=never"
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -238,3 +241,5 @@ rfv() (
 )
 
 source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
+
+alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'

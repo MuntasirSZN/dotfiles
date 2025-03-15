@@ -279,7 +279,7 @@ mv ~/.config/nvim ~/.config/nvim.bak
 stow neovim
 ```
 
-4. Open Neovim And Enjoy !
+4. Open Neovim And Enjoy!
 
 ```sh
 nvim

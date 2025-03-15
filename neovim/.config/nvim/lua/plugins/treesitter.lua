@@ -26,7 +26,8 @@ return {
 			highlight = {
 				enable = true,
 				disable = function(lang)
-					local allowed_filetypes = { "markdown", "vimwiki", "norg", "rst", "markdown_inline" }
+					local allowed_filetypes =
+						{ "markdown", "vimwiki", "norg", "rst", "markdown_inline", "lua_patterns" }
 					for _, filetype in ipairs(allowed_filetypes) do
 						if lang == filetype then
 							return false -- Do not disable highlighting for these file types
@@ -46,7 +47,4 @@ return {
 			},
 		}
 	end,
-	dependencies = {
-		{ "uncenter/tree-sitter-tera", build = ":TSUpdate tera", lazy = false },
-	},
 }

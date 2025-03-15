@@ -1,9 +1,19 @@
 return {
 	{
-		"L3MON4D3/LuaSnip",
-		build = "make install_jsregexp",
+		"mireq/luasnip-snippets",
 		event = "VeryLazy",
 		lazy = true,
+		dependencies = { "L3MON4D3/LuaSnip" },
+		init = function()
+			-- Mandatory setup function
+			lazy_require("luasnip_snippets.common.snip_utils").setup()
+		end,
+	},
+
+	{
+		"L3MON4D3/LuaSnip",
+		build = "make install_jsregexp",
+		lazy = false,
 		version = "*",
 		dependencies = {
 			"mireq/luasnip-snippets",
@@ -235,16 +245,6 @@ return {
 			ls.add_snippets("markdown", snippets)
 
 			return opts
-		end,
-	},
-	{
-		"mireq/luasnip-snippets",
-		event = "VeryLazy",
-		lazy = true,
-		dependencies = { "L3MON4D3/LuaSnip" },
-		init = function()
-			-- Mandatory setup function
-			lazy_require("luasnip_snippets.common.snip_utils").setup()
 		end,
 	},
 }

@@ -1,7 +1,6 @@
 return {
 	"OXY2DEV/markview.nvim",
 	lazy = false, -- Recommended
-	event = "VeryLazy",
 	keys = {
 		{
 			"<leader>m",
@@ -19,6 +18,7 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
+		"saghen/blink.cmp",
 	},
 	config = function()
 		require("markview").setup({

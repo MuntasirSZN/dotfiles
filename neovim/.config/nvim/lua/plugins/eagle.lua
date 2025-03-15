@@ -9,6 +9,12 @@ return {
 					Snacks.image.hover()
 				end
 				vim.cmd("EagleWin")
+				-- Eagle doesn't work with Cargo.toml files
+				-- So use the defaults
+				local filename = vim.fn.expand("%:t")
+				if filename == "Cargo.toml" then
+					vim.lsp.buf.hover()
+				end
 			end,
 			desc = "Documentation",
 		},
@@ -17,6 +23,7 @@ return {
 		require("eagle").setup({
 			border = "none",
 			keyboard_mode = true,
+			mouse_mode = true,
 		})
 	end,
 }

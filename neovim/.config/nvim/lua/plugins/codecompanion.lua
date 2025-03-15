@@ -5,7 +5,6 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
-		"OX2DEV/markview.nvim",
 	},
 	config = function()
 		vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })

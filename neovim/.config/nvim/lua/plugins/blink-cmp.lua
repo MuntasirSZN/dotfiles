@@ -36,8 +36,7 @@ end
 return {
 	{
 		"xzbdmw/colorful-menu.nvim",
-		event = "VeryLazy",
-		lazy = true,
+		lazy = false,
 		config = function()
 			require("colorful-menu").setup({})
 		end,
@@ -45,7 +44,7 @@ return {
 	-- Compatibility Layer
 	{
 		"saghen/blink.compat",
-		lazy = true,
+		lazy = false,
 		main = "blink-compat",
 		---@module 'blink.compat'
 		---@type blink.compat.Config
@@ -54,7 +53,6 @@ return {
 	},
 	{
 		"saghen/blink.cmp",
-		event = "VeryLazy",
 		version = "*",
 		dependencies = {
 			-- Snippets
@@ -100,37 +98,23 @@ return {
 			sources = {
 				per_filetype = {
 					codecompanion = { "codecompanion" },
+					markdown = { "markview" },
 				},
 				compat = { "crates" },
-				default = function()
-					local sources = {
-						"lsp",
-						"path",
-						"snippets",
-						"buffer",
-						"lazydev",
-						"dadbod",
-						"ripgrep",
-						"copilot",
-						"crates",
-						"dictionary",
-						"git",
-					}
-					local filetype = vim.bo.filetype
-					local emoji_filetypes = {
-						"markdown",
-						"norg",
-						"rmd",
-						"org",
-						"mdx",
-					}
-
-					if vim.tbl_contains(emoji_filetypes, filetype) then
-						table.insert(sources, "emoji")
-						table.insert(sources, "nerdfont")
-					end
-					return sources
-				end,
+				default = {
+					"lsp",
+					"path",
+					"snippets",
+					"buffer",
+					"lazydev",
+					"dadbod",
+					"ripgrep",
+					"copilot",
+					"crates",
+					"dictionary",
+					"git",
+					"nerdfont",
+				},
 				providers = {
 					nerdfont = {
 						module = "blink-nerdfont",
@@ -140,7 +124,7 @@ return {
 						}, -- Insert nerdfont icon (default) or complete its name
 						override = {
 							get_trigger_characters = function()
-								return { "!" }
+								return { "$" }
 							end,
 						},
 						transform_items = function(_, items)
@@ -156,13 +140,6 @@ return {
 					lsp = {
 						opts = {
 							tailwind_color_icon = "󱓻",
-						},
-						override = {
-							get_trigger_characters = function(self)
-								local trigger_characters = self:get_trigger_characters()
-								vim.list_extend(trigger_characters, { "\n", "\t", " " })
-								return trigger_characters
-							end,
 						},
 					},
 					lazydev = {
@@ -206,6 +183,9 @@ return {
 								item.kind = kind_idx
 							end
 							return items
+						end,
+						enabled = function()
+							return vim.tbl_contains({ "markdown", "norg", "rmd", "org", "mdx" }, vim.bo.filetype)
 						end,
 					},
 					copilot = {
@@ -316,9 +296,6 @@ return {
 			},
 			signature = { enabled = true },
 			completion = {
-				trigger = {
-					show_on_blocked_trigger_characters = {},
-				},
 				list = {
 					selection = {
 						auto_insert = false,

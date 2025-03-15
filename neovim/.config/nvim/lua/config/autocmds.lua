@@ -193,3 +193,10 @@ vim.api.nvim_create_autocmd("User", {
 		vim.b.copilot_suggestion_hidden = false
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tera",
+	callback = function(event)
+		vim.bo[event.buf].commentstring = "{# %s #}"
+	end,
+})

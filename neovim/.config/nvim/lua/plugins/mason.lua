@@ -32,9 +32,8 @@ return {
 			"prettierd",
 			"sqlfmt",
 			"yamlfmt",
-			"bacon",
-			"bacon-ls",
 			"copilot-language-server",
+			"rust-analyzer",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}
