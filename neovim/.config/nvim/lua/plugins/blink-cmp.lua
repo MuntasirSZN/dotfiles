@@ -54,7 +54,7 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "*",
-   lazy = false,
+		lazy = false,
 		dependencies = {
 			-- Snippets
 			"rafamadriz/friendly-snippets",
@@ -99,7 +99,6 @@ return {
 			sources = {
 				per_filetype = {
 					codecompanion = { "codecompanion" },
-					markdown = { "markview" },
 				},
 				compat = { "crates" },
 				default = {
@@ -111,10 +110,10 @@ return {
 					"dadbod",
 					"ripgrep",
 					"copilot",
-					"crates",
 					"dictionary",
 					"git",
 					"nerdfont",
+					"emoji",
 				},
 				providers = {
 					nerdfont = {
@@ -185,8 +184,11 @@ return {
 							end
 							return items
 						end,
-						enabled = function()
-							return vim.tbl_contains({ "markdown", "norg", "rmd", "org", "mdx" }, vim.bo.filetype)
+						should_show_items = function()
+							return vim.tbl_contains(
+								{ "gitcommit", "markdown", "norg", "rmd", "org", "mdx" },
+								vim.o.filetype
+							)
 						end,
 					},
 					copilot = {
