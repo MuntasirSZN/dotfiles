@@ -1,6 +1,6 @@
 return {
 	"MuntasirSZN/copilot.lua",
-	event = "BufEnter",
+	event = "InsertEnter",
 	config = function()
 		require("copilot").setup({
 			panel = { enabled = false },
@@ -27,6 +27,10 @@ return {
 			filetypes = {
 				["*"] = true,
 			},
+			workspace_folders = {
+				"/home/muntasir/projects",
+			},
+			copilot_model = "gpt-4o-copilot",
 		})
 	end,
 }

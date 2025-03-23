@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 https://github.com/MuntasirSZN 💫 ---- */  ##
 # Wallust Colors for current wallpaper
 
 # Define the path to the swww cache directory

@@ -1,4 +1,4 @@
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 https://github.com/MuntasirSZN 💫 ---- */  ##
 # Modified Script for Google Search
 # Original Submitted by https://github.com/LeventKaanOguz
 

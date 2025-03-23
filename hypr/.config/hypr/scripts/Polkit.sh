@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 https://github.com/MuntasirSZN 💫 ---- */  ##
 # This is for polkits, it will start from top and will stop if the top is executed
 
 # Polkit possible paths files to check

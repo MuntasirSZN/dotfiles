@@ -21,6 +21,7 @@ return {
 	},
 	config = function()
 		require("eagle").setup({
+			show_headers = false,
 			border = "none",
 			keyboard_mode = true,
 			mouse_mode = true,

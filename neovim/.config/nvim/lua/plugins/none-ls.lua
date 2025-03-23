@@ -19,7 +19,8 @@ return {
 
 			-- Check for Prettier and ESLint installations
 			local prettier_installed = is_installed("node_modules/prettier")
-			local eslint_installed = is_installed("node_modules/eslint")
+			local biome_installed = is_installed("node_modules/biome")
+			local eslint_plugin_format_installed = is_installed("node_modules/eslint-plugin-format")
 
 			-- Dynamically configure sources based on checks
 			local sourcesConfig = {
@@ -33,17 +34,16 @@ return {
 				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.code_actions.gitsigns,
 				null_ls.builtins.completion.spell,
-				null_ls.builtins.formatting.biome,
 			}
 
 			-- Add Prettierd if Prettier is installed
-			if prettier_installed then
+			if prettier_installed and not eslint_plugin_format_installed then
 				table.insert(sourcesConfig, null_ls.builtins.formatting.prettierd)
 			end
 
-			-- Add ESLint diagnostics if ESLint is installed
-			if eslint_installed then
-				table.insert(sourcesConfig, require("none-ls.diagnostics.eslint_d"))
+			-- Add biome if installed
+			if biome_installed then
+				table.insert(sourcesConfig, null_ls.builtins.formatting.biome)
 			end
 
 			-- Setup null-ls
