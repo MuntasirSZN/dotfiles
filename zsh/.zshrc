@@ -243,3 +243,6 @@ rfv() (
 source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
 
 alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
+
+# Git flow
+source ~/.zsh/git-flow-completion.zsh

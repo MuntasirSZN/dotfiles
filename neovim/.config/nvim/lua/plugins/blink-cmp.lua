@@ -62,7 +62,6 @@ return {
 			-- Completion sources
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
-			"MahanRahmati/blink-nerdfont.nvim",
 			"fang2hou/blink-copilot",
 			{
 				"Kaiser-Yang/blink-cmp-dictionary",
@@ -112,31 +111,9 @@ return {
 					"copilot",
 					"dictionary",
 					"git",
-					"nerdfont",
 					"emoji",
 				},
 				providers = {
-					nerdfont = {
-						module = "blink-nerdfont",
-						name = "Nerd Fonts",
-						opts = {
-							insert = true,
-						}, -- Insert nerdfont icon (default) or complete its name
-						override = {
-							get_trigger_characters = function()
-								return { "$" }
-							end,
-						},
-						transform_items = function(_, items)
-							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-							local kind_idx = #CompletionItemKind + 1
-							CompletionItemKind[kind_idx] = "NerdFont"
-							for _, item in ipairs(items) do
-								item.kind = kind_idx
-							end
-							return items
-						end,
-					},
 					lsp = {
 						opts = {
 							tailwind_color_icon = "󱓻",
@@ -337,7 +314,6 @@ return {
 				kind_icons = {
 					Emoji = "󰞅",
 					Ripgrep = "󱎸",
-					NerdFont = "",
 					Array = "",
 					Boolean = "󰨙",
 					Class = "",
@@ -409,7 +385,6 @@ return {
 			local blink_cmp_kind_name_highlight = {
 				Emoji = { default = false, fg = "#FF9800" },
 				Ripgrep = { default = false, fg = "#5D6D7E" },
-				NerdFont = { default = false, fg = "#f3f08b" },
 				Dict = { default = false, fg = "#00A6ED" },
 			}
 
