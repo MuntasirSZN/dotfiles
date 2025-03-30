@@ -5,8 +5,10 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"ravitemer/mcphub.nvim",
 	},
 	config = function()
+		vim.g.codecompanion_auto_tool_mode = true
 		vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
 		vim.api.nvim_set_keymap(
@@ -29,6 +31,18 @@ return {
 			strategies = {
 				chat = {
 					adapter = "copilot",
+					tools = {
+						["mcp"] = {
+							-- calling it in a function would prevent mcphub from being loaded before it's needed
+							callback = function()
+								return require("mcphub.extensions.codecompanion")
+							end,
+							description = "Call tools and resources from the MCP Servers",
+							opts = {
+								requires_approval = true,
+							},
+						},
+					},
 				},
 				inline = {
 					adapter = "copilot",

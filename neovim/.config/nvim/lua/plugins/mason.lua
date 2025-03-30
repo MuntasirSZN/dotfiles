@@ -32,7 +32,6 @@ return {
 			"prettierd",
 			"sqlfmt",
 			"yamlfmt",
-			"copilot-language-server",
 			"rust-analyzer",
 		},
 	},

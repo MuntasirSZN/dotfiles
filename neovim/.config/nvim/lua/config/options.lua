@@ -148,7 +148,6 @@ vim.g.markdown_recommended_style = 0
 
 vim.diagnostic.config({
 	underline = true,
-	virtual_text = false,
 	update_in_insert = true,
 	document_highlight = {
 		enabled = true,
@@ -163,10 +162,10 @@ vim.diagnostic.config({
 	},
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = "󰅙",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "󰌵",
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
 		},
 	},
 	severity_sort = true,
@@ -198,5 +197,3 @@ vim.filetype.add({
 		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
-
-vim.filetype.add({ extension = { tera = "tera" } })
