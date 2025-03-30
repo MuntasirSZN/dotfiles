@@ -5,6 +5,8 @@
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH="/home/muntasir/.zsh/completions:$FPATH"; fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 autoload -Uz compinit
@@ -35,8 +37,6 @@ if [[ -n $SSH_CONNECTION ]]; then
  else
    export EDITOR='nvim'
  fi
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH="$PATH:/home/muntasir/.cargo/bin"
 
@@ -111,6 +111,26 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::kubectx
 zinit snippet OMZP::rust
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::git-flow
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::brew
+zinit snippet OMZP::bun
+zinit snippet OMZP::deno
+zinit snippet OMZP::direnv
+zinit snippet OMZP::man
+zinit snippet OMZP::eza
+zinit snippet OMZP::gh
+zinit snippet OMZP::git-commit
+zinit snippet OMZP::git-extras
+zinit snippet OMZP::node
+zinit snippet OMZP::npm
+zinit snippet OMZP::nvm
+zinit snippet OMZP::pip
+zinit snippet OMZP::python
+zinit snippet OMZP::ssh
+zinit snippet OMZP::uv
+zinit snippet OMZP::vscode
+zinit snippet OMZP::zoxide
 
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
@@ -210,8 +230,6 @@ alias open=xdg-open
 
 eval "$(atuin init zsh --disable-ctrl-r)"
 
-eval "$(direnv hook zsh)"
-
 alias ai-enable='source ~/.local/bin/ai-enable'
 alias aur-enable='source ~/.local/bin/aur-enable'
 alias pop-enable='source ~/.local/bin/pop-enable'
@@ -243,6 +261,3 @@ rfv() (
 source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
 
 alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
-
-# Git flow
-source ~/.zsh/git-flow-completion.zsh

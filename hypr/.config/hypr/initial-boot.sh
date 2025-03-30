@@ -13,7 +13,7 @@ kvantum_theme="Catppuccin-Mocha"
 color_scheme="prefer-dark"
 gtk_theme="Andromeda-dark"
 icon_theme="Flat-Remix-Blue-Dark"
-cursor_theme="Bibata-Modern-Ice"
+cursor_theme="Windows-Cursor-Concept-Pro-v2.2.new-Light-Regular-Indigo-Alternative-Precision"
 
 swww="swww img"
 effect="--transition-bezier .43,1.19,1,.4 --transition-fps 30 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2"
