@@ -127,7 +127,7 @@ return {
 				providers = {
 					lsp = {
 						opts = {
-							tailwind_color_icon = "󱓻",
+							tailwind_color_icon = require("custom.icons").misc.color_text,
 						},
 					},
 					lazydev = {
@@ -235,23 +235,7 @@ return {
 						---@module "blink-cmp-git"
 						---@type blink-cmp-git.Options
 						opts = {
-							kind_icons = {
-								Mention = "",
-								openPR = "",
-								openedPR = "",
-								closedPR = "",
-								mergedPR = "",
-								draftPR = "",
-								lockedPR = "",
-								openIssue = "",
-								openedIssue = "",
-								reopenedIssue = "",
-								completedIssue = "",
-								closedIssue = "",
-								not_plannedIssue = "",
-								duplicateIssue = "",
-								lockedIssue = "",
-							},
+							kind_icons = require("custom.icons").blink_cmp_git,
 							commit = {
 								triggers = { ";" },
 							},
@@ -323,50 +307,6 @@ return {
 			},
 			appearance = {
 				nerd_font_variant = "normal",
-				kind_icons = {
-					Emoji = "󰞅",
-					Ripgrep = "󱎸",
-					Array = " ",
-					Boolean = "󰨙 ",
-					Class = " ",
-					Codeium = "󰘦 ",
-					Color = " ",
-					Control = " ",
-					Collapsed = " ",
-					Constant = "󰏿 ",
-					Constructor = " ",
-					Copilot = " ",
-					Enum = " ",
-					EnumMember = " ",
-					Event = " ",
-					Field = " ",
-					File = " ",
-					Folder = " ",
-					Function = "󰊕 ",
-					Interface = " ",
-					Key = " ",
-					Keyword = " ",
-					Method = "󰊕 ",
-					Module = " ",
-					Namespace = "󰦮 ",
-					Null = " ",
-					Number = "󰎠 ",
-					Object = " ",
-					Operator = " ",
-					Package = " ",
-					Property = " ",
-					Reference = " ",
-					Snippet = "󱄽 ",
-					String = " ",
-					Struct = "󰆼 ",
-					Supermaven = " ",
-					TabNine = "󰏚 ",
-					Text = " ",
-					TypeParameter = " ",
-					Unit = " ",
-					Value = " ",
-					Variable = "󰀫 ",
-				},
 			},
 		},
 		---@param opts blink.cmp.Config | { sources: { compat: string[] } }
@@ -394,6 +334,17 @@ return {
 				vim.api.nvim_set_hl(0, "BlinkCmpGitKindIcon" .. kind_name, hl)
 				vim.api.nvim_set_hl(0, "BlinkCmpGitLabel" .. kind_name .. "Id", hl)
 			end
+
+			local icons = require("custom.icons").kinds
+			local extra = {
+				Emoji = "󰞅",
+				Ripgrep = "󱎸",
+			}
+
+			local final_icons = vim.tbl_extend("force", icons, extra)
+
+			opts.appearance = opts.appearance or {}
+			opts.appearance.kind_icons = vim.tbl_extend("force", final_icons, opts.appearance.kind_icons or {})
 
 			local blink_cmp_kind_name_highlight = {
 				Emoji = { default = false, fg = "#FF9800" },

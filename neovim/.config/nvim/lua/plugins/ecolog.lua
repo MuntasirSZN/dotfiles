@@ -34,21 +34,25 @@ return {
 				hidden_mode = true, -- Hide when no env file is loaded
 				icons = {
 					enabled = true, -- Enable icons in statusline
-					env = "🌲", -- Icon for environment file
-					shelter = "🛡️", -- Icon for shelter mode
+					env = require("custom.icons").misc.env, -- Icon for environment file
+					shelter = require("custom.icons").misc.shelter_env, -- Icon for shelter mode
 				},
 				format = {
 					env_file = function(name)
 						return name -- Format environment file name
 					end,
 					vars_count = function(count)
-						return string.format("%d vars", count) -- Format variables count
+						return string.format("%d", count) -- Format variables count
 					end,
 				},
 				highlights = {
 					enabled = true, -- Enable custom highlights
 					env_file = "Directory", -- Highlight group for file name
 					vars_count = "Number", -- Highlight group for vars count
+					icons = {
+						env = "#428890", -- Hex color for env icon
+						shelter = "#F9E2AE", -- Hex color for shelter icon
+					},
 				},
 			},
 		},
@@ -66,7 +70,7 @@ return {
 					show_end = 3, -- Show last 3 characters
 					min_mask = 3, -- Minimum masked characters
 				},
-				mask_char = "", -- Character used for masking
+				mask_char = require("custom.icons").misc.env_mask_char, -- Character used for masking
 				mask_length = nil, -- Optional: fixed length for masked portion (defaults to value length)
 			},
 			modules = {

@@ -6,48 +6,9 @@ return {
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
 	},
-	opts = {
-		["icons.kinds.symbols"] = {
-			Emoji = "󰞅",
-			Ripgrep = "󱎸",
-			NerdFont = "",
-			Array = "",
-			Boolean = "󰨙",
-			Class = "",
-			Codeium = "󰘦",
-			Color = "",
-			Control = "",
-			Collapsed = "",
-			Constant = "",
-			Constructor = "",
-			Copilot = "",
-			Enum = "",
-			EnumMember = "",
-			Event = "",
-			Field = "",
-			File = "",
-			Folder = "",
-			Function = "󰊕",
-			Interface = "",
-			Key = "",
-			Keyword = "",
-			Method = "",
-			Namespace = "󰦮",
-			Null = "",
-			Number = "󰎠",
-			Object = "",
-			Operator = "",
-			Property = "",
-			Reference = "",
-			Snippet = "",
-			String = "",
-			Struct = " ",
-			TabNine = "󰏚",
-			Text = "",
-			TypeParameter = "",
-			Unit = "",
-			Value = "",
-			Variable = "",
+	config = function()
+		local opts = {}
+		local symbols = {
 			BreakStatement = "󰙧 ",
 			Call = "󰃷 ",
 			CaseStatement = "󱃙 ",
@@ -74,8 +35,6 @@ return {
 			MarkdownH4 = "󰉮 ",
 			MarkdownH5 = "󰉯 ",
 			MarkdownH6 = "󰉰 ",
-			Module = "󰏗 ",
-			Package = "󰆦 ",
 			Pair = "󰅪 ",
 			Regex = " ",
 			Repeat = "󰑖 ",
@@ -87,9 +46,11 @@ return {
 			Terminal = " ",
 			Type = " ",
 			WhileStatement = "󰑖 ",
-		},
-	},
-	config = function()
+		}
+		local myicons = require("custom.icons").kinds
+		opts["icons.kinds.symbols"] = vim.tbl_extend("force", myicons, symbols)
+		require("dropbar").setup(opts)
+
 		local dropbar_api = require("dropbar.api")
 		vim.keymap.set("n", "<Leader>;", dropbar_api.pick, { desc = "Pick symbols in winbar" })
 		vim.keymap.set("n", "[;", dropbar_api.goto_context_start, { desc = "Go to start of current context" })

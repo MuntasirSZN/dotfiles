@@ -108,7 +108,12 @@ return {
 					{ lazyvim_lualine.pretty_path() },
 					{
 						"diagnostics",
-						symbols = { error = " ", warn = " ", info = " ", hint = " " },
+						symbols = {
+							error = require("custom.icons").diagnostics.Error,
+							warn = require("custom.icons").diagnostics.Warn,
+							info = require("custom.icons").diagnostics.Info,
+							hint = require("custom.icons").diagnostics.Hint,
+						},
 						sources = { "nvim_diagnostic" },
 					},
 				},
@@ -132,12 +137,7 @@ return {
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
             color = function() return { fg = Snacks.util.color("Debug") } end,
           },
-          -- stylua: ignore
-          {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = function() return { fg = Snacks.util.color("Special") } end,
-          },
+					require("ecolog").get_lualine(),
 					{
 						function()
 							return require("lazydo").get_lualine_stats() -- status
@@ -161,13 +161,18 @@ return {
 							return require("custom.codecompanion_lualine").processing
 						end,
 					},
-					require("ecolog").get_lualine(),
+          -- stylua: ignore
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = function() return { fg = Snacks.util.color("Special") } end,
+          },
 					{
 						"diff",
 						symbols = {
-							added = " ",
-							modified = " ",
-							removed = " ",
+							added = require("custom.icons").git.added,
+							modified = require("custom.icons").git.modified,
+							removed = require("custom.icons").git.removed,
 						},
 						source = function()
 							local gitsigns = vim.b.gitsigns_status_dict
@@ -180,6 +185,7 @@ return {
 							end
 						end,
 					},
+					"fileformat",
 				},
 				lualine_y = {
 					{ "progress", separator = " ", padding = { left = 1, right = 0 } },

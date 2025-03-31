@@ -7,11 +7,7 @@ return {
 	opts_extend = { "ensure_installed" },
 	opts = {
 		ui = {
-			icons = {
-				package_installed = " ",
-				package_pending = " ",
-				package_uninstalled = " ",
-			},
+			icons = require("custom.icons").mason,
 		},
 		ensure_installed = {
 			"stylua",

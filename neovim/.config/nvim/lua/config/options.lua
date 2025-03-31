@@ -162,20 +162,14 @@ vim.diagnostic.config({
 	},
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.INFO] = " ",
-			[vim.diagnostic.severity.HINT] = " ",
+			[vim.diagnostic.severity.ERROR] = require("custom.icons").diagnostics.Error,
+			[vim.diagnostic.severity.WARN] = require("custom.icons").diagnostics.Warn,
+			[vim.diagnostic.severity.INFO] = require("custom.icons").diagnostics.Info,
+			[vim.diagnostic.severity.HINT] = require("custom.icons").diagnostics.Hint,
 		},
 	},
 	severity_sort = true,
 })
-
-local sign = vim.fn.sign_define
-
-sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 _G.lazy_require = function(require_path)
 	return setmetatable({}, {
