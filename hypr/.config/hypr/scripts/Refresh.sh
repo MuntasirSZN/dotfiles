@@ -7,23 +7,23 @@ UserScripts=$HOME/.config/hypr/UserScripts
 
 # Define file_exists function
 file_exists() {
-    if [ -e "$1" ]; then
-        return 0  # File exists
-    else
-        return 1  # File does not exist
-    fi
+	if [ -e "$1" ]; then
+		return 0 # File exists
+	else
+		return 1 # File does not exist
+	fi
 }
 
 # Kill already running processes
-_ps=(waybar rofi swaync ags)
+_ps=(waybar rofi swaync agsv1)
 for _prs in "${_ps[@]}"; do
-    if pidof "${_prs}" >/dev/null; then
-        pkill "${_prs}"
-    fi
+	if pidof "${_prs}" >/dev/null; then
+		pkill "${_prs}"
+	fi
 done
 
 # quit ags
-ags -q
+agsv1 -q
 
 sleep 0.3
 #Restart waybar
@@ -31,16 +31,15 @@ sleep 0.3
 
 # relaunch swaync
 sleep 0.5
-swaync > /dev/null 2>&1 &
+swaync >/dev/null 2>&1 &
 
 # relaunch ags
-ags &
+agsv1 &
 
 # Relaunching rainbow borders if the script exists
 sleep 1
 if file_exists "${UserScripts}/RainbowBorders.sh"; then
-    ${UserScripts}/RainbowBorders.sh &
+	${UserScripts}/RainbowBorders.sh &
 fi
-
 
 exit 0
