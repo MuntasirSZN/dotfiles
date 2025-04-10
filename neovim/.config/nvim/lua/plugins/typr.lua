@@ -1,1 +1,1 @@
-return { "nvzone/typr", event = "VeryLazy" }
+return { "nvzone/typr", cmd = { "Typr", "TyprStats" } }

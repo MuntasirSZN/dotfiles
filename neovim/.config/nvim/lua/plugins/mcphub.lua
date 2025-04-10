@@ -5,25 +5,19 @@ return {
 		"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
 	},
 	-- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
-	build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+	build = "bundled_build.lua", -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
 	config = function()
+		vim.g.mcphub_auto_approve = true
 		require("mcphub").setup({
-			-- Required options
-			port = 3000, -- Port for MCP Hub server
-			config = vim.fn.expand("~/mcpservers.json"), -- Absolute path to config file
-
-			-- Optional options
-			on_ready = function(hub)
-				-- Called when hub is ready
-			end,
-			on_error = function(err)
-				-- Called on errors
-			end,
-			log = {
-				level = vim.log.levels.WARN,
-				to_file = false,
-				file_path = nil,
-				prefix = "MCPHub",
+			use_bundled_binary = true, -- Use the bundled MCP binary
+			extensions = {
+				codecompanion = {
+					-- Show the mcp tool result in the chat buffer
+					-- NOTE:if the result is markdown with headers, content after the headers wont be sent by codecompanion
+					show_result_in_chat = true,
+					make_vars = true, -- make chat #variables from MCP server resources
+					make_slash_commands = true, -- make /slash_commands from MCP server prompts
+				},
 			},
 		})
 	end,

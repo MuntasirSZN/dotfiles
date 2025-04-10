@@ -8,6 +8,7 @@ local M = {
 	},
 	ft = {
 		octo = "",
+		codecompanion = "",
 	},
 	dap = {
 		Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },

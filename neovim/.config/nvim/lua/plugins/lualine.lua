@@ -17,53 +17,16 @@ return {
 		end
 	end,
 	config = function()
-		local catppuccin_flavours = {
-			["catppuccin-mocha"] = "mocha",
-			["catppuccin-macchiato"] = "macchiato",
-			["catppuccin-frappe"] = "frappe",
-			["catppuccin-latte"] = "latte",
-		}
-
-		local catppuccin_flavor_set = {
-			mocha = true,
-			macchiato = true,
-			frappe = true,
-			latte = true,
-		}
-
-		local function get_flavor()
-			local theme = require("themery").getCurrentTheme()
-			if not theme then
-				return
-			end
-			return catppuccin_flavours[theme.name] or theme.name
-		end
-
 		local function get_flavoured_theme()
-			local theme_name = get_flavor()
-			if not theme_name then
-				return
-			end
+			local lualine_theme = require("catppuccin.utils.lualine")(require("catppuccin").options.flavour)
 
-			if catppuccin_flavor_set[theme_name] then
-				local lualine_theme = require("catppuccin.utils.lualine")(theme_name)
+			-- Clear background for specific sections
+			local clear_bg_sections = {
+				inactive = { a = "NONE", b = "NONE", c = "NONE" },
+			}
+			lualine_theme = vim.tbl_extend("force", lualine_theme, clear_bg_sections)
 
-				-- Clear background for specific sections
-				local clear_bg_sections = {
-					normal = { c = true },
-					inactive = { a = true, b = true, c = true },
-				}
-
-				for section, parts in pairs(clear_bg_sections) do
-					for part in pairs(parts) do
-						lualine_theme[section][part].bg = "NONE"
-					end
-				end
-
-				return lualine_theme
-			end
-
-			return theme_name
+			return lualine_theme
 		end
 		local lazyvim_lualine = require("custom.lazyvim_lualine")
 		local opts = {
@@ -71,18 +34,8 @@ return {
 				icons_enabled = true,
 				theme = get_flavoured_theme(),
 				globalstatus = vim.o.laststatus == 3,
+				component_separators = { left = " ", right = " " },
 				disabled_filetypes = {
-					winbar = {
-						"aerial",
-						"NvimTree",
-						"neo-tree",
-						"starter",
-						"Trouble",
-						"qf",
-						"NeogitStatus",
-						"NeogitCommitMessage",
-						"NeogitPopup",
-					},
 					statusline = {
 						"starter",
 						"dashboard",
@@ -118,6 +71,7 @@ return {
 					},
 				},
 				lualine_x = {
+					{ require("mcphub.extensions.lualine") },
 					Snacks.profiler.status(),
           -- stylua: ignore
           {
@@ -136,6 +90,12 @@ return {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
             color = function() return { fg = Snacks.util.color("Debug") } end,
+          },
+          -- stylua: ignore
+          {
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            color = function() return { fg = Snacks.util.color("Special") } end,
           },
 					require("ecolog").get_lualine(),
 					{
@@ -161,12 +121,6 @@ return {
 							return require("custom.codecompanion_lualine").processing
 						end,
 					},
-          -- stylua: ignore
-          {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
-            color = function() return { fg = Snacks.util.color("Special") } end,
-          },
 					{
 						"diff",
 						symbols = {
@@ -190,6 +144,18 @@ return {
 				lualine_y = {
 					{ "progress", separator = " ", padding = { left = 1, right = 0 } },
 					{ "location", padding = { left = 0, right = 1 } },
+					{
+						function()
+							return require("vectorcode.integrations").lualine()[1]()
+						end,
+						cond = function()
+							if package.loaded["vectorcode"] == nil then
+								return false
+							else
+								return require("vectorcode.integrations").lualine().cond()
+							end
+						end,
+					},
 				},
 				lualine_z = {
 					function()

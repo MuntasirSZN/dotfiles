@@ -234,7 +234,7 @@ alias ai-enable='source ~/.local/bin/ai-enable'
 alias aur-enable='source ~/.local/bin/aur-enable'
 alias pop-enable='source ~/.local/bin/pop-enable'
 
-alias ltree="eza --tree --level=2  --icons --git"
+alias ltree="eza --tree --level=2  --icons --git --git-ignore"
 eval "$(gh copilot alias -- zsh)"
 
 export GLAMOUR_STYLE="/home/muntasir/.config/glow/catppucin-mocha.json"

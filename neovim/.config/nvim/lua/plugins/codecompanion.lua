@@ -31,6 +31,9 @@ return {
 			strategies = {
 				chat = {
 					adapter = "copilot",
+					slash_commands = {
+						["codebase"] = require("vectorcode.integrations").codecompanion.chat.make_slash_command(),
+					},
 					tools = {
 						["mcp"] = {
 							-- calling it in a function would prevent mcphub from being loaded before it's needed
@@ -41,6 +44,10 @@ return {
 							opts = {
 								requires_approval = true,
 							},
+						},
+						vectorcode = {
+							description = "Run VectorCode to retrieve the project context.",
+							callback = require("vectorcode.integrations").codecompanion.chat.make_tool(),
 						},
 					},
 				},
