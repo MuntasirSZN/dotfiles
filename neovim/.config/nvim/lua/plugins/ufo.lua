@@ -100,9 +100,6 @@ return {
 			else
 				vim.opt_local.foldcolumn = "1"
 				vim.opt_local.foldenable = true
-				vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-				vim.o.foldlevel = 99
-				vim.o.foldlevelstart = 99
 			end
 		end
 
@@ -153,7 +150,7 @@ return {
 		vim.keymap.set("n", "K", function()
 			local winid = require("ufo").peekFoldedLinesUnderCursor()
 			if not winid then
-				vim.lsp.buf.hover()
+				require("hover").hover()
 			end
 		end)
 	end,

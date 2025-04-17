@@ -57,6 +57,8 @@ esac
 
 export beef="cd ~/beef && beef"
 
+export LS_COLORS=$(vivid generate catppuccin-mocha)
+
 # Check if the session is X11 or Wayland
 session_type=$(w -h | awk '{print $2}')
 

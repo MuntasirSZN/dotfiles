@@ -31,10 +31,13 @@ return {
 				operators = {},
 			},
 			color_overrides = {},
-			custom_highlights = {
-				SnacksDashboardHeader = { fg = "#F9E2AE" },
-				SnacksIndent = { fg = "#30354F" },
-			},
+			custom_highlights = function(palette)
+				local groups = {
+					SnacksDashboardHeader = { fg = palette.yellow },
+					SnacksIndent = { fg = palette.surface0 },
+				}
+				return groups
+			end,
 			default_integrations = true,
 			integrations = {
 				which_key = true,

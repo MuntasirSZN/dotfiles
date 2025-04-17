@@ -35,18 +35,4 @@ return {
 			sass = { enable = true, parsers = { "css" } },
 		},
 	},
-	init = function()
-		local c = require("colorizer")
-		vim.api.nvim_create_autocmd({ "InsertEnter", "InsertLeave" }, {
-			callback = function(args)
-				if args.event == "InsertEnter" then
-					c.detach_from_buffer()
-				else
-					if not c.is_buffer_attached() then
-						c.attach_to_buffer()
-					end
-				end
-			end,
-		})
-	end,
 }

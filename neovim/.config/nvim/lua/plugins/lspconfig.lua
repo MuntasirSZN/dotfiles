@@ -38,6 +38,7 @@ return {
 			yamlls = {},
 			typos_lsp = {},
 			vimls = {},
+			html = {},
 			harper_ls = {
 				enabled = true,
 				filetypes = { "markdown" },

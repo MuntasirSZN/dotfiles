@@ -25,6 +25,9 @@ return {
 
 				return true
 			end,
+			server = {
+				type = "binary",
+			},
 		})
 	end,
 }

@@ -24,7 +24,7 @@ return {
 			show_tab_indicators = true,
 			hover = {
 				enabled = true,
-				delay = 200,
+				delay = 50,
 				reveal = { "close" },
 			},
       -- stylua: ignore
