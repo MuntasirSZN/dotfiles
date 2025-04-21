@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com/?lines=👋+Welcome+To+My+Dotfiles!;&font=Poppins">
+  <img src="https://readme-typing-svg.herokuapp.com/?lines=👋+Welcome+To+My+Dotfiles!;&font=Poppins">
 </h1>
 
 <h4 align="center">
