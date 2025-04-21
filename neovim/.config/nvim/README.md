@@ -1,5 +1,5 @@
 <h3 align="center">
-   <img src="https://readme-typing-svg.demolab.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins">
+   <img src="https://readme-typing-svg.herokuapp.com/?lines=📜%20+My+Neovim+Configuration&font=Poppins&center=true">
 </h3>
 
 <p align="center">
