@@ -3,9 +3,7 @@ return {
 	lazy = false,
 	config = function()
 		require("copilot").setup({
-			panel = { enabled = false },
 			suggestion = {
-				enabled = false,
 				auto_trigger = true,
 				keymap = {
 					accept = "<Tab>",

@@ -62,7 +62,6 @@ return {
 			-- Completion sources
 			"mikavilpas/blink-ripgrep.nvim",
 			"moyiz/blink-emoji.nvim",
-			"fang2hou/blink-copilot",
 			{
 				"Kaiser-Yang/blink-cmp-dictionary",
 				dependencies = { "nvim-lua/plenary.nvim" },
@@ -87,7 +86,6 @@ return {
 					"path",
 					"snippets",
 					"buffer",
-					"copilot",
 				},
 			},
 			snippets = {
@@ -118,7 +116,6 @@ return {
 					"lazydev",
 					"dadbod",
 					"ripgrep",
-					"copilot",
 					"dictionary",
 					"git",
 					"emoji",
@@ -177,25 +174,6 @@ return {
 								{ "gitcommit", "markdown", "norg", "rmd", "org", "mdx" },
 								vim.o.filetype
 							)
-						end,
-					},
-					copilot = {
-						name = "copilot",
-						module = "blink-copilot",
-						score_offset = 100,
-						async = true,
-						opts = {
-							max_completions = 3,
-							max_attempts = 4,
-						},
-						transform_items = function(_, items)
-							local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-							local kind_idx = #CompletionItemKind + 1
-							CompletionItemKind[kind_idx] = "Copilot"
-							for _, item in ipairs(items) do
-								item.kind = kind_idx
-							end
-							return items
 						end,
 					},
 					dictionary = {

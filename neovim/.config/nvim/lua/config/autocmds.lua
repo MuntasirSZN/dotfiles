@@ -200,3 +200,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.bo[event.buf].commentstring = "{# %s #}"
 	end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	callback = function()
+		vim.system({ "bunx", "--bun", "arrpc" })
+	end,
+})

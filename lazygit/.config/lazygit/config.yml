@@ -20,3 +20,6 @@ theme:
     - "#f9e2af"
 authorColors:
   "*": "#b4befe"
+
+git:
+  overrideGpg: true

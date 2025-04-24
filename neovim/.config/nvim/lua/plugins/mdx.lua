@@ -1,7 +1,7 @@
 return {
 	"davidmh/mdx.nvim",
-	event = "VeryLazy",
 	config = true,
-	lazy = true,
+	lazy = false,
+	ft = "mdx",
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 }

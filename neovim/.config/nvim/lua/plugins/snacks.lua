@@ -65,6 +65,7 @@ return {
     local opts = {
       animate = { enabled = true },
       bigfile = { enabled = true },
+      terminal = {},
       image = {
         enabled = true,
         doc = {

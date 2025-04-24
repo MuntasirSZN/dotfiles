@@ -186,7 +186,7 @@
             "enabled": false
         },
         "FixCodeblockGap": {
-            "enabled": false
+            "enabled": true
         },
         "ForceOwnerCrown": {
             "enabled": false
@@ -204,9 +204,6 @@
             "enabled": false
         },
         "GreetStickerPicker": {
-            "enabled": false
-        },
-        "HideAttachments": {
             "enabled": false
         },
         "iLoveSpam": {
@@ -274,7 +271,12 @@
             "enabled": false
         },
         "Moyai": {
-            "enabled": false
+            "enabled": false,
+            "volume": 0.5,
+            "quality": "Normal",
+            "triggerWhenUnfocused": true,
+            "ignoreBots": true,
+            "ignoreBlocked": true
         },
         "MutualGroupDMs": {
             "enabled": false
@@ -472,7 +474,21 @@
             "enabled": false
         },
         "TextReplace": {
-            "enabled": true
+            "enabled": true,
+            "stringRules": [
+                {
+                    "find": "",
+                    "replace": "",
+                    "onlyIfIncludes": ""
+                }
+            ],
+            "regexRules": [
+                {
+                    "find": "",
+                    "replace": "",
+                    "onlyIfIncludes": ""
+                }
+            ]
         },
         "ThemeAttributes": {
             "enabled": false
@@ -594,7 +610,7 @@
             "enabled": false
         },
         "FixYoutubeEmbeds": {
-            "enabled": false
+            "enabled": true
         },
         "InvisibleChat": {
             "enabled": false
@@ -610,6 +626,18 @@
         },
         "YoutubeAdblock": {
             "enabled": false
+        },
+        "HideMedia": {
+            "enabled": false
+        },
+        "FullUserInChatbox": {
+            "enabled": false
+        },
+        "IrcColors": {
+            "enabled": false
+        },
+        "BadgeAPI": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -622,6 +650,7 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1735638874183
-    }
+        "settingsSyncVersion": 1745327548797
+    },
+    "eagerPatches": false
 }
