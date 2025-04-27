@@ -2,15 +2,20 @@
   email = muntasir.joypurhat@gmail.com
   name = MuntasirSZN
   signingkey = E7FE5EC876734CA2
+
 [credential]
   helper = /usr/local/bin/git-credential-manager
   credentialStore = gpg
+
 [credential "https://dev.azure.com"]
   useHttpPath = true
+
 [init]
   defaultBranch = main
+
 [include]
   path = ~/.config/delta/themes/catppuccin.gitconfig
+
 [core]
   pager = delta
   autocrlf = input  # keep newlines as in input
@@ -27,6 +32,7 @@
   hyperlinks = true
   true-color = always
   dark = true
+
 [merge]
   conflictstyle = zdiff3
 
@@ -35,10 +41,14 @@
   context = 3  # less context in diffs
   renames = copies  # detect copies as renames in diffs
   interHunkContext = 10  # merge near hunks in diffs
+
 [commit]
   gpgsign = true
+  template = ~/.gitmessage
+
 [credential "https://github.com"]
   username = MuntasirSZN
+
 [remote "origin"]
   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 
