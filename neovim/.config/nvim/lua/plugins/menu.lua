@@ -3,6 +3,7 @@ return {
 	event = "VeryLazy",
 	lazy = true,
 	config = function()
+		vim.cmd("aunmenu PopUp")
 		vim.keymap.set({ "n", "v" }, "<RightMouse>", function()
 			require("menu.utils").delete_old_menus()
 

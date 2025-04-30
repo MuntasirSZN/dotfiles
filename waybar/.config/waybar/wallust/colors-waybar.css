@@ -1,23 +1,23 @@
 /* ---- 💫 https://github.com/MuntasirSZN 💫 ---- */  
  /* wallust template - colors-waybar */
 
-@define-color foreground #E8E9EA;
-@define-color background rgba(18,19,19,0.25);
-@define-color cursor #E8E9EA;
+@define-color foreground #F5ECD8;
+@define-color background rgba(42,43,46,0.25);
+@define-color cursor #F5ECD8;
 
-@define-color color0 #3A3A3B;
-@define-color color1 #462427;
-@define-color color2 #383F4B;
-@define-color color3 #8A3D41;
-@define-color color4 #A7474C;
-@define-color color5 #56926D;
-@define-color color6 #8E9192;
-@define-color color7 #D6D8D8;
-@define-color color8 #959797;
-@define-color color9 #5D3034;
-@define-color color10 #4A5464;
-@define-color color11 #B85156;
-@define-color color12 #DF5F65;
-@define-color color13 #73C291;
-@define-color color14 #BDC1C2;
-@define-color color15 #D6D8D8;
+@define-color color0 #4F5053;
+@define-color color1 #212430;
+@define-color color2 #494D60;
+@define-color color3 #5D6278;
+@define-color color4 #B2755A;
+@define-color color5 #629791;
+@define-color color6 #AA966C;
+@define-color color7 #E9DBBF;
+@define-color color8 #A39986;
+@define-color color9 #2C3040;
+@define-color color10 #616780;
+@define-color color11 #7C83A0;
+@define-color color12 #EE9C78;
+@define-color color13 #83C9C1;
+@define-color color14 #E3C890;
+@define-color color15 #E9DBBF;

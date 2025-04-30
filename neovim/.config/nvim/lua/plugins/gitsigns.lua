@@ -1,7 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	event = "VeryLazy",
-	lazy = true,
+	lazy = false,
 	opts = {
 		current_line_blame = true,
 		signs = {

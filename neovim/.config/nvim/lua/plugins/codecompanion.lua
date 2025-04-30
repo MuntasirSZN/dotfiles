@@ -28,28 +28,22 @@ return {
 		-- Expand 'cc' into 'CodeCompanion' in the command line
 		vim.cmd([[cab cc CodeCompanion]])
 		require("codecompanion").setup({
+			extensions = {
+				vectorcode = {
+					opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
+				},
+				mcphub = {
+					callback = "mcphub.extensions.codecompanion",
+					opts = {
+						show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
+						make_vars = true, -- make chat #variables from MCP server resources
+						make_slash_commands = true, -- make /slash_commands from MCP server prompts
+					},
+				},
+			},
 			strategies = {
 				chat = {
 					adapter = "copilot",
-					slash_commands = {
-						["codebase"] = require("vectorcode.integrations").codecompanion.chat.make_slash_command(),
-					},
-					tools = {
-						["mcp"] = {
-							-- calling it in a function would prevent mcphub from being loaded before it's needed
-							callback = function()
-								return require("mcphub.extensions.codecompanion")
-							end,
-							description = "Call tools and resources from the MCP Servers",
-							opts = {
-								requires_approval = true,
-							},
-						},
-						vectorcode = {
-							description = "Run VectorCode to retrieve the project context.",
-							callback = require("vectorcode.integrations").codecompanion.chat.make_tool(),
-						},
-					},
 				},
 				inline = {
 					adapter = "copilot",
