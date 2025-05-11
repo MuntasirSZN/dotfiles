@@ -33,7 +33,7 @@
   - JavaScript
   - TypeScript
   - Lua
-- 📦 Linters and static analysis through [none-ls](https://github.com/nvimtools/none-ls.nvim) and [mason.nvim](https://github.com/williamboman/mason.nvim)
+- 📦 Linters and static analysis through [none-ls](https://github.com/nvimtools/none-ls.nvim) and [mason.nvim](https://github.com/mason-org/mason.nvim)
 - 🥂 Lsp servers configured with [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - 🧹 Autocompletion using the new [blink.cmp](https://github.com/saghen/blink.cmp)
 - ⚒️ Testing using the fantastic [neotest](https://github.com/nvim-neotest/neotest) plugin
@@ -160,7 +160,7 @@
 
 ### lsp-installer
 
-- [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
+- [mason-org/mason.nvim](https://dotfyle.com/plugins/mason-org/mason.nvim)
 
 ### markdown-and-latex
 

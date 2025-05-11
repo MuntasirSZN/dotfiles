@@ -3,7 +3,7 @@ return {
 	event = "VeryLazy",
 	lazy = true,
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 	},
 	opts = function()
 		local servers = {
@@ -99,7 +99,7 @@ return {
 
 			config.on_attach = on_attach
 
-			config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+			config.capabilities = require("blink.cmp").get_lsp_capabilities()
 			config.capabilities.textDocument.foldingRange = {
 				dynamicRegistration = false,
 				lineFoldingOnly = true,
@@ -108,7 +108,7 @@ return {
 				enable = true,
 			}
 			vim.lsp.inlay_hint.enable(true)
-			require("lspconfig")[server].setup(config)
+			vim.lsp.config(server, config)
 		end
 
 		local customizations = {
@@ -124,9 +124,7 @@ return {
 			{ rule = "*semi", severity = "off", fixable = true },
 		}
 
-		local lspconfig = require("lspconfig")
-		-- Enable eslint for all supported languages
-		lspconfig.eslint.setup({
+		vim.lsp.config("eslint", {
 			filetypes = {
 				"javascript",
 				"javascriptreact",

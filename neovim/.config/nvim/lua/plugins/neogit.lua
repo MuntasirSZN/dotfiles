@@ -9,6 +9,7 @@ return {
 	config = function()
 		require("neogit").setup({
 			graph_style = "kitty",
+			snacks = true,
 		})
 	end,
 }

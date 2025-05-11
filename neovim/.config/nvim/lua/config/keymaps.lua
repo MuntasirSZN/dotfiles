@@ -96,7 +96,7 @@ map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
 
 -- Formatting
 map({ "n", "v" }, "<leader>cf", function()
-	vim.lsp.buf.format({ async = true })
+	vim.lsp.buf.format()
 end, { desc = "Format" })
 
 -- Diagnostic

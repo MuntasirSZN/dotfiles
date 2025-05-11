@@ -150,7 +150,7 @@ return {
 		vim.keymap.set("n", "K", function()
 			local winid = require("ufo").peekFoldedLinesUnderCursor()
 			if not winid then
-				require("hover").hover()
+				vim.cmd("EagleWin")
 			end
 		end)
 	end,

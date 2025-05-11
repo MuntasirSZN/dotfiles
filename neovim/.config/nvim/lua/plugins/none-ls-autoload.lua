@@ -1,7 +1,7 @@
 return {
 	"zeioth/none-ls-autoload.nvim",
 	event = "VeryLazy",
-	dependencies = { "williamboman/mason.nvim", "nvimtools/none-ls.nvim" },
+	dependencies = { "mason-org/mason.nvim", "nvimtools/none-ls.nvim" },
 	opts = {
 		methods = {
 			formatting = false,

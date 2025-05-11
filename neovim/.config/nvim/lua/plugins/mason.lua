@@ -1,6 +1,6 @@
 return {
-	"williamboman/mason.nvim",
-	event = "VeryLazy",
+	"mason-org/mason.nvim",
+	lazy = false,
 	cmd = "Mason",
 	keys = { { "<leader>cM", "<cmd>Mason<cr>", desc = "Mason" } },
 	build = ":MasonUpdate",

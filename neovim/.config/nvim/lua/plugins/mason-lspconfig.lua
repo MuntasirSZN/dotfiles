@@ -1,14 +1,14 @@
 return {
-	"williamboman/mason-lspconfig.nvim",
-	event = "VeryLazy",
+	"mason-org/mason-lspconfig.nvim",
+	lazy = false,
 	dependencies = {
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		"neovim/nvim-lspconfig",
 	},
 	config = function()
+		local servers = require("plugins.lspconfig").opts().servers
 		require("mason-lspconfig").setup({
-			ensure_installed = {},
-			automatic_installation = true,
+			ensure_installed = vim.tbl_keys(servers),
 		})
 	end,
 }

@@ -8,15 +8,20 @@ return {
 				if Snacks.image.doc.at_cursor then
 					Snacks.image.hover()
 				end
-				vim.cmd("EagleWin")
 				-- Eagle doesn't work with Cargo.toml files
 				-- So use the defaults
 				local filename = vim.fn.expand("%:t")
+				local filetype = vim.bo.filetype
 				if filename == "Cargo.toml" then
 					vim.lsp.buf.hover()
+				elseif filetype == "rust" then
+					vim.cmd.RustLsp({ "hover", "actions" })
+				else
+					vim.cmd("EagleWin")
 				end
 			end,
 			desc = "Documentation",
+			silent = true,
 		},
 	},
 	config = function()

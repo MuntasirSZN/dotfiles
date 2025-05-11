@@ -273,7 +273,7 @@ return {
 			desc = "LSP Workspace Symbols",
 		},
 		{
-			"<leader>,",
+			"<leader>bS",
 			function()
 				Snacks.picker.buffers()
 			end,
