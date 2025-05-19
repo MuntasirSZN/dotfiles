@@ -23,7 +23,11 @@ return {
 				"rust",
 			},
 			auto_install = true,
+			indent = {
+				enable = true,
+			},
 			highlight = {
+				additional_vim_regex_highlighting = false,
 				enable = true,
 				disable = function(lang)
 					local allowed_filetypes =

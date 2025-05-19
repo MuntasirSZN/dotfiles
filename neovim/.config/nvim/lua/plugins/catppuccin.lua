@@ -69,6 +69,7 @@ return {
 				blink_cmp = true,
 				snacks = true,
 				fzf = true,
+				markview = true,
 			},
 		})
 		vim.cmd.colorscheme("catppuccin")
