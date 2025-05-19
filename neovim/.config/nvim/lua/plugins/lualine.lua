@@ -71,6 +71,7 @@ return {
 					},
 				},
 				lualine_x = {
+					{ "require'wttr'.text" },
 					{ require("mcphub.extensions.lualine") },
 					Snacks.profiler.status(),
           -- stylua: ignore
