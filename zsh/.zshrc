@@ -182,7 +182,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-alias man="batman"
 eval "$(batpipe)"
 export BATPIPE_ENABLE_COLOR=true
 export BATDIFF_USE_DELTA=true
@@ -263,3 +262,5 @@ rfv() (
 source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
 
 alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
+
+export MANPAGER='nvim +Man!'
