@@ -264,3 +264,6 @@ source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
 alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
 
 export MANPAGER='nvim +Man!'
+
+# Transient prompt
+source ~/.zsh/transient-prompt.zsh
