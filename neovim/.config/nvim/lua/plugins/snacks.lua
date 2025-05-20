@@ -88,16 +88,17 @@ return {
       spell = { enabled = true },
       picker = {
         sources = {
+          matcher = {
+            frecency = true,
+          },
           select = {
             layout = {
               preset = "telescope-custom-select",
             },
           },
         },
+        ui_select = true,
         enabled = true,
-        matcher = {
-          frecency = true,
-        },
         prompt = " ",
         layout = {
           preset = "telescope-custom",

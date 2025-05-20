@@ -126,3 +126,38 @@ vim.filetype.add({
 		[".*/hypr/.*%.conf"] = "hyprlang",
 	},
 })
+
+local group = vim.api.nvim_create_augroup("TeraSyntaxInjection", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "BufRead", "BufNewFile" }, {
+	group = group,
+	pattern = "*.tera",
+	callback = function()
+		local bufnr = vim.api.nvim_get_current_buf()
+
+		local parser = vim.treesitter.get_parser(bufnr, "tera", {})
+
+		local filename = vim.fn.expand("%:t")
+
+		local underlying_filetype = filename:match("%.([^%.]+)%.tera$") or "html"
+
+		if underlying_filetype == "tera" then
+			underlying_filetype = "html"
+		end
+
+		vim.bo[bufnr].filetype = "tera"
+
+		local query = string.format(
+			[[
+		((content) @injection.content
+		(#set! injection.language "%s")
+		(#set! injection.combined))
+		]],
+			underlying_filetype
+		)
+
+		vim.treesitter.query.set("tera", "injections", query)
+
+		vim.cmd("TSBufDisable highlight")
+		vim.cmd("TSBufEnable highlight")
+	end,
+})

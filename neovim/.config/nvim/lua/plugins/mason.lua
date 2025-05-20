@@ -28,7 +28,6 @@ return {
 			"prettierd",
 			"sqlfmt",
 			"yamlfmt",
-			"rust-analyzer",
 		},
 	},
 	---@param opts MasonSettings | {ensure_installed: string[]}

@@ -1,9 +1,9 @@
 ---@class lazyvim.util.lualine
 local M = {}
 
-local LazyVim = require("custom.lazyvim_root").LazyVim
+local LazyVim = require("custom.lazyvim-root").LazyVim
 
-local lazyroot = require("custom.lazyvim_root")
+local lazyroot = require("custom.lazyvim-root")
 
 ---@param icon string
 ---@param status fun(): nil|"ok"|"error"|"pending"

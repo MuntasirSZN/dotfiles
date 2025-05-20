@@ -17,7 +17,8 @@ return {
 			},
 			copilot_model = "gpt-4o-copilot",
 			should_attach = function(_, bufname)
-				if string.match(bufname, "env") then
+				local filetype = vim.bo.filetype
+				if string.match(bufname, "env") or filetype == "codecompanion" then
 					return false
 				end
 

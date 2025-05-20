@@ -207,3 +207,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.system({ "bunx", "--bun", "arrpc" })
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*",
+	callback = function()
+		local filetype = vim.bo.filetype
+		if filetype == "codecompanion" then
+			vim.cmd("set nonumber")
+		end
+	end,
+})

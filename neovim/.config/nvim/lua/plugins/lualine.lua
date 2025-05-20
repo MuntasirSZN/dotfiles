@@ -28,7 +28,11 @@ return {
 
 			return lualine_theme
 		end
-		local lazyvim_lualine = require("custom.lazyvim_lualine")
+
+		local lazyvim_lualine = require("custom.lazyvim-lualine")
+		local codecompanion_lualine = require("custom.codecompanion-lualine")
+		local icons = require("custom.icons")
+
 		local opts = {
 			options = {
 				icons_enabled = true,
@@ -62,10 +66,10 @@ return {
 					{
 						"diagnostics",
 						symbols = {
-							error = require("custom.icons").diagnostics.Error,
-							warn = require("custom.icons").diagnostics.Warn,
-							info = require("custom.icons").diagnostics.Info,
-							hint = require("custom.icons").diagnostics.Hint,
+							error = icons.diagnostics.Error,
+							warn = icons.diagnostics.Warn,
+							info = icons.diagnostics.Info,
+							hint = icons.diagnostics.Hint,
 						},
 						sources = { "nvim_diagnostic" },
 					},
@@ -99,23 +103,23 @@ return {
 						"copilot",
 						show_colors = true,
 						cond = function()
-							return not require("custom.codecompanion_lualine").processing
+							return not codecompanion_lualine.processing
 						end,
 					},
 					{
 						function()
-							return require("custom.codecompanion_lualine"):update_status()
+							return codecompanion_lualine:update_status()
 						end,
 						cond = function()
-							return require("custom.codecompanion_lualine").processing
+							return codecompanion_lualine.processing
 						end,
 					},
 					{
 						"diff",
 						symbols = {
-							added = require("custom.icons").git.added,
-							modified = require("custom.icons").git.modified,
-							removed = require("custom.icons").git.removed,
+							added = icons.git.added,
+							modified = icons.git.modified,
+							removed = icons.git.removed,
 						},
 						source = function()
 							local gitsigns = vim.b.gitsigns_status_dict
@@ -163,7 +167,8 @@ return {
 			},
 		}
 
-		require("custom.codecompanion_lualine"):init()
+		codecompanion_lualine:init()
+		require("custom.codecompanion-extmarks").setup()
 
 		require("lualine").setup(opts)
 
