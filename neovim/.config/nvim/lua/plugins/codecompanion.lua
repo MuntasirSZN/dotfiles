@@ -8,6 +8,9 @@ return {
 		"ravitemer/mcphub.nvim",
 		"ravitemer/codecompanion-history.nvim",
 	},
+	init = function()
+		require("custom.codecompanion-notification").init()
+	end,
 	config = function()
 		vim.g.codecompanion_auto_tool_mode = true
 		vim.api.nvim_set_keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
@@ -25,7 +28,6 @@ return {
 			{ noremap = true, silent = true }
 		)
 		vim.api.nvim_set_keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
-
 		-- Expand 'cc' into 'CodeCompanion' in the command line
 		vim.cmd([[cab cc CodeCompanion]])
 		require("codecompanion").setup({
@@ -83,7 +85,7 @@ return {
 							)
 							return " " .. icon .. "  " .. adapter.formatted_name
 						end,
-						user = "   Me",
+						user = "  Me",
 					},
 				},
 				inline = {

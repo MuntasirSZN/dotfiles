@@ -1,6 +1,7 @@
 return {
 	"pwntester/octo.nvim",
 	lazy = false,
+	cmd = { "Octo" },
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"folke/snacks.nvim",

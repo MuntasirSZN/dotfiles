@@ -1,6 +1,7 @@
 return {
 	"soulis-1256/eagle.nvim",
 	lazy = false,
+	event = "BufReadPre",
 	keys = {
 		{
 			"<leader>co",

@@ -1,3 +1,5 @@
+@import "Nebula/Nebula.css"
+
 .browserContainer {
   background: rgb(from var(--zen-main-browser-background) r g b / 1) !important;
 }

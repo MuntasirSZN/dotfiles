@@ -1,6 +1,7 @@
 return {
 	"mason-org/mason-lspconfig.nvim",
 	lazy = false,
+	event = "VimEnter",
 	dependencies = {
 		"mason-org/mason.nvim",
 		"neovim/nvim-lspconfig",

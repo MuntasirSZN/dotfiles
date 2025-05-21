@@ -4,6 +4,8 @@ return {
 	build = "cargo install-update rustowl",
 	lazy = false,
 	config = function()
-		require("rustowl").setup()
+		require("rustowl").setup({
+			auto_enable = true,
+		})
 	end,
 }

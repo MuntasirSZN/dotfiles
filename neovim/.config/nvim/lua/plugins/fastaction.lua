@@ -1,5 +1,6 @@
 return {
 	"Chaitanyabsprip/fastaction.nvim",
+	event = "BufReadPre",
 	keys = {
 		{
 			"<leader>cl",

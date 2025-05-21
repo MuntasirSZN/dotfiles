@@ -1,5 +1,6 @@
 return {
 	"philosofonusus/ecolog.nvim",
+	event = "VeryLazy",
 	-- Optional: you can add some keybindings
 	keys = {
 		{

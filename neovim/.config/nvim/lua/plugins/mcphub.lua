@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
 	},
-	-- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
+	cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
 	build = "bundled_build.lua", -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
 	config = function()
 		vim.g.mcphub_auto_approve = true
