@@ -21,7 +21,7 @@
   autocrlf = input  # keep newlines as in input
   compression = 9  # trade cpu for network
   fsync = none
-  whitespace = error  # threat incorrect whitespace as errors
+  whitespace = error  # treat incorrect whitespace as errors
 
 [interactive]
   diffFilter = delta --color-only
@@ -81,22 +81,6 @@
 
 [rebase]
   autoStash = true
-
-[color "branch"]
-  current  = magenta
-  local    = default
-  remote   = yellow
-  upstream = green
-  plain    = blue
-
-[color "diff"]
-  meta       = black bold
-  frag       = magenta
-  context    = white
-  whitespace = yellow reverse
-
-[color "blame"]
-  highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
 
 [color "branch"]
   current  = magenta

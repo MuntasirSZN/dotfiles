@@ -267,3 +267,5 @@ export MANPAGER='nvim +Man!'
 
 # Transient prompt
 source ~/.zsh/transient-prompt.zsh
+
+source ~/.local/bin/bw-enable
