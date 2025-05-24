@@ -132,10 +132,16 @@ return {
       quickfile = { enabled = true },
       spell = { enabled = true },
       picker = {
-        sources = {
-          matcher = {
-            frecency = true,
+        matcher = {
+          frecency = true,
+        },
+        previewers = {
+          diff = {
+            builtin = false,   -- use Neovim for previewing diffs (true) or use an external tool (false)
+            cmd = { "delta" }, -- example to show a diff with delta
           },
+        },
+        sources = {
           select = {
             layout = {
               preset = "telescope-custom-select",

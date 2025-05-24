@@ -17,26 +17,13 @@ return {
 		end
 	end,
 	config = function()
-		local function get_flavoured_theme()
-			local lualine_theme = require("catppuccin.utils.lualine")(require("catppuccin").options.flavour)
-
-			-- Clear background for specific sections
-			local clear_bg_sections = {
-				inactive = { a = "NONE", b = "NONE", c = "NONE" },
-			}
-			lualine_theme = vim.tbl_extend("force", lualine_theme, clear_bg_sections)
-
-			return lualine_theme
-		end
-
 		local lazyvim_lualine = require("custom.lazyvim-lualine")
-		local codecompanion_lualine = require("custom.codecompanion-lualine")
 		local icons = require("custom.icons")
 
 		local opts = {
 			options = {
 				icons_enabled = true,
-				theme = get_flavoured_theme(),
+				theme = "catppuccin",
 				globalstatus = vim.o.laststatus == 3,
 				component_separators = { left = " ", right = " " },
 				disabled_filetypes = {
@@ -102,17 +89,6 @@ return {
 					{
 						"copilot",
 						show_colors = true,
-						cond = function()
-							return not codecompanion_lualine.processing
-						end,
-					},
-					{
-						function()
-							return codecompanion_lualine:update_status()
-						end,
-						cond = function()
-							return codecompanion_lualine.processing
-						end,
 					},
 					{
 						"diff",
@@ -166,9 +142,6 @@ return {
 				"trouble",
 			},
 		}
-
-		codecompanion_lualine:init()
-		require("custom.codecompanion-extmarks").setup()
 
 		require("lualine").setup(opts)
 

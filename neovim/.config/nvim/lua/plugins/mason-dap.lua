@@ -17,6 +17,7 @@ return {
 			-- Update this to ensure that you have the debuggers for the langs you want
 			"codelldb",
 			"js",
+			"python",
 		},
 	},
 	-- mason-nvim-dap is loaded when nvim-dap loads

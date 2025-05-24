@@ -17,10 +17,6 @@ return {
 		for server in ipairs(servers) do
 			if not registry.has_package(server) then
 				vim.cmd("LspInstall " .. server)
-				vim.notify("Installed" .. server, 1, {
-					title = "Mason",
-					timeout = 2000,
-				})
 			end
 		end
 	end,

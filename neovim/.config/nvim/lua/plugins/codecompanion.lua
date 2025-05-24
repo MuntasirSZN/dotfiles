@@ -9,7 +9,9 @@ return {
 		"ravitemer/codecompanion-history.nvim",
 	},
 	init = function()
+		require("custom.codecompanion-extmarks").setup()
 		require("custom.codecompanion-notification").init()
+		require("custom.codecompanion-spinner"):init()
 	end,
 	config = function()
 		vim.g.codecompanion_auto_tool_mode = true
@@ -31,6 +33,15 @@ return {
 		-- Expand 'cc' into 'CodeCompanion' in the command line
 		vim.cmd([[cab cc CodeCompanion]])
 		require("codecompanion").setup({
+			send = {
+				callback = function(chat)
+					vim.cmd("stopinsert")
+					chat:add_buf_message({ role = "llm", content = "" })
+					chat:submit()
+				end,
+				index = 1,
+				description = "Send",
+			},
 			display = {
 				action_palette = {
 					provider = "snacks",
@@ -100,7 +111,7 @@ return {
 					return require("codecompanion.adapters").extend("copilot", {
 						schema = {
 							model = {
-								default = "claude-4-sonnet",
+								default = "claude-sonnet-4",
 							},
 						},
 					})

@@ -107,6 +107,7 @@ return {
 			},
 			providers = {
 				lsp = {
+					score_offset = 98,
 					opts = {
 						tailwind_color_icon = require("custom.icons").misc.color_text,
 					},
@@ -126,6 +127,7 @@ return {
 					module = "blink-ripgrep",
 					name = "Ripgrep",
 					async = true,
+					score_offset = 90,
 					transform_items = function(_, items)
 						local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
 						local kind_idx = #CompletionItemKind + 1
@@ -143,6 +145,7 @@ return {
 					module = "blink-emoji",
 					name = "Emoji",
 					async = true,
+					score_offset = 91,
 					opts = { insert = true }, -- Insert emoji (default) or complete its name
 					transform_items = function(_, items)
 						local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
@@ -164,6 +167,7 @@ return {
 					module = "blink-cmp-dictionary",
 					name = "Dict",
 					async = true,
+					score_offset = 84,
 					min_keyword_length = 3,
 					opts = {
 						dictionary_files = {
@@ -191,6 +195,7 @@ return {
 					module = "blink-cmp-git",
 					name = "Git",
 					async = true,
+					score_offset = 92,
 					enabled = function()
 						return vim.tbl_contains({ "octo", "gitcommit", "markdown" }, vim.bo.filetype)
 					end,

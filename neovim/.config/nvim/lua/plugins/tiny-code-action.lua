@@ -7,7 +7,9 @@ return {
 	event = "LspAttach",
 	opts = {
 		backend = "delta",
-		picker = "snacks",
+		picker = {
+			"snacks",
+		},
 	},
 	keys = {
 		{

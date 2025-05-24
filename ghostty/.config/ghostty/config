@@ -18,11 +18,10 @@ gtk-adwaita = false
 
 gtk-single-instance = true
 
-# Remove Bottom Padding
-window-padding-y = 1
-
 # Shader
 # custom-shader = shaders/gradient-background.glsl
 
 # Theme
 theme = catppuccin-mocha.conf
+
+window-padding-x = 8
