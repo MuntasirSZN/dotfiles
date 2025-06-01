@@ -35,6 +35,7 @@ return {
 			pyright = {},
 			prismals = {},
 			tailwindcss = {},
+			ruff = {},
 			yamlls = {},
 			typos_lsp = {},
 			vimls = {},
@@ -109,6 +110,7 @@ return {
 			}
 			vim.lsp.inlay_hint.enable(true)
 			vim.lsp.config(server, config)
+			vim.lsp.enable("qmlls")
 		end
 
 		local customizations = {

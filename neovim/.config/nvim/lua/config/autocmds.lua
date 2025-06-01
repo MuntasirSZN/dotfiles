@@ -194,13 +194,6 @@ vim.api.nvim_create_autocmd("User", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "tera",
-	callback = function(event)
-		vim.bo[event.buf].commentstring = "{# %s #}"
-	end,
-})
-
 vim.api.nvim_create_autocmd("VimEnter", {
 	pattern = "*",
 	callback = function()
