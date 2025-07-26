@@ -8,7 +8,10 @@ return {
 	opts = {
 		backend = "delta",
 		picker = {
-			"snacks",
+			"buffer",
+			opts = {
+				auto_preview = true,
+			},
 		},
 	},
 	keys = {

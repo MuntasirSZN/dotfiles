@@ -20,7 +20,7 @@ $time\
 $fill$cmd_duration\
 $line_break$character"""
 
-continuation_prompt = '[❯❯](bright-black) '
+continuation_prompt = '[❯❯](bright-black)'
 
 palette = 'catppuccin_mocha'
 
@@ -119,47 +119,47 @@ format = '[[($all_status$ahead_behind )](fg:green)]($style)'
 [nodejs]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#3c873a)]($style)'
 
 [c]
 symbol = " "
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#00599d)]($style)'
 
 [rust]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#f54b01)]($style)'
 
 [golang]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#75e0fd)]($style)'
 
 [php]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#777bb3)]($style)'
 
 [java]
 symbol = " "
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#5283a3)]($style)'
 
 [kotlin]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#9f38f7)]($style)'
 
 [haskell]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#5e5086)]($style)'
 
 [python]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#ffdf59)]($style)'
 
 [docker_context]
 symbol = ""

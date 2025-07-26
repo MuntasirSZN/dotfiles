@@ -21,8 +21,8 @@
   autocrlf = input  # keep newlines as in input
   compression = 9  # trade cpu for network
   fsync = none
-  whitespace = error  # treat incorrect whitespace as errors
-
+   whitespace = error  # treat incorrect whitespace as errors
+   excludesfile = /home/muntasir/.gitignore_global
 [interactive]
   diffFilter = delta --color-only
 

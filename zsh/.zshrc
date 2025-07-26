@@ -7,7 +7,7 @@ if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH=
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH
 
 autoload -Uz compinit
 compinit
@@ -45,7 +45,7 @@ fastfetch
 
 # Prompt
 eval "$(starship init zsh)"
-timeout 2s getquotes --offline
+getquotes --offline
 
 # pnpm
 export PNPM_HOME="/home/muntasir/.local/share/pnpm"
@@ -54,8 +54,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-export beef="cd ~/beef && beef"
 
 export LS_COLORS=$(vivid generate catppuccin-mocha)
 
@@ -234,6 +232,7 @@ eval "$(atuin init zsh --disable-ctrl-r)"
 alias ai-enable='source ~/.local/bin/ai-enable'
 alias aur-enable='source ~/.local/bin/aur-enable'
 alias pop-enable='source ~/.local/bin/pop-enable'
+alias gemini-enable='source ~/.local/bin/gemini-enable'
 
 alias ltree="eza --tree --level=2  --icons --git --git-ignore"
 eval "$(gh copilot alias -- zsh)"

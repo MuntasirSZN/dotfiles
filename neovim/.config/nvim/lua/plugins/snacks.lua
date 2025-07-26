@@ -123,6 +123,8 @@ return {
         filter = function(msg)
           if msg.msg == "clipboard: error: Nothing is copied" then
             return false
+          elseif msg.title == "noice.nvim" and msg.msg.match(msg.msg, "`vim.notify`*") then
+            return false
           end
           return true
         end

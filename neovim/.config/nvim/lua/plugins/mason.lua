@@ -5,6 +5,7 @@ return {
 	keys = { { "<leader>cM", "<cmd>Mason<cr>", desc = "Mason" } },
 	build = ":MasonUpdate",
 	opts_extend = { "ensure_installed" },
+	---@type MasonSettings
 	opts = {
 		ui = {
 			icons = require("custom.icons").mason,
@@ -19,8 +20,6 @@ return {
 			"gitleaks",
 			"hadolint",
 			"markdownlint-cli2",
-			"mypy",
-			"pylint",
 			"yamllint",
 			"black",
 			"markdown-toc",

@@ -6,6 +6,7 @@ return {
 	config = function()
 		require("rustowl").setup({
 			auto_enable = true,
+			highlight_style = "underline",
 		})
 	end,
 }

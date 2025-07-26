@@ -150,9 +150,7 @@
 ### lsp
 
 - [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-
-<!-- - [rachartier/tiny-code-action.nvim](https://dotfyle.com/plugins/rachartier/tiny-code-action.nvim) -->
-
+- [rachartier/tiny-code-action.nvim](https://dotfyle.com/plugins/rachartier/tiny-code-action.nvim)
 - [nvimtools/none-ls.nvim](https://dotfyle.com/plugins/nvimtools/none-ls.nvim)
 - [mrcjkb/rustaceanvim](https://dotfyle.com/plugins/mrcjkb/rustaceanvim)
 - [zeioth/none-ls-autoload.nvim](https://dotfyle.com/plugins/zeioth/none-ls-autoload.nvim)
@@ -252,7 +250,7 @@
 - [Neovim](https://github.com/neovim/neovim) >= **0.9.0** (needs to be built with **LuaJIT**)
 - [Imagemagick](https://imagemagick.org/index.php) (required, for [snacks.nvim](https://github.com/folke/snacks.nvim) image module)
 - [git](https://git-scm.com) >= **2.40.0** (Gitsigns)
-- A [Nerd Font](https://www.nerdfonts.com/) (Important, Otherwise icons won't show.)
+- A [Nerd Font](https://www.nerdfonts.com/) (Important, Otherwise, icons won't show.)
 - [Silicon](https://github.com/Aloxaf/silicon) cli tool (Optional, see [screenshots.lua](./lua/plugins/screenshots.lua))
 - [Gnu Stow](https://github.com/aspiers/stow) for symlinking (optional, can be done manually)
 - Github CLI [gh](https://github.com/cli/cli) for [gh.nvim](https://github.com/ldelossa/gh.nvim) (optional, if you use Github)
@@ -267,7 +265,7 @@
 git clone https://github.com/MuntasirSZN/dotfiles
 ```
 
-2. If you have any configurations present, move it into backup.
+2. If you have any configurations present, move it into back up.
 
 ```sh
 mv ~/.config/nvim ~/.config/nvim.bak

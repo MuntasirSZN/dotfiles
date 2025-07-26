@@ -395,8 +395,7 @@
     "workbench.editorAssociations": {
         "*.copilotmd": "vscode.markdown.preview.editor",
         "*.pdf": "pdf.preview",
-        "*.gz": "default",
-        "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
+        "*.gz": "default"
     },
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"

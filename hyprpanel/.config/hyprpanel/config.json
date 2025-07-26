@@ -466,5 +466,8 @@
   "menus.media.displayTimeTooltip": true,
   "menus.dashboard.shortcuts.left.shortcut2.command": "spotify",
   "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen Browser",
-  "menus.dashboard.shortcuts.left.shortcut1.command": "zen-browser"
+  "menus.dashboard.shortcuts.left.shortcut1.command": "zen-browser",
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
 }

@@ -44,7 +44,8 @@ Config(
     "librink.so",
 //    "librandr.so",
     "libwebsearch.so",
-    "libkidex.so",
+// Crazy memory usage
+//    "libkidex.so",
     "libtranslate.so",
     "libstdin.so",
     "libdictionary.so",

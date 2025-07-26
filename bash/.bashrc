@@ -187,7 +187,3 @@ esac
 alias pbcopy="xsel --input --clipboard"
 alias pbpaste="xsel --output --clipboard"
 . "$HOME/.cargo/env"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-source /home/muntasir/.rvm/scripts/rvm

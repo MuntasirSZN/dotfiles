@@ -11,6 +11,7 @@ return {
 		local tbl_keys = vim.tbl_keys(servers)
 		require("mason-lspconfig").setup({
 			ensure_installed = tbl_keys,
+			automatic_enable = false,
 		})
 
 		local registry = require("mason-registry")

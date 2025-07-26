@@ -11,6 +11,10 @@ vim.g.maplocalleader = "\\"
 vim.g.markdown_recommended_style = 0
 vim.g.loaded_perl_provider = 0
 
+-- Undercurl
+vim.cmd([[let &t_Cs = "\e[4:3m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
+
 -- Editor settings
 local opt = vim.opt
 
@@ -58,6 +62,7 @@ opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 opt.smartcase = true
 opt.smartindent = true
+opt.spell = true
 opt.spelllang = { "en" }
 opt.splitbelow = true
 opt.splitkeep = "screen"

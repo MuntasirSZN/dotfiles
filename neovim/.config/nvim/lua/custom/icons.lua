@@ -52,7 +52,6 @@ local M = {
 	},
 	kinds = {
 		Emoji = "󰞅",
-		Ripgrep = "󱎸",
 		Array = "",
 		Boolean = "󰨙",
 		Class = "",
