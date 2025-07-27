@@ -25,3 +25,4 @@ gtk-single-instance = true
 theme = catppuccin-mocha.conf
 
 window-padding-x = 8
+keybind = shift+enter=text:\n
