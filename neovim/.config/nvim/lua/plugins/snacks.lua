@@ -35,30 +35,14 @@ return {
 			return cache.ascii_art
 		end
 
-		local colors = require("catppuccin.palettes").get_palette()
+		local layout = require("catppuccin.groups.integrations.snacks").get_layout()
 
-		local SnacksPickerColors = {
-			-- Matching and Selection
-			SnacksPickerMatch = { fg = colors.peach },
-			SnacksPickerSelected = { fg = colors.text, bg = colors.surface1, bold = true },
-			-- Prompt highlights
-			SnacksPickerInput = { bg = colors.surface1 },
-			SnacksPickerInputBorder = { bg = colors.surface1, fg = colors.surface1 },
-			SnacksPickerInputTitle = { bg = colors.red, fg = colors.mantle },
-			-- Results highlights
-			SnacksPickerList = { bg = colors.mantle },
-			SnacksPickerListBorder = { bg = colors.mantle, fg = colors.mantle },
-			SnacksPickerListTitle = { fg = colors.overlay2 },
-			-- Preview highlights
-			SnacksPickerPreview = { bg = colors.mantle },
-			SnacksPickerPreviewBorder = { bg = colors.mantle, fg = colors.mantle },
-			SnacksPickerPreviewTitle = { bg = colors.green, fg = colors.crust },
-		}
-
-		-- Apply highlights
-		for highlight_group, color_settings in pairs(SnacksPickerColors) do
-			vim.api.nvim_set_hl(0, highlight_group, color_settings)
-		end
+		layout.width = 0.9
+		layout.height = 0.9
+		layout.backdrop = false
+		layout[2].title = "{preview:Preview}"
+		layout[2].border = "rounded"
+		layout[2].width = 0.53
 
     -- stylua: ignore
     ---@type snacks.Config
@@ -139,68 +123,16 @@ return {
         },
         previewers = {
           diff = {
-            builtin = false,   -- use Neovim for previewing diffs (true) or use an external tool (false)
-            cmd = { "delta" }, -- example to show a diff with delta
+            builtin = false,
+            cmd = { "delta" },
           },
         },
-        sources = {
-          select = {
-            layout = {
-              preset = "telescope-custom-select",
-            },
-          },
+        layout = {
+          layout = layout,
         },
         ui_select = true,
         enabled = true,
         prompt = " ",
-        layout = {
-          preset = "telescope-custom",
-        },
-        layouts = {
-          ["telescope-custom-select"] = {
-            reverse = false,
-            layout = {
-              box = "horizontal",
-              backdrop = false,
-              width = 0.5,
-              height = 2,
-              border = "none",
-              {
-                box = "vertical",
-                { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
-                {
-                  win = "list",
-                  title = " Results ",
-                  title_pos = "center",
-                  border = "rounded",
-                  height = 30
-                },
-              },
-            },
-          },
-          ["telescope-custom"] = {
-            reverse = false,
-            layout = {
-              box = "horizontal",
-              backdrop = false,
-              width = 0.8,
-              height = 0.9,
-              border = "none",
-              {
-                box = "vertical",
-                { win = "input", height = 1,          border = "rounded",   title = "{title} {live} {flags}", title_pos = "center" },
-                { win = "list",  title = " Results ", title_pos = "center", border = "rounded" },
-              },
-              {
-                win = "preview",
-                title = "{preview:Preview}",
-                width = 0.53,
-                border = "rounded",
-                title_pos = "center",
-              },
-            },
-          },
-        },
       },
       dashboard = {
         enabled = true,

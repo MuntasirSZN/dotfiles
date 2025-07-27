@@ -18,6 +18,12 @@ return {
 				local groups = {
 					SnacksDashboardHeader = { fg = palette.yellow },
 					SnacksIndent = { fg = palette.surface0 },
+					SnacksPickerInput = { bg = palette.surface1 },
+					SnacksPickerInputBorder = { bg = palette.surface1, fg = palette.surface1 },
+					SnacksPickerMatch = { fg = palette.peach },
+					SnacksPickerList = { bg = palette.mantle },
+					SnacksPickerListBorder = { bg = palette.mantle, fg = palette.mantle },
+					SnacksPickerListTitle = { fg = palette.overlay2, bg = "NONE" },
 				}
 				return groups
 			end,
@@ -44,7 +50,11 @@ return {
 				},
 				neotree = true,
 				blink_cmp = true,
-				snacks = true,
+				snacks = {
+					enabled = true,
+					indent_scope_color = "lavender",
+					picker_style = "nvchad",
+				},
 				markview = true,
 			},
 		})
