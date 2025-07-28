@@ -10,7 +10,15 @@ return {
 			astro = {},
 			bashls = {},
 			biome = {},
-			cssls = {},
+			cssls = {
+				settings = {
+					css = {
+						lint = {
+							unknownAtRules = "ignore",
+						},
+					},
+				},
+			},
 			css_variables = {},
 			cssmodules_ls = {},
 			docker_compose_language_service = {},
@@ -113,6 +121,9 @@ return {
 			config.capabilities.textDocument.inlayHint = {
 				enable = true,
 			}
+			if server == "cssls" then
+				config.capabilities.textDocument.completion.completionItem.snippetSupport = true
+			end
 			vim.lsp.inlay_hint.enable(true)
 			vim.lsp.enable(server)
 			vim.lsp.config(server, config)
