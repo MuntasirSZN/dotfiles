@@ -39,7 +39,6 @@ return {
 					.. (diag.warning and icons.Warn .. diag.warning or "")
 				return vim.trim(ret)
 			end,
-			---@param opts bufferline.IconFetcherOpts
 			get_element_icon = function(opts)
 				return require("custom.icons").ft[opts.filetype]
 			end,
@@ -58,11 +57,15 @@ return {
 		},
 	},
 	config = function(_, opts)
+		if (vim.g.colors_name or ""):find("catppuccin") then
+			opts.highlights = require("catppuccin.groups.integrations.bufferline").get()
+		end
 		require("bufferline").setup(opts)
 		-- Fix bufferline when restoring a session
 		vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
 			callback = function()
 				vim.schedule(function()
+					---@diagnostic disable-next-line: undefined-global
 					pcall(nvim_bufferline)
 				end)
 			end,

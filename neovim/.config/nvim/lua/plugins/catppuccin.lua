@@ -29,12 +29,20 @@ return {
 			end,
 			default_integrations = true,
 			integrations = {
+				illuminate = {
+					enabled = true,
+					lsp = false,
+				},
 				which_key = true,
 				dadbod_ui = true,
 				lsp_trouble = true,
+				octo = true,
+				ufo = true,
+
 				grug_far = true,
 				mason = true,
 				neotest = true,
+				neogit = true,
 				noice = true,
 				diffview = true,
 				dap = true,
@@ -43,6 +51,7 @@ return {
 					enabled = true,
 					color_mode = true, -- enable color for kind's texts, not just kind's icons
 				},
+
 				gitsigns = true,
 				treesitter = true,
 				mini = {
@@ -56,6 +65,16 @@ return {
 					picker_style = "nvchad",
 				},
 				markview = true,
+				native_lsp = {
+					enabled = true,
+					underlines = {
+						errors = { "undercurl" },
+						hints = { "undercurl" },
+						warnings = { "undercurl" },
+						information = { "undercurl" },
+						ok = { "undercurl" },
+					},
+				},
 			},
 		})
 		vim.cmd.colorscheme("catppuccin")
