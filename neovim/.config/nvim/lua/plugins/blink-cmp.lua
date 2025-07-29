@@ -47,13 +47,12 @@ return {
 		"mikavilpas/blink-ripgrep.nvim",
 		"moyiz/blink-emoji.nvim",
 		{
-			"Kaiser-Yang/blink-cmp-dictionary",
-			dependencies = { "nvim-lua/plenary.nvim" },
-		},
-		{
 			"Kaiser-Yang/blink-cmp-git",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
+		{ "disrupted/blink-cmp-conventional-commits" },
+		{ "alexandre-abrioux/blink-cmp-npm.nvim" },
+		{ "archie-judd/blink-cmp-words" },
 	},
 	opts_extend = {
 		"sources.completion.enabled_providers",
@@ -74,18 +73,6 @@ return {
 		},
 		snippets = {
 			preset = "luasnip",
-			expand = function(snippet)
-				require("luasnip").lsp_expand(snippet)
-			end,
-			active = function(filter)
-				if filter and filter.direction then
-					return require("luasnip").jumpable(filter.direction)
-				end
-				return require("luasnip").in_snippet()
-			end,
-			jump = function(direction)
-				require("luasnip").jump(direction)
-			end,
 		},
 		sources = {
 			per_filetype = {
@@ -100,12 +87,42 @@ return {
 				"lazydev",
 				"dadbod",
 				"ripgrep",
-				"dictionary",
 				"git",
 				"emoji",
 				"ecolog",
+				"conventional_commits",
+				"npm",
+				"dictionary",
 			},
 			providers = {
+				dictionary = {
+					name = "blink-cmp-words",
+					module = "blink-cmp-words.dictionary",
+				},
+				npm = {
+					name = "npm",
+					module = "blink-cmp-npm",
+					async = true,
+					-- optional - make blink-cmp-npm completions top priority (see `:h blink.cmp`)
+					score_offset = 100,
+					-- optional - blink-cmp-npm config
+					---@module "blink-cmp-npm"
+					---@type blink-cmp-npm.Options
+					opts = {
+						only_semantic_versions = true,
+						only_latest_version = false,
+					},
+				},
+				conventional_commits = {
+					name = "Conventional Commits",
+					module = "blink-cmp-conventional-commits",
+					enabled = function()
+						return vim.bo.filetype == "gitcommit"
+					end,
+					---@module 'blink-cmp-conventional-commits'
+					---@type blink-cmp-conventional-commits.Options
+					opts = {}, -- none so far
+				},
 				lsp = {
 					score_offset = 98,
 					opts = {
@@ -138,49 +155,12 @@ return {
 					async = true,
 					score_offset = 91,
 					opts = { insert = true }, -- Insert emoji (default) or complete its name
-					transform_items = function(_, items)
-						local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-						local kind_idx = #CompletionItemKind + 1
-						CompletionItemKind[kind_idx] = "Emoji"
-						for _, item in ipairs(items) do
-							item.kind = kind_idx
-						end
-						return items
-					end,
 					should_show_items = function()
 						return vim.tbl_contains(
 							{ "gitcommit", "markdown", "norg", "rmd", "org", "mdx" },
 							vim.o.filetype
 						)
 					end,
-				},
-				dictionary = {
-					module = "blink-cmp-dictionary",
-					name = "Dict",
-					async = true,
-					score_offset = 84,
-					min_keyword_length = 3,
-					opts = {
-						dictionary_files = {
-							vim.fn.expand("~/.config/nvim/words/words.txt"),
-						},
-						get_documentation = function(item)
-							-- use return nil to disable the documentation
-							-- return nil
-							return {
-								get_command = function()
-									return "dict"
-								end,
-								get_command_args = function()
-									return { item }
-								end,
-								resolve_documentation = function(output)
-									return output
-								end,
-								on_error = require("blink-cmp-dictionary.default").on_error,
-							}
-						end,
-					},
 				},
 				git = {
 					module = "blink-cmp-git",
@@ -250,6 +230,14 @@ return {
 					treesitter = { "lsp" },
 					columns = { { "kind_icon" }, { "label", gap = 1 } },
 					components = {
+						kind_icon = {
+							text = function(ctx)
+								local icons = require("custom.icons").kinds
+								local icon = (icons[ctx.kind] or "󰈚")
+
+								return icon
+							end,
+						},
 						label = {
 							text = function(ctx)
 								return require("colorful-menu").blink_components_text(ctx)
@@ -292,21 +280,9 @@ return {
 			vim.api.nvim_set_hl(0, "BlinkCmpGitLabel" .. kind_name .. "Id", hl)
 		end
 
-		local icons = require("custom.icons").kinds
-		local extra = {
-			Emoji = "󰞅",
-			Ripgrep = "󱎸",
-		}
-
-		local final_icons = vim.tbl_extend("force", icons, extra)
-
-		opts.appearance = opts.appearance or {}
-		opts.appearance.kind_icons = vim.tbl_extend("force", final_icons, opts.appearance.kind_icons or {})
-
 		local blink_cmp_kind_name_highlight = {
 			Emoji = { default = false, fg = "#FF9800" },
 			Ripgrep = { default = false, fg = "#5D6D7E" },
-			Dict = { default = false, fg = "#00A6ED" },
 		}
 
 		for kind_name, hl in pairs(blink_cmp_kind_name_highlight) do
