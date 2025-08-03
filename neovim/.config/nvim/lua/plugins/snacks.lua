@@ -35,15 +35,6 @@ return {
 			return cache.ascii_art
 		end
 
-		local layout = require("catppuccin.groups.integrations.snacks").get_layout()
-
-		layout.width = 0.9
-		layout.height = 0.9
-		layout.backdrop = false
-		layout[2].title = "{preview:Preview}"
-		layout[2].border = "rounded"
-		layout[2].width = 0.53
-
     -- stylua: ignore
     ---@type snacks.Config
     local opts = {
@@ -128,7 +119,36 @@ return {
           },
         },
         layout = {
-          layout = layout,
+          layout = {
+            {
+              {
+                border = "solid",
+                height = 1,
+                title = " {source} {live} ",
+                title_pos = "center",
+                win = "input"
+              },
+              {
+                border = "solid",
+                title = "  Results  ",
+                title_pos = "center",
+                win = "list"
+              },
+              box = "vertical"
+            },
+            {
+              border = "rounded",
+              title = "{preview:Preview}",
+              title_pos = "center",
+              width = 0.53,
+              win = "preview"
+            },
+            backdrop = false,
+            border = "none",
+            box = "horizontal",
+            height = 0.9,
+            width = 0.9
+          },
         },
         ui_select = true,
         enabled = true,

@@ -24,10 +24,6 @@ return {
 				dotenv = { glyph = "", hl = "MiniIconsYellow" },
 			},
 			extension = {
-				js = { icon = "󰌞", name = "js" },
-				ts = { icon = "󰛦", name = "ts" },
-				lock = { icon = "󰌾", name = "lock" },
-				["robots.txt"] = { icon = "󰚩", name = "robots" },
 				["test.js"] = js_table,
 				["test.jsx"] = jsx_table,
 				["test.ts"] = ts_table,

@@ -3,6 +3,3 @@ noice = "noice"
 ags = "ags"
 persistance = "persistance"
 enew = "enew"
-
-[files]
-extend-exclude = ["/words"]

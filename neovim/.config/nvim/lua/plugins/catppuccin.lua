@@ -10,6 +10,9 @@ return {
 				enabled = true,
 				path = vim.fn.stdpath("cache") .. "/catppuccin",
 			},
+			float = {
+				solid = true,
+			},
 			dim_inactive = {
 				enabled = true,
 			},

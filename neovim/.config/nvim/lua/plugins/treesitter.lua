@@ -43,6 +43,7 @@ return {
 		})
 		local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
+		---@diagnostic disable-next-line: inject-field
 		parser_configs.lua_patterns = {
 			install_info = {
 				url = "https://github.com/OXY2DEV/tree-sitter-lua_patterns",
