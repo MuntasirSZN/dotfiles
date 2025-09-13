@@ -61,11 +61,12 @@ return {
 					enabled = true,
 				},
 				neotree = true,
-				blink_cmp = true,
+				blink_cmp = {
+					style = "solid",
+				},
 				snacks = {
 					enabled = true,
 					indent_scope_color = "lavender",
-					picker_style = "nvchad",
 				},
 				markview = true,
 				native_lsp = {

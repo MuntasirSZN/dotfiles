@@ -1,0 +1,96 @@
+[tools]
+bun = "latest"
+node = "latest"
+deno = "latest"
+python = "latest"
+yarn = "latest"
+shellcheck = "latest"
+gitleaks = "latest"
+gh = "latest"
+direnv = "latest"
+pnpm = "latest"
+zig = "latest"
+uv = "latest"
+bat = "latest"
+bat-extras = "latest"
+btop = "latest"
+dust = "latest"
+delta = "latest"
+lazydocker = "latest"
+usage = "latest"
+fastfetch = "latest"
+eza = "latest"
+fd = "latest"
+glow = "latest"
+lazygit = "latest"
+"pipx:sherlock-project" = "latest"
+tlrc = "latest"
+atuin = "latest"
+superfile = "latest"
+"ubi:sundowndev/phoneinfoga" = "latest"
+neonctl = "latest"
+"npm:wordnet" = "latest"
+lychee = "latest"
+neovim = "latest"
+"ubi:neovide/neovide" = "latest"
+claude-code = "latest"
+opencode = "latest"
+pandoc = "latest"
+ollama = "latest"
+"pipx:ty" = "latest"
+"pipx:posting" = "latest"
+"cargo:pay-respects" = "latest"
+rust-analyzer = "latest"
+starship = "latest"
+yay = "latest"
+yazi = "latest"
+yq = "latest"
+zoxide = "latest"
+zizmor = "latest"
+hyperfine = "latest"
+"cargo:speedtest-rs" = "latest"
+"cargo:wallust" = "latest"
+"cargo:flamegraph" = "latest"
+"cargo:tauri-cli" = "latest"
+"cargo:cargo-deny" = "latest"
+"cargo:cargo-audit" = "latest"
+"cargo:typos-cli" = "latest"
+"cargo:cargo-nextest" = "latest"
+"cargo:kanata" = "latest"
+"cargo:iai-callgrind-runner" = "latest"
+"cargo:git-cliff" = "latest"
+"cargo:cargo-zigbuild" = "latest"
+"cargo:cargo-tarpaulin" = "latest"
+"cargo:cargo-shear" = "latest"
+"npm:@charmland/crush" = "latest"
+"npm:copilot-api" = "latest"
+hk = "latest"
+pkl = "latest"
+java = "latest"
+"cargo:cargo-edit" = "latest"
+"cargo:cargo-update" = "latest"
+"cargo:cargo-features-manager" = "latest"
+sccache = "latest"
+"cargo:rustowl" = "latest"
+"npm:@openai/codex" = "latest"
+"cargo:cargo-llvm-cov" = "latest"
+"pipx:mcp-proxy" = "latest"
+"cargo:cargo-binstall" = "latest"
+"pipx:vectorcode" = { version = "latest", extras = "lsp,mcp,intel" }
+
+[settings]
+lockfile = true
+experimental = true
+idiomatic_version_file_enable_tools = ["rust"]
+
+[settings.python]
+compile = false
+
+[settings.npm]
+bun = true
+
+[settings.pipx]
+uvx = true
+
+[settings.cargo]
+binstall = true

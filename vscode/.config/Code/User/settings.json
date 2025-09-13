@@ -1,6 +1,7 @@
 {
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "biome.suggestInstallingGlobally": false,
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${profileName}${separator}${appName}",
-    "window.systemColorTheme": "dark",
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "strict",
     "security.workspace.trust.untrustedFiles": "open",
@@ -171,7 +172,7 @@
     "editor.language.colorizedBracketPairs": [],
     "peacock.keepBadgeColor": true,
     "peacock.keepForegroundColor": true,
-    "animations.Install-Method": "Custom UI Style",
+    "animations.Install-Method": "Custom CSS and JS",
     "apc.imports": [],
     "colorize.enable_search_variables": true,
     "colorize.colorized_colors": [
@@ -378,7 +379,7 @@
             }
         ]
     },
-    "vscode-office.editorTheme": "Dracula",
+    "vscode-office.editorTheme": "Auto",
     "terminal.integrated.fontFamily": "\"JetBrainsMono NF\",\"Fira Code Nerd Font\",monospace",
     "accessibility.dimUnfocused.opacity": 0.2,
     "diffEditor.codeLens": true,
@@ -387,7 +388,6 @@
     "inlineChat.mode": "live",
     "cmake.showOptionsMovedNotification": false,
     "github.copilot.preferredAccount": "MuntasirSZN",
-    "github.copilot.editor.enableAutoCompletions": true,
     "redhat.telemetry.enabled": true,
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
@@ -408,29 +408,29 @@
     },
     "workbench.editor.enablePreview": false,
     "git.confirmSync": false,
-    "cSpell.enableFiletypes": [
-        "azcli",
-        "bat",
-        "bats",
-        "bibtex",
-        "clojure",
-        "cmake",
-        "cmake-cache",
-        "code-referencing",
-        "code-runner-output",
-        "code-text-binary",
-        "coffeescript",
-        "cpp_embedded_latex",
-        "csv",
-        "cuda-cpp",
-        "dart",
-        "data-wrangler",
-        "diff",
-        "dockercompose",
-        "dockerfile",
-        "dotenv",
-        "drawio"
-    ],
+    "cSpell.enabledFileTypes": {
+        "azcli": true,
+        "bat": true,
+        "bats": true,
+        "bibtex": true,
+        "clojure": true,
+        "cmake": true,
+        "cmake-cache": true,
+        "code-referencing": true,
+        "code-runner-output": true,
+        "code-text-binary": true,
+        "coffeescript": true,
+        "cpp_embedded_latex": true,
+        "csv": true,
+        "cuda-cpp": true,
+        "dart": true,
+        "data-wrangler": true,
+        "diff": true,
+        "dockercompose": true,
+        "dockerfile": true,
+        "dotenv": true,
+        "drawio": true
+    },
     "hediet.vscode-drawio.resizeImages": null,
     "vscode-office.openOutline": false,
     "git.enableSmartCommit": true,
@@ -438,7 +438,9 @@
     "[css]": {
         "editor.defaultFormatter": "vscode.css-language-features"
     },
-    "vscode_custom_css.imports": [],
+    "vscode_custom_css.imports": [
+        "file:///home/muntasir/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+    ],
     "vs-kubernetes": {
         "vscode-kubernetes.minikube-path-linux": "/home/muntasir/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube",
         "vscode-kubernetes.helm-path-linux": "/home/muntasir/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm"
@@ -456,7 +458,33 @@
     "github.copilot.chat.codesearch.enabled": true,
     "github.copilot.nextEditSuggestions.enabled": true,
     "terminal.integrated.suggest.enabled": true,
-    "custom-ui-style.external.imports": [
-        "file:///home/muntasir/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
-    ]
+    "custom-ui-style.external.imports": [],
+    "github.copilot.selectedCompletionModel": "",
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:claude-sonnet-4",
+    "window.menuBarVisibility": "classic",
+    "workbench.experimental.share.enabled": true,
+    "chat.mcp.autostart": "newAndOutdated",
+    "chat.mcp.serverSampling": {
+        "Global in Code: openmemory": {
+            "allowedModels": [
+                "copilot/gpt-4.1",
+                "copilot/claude-3.5-sonnet",
+                "copilot/claude-3.7-sonnet",
+                "copilot/claude-3.7-sonnet-thought",
+                "copilot/claude-sonnet-4",
+                "copilot/gemini-2.0-flash-001",
+                "copilot/gemini-2.5-pro",
+                "copilot/gpt-4o",
+                "copilot/gpt-5",
+                "copilot/gpt-5-mini",
+                "copilot/grok-code-fast-1",
+                "copilot/o3-mini",
+                "copilot/o4-mini"
+            ]
+        }
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tombi-toml.tombi"
+    }
 }

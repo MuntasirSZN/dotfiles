@@ -169,13 +169,10 @@ export BAT_STYLE="full"
 alias fd='fdfind'
 
 export PATH="/home/muntasir/.local/bin:$PATH"
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
-eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/night-owl.omp.json)"
-source /home/muntasir/perl5/perlbrew/etc/bashrc
 export PATH="$PATH:/home/muntasir/julia-1.10.4/bin"
+echo "Shell Is Bash"
+eval "$(starship init bash)"
 
 # pnpm
 export PNPM_HOME="/home/muntasir/.local/share/pnpm"

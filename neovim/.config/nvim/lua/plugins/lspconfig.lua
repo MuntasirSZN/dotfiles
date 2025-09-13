@@ -28,6 +28,8 @@ return {
 			eslint = {},
 			hyprls = {},
 			jsonls = {},
+			just = {},
+			clangd = {},
 			lua_ls = {
 				settings = {
 					lua_ls = {
@@ -52,6 +54,7 @@ return {
 			oxlint = {},
 			tombi = {},
 			vue_ls = {},
+			zls = {},
 			vtsls = {
 				settings = {
 					vtsls = {
@@ -72,7 +75,6 @@ return {
 			},
 			harper_ls = {
 				enabled = true,
-				filetypes = { "markdown" },
 				settings = {
 					["harper-ls"] = {
 						userDictPath = "~/.config/nvim/spell/en.utf-8.add",

@@ -1,7 +1,7 @@
 return {
 	"Davidyz/VectorCode",
-	version = "*", -- optional, depending on whether you're on nightly or release
-	build = "vectorcode", -- optional but recommended if you set `version = "*"`
+	version = "*",
+	build = "mise up vectorcode",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	cmd = "VectorCode",
 	config = function()

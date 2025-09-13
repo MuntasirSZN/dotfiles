@@ -3,5 +3,9 @@ return {
 	build = ":Cord update",
 	lazy = false,
 	event = "BufReadPre",
-	opts = {},
+	opts = {
+		plugins = {
+			"cord.plugins.diagnostics",
+		},
+	},
 }

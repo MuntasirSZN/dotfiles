@@ -9,7 +9,10 @@ return {
 	config = function()
 		require("neogit").setup({
 			graph_style = "kitty",
-			snacks = true,
+			integrations = {
+				diffview = true,
+				snacks = true,
+			},
 		})
 	end,
 }

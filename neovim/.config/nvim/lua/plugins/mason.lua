@@ -35,7 +35,7 @@ return {
 		local mr = require("mason-registry")
 		mr:on("package:install:success", function()
 			vim.defer_fn(function()
-				-- trigger FileType event to possibly load this newly installed LSP server
+				-- Trigger `FileType` event to possibly load this newly installed LSP server
 				require("lazy.core.handler.event").trigger({
 					event = "FileType",
 					buf = vim.api.nvim_get_current_buf(),

@@ -2,12 +2,11 @@
 #   .zshrc     #
 ################
 
-# Add deno completions to search path
+eval "$(/home/muntasir/.local/bin/mise activate zsh --shims)"
+
 if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH="/home/muntasir/.zsh/completions:$FPATH"; fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$HOME/.local/share/nvim/mason/bin:$PATH"
 
 autoload -Uz compinit
 compinit
@@ -74,7 +73,7 @@ export PATH="/home/muntasir/go/bin:$PATH"
 # Zsh syntax highlighting
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
-#Fzf
+# Fzf
 source <(fzf --zsh)
 source ~/.zsh/fzf-git.sh
 KEYTIMEOUT=100
@@ -105,6 +104,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 zinit light ohmyzsh/ohmyzsh
 zinit snippet OMZP::git
+zinit snippet OMZP::mise
 zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
 zinit snippet OMZP::kubectl
@@ -113,7 +113,6 @@ zinit snippet OMZP::rust
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::git-flow
 zinit snippet OMZP::archlinux
-zinit snippet OMZP::brew
 zinit snippet OMZP::bun
 zinit snippet OMZP::deno
 zinit snippet OMZP::direnv
@@ -124,7 +123,6 @@ zinit snippet OMZP::git-commit
 zinit snippet OMZP::git-extras
 zinit snippet OMZP::node
 zinit snippet OMZP::npm
-zinit snippet OMZP::nvm
 zinit snippet OMZP::pip
 zinit snippet OMZP::python
 zinit snippet OMZP::ssh
@@ -152,10 +150,6 @@ bindkey '^[\' zsh_gh_copilot_suggest
 
 export EDITOR='nvim'
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -173,13 +167,6 @@ setopt hist_find_no_dups
 export EZA_ICONS_AUTO=1
 alias ls="eza"
 
-eval $(thefuck --alias)
-
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 eval "$(batpipe)"
 export BATPIPE_ENABLE_COLOR=true
 export BATDIFF_USE_DELTA=true
@@ -188,14 +175,6 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# bun completions
-[ -s "/home/muntasir/.bun/_bun" ] && source "/home/muntasir/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-. "/home/muntasir/.deno/env"
 
 alias cat="bat --paging=never"
 
@@ -258,13 +237,51 @@ rfv() (
       --query "$*"
 )
 
-source /home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.zsh
-
 alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
 
 export MANPAGER='nvim +Man!'
 
 # Transient prompt
 source ~/.zsh/transient-prompt.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 source ~/.local/bin/bw-enable
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(pay-respects zsh --alias)"
+
+alias gcc='gcc -fuse-ld=mold'
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+export LLVM_PREFIX="/home/linuxbrew/.linuxbrew/opt/llvm"
+
+export CC=clang
+export CXX=clang++
+export LD=ld.mold
+
+export AR=llvm-ar
+export NM=llvm-nm
+export RANLIB=llvm-ranlib
+export STRIP=llvm-strip
+export OBJDUMP=llvm-objdump
+export OBJCOPY=llvm-objcopy
+export READELF=llvm-readelf
+
+# Core compile flags (C)
+export CFLAGS="-rtlib=compiler-rt -fuse-ld=mold"
+
+# Core compile flags (C++) add libc++
+PURE_CXX_BASE="-stdlib=libc++ -rtlib=compiler-rt -unwindlib=libunwind -fuse-ld=mold"
+# Exclude GCC headers & inject libc++ headers for “purity”
+PURE_CXX_HEADERS="-nostdinc++ -isystem ${LLVM_PREFIX}/include/c++/v1"
+export CXXFLAGS="$PURE_CXX_BASE $PURE_CXX_HEADERS"
+
+# Link flags (repeat critical runtime selections)
+export LDFLAGS="-stdlib=libc++ -rtlib=compiler-rt -unwindlib=libunwind -fuse-ld=mold -L${LLVM_PREFIX}/lib -Wl,-rpath,${LLVM_PREFIX}/lib"
+
+# Ensure linker can always see libs (backup to -L)
+export LIBRARY_PATH="${LLVM_PREFIX}/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"

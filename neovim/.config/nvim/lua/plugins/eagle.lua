@@ -28,9 +28,10 @@ return {
 	config = function()
 		require("eagle").setup({
 			show_headers = false,
-			border = "none",
+			border = "rounded",
 			keyboard_mode = true,
 			mouse_mode = true,
+			border_color = require("catppuccin.palettes").get_palette().surface1,
 		})
 	end,
 }

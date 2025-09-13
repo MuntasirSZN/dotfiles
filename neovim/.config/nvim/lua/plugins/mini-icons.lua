@@ -47,6 +47,7 @@ return {
 				groq = { glyph = "", hl = "MiniIconsGrey" },
 				xai = { glyph = "", hl = "MiniIconsGrey" },
 				huggingface = { glyph = "", hl = "MiniIconsGrey" },
+				openrouter = { glyph = "󰑩", hl = "MiniIconsGrey" },
 			},
 		}
 	end,

@@ -22,7 +22,7 @@ vsync = false
 wsl = false
 
 [font]
-normal = ["FiraCode Nerd Font"] 
+normal = ["FiraCode Nerd Font"]
 bold = ["FiraCode Nerd Font"]
 size = 12.5
 style = "Retina"

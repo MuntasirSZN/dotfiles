@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "ahkohd/eza-preview"
-rev = "b114b01"
-hash = "7676d7da18953f4351048004ab45f0f4"
+rev = "a97cf55"
+hash = "cc3aef07a8b1c3fe820f1fbb9a5a2483"
 
 [[plugin.deps]]
 use = "Reledia/glow"
@@ -10,8 +10,8 @@ hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "boydaihungst/mediainfo"
-rev = "cc12f3f"
-hash = "b92e44ad5004f1b45e5c3d717a60ed24"
+rev = "2093ab7"
+hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
@@ -19,28 +19,23 @@ rev = "a63550b"
 hash = "c2021386289a0cbb3e152a052f67c177"
 
 [[plugin.deps]]
-use = "llanosrocas/yaziline"
-rev = "34afcba"
-hash = "1cd2446f8976eb11e549612fd80e3645"
-
-[[plugin.deps]]
 use = "boydaihungst/file-extra-metadata"
-rev = "ec035d6"
-hash = "b23b7db6beb2854a689c648a38843f8c"
+rev = "116a460"
+hash = "e65cd1dea5feb9ca58c33b870ca3070"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "b886025"
+rev = "d7588f6"
 hash = "63b6c222bf2103b3023389dde5e2ecfe"
 
 [[plugin.deps]]
 use = "Lil-Dank/lazygit"
-rev = "7a08a09"
-hash = "a1fa2b3e1826c3a34804ea8c548e9f80"
+rev = "8f37dc5"
+hash = "ee71543790f0ce3951161045a3787abd"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "b886025"
+rev = "d7588f6"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
@@ -50,8 +45,18 @@ hash = "f8530ee84fee95dbcc26bb1d8d8019c7"
 
 [[plugin.deps]]
 use = "KKV9/compress"
-rev = "9fc8fe0"
-hash = "2ad086899bf368fba211a33d8f68c39d"
+rev = "c264639"
+hash = "e17c11b605d989568a1d1741ca17c584"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "88bd1c5"
+hash = "981acbe9b758b1af3a8154c932bb936d"
+
+[[plugin.deps]]
+use = "imsi32/yatline-catppuccin"
+rev = "8cc4773"
+hash = "fd03fb015a28040bca0c0f9a8fe6fd8d"
 
 [flavor]
 deps = []

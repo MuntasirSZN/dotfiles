@@ -51,26 +51,18 @@ return {
 				history = {
 					enabled = true,
 					opts = {
-						-- Keymap to open history from chat buffer (default: gh)
-						keymap = "gh",
-						-- Keymap to save the current chat manually (when auto_save is disabled)
-						save_chat_keymap = "sc",
-						-- Save all chats by default (disable to save only manually using 'sc')
-						auto_save = true,
-						-- Number of days after which chats are automatically deleted (0 to disable)
-						expiration_days = 0,
-						-- Picker interface ("telescope" or "snacks" or "fzf-lua" or "default")
 						picker = "snacks",
-						-- Automatically generate titles for new chats
 						auto_generate_title = true,
-						---On exiting and entering neovim, loads the last chat on opening chat
-						continue_last_chat = false,
-						---When chat is cleared with `gx` delete the chat from history
-						delete_on_clearing_chat = false,
-						---Directory path to save the chats
-						dir_to_save = vim.fn.stdpath("data") .. "/codecompanion-history",
-						---Enable detailed logging for history extension
-						enable_logging = false,
+						title_generation_opts = {
+							adapter = "copilot",
+							model = "gpt-5-mini",
+						},
+						summary = {
+							generation_opts = {
+								adapter = "copilot",
+								model = "gpt-5-mini",
+							},
+						},
 					},
 				},
 				vectorcode = {
@@ -78,15 +70,16 @@ return {
 				},
 				mcphub = {
 					callback = "mcphub.extensions.codecompanion",
-					opts = {
-						show_result_in_chat = true, -- Show the mcp tool result in the chat buffer
-						make_vars = true, -- make chat #variables from MCP server resources
-						make_slash_commands = true, -- make /slash_commands from MCP server prompts
-					},
 				},
 			},
 			strategies = {
 				chat = {
+					tools = {
+						opts = {
+							auto_submit_errors = true,
+							auto_submit_success = true,
+						},
+					},
 					adapter = "copilot",
 					roles = {
 						llm = function(adapter)
@@ -107,15 +100,32 @@ return {
 				},
 			},
 			adapters = {
-				copilot = function()
-					return require("codecompanion.adapters").extend("copilot", {
-						schema = {
-							model = {
-								default = "claude-sonnet-4",
+				http = {
+					openrouter = function()
+						local openrouter = require("custom.codecompanion-openrouter")
+						return require("codecompanion.adapters").extend(openrouter, {
+							name = "openrouter",
+							formatted_name = "Open Router",
+							env = {
+								api_key = "cmd:cat ~/.local/share/opencode/auth.json | jq -r .openrouter.key",
 							},
-						},
-					})
-				end,
+							schema = {
+								model = {
+									default = "z-ai/glm-4.5-air:free",
+								},
+							},
+						})
+					end,
+					copilot = function()
+						return require("codecompanion.adapters").extend("copilot", {
+							schema = {
+								model = {
+									default = "gpt-5",
+								},
+							},
+						})
+					end,
+				},
 			},
 		})
 	end,
