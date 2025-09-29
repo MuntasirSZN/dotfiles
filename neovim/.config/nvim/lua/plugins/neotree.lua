@@ -48,16 +48,14 @@ return {
 			Snacks.rename.on_rename_file(data.source, data.destination)
 		end
 		local events = require("neo-tree.events")
-		local sources = {
-			{ source = "filesystem", display_name = "  Files" },
-			{ source = "git_status", display_name = "󰊢 Git" },
-		}
 		local opts = {
-			sources = { "filesystem", "buffers", "git_status" },
+			sources = { "filesystem" },
 			source_selector = {
 				winbar = true,
 				content_layout = "center",
-				sources = sources,
+				sources = {
+					{ source = "filesystem", display_name = "  Files" },
+				},
 			},
 			open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
 			filesystem = {
@@ -89,15 +87,15 @@ return {
 			},
 			default_component_configs = {
 				indent = {
-					with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-					expander_collapsed = "",
-					expander_expanded = "",
+					with_expanders = true,
+					expander_collapsed = "",
+					expander_expanded = "",
 					expander_highlight = "NeoTreeExpander",
 				},
 				git_status = {
 					symbols = {
-						unstaged = "󰄱",
-						staged = "󰱒",
+						unstaged = " ",
+						staged = " ",
 					},
 				},
 			},

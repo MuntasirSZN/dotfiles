@@ -1,6 +1,7 @@
 return {
 	"zbirenbaum/copilot.lua",
 	lazy = false,
+	event = "InsertEnter",
 	config = function()
 		require("copilot").setup({
 			suggestion = {
@@ -15,10 +16,8 @@ return {
 			workspace_folders = {
 				"/home/muntasir/projects",
 			},
-			copilot_model = "gpt-4o-copilot",
 			should_attach = function(_, bufname)
-				local filetype = vim.bo.filetype
-				if string.match(bufname, "env") or filetype == "codecompanion" then
+				if string.match(bufname, "env") then
 					return false
 				end
 

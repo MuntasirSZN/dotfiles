@@ -1,7 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	lazy = false,
-	event = "VeryLazy",
+	event = "BufEnter",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 		"AndreM222/copilot-lualine",
@@ -18,7 +18,7 @@ return {
 	end,
 	config = function()
 		local lazyvim_lualine = require("custom.lazyvim-lualine")
-		local icons = require("custom.icons")
+		local icons = require("configs.icons")
 
 		local opts = {
 			options = {
@@ -63,46 +63,6 @@ return {
 				},
 				lualine_x = {
 					{ "require'wttr'.text" },
-					{
-						function()
-							-- Check if MCPHub is loaded
-							if not vim.g.loaded_mcphub then
-								return "󰐻 -"
-							end
-
-							local count = vim.g.mcphub_servers_count or 0
-							local status = vim.g.mcphub_status or "stopped"
-							local executing = vim.g.mcphub_executing
-
-							-- Show "-" when stopped
-							if status == "stopped" then
-								return "󰐻 -"
-							end
-
-							-- Show spinner when executing, starting, or restarting
-							if executing or status == "starting" or status == "restarting" then
-								local frames = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-								local frame = math.floor(vim.loop.now() / 100) % #frames + 1
-								return "󰐻 " .. frames[frame]
-							end
-
-							return "󰐻 " .. count
-						end,
-						color = function()
-							if not vim.g.loaded_mcphub then
-								return { fg = "#6c7086" } -- Gray for not loaded
-							end
-
-							local status = vim.g.mcphub_status or "stopped"
-							if status == "ready" or status == "restarted" then
-								return { fg = "#50fa7b" } -- Green for connected
-							elseif status == "starting" or status == "restarting" then
-								return { fg = "#ffb86c" } -- Orange for connecting
-							else
-								return { fg = "#ff5555" } -- Red for error/stopped
-							end
-						end,
-					},
 					Snacks.profiler.status(),
           -- stylua: ignore
           {
@@ -117,14 +77,6 @@ return {
             color = function() return { fg = Snacks.util.color("Special") } end,
           },
 					require("ecolog").get_lualine(),
-					{
-						function()
-							return require("lazydo").get_lualine_stats() -- status
-						end,
-						cond = function()
-							return lazy_require("lazydo")._initialized -- condition for lualine
-						end,
-					},
 					{
 						"copilot",
 						show_colors = true,
@@ -152,18 +104,6 @@ return {
 				lualine_y = {
 					{ "progress", separator = " ", padding = { left = 1, right = 0 } },
 					{ "location", padding = { left = 0, right = 1 } },
-					{
-						function()
-							return require("vectorcode.integrations").lualine()[1]()
-						end,
-						cond = function()
-							if package.loaded["vectorcode"] == nil then
-								return false
-							else
-								return require("vectorcode.integrations").lualine().cond()
-							end
-						end,
-					},
 				},
 				lualine_z = {
 					function()
@@ -186,8 +126,6 @@ return {
 
 		vim.g.trouble_lualine = true
 
-		-- do not add trouble symbols if aerial is enabled
-		-- And allow it to be overridden for some buffer types (see autocmds)
 		if vim.g.trouble_lualine and require("lazy.core.config").spec.plugins["trouble.nvim"] then
 			local trouble = require("trouble")
 			local symbols = trouble.statusline({

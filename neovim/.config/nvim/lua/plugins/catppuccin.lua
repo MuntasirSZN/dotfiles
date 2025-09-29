@@ -4,6 +4,15 @@ return {
 	name = "catppuccin",
 	config = function()
 		require("catppuccin").setup({
+			lsp_styles = {
+				underlines = {
+					errors = { "undercurl" },
+					hints = { "undercurl" },
+					warnings = { "undercurl" },
+					information = { "undercurl" },
+					ok = { "undercurl" },
+				},
+			},
 			flavour = "mocha",
 			term_colors = true,
 			compile = {
@@ -31,53 +40,19 @@ return {
 				return groups
 			end,
 			default_integrations = true,
+			auto_integrations = true,
 			integrations = {
 				illuminate = {
-					enabled = true,
 					lsp = false,
 				},
-				which_key = true,
-				dadbod_ui = true,
-				lsp_trouble = true,
-				octo = true,
-				ufo = true,
-
-				grug_far = true,
-				mason = true,
-				neotest = true,
-				neogit = true,
-				noice = true,
-				diffview = true,
-				dap = true,
-				dap_ui = true,
 				dropbar = {
-					enabled = true,
-					color_mode = true, -- enable color for kind's texts, not just kind's icons
+					color_mode = true,
 				},
-
-				gitsigns = true,
-				treesitter = true,
-				mini = {
-					enabled = true,
-				},
-				neotree = true,
 				blink_cmp = {
 					style = "solid",
 				},
 				snacks = {
-					enabled = true,
 					indent_scope_color = "lavender",
-				},
-				markview = true,
-				native_lsp = {
-					enabled = true,
-					underlines = {
-						errors = { "undercurl" },
-						hints = { "undercurl" },
-						warnings = { "undercurl" },
-						information = { "undercurl" },
-						ok = { "undercurl" },
-					},
 				},
 			},
 		})

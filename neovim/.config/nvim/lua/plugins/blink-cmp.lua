@@ -22,7 +22,7 @@ local function pr_or_issue_configure_score_offset(items)
 		if bonus_score[bonus_key] then
 			items[i].score_offset = bonus_score[bonus_key]
 		end
-		-- sort by number when having the same bonus score
+		-- Sort by number when having the same bonus score
 		local number = items[i].label:match("[#!](%d+)")
 		if number then
 			if items[i].score_offset == nil then
@@ -37,6 +37,7 @@ return {
 	"saghen/blink.cmp",
 	version = "*",
 	lazy = false,
+	event = "InsertEnter",
 	dependencies = {
 		"saghen/blink.compat",
 		"xzbdmw/colorful-menu.nvim",
@@ -50,8 +51,6 @@ return {
 			"Kaiser-Yang/blink-cmp-git",
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
-		{ "disrupted/blink-cmp-conventional-commits" },
-		{ "alexandre-abrioux/blink-cmp-npm.nvim" },
 		{ "archie-judd/blink-cmp-words" },
 	},
 	opts_extend = {
@@ -75,9 +74,6 @@ return {
 			preset = "luasnip",
 		},
 		sources = {
-			per_filetype = {
-				codecompanion = { "codecompanion" },
-			},
 			compat = {},
 			default = {
 				"lsp",
@@ -85,13 +81,10 @@ return {
 				"snippets",
 				"buffer",
 				"lazydev",
-				"dadbod",
 				"ripgrep",
 				"git",
 				"emoji",
 				"ecolog",
-				"conventional_commits",
-				"npm",
 				"dictionary",
 			},
 			providers = {
@@ -99,46 +92,16 @@ return {
 					name = "blink-cmp-words",
 					module = "blink-cmp-words.dictionary",
 				},
-				npm = {
-					name = "npm",
-					module = "blink-cmp-npm",
-					async = true,
-					-- optional - make blink-cmp-npm completions top priority (see `:h blink.cmp`)
-					score_offset = 100,
-					-- optional - blink-cmp-npm config
-					---@module "blink-cmp-npm"
-					---@type blink-cmp-npm.Options
-					opts = {
-						only_semantic_versions = true,
-						only_latest_version = false,
-					},
-				},
-				conventional_commits = {
-					name = "Conventional Commits",
-					module = "blink-cmp-conventional-commits",
-					enabled = function()
-						return vim.bo.filetype == "gitcommit"
-					end,
-					---@module 'blink-cmp-conventional-commits'
-					---@type blink-cmp-conventional-commits.Options
-					opts = {}, -- none so far
-				},
 				lsp = {
 					score_offset = 98,
 					opts = {
-						tailwind_color_icon = require("custom.icons").misc.color_text,
+						tailwind_color_icon = require("configs.icons").misc.color_text,
 					},
 				},
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",
-					score_offset = 99, -- show at a higher priority than lsp
-				},
-				dadbod = {
-					name = "Dadbod",
-					module = "vim_dadbod_completion.blink",
-					score_offset = 85, -- the higher the number, the higher the priority
-					async = true,
+					score_offset = 99,
 				},
 				ripgrep = {
 					module = "blink-ripgrep",
@@ -154,7 +117,7 @@ return {
 					name = "Emoji",
 					async = true,
 					score_offset = 91,
-					opts = { insert = true }, -- Insert emoji (default) or complete its name
+					opts = { insert = true },
 					should_show_items = function()
 						return vim.tbl_contains(
 							{ "gitcommit", "markdown", "norg", "rmd", "org", "mdx" },
@@ -173,7 +136,7 @@ return {
 					---@module "blink-cmp-git"
 					---@type blink-cmp-git.Options
 					opts = {
-						kind_icons = require("custom.icons").blink_cmp_git,
+						kind_icons = require("configs.icons").blink_cmp_git,
 						commit = {
 							triggers = { ";" },
 						},
@@ -232,7 +195,7 @@ return {
 					components = {
 						kind_icon = {
 							text = function(ctx)
-								local icons = require("custom.icons").kinds
+								local icons = require("configs.icons").kinds
 								local icon = (icons[ctx.kind] or "󰈚")
 
 								return icon
@@ -302,7 +265,6 @@ return {
 			end
 		end
 		opts.sources.compat = nil
-		-- check if we need to override symbol kinds
 		for _, provider in pairs(opts.sources.providers or {}) do
 			---@cast provider blink.cmp.SourceProviderConfig|{kind?:string}
 			if provider.kind then

@@ -1,6 +1,5 @@
 return {
 	"danymat/neogen",
-	event = "InsertEnter",
 	cmd = "Neogen",
 	keys = {
 		{
@@ -12,7 +11,6 @@ return {
 		},
 	},
 	opts = {
-		-- We use luasnip, see snippets.lua for more information
 		snippet_engine = "luasnip",
 	},
 }

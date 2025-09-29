@@ -21,7 +21,7 @@ return {
 			"!trouble",
 		},
 		user_default_options = {
-			virtualtext = require("custom.icons").misc.color_text,
+			virtualtext = require("configs.icons").misc.color_text,
 			mode = "virtualtext",
 			RRGGBBAA = true,
 			AARRGGBB = true,

@@ -1,6 +1,6 @@
 return {
 	"akinsho/bufferline.nvim",
-	event = "VeryLazy",
+	event = "BufEnter",
 	lazy = true,
 	keys = {
 		{ "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle Pin" },
@@ -22,11 +22,6 @@ return {
 			show_buffer_close_icons = true, -- Enable/disable close icons on buffers
 			show_close_icon = true,
 			show_tab_indicators = true,
-			hover = {
-				enabled = true,
-				delay = 50,
-				reveal = { "close" },
-			},
       -- stylua: ignore
       close_command = function(n) Snacks.bufdelete(n) end,
       -- stylua: ignore
@@ -34,13 +29,10 @@ return {
 			diagnostics = "nvim_lsp", -- Show LSP diagnostics in the bufferline
 			always_show_bufferline = false, -- Only show bufferline when needed
 			diagnostics_indicator = function(_, _, diag)
-				local icons = require("custom.icons").diagnostics
+				local icons = require("configs.icons").diagnostics
 				local ret = (diag.error and icons.Error .. diag.error .. " " or "")
 					.. (diag.warning and icons.Warn .. diag.warning or "")
 				return vim.trim(ret)
-			end,
-			get_element_icon = function(opts)
-				return require("custom.icons").ft[opts.filetype]
 			end,
 			offsets = {
 				{
@@ -58,7 +50,7 @@ return {
 	},
 	config = function(_, opts)
 		if (vim.g.colors_name or ""):find("catppuccin") then
-			opts.highlights = require("catppuccin.groups.integrations.bufferline").get_theme()
+			opts.highlights = require("catppuccin.special.bufferline").get_theme()
 		end
 		require("bufferline").setup(opts)
 		-- Fix bufferline when restoring a session

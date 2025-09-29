@@ -1,7 +1,6 @@
 return {
 	"philosofonusus/ecolog.nvim",
-	event = "VeryLazy",
-	-- Optional: you can add some keybindings
+	event = "BufReadPre",
 	keys = {
 		{
 			"<leader>cE",
@@ -35,8 +34,8 @@ return {
 				hidden_mode = true, -- Hide when no env file is loaded
 				icons = {
 					enabled = true, -- Enable icons in statusline
-					env = require("custom.icons").misc.env, -- Icon for environment file
-					shelter = require("custom.icons").misc.shelter_env, -- Icon for shelter mode
+					env = require("configs.icons").misc.env, -- Icon for environment file
+					shelter = require("configs.icons").misc.shelter_env, -- Icon for shelter mode
 				},
 				format = {
 					env_file = function(name)
@@ -71,7 +70,7 @@ return {
 					show_end = 3, -- Show last 3 characters
 					min_mask = 3, -- Minimum masked characters
 				},
-				mask_char = require("custom.icons").misc.env_mask_char, -- Character used for masking
+				mask_char = require("configs.icons").misc.env_mask_char, -- Character used for masking
 				mask_length = nil, -- Optional: fixed length for masked portion (defaults to value length)
 			},
 			modules = {

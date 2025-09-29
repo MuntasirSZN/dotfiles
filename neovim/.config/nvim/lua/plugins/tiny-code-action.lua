@@ -1,6 +1,5 @@
 return {
 	"rachartier/tiny-code-action.nvim",
-	-- enabled = false,
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
 	},
@@ -18,7 +17,7 @@ return {
 		{
 			"<leader>cl",
 			function()
-				require("tiny-code-action").code_action()
+				require("tiny-code-action").code_action({})
 			end,
 			desc = "Code Action",
 		},

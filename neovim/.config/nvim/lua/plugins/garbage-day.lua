@@ -1,10 +1,7 @@
 return {
 	"zeioth/garbage-day.nvim",
-
 	dependencies = { "neovim/nvim-lspconfig" },
-
-	event = "VeryLazy",
-
+	event = "LspAttach",
 	opts = {
 		excluded_lsp_clients = {
 			"copilot",

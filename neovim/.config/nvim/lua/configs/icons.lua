@@ -6,10 +6,6 @@ local M = {
 		shelter_env = "",
 		env_mask_char = "",
 	},
-	ft = {
-		octo = "",
-		codecompanion = "",
-	},
 	dap = {
 		Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
 		Breakpoint = " ",

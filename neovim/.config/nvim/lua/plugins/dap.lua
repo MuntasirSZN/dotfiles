@@ -2,7 +2,7 @@ return {
 	-- nvim-dap configuration
 	{
 		"mfussenegger/nvim-dap",
-		event = "VeryLazy",
+		event = "InsertEnter",
 		recommended = true,
 		desc = "Debugging support. Requires language specific adapters to be configured.",
 
@@ -41,11 +41,9 @@ return {
 			-- Setup nvim-dap-virtual-text
 			require("nvim-dap-virtual-text").setup({})
 
-			require("mason-nvim-dap").setup(require("plugins.mason-dap").opts)
-
 			vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-			for name, sign in pairs(require("custom.icons").dap) do
+			for name, sign in pairs(require("configs.icons").dap) do
 				sign = type(sign) == "table" and sign or { sign }
 				vim.fn.sign_define(
 					"Dap" .. name,
@@ -53,12 +51,30 @@ return {
 				)
 			end
 
-			-- setup dap config by VsCode launch.json file
 			local vscode = require("dap.ext.vscode")
 			local json = require("plenary.json")
 			vscode.json_decode = function(str)
 				return vim.json.decode(json.json_strip_comments(str))
 			end
+
+			local dap = require("dap")
+			dap.adapters.codelldb = {
+				type = "executable",
+				command = "codelldb",
+			}
+
+			require("dap").adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = {
+						vim.fn.expand("~/.local/share/mise/installs/http-vscode-js-debug/latest/src/dapDebugServer.js"),
+						"${port}",
+					},
+				},
+			}
 		end,
 	},
 }

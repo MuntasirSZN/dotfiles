@@ -1,7 +1,7 @@
 return {
 	"Bekaboo/dropbar.nvim",
 	lazy = false,
-	event = "VeryLazy",
+	event = "BufReadPre",
 	dependencies = {
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
@@ -47,7 +47,7 @@ return {
 			Type = " ",
 			WhileStatement = "󰑖 ",
 		}
-		local myicons = require("custom.icons").kinds
+		local myicons = require("configs.icons").kinds
 		opts["icons.kinds.symbols"] = vim.tbl_extend("force", myicons, symbols)
 		require("dropbar").setup(opts)
 

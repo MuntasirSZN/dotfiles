@@ -1,11 +1,13 @@
--- autocmds.lua
-
 local function augroup(name)
 	return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
--- Run Treesitter on BufEnter If It Encounters Prisma Files As It Doesn's Enable Automatically
-vim.api.nvim_create_autocmd("FileType", {
+local function autocmd(...)
+	vim.api.nvim_create_autocmd(...)
+end
+
+-- Run Treesitter on BufEnter If It Encounters Prisma Files As It Doesn't Enable Automatically
+autocmd("FileType", {
 	pattern = "prisma",
 	callback = function()
 		vim.cmd("TSEnable highlight")
@@ -13,8 +15,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Database specific
-
-vim.api.nvim_create_autocmd("User", {
+autocmd("User", {
 	pattern = "DBUIReady",
 	callback = function()
 		vim.g.postgres_tables_and_views = [[
@@ -24,7 +25,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -- Check if we need to reload the file when it changed
-vim.api.nvim_create_autocmd({ "FocusGained" }, {
+autocmd({ "FocusGained" }, {
 	group = augroup("checktime"),
 	callback = function()
 		if vim.o.buftype ~= "nofile" then
@@ -34,7 +35,7 @@ vim.api.nvim_create_autocmd({ "FocusGained" }, {
 })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
+autocmd("TextYankPost", {
 	group = augroup("highlight_yank"),
 	callback = function()
 		vim.highlight.on_yank()
@@ -42,7 +43,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+autocmd({ "VimResized" }, {
 	group = augroup("resize_splits"),
 	callback = function()
 		local current_tab = vim.fn.tabpagenr()
@@ -52,7 +53,7 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
 })
 
 -- Go to last location when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
+autocmd("BufReadPost", {
 	group = augroup("last_loc"),
 	callback = function(event)
 		local exclude = { "gitcommit" }
@@ -70,7 +71,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("close_with_q"),
 	pattern = {
 		"PlenaryTestPopup",
@@ -100,7 +101,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Make it easier to close man-files when opened inline
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("man_unlisted"),
 	pattern = { "man" },
 	callback = function(event)
@@ -109,7 +110,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = augroup("wrap_spell"),
 	pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
 	callback = function()
@@ -119,7 +120,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Fix conceallevel for json files
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
 	group = augroup("json_conceal"),
 	pattern = { "json", "jsonc", "json5" },
 	callback = function()
@@ -128,7 +129,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+autocmd({ "BufWritePre" }, {
 	group = augroup("auto_create_dir"),
 	callback = function(event)
 		if event.match:match("^%w%w+:[\\/][\\/]") then
@@ -155,7 +156,7 @@ vim.filetype.add({
 	},
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
+autocmd({ "FileType" }, {
 	group = augroup("bigfile"),
 	pattern = "bigfile",
 	callback = function(ev)
@@ -166,13 +167,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+autocmd({ "InsertEnter" }, {
 	pattern = { "*.md", "*.yaml", "*.yml" },
 	callback = function()
-		vim.cmd([[
-      Markview splitOpen
-    ]])
-		vim.cmd("Markview detach")
 		local mode = vim.api.nvim_get_mode().mode
 		if mode == "i" and vim.bo.filetype == "yaml" then
 			Snacks.indent.disable()
@@ -180,33 +177,23 @@ vim.api.nvim_create_autocmd({ "InsertEnter" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd("User", {
+autocmd("User", {
 	pattern = "BlinkCmpMenuOpen",
 	callback = function()
 		vim.b.copilot_suggestion_hidden = true
 	end,
 })
 
-vim.api.nvim_create_autocmd("User", {
+autocmd("User", {
 	pattern = "BlinkCmpMenuClose",
 	callback = function()
 		vim.b.copilot_suggestion_hidden = false
 	end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+autocmd("VimEnter", {
 	pattern = "*",
 	callback = function()
 		vim.system({ "bunx", "--bun", "arrpc" })
-	end,
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*",
-	callback = function()
-		local filetype = vim.bo.filetype
-		if filetype == "codecompanion" then
-			vim.cmd("set nonumber")
-		end
 	end,
 })

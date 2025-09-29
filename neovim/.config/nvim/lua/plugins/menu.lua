@@ -2,6 +2,7 @@ return {
 	"nvzone/menu",
 	event = "VeryLazy",
 	lazy = true,
+	dependencies = { "nvzone/volt" },
 	config = function()
 		vim.cmd("aunmenu PopUp")
 		vim.keymap.set({ "n", "v" }, "<RightMouse>", function()

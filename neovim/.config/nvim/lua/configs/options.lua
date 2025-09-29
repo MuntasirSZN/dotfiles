@@ -27,16 +27,16 @@ opt.confirm = true
 opt.cursorline = true
 opt.expandtab = true
 opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
+	foldopen = "",
+	foldclose = "",
 	fold = " ",
 	foldsep = " ",
-	diff = "╱",
+	diff = "󰿟",
 	eob = " ",
 }
 opt.foldlevel = 99
 opt.foldlevelstart = 99
-opt.formatexpr = "v:lua.require'custom.format'.formatexpr()"
+opt.formatexpr = "v:lua.require'conform'.formatexpr()"
 opt.formatoptions = "jcroqlnt"
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
@@ -51,7 +51,7 @@ opt.mousemoveevent = true
 opt.number = true
 opt.pumblend = 10
 opt.pumheight = 10
-opt.relativenumber = false -- Overridden by second config
+opt.relativenumber = false
 opt.ruler = false
 opt.scrolloff = 4
 opt.shiftround = true
@@ -77,15 +77,10 @@ opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = false
 
-if vim.fn.has("nvim-0.11") == 1 then
-	opt.smoothscroll = true
-	opt.foldexpr = "v:lua.vim.lsp.formatexpr({ timeout_ms = 3000 })"
-	opt.foldmethod = "expr"
-	opt.foldtext = ""
-else
-	opt.foldmethod = "indent"
-	opt.foldtext = "v:lua.require'custom.ui'.foldtext()"
-end
+opt.smoothscroll = true
+opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+opt.foldmethod = "expr"
+opt.foldtext = ""
 
 -- Diagnostic configuration
 vim.diagnostic.config({
@@ -104,10 +99,10 @@ vim.diagnostic.config({
 	},
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = require("custom.icons").diagnostics.Error,
-			[vim.diagnostic.severity.WARN] = require("custom.icons").diagnostics.Warn,
-			[vim.diagnostic.severity.INFO] = require("custom.icons").diagnostics.Info,
-			[vim.diagnostic.severity.HINT] = require("custom.icons").diagnostics.Hint,
+			[vim.diagnostic.severity.ERROR] = require("configs.icons").diagnostics.Error,
+			[vim.diagnostic.severity.WARN] = require("configs.icons").diagnostics.Warn,
+			[vim.diagnostic.severity.INFO] = require("configs.icons").diagnostics.Info,
+			[vim.diagnostic.severity.HINT] = require("configs.icons").diagnostics.Hint,
 		},
 	},
 	severity_sort = true,

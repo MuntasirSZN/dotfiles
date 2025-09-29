@@ -2,11 +2,9 @@ return {
 	"neovim/nvim-lspconfig",
 	event = "VeryLazy",
 	lazy = true,
-	dependencies = {
-		"mason-org/mason-lspconfig.nvim",
-	},
 	opts = function()
 		local servers = {
+			vale_ls = {},
 			astro = {},
 			bashls = {},
 			biome = {},
@@ -29,6 +27,7 @@ return {
 			hyprls = {},
 			jsonls = {},
 			just = {},
+			-- homebrew
 			clangd = {},
 			lua_ls = {
 				settings = {
@@ -42,7 +41,6 @@ return {
 			markdown_oxide = {},
 			marksman = {},
 			mdx_analyzer = {},
-			pyright = {},
 			prismals = {},
 			tailwindcss = {},
 			ruff = {},
@@ -62,8 +60,9 @@ return {
 							globalPlugins = {
 								{
 									name = "@vue/typescript-plugin",
-									location = vim.fn.stdpath("data")
-										.. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+									location = vim.fn.expand(
+										"~/.local/share/mise/installs/npm-vue-language-server/latest/node_modules/@vue/language-server"
+									),
 									languages = { "vue" },
 									configNamespace = "typescript",
 								},
@@ -77,7 +76,7 @@ return {
 				enabled = true,
 				settings = {
 					["harper-ls"] = {
-						userDictPath = "~/.config/nvim/spell/en.utf-8.add",
+						userDictPath = vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"),
 						linters = {
 							ToDoHyphen = false,
 							-- SentenceCapitalization = true,
@@ -192,7 +191,7 @@ return {
 				"postcss",
 			},
 			settings = {
-				-- Silent the stylistic rules in you IDE, but still auto fix them
+				-- Silent the stylistic rules in your IDE, but still auto fix them
 				rulesCustomizations = customizations,
 			},
 		})

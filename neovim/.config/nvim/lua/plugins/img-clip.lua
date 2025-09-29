@@ -1,8 +1,6 @@
--- https://github.com/HakonHarnes/img-clip.nvim
-
 return {
 	"HakonHarnes/img-clip.nvim",
-	event = "VeryLazy",
+	event = "InsertEnter",
 	lazy = false,
 	opts = {
 		default = {
@@ -83,11 +81,6 @@ return {
 
 		-- filetype specific options
 		filetypes = {
-			codecompanion = {
-				prompt_for_file_name = false,
-				template = "[Image]($FILE_PATH)",
-				use_absolute_path = true,
-			},
 			markdown = {
 				-- encode spaces and special characters in file path
 				url_encode_path = true, ---@type boolean

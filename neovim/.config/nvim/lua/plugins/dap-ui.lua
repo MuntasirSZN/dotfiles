@@ -1,6 +1,6 @@
 return {
 	"rcarriga/nvim-dap-ui",
-	event = "VeryLazy",
+	event = "InsertEnter",
 	lazy = true,
 	dependencies = { "nvim-neotest/nvim-nio" },
   -- stylua: ignore

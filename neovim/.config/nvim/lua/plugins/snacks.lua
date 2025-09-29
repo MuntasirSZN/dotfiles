@@ -96,7 +96,7 @@ return {
       notifier = {
         enabled = true,
         filter = function(msg)
-          if msg.msg == "clipboard: error: Nothing is copied" then
+          if msg.msg:match("clipboard:") then
             return false
           elseif msg.title == "noice.nvim" and msg.msg.match(msg.msg, "`vim.notify`*") then
             return false
@@ -169,9 +169,9 @@ return {
               desc = "Config",
               action = ":lua find_nvim_files()",
             },
-            { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+            { icon = "󰑓 ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },
           header = header()
         },
