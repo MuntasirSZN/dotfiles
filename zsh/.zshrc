@@ -6,7 +6,7 @@ eval "$(/home/muntasir/.local/bin/mise activate zsh --shims)"
 
 if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH="/home/muntasir/.zsh/completions:$FPATH"; fi
 
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH"
 
 autoload -Uz compinit
 compinit
@@ -46,20 +46,11 @@ fastfetch
 eval "$(starship init zsh)"
 getquotes --offline
 
-# pnpm
-export PNPM_HOME="/home/muntasir/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 export LS_COLORS=$(vivid generate catppuccin-mocha)
 
-# Check if the session is X11 or Wayland
+# Clipboard setup
 session_type=$(w -h | awk '{print $2}')
 
-# If the session is X11, perform the desired action
 if [[ "$session_type" == "X11" ]]; then
     alias pbcopy="xsel --input --clipboard"
     alias pbpaste="xsel --output --clipboard"
@@ -89,9 +80,6 @@ export FZF_CTRL_T_OPTS="
   --preview 'fzf-preview.sh {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 
-# Composer
-export PATH="/home/muntasir/.config/composer/vendor/bin:$PATH"
-
 # Zinit plugin manager
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download Zinit, if it's not there yet
@@ -106,12 +94,8 @@ zinit light ohmyzsh/ohmyzsh
 zinit snippet OMZP::git
 zinit snippet OMZP::mise
 zinit snippet OMZP::sudo
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
 zinit snippet OMZP::rust
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::git-flow
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::bun
 zinit snippet OMZP::deno
@@ -127,7 +111,6 @@ zinit snippet OMZP::pip
 zinit snippet OMZP::python
 zinit snippet OMZP::ssh
 zinit snippet OMZP::uv
-zinit snippet OMZP::vscode
 zinit snippet OMZP::zoxide
 
 zinit light zsh-users/zsh-completions
@@ -135,7 +118,6 @@ zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light loiccoyle/zsh-github-copilot
 zinit light olets/zsh-abbr
 zinit light olets/zsh-autosuggestions-abbreviations-strategy
 
@@ -144,11 +126,6 @@ zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 export ABBR_GET_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION=1
-
-bindkey '^[|' zsh_gh_copilot_explain
-bindkey '^[\' zsh_gh_copilot_suggest
-
-export EDITOR='nvim'
 
 # History
 HISTFILE=~/.zsh_history
@@ -177,10 +154,6 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 eval "$(zoxide init --cmd cd zsh)"
 
 alias cat="bat --paging=never"
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 rm -rf /tmp/hypr
 ln -s $XDG_RUNTIME_DIR/hypr /tmp/hypr
@@ -272,7 +245,7 @@ export OBJCOPY=llvm-objcopy
 export READELF=llvm-readelf
 
 # Core compile flags (C)
-export CFLAGS="-rtlib=compiler-rt -fuse-ld=mold"
+export CFLAGS="-fuse-ld=mold"
 
 # Core compile flags (C++) add libc++
 PURE_CXX_BASE="-stdlib=libc++ -rtlib=compiler-rt -unwindlib=libunwind -fuse-ld=mold"
@@ -285,3 +258,5 @@ export LDFLAGS="-stdlib=libc++ -rtlib=compiler-rt -unwindlib=libunwind -fuse-ld=
 
 # Ensure linker can always see libs (backup to -L)
 export LIBRARY_PATH="${LLVM_PREFIX}/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
+
+compinit

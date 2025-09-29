@@ -81,9 +81,6 @@ stow */ # For All Configs
 stow zsh # Individual
 ```
 
-> [!Important]
-> If you want to use my neovim configuration, then please read its [README.md](./neovim/.config/nvim/README.md)
-
 Replace `package_name` with the desired package (e.g., `kitty`, `nvim`, etc.).
 
 ## Contributing

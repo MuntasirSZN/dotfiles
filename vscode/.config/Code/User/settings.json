@@ -456,7 +456,6 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "github.copilot.chat.codesearch.enabled": true,
-    "github.copilot.nextEditSuggestions.enabled": true,
     "terminal.integrated.suggest.enabled": true,
     "custom-ui-style.external.imports": [],
     "github.copilot.selectedCompletionModel": "",
