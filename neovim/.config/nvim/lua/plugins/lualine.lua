@@ -25,7 +25,6 @@ return {
 				icons_enabled = true,
 				theme = "catppuccin",
 				globalstatus = vim.o.laststatus == 3,
-				component_separators = { left = " ", right = " " },
 				disabled_filetypes = {
 					statusline = {
 						"starter",
@@ -62,7 +61,6 @@ return {
 					},
 				},
 				lualine_x = {
-					{ "require'wttr'.text" },
 					Snacks.profiler.status(),
           -- stylua: ignore
           {
