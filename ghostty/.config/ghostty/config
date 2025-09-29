@@ -3,26 +3,23 @@ font-family = "Fira Code Retina"
 font-style-bold = "SemiBold"
 font-size = 12.5
 
-# Turn off confirmation window when closing
 confirm-close-surface = false
 
 adjust-cell-height = 18%
 
-# Top tab 
 gtk-titlebar = false
 
 resize-overlay = never
 
-# Gtk makes startup times slow, slow turn it off
-gtk-adwaita = false
-
 gtk-single-instance = true
 
-# Shader
-# custom-shader = shaders/gradient-background.glsl
+custom-shader = shaders/cursor_smear.glsl
 
-# Theme
 theme = catppuccin-mocha.conf
 
 window-padding-x = 8
 keybind = shift+enter=text:\n
+
+quit-after-last-window-closed = false
+gtk-quick-terminal-layer = overlay
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
