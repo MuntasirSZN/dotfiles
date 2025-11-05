@@ -469,5 +469,7 @@
   "menus.dashboard.shortcuts.left.shortcut1.command": "zen-browser",
   "bar.customModules.storage.paths": [
     "/"
-  ]
+  ],
+  "theme.bar.buttons.modules.weather.enableBorder": false,
+  "bar.customModules.weather.unit": "imperial"
 }

@@ -260,3 +260,7 @@ export LDFLAGS="-stdlib=libc++ -rtlib=compiler-rt -unwindlib=libunwind -fuse-ld=
 export LIBRARY_PATH="${LLVM_PREFIX}/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 
 compinit
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/muntasir/.lmstudio/bin"
+# End of LM Studio CLI section

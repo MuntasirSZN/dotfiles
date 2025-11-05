@@ -61,15 +61,6 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
-		term = {
-			enabled = true,
-			sources = {
-				"lsp",
-				"path",
-				"snippets",
-				"buffer",
-			},
-		},
 		snippets = {
 			preset = "luasnip",
 		},
@@ -171,15 +162,25 @@ return {
 		keymap = {
 			preset = "super-tab",
 			["<Tab>"] = {
-				"snippet_forward",
+				function(cmp)
+					if cmp.snippet_active() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
 				function()
 					return require("sidekick").nes_jump_or_apply()
 				end,
+				"snippet_forward",
 				"fallback",
 			},
 		},
 		signature = { enabled = true },
 		completion = {
+			trigger = {
+				show_in_snippet = false,
+			},
 			list = {
 				selection = {
 					auto_insert = false,

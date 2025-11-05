@@ -39,6 +39,26 @@ return {
 						cargo = {
 							allFeatures = true,
 						},
+						check = {
+							overrideCommand = {
+								"cargo-subspace",
+								"clippy",
+								"$saved_file",
+							},
+						},
+						workspace = {
+							discoverConfig = {
+								command = {
+									"cargo-subspace",
+									"discover",
+									"{arg}",
+								},
+								progressLabel = "cargo-subspace",
+								filesToWatch = {
+									"Cargo.toml",
+								},
+							},
+						},
 					},
 				},
 			},

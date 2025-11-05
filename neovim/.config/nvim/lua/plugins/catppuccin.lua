@@ -14,7 +14,7 @@ return {
 				},
 			},
 			flavour = "mocha",
-			term_colors = true,
+			term_palette = true,
 			compile = {
 				enabled = true,
 				path = vim.fn.stdpath("cache") .. "/catppuccin",
@@ -36,6 +36,16 @@ return {
 					SnacksPickerList = { bg = palette.mantle },
 					SnacksPickerListBorder = { bg = palette.mantle, fg = palette.mantle },
 					SnacksPickerListTitle = { fg = palette.overlay2, bg = "NONE" },
+
+					TimeMachineCurrent = {
+						bg = "#313952",
+					},
+					TimeMachineTimeline = { fg = palette.blue, style = { "bold" } },
+					TimeMachineTimelineAlt = { fg = palette.overlay2 },
+					TimeMachineKeymap = { fg = palette.teal, style = { "italic" } },
+					TimeMachineInfo = { fg = palette.subtext0, style = { "italic" } },
+					TimeMachineSeq = { fg = palette.peach, style = { "bold" } },
+					TimeMachineTag = { fg = palette.yellow, style = { "bold" } },
 				}
 				return groups
 			end,

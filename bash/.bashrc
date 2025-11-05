@@ -184,3 +184,8 @@ esac
 alias pbcopy="xsel --input --clipboard"
 alias pbpaste="xsel --output --clipboard"
 . "$HOME/.cargo/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/muntasir/.lmstudio/bin"
+# End of LM Studio CLI section
+

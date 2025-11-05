@@ -4,13 +4,14 @@ return {
 	lazy = false,
 	version = "*",
 	dependencies = {
-		"mireq/luasnip-snippets",
+		-- "mireq/luasnip-snippets",
 		{
 			"rafamadriz/friendly-snippets",
 			config = function()
 				require("luasnip.loaders.from_vscode").lazy_load({
 					paths = { vim.fn.stdpath("config") .. "/snippets" },
 				})
+				require("luasnip.loaders.from_vscode").lazy_load()
 			end,
 		},
 	},
@@ -43,16 +44,16 @@ return {
 		end, { silent = true })
 
 		-- luasnip_snippets config
-
-		local load_ft_func = require("luasnip_snippets.common.snip_utils").load_ft_func
-		local ft_func = require("luasnip_snippets.common.snip_utils").ft_func
-		local history = true
-		local delete_check_events = "TextChanged"
-
-		table.insert(opts, load_ft_func)
-		table.insert(opts, ft_func)
-		table.insert(opts, history)
-		table.insert(opts, delete_check_events)
+		--
+		-- local load_ft_func = require("luasnip_snippets.common.snip_utils").load_ft_func
+		-- local ft_func = require("luasnip_snippets.common.snip_utils").ft_func
+		-- local history = true
+		-- local delete_check_events = "TextChanged"
+		--
+		-- table.insert(opts, load_ft_func)
+		-- table.insert(opts, ft_func)
+		-- table.insert(opts, history)
+		-- table.insert(opts, delete_check_events)
 
 		-- Custom snippets
 		-- the "all" after ls.add_snippets("all" is the filetype, you can know a

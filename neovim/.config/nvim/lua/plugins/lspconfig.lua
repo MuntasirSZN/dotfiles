@@ -53,6 +53,7 @@ return {
 			tombi = {},
 			vue_ls = {},
 			zls = {},
+			qmlls = {},
 			vtsls = {
 				settings = {
 					vtsls = {
@@ -148,7 +149,6 @@ return {
 			vim.lsp.inlay_hint.enable(true)
 			vim.lsp.enable(server)
 			vim.lsp.config(server, config)
-			vim.lsp.enable("qmlls")
 		end
 
 		local customizations = {

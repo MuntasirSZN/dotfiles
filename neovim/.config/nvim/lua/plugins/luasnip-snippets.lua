@@ -2,6 +2,7 @@ return {
 	"mireq/luasnip-snippets",
 	event = "VeryLazy",
 	lazy = true,
+	enabled = false,
 	dependencies = { "L3MON4D3/LuaSnip" },
 	init = function()
 		-- Mandatory setup function

@@ -1,7 +1,9 @@
 return {
 	"folke/sidekick.nvim",
 	lazy = false,
+	---@type sidekick.config
 	opts = {
+		nes = {},
 		-- add any options here
 		cli = {
 			mux = {
@@ -25,42 +27,62 @@ return {
 		{
 			"<c-.>",
 			function()
-				require("sidekick.cli").focus()
+				require("sidekick.cli").toggle()
 			end,
-			mode = { "n", "x", "i", "t" },
-			desc = "Sidekick Switch Focus",
+			desc = "Sidekick Toggle",
+			mode = { "n", "t", "i", "x" },
 		},
 		{
 			"<leader>aa",
 			function()
-				require("sidekick.cli").toggle({ focus = true })
+				require("sidekick.cli").toggle()
 			end,
 			desc = "Sidekick Toggle CLI",
-			mode = { "n", "v" },
 		},
 		{
-			"<leader>ac",
+			"<leader>as",
 			function()
-				require("sidekick.cli").toggle({ name = "claude", focus = true })
+				require("sidekick.cli").select({ filter = { installed = true } })
 			end,
-			desc = "Sidekick Claude Toggle",
-			mode = { "n", "v" },
+			desc = "Select CLI",
 		},
 		{
-			"<leader>ag",
+			"<leader>ad",
 			function()
-				require("sidekick.cli").toggle({ name = "grok", focus = true })
+				require("sidekick.cli").close()
 			end,
-			desc = "Sidekick Grok Toggle",
-			mode = { "n", "v" },
+			desc = "Detach a CLI Session",
+		},
+		{
+			"<leader>at",
+			function()
+				require("sidekick.cli").send({ msg = "{this}" })
+			end,
+			mode = { "x", "n" },
+			desc = "Send This",
+		},
+		{
+			"<leader>af",
+			function()
+				require("sidekick.cli").send({ msg = "{file}" })
+			end,
+			desc = "Send File",
+		},
+		{
+			"<leader>av",
+			function()
+				require("sidekick.cli").send({ msg = "{selection}" })
+			end,
+			mode = { "x" },
+			desc = "Send Visual Selection",
 		},
 		{
 			"<leader>ap",
 			function()
-				require("sidekick.cli").select_prompt()
+				require("sidekick.cli").prompt()
 			end,
-			desc = "Sidekick Ask Prompt",
-			mode = { "n", "v" },
+			mode = { "n", "x" },
+			desc = "Sidekick Select Prompt",
 		},
 	},
 }
