@@ -11,23 +11,23 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH"
 autoload -Uz compinit
 compinit
 
-SESSION_NAME="startup"
-
-# Only run if not inside an existing tmux session
-if [[ -z "$TMUX" ]]; then
-    # Check if the session exists
-    if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
-        # Check if the session has no attached clients (all terminals closed)
-        if [[ $(tmux list-clients -t "$SESSION_NAME" | wc -l) -eq 0 ]]; then
-            tmux kill-session -t "$SESSION_NAME"
-            tmux new-session -s "$SESSION_NAME"
-        fi
-        tmux attach-session -t "$SESSION_NAME"
-    else
-        # If session doesn't exist, create a new one
-        tmux new-session -s "$SESSION_NAME"
-    fi
-fi
+# SESSION_NAME="startup"
+#
+# # Only run if not inside an existing tmux session
+# if [[ -z "$TMUX" ]]; then
+#     # Check if the session exists
+#     if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+#         # Check if the session has no attached clients (all terminals closed)
+#         if [[ $(tmux list-clients -t "$SESSION_NAME" | wc -l) -eq 0 ]]; then
+#             tmux kill-session -t "$SESSION_NAME"
+#             tmux new-session -s "$SESSION_NAME"
+#         fi
+#         tmux attach-session -t "$SESSION_NAME"
+#     else
+#         # If session doesn't exist, create a new one
+#         tmux new-session -s "$SESSION_NAME"
+#     fi
+# fi
 
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -260,7 +260,3 @@ export LDFLAGS="-stdlib=libc++ -rtlib=compiler-rt -unwindlib=libunwind -fuse-ld=
 export LIBRARY_PATH="${LLVM_PREFIX}/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 
 compinit
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/muntasir/.lmstudio/bin"
-# End of LM Studio CLI section
