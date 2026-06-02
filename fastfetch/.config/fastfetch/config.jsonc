@@ -3,164 +3,163 @@
   "logo": {
     "source": "~/.config/fastfetch/archlogo.txt", // Path to your archlogo.txt
     "padding": {
-      "top": 3,
+      "top": 3
     },
     "color": {
-      "1": "#1793d1",
-    },
+      "1": "#1793d1"
+    }
   },
   "display": {
-    "separator": " 󰑃 ",
+    "separator": " 󰑃 "
   },
   "modules": [
     {
       "type": "custom",
-      "format": "\u001b[90m╭──────────────────────────────   ───────────────────────────────╮",
+      "format": "\u001b[90m╭──────────────────────────────   ───────────────────────────────╮"
     },
     {
       "type": "custom",
       "keyWidth": 10,
-      "format": "                           🖥️ Hyprpc",
+      "format": "                           🖥️ Hyprpc"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m╰──────────────────────────────   ───────────────────────────────╯",
+      "format": "\u001b[90m╰──────────────────────────────   ───────────────────────────────╯"
     },
     {
       "type": "colors",
       "paddingLeft": 25,
-      "symbol": "circle",
+      "symbol": "circle"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m╭──────────────────────────────   ───────────────────────────────╮",
+      "format": "╭──────────────────────────────   ───────────────────────────────╮",
+      "outputColor": "yellow"
     },
     {
       "type": "os",
-      "key": " DISTRO",
+      "key": " Distro",
       "keyColor": "yellow",
-      "format": "Arch Linux",
+      "format": "Arch Linux"
     },
     {
       "type": "kernel",
       "key": "│ ├",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "packages",
       "key": "│ ├󰏖",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "shell",
       "key": "│ └",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "wm",
-      "key": "  DE/WM",
-      "keyColor": "blue",
+      "key": " Window Manager",
+      "keyColor": "blue"
     },
     {
       "type": "wmtheme",
       "key": "│ ├󰉼",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "icons",
       "key": "│ ├󰀻",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "cursor",
       "key": "│ ├",
       "keyColor": "blue",
+      "format": "{theme~0,14}... ({size}px)"
     },
     {
       "type": "terminalfont",
       "key": "│ ├",
-      "keyColor": "blue",
+      "keyColor": "blue"
     },
     {
       "type": "terminal",
-      "key": "│ ├",
-      "keyColor": "blue",
-    },
-    {
-      "type": "wallpaper",
-      "key": "│ └󰸉",
-      "keyColor": "blue",
+      "key": "│ └",
+      "keyColor": "blue"
     },
     {
       "type": "host",
-      "key": "󰌢 SYSTEM",
-      "keyColor": "green",
+      "key": "󰌢 System",
+      "keyColor": "green"
     },
     {
       "type": "cpu",
       "key": "│ ├󰻠",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "gpu",
       "key": "│ ├󰻑",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "display",
       "key": "│ ├󰍹",
       "keyColor": "green",
-      "compactType": "original-with-refresh-rate",
+      "compactType": "original-with-refresh-rate"
     },
     {
       "type": "memory",
       "key": "│ ├󰾆",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "swap",
       "key": "│ ├󰓡",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "disk",
-      "key": "│ ├󰋊 ",
-      "keyColor": "green",
+      "key": "│ ├󰋊",
+      "keyColor": "green"
     },
     {
       "type": "uptime",
       "key": "│ ├󰅐",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "display",
       "key": "│ └󰍹",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "sound",
-      "key": "  AUDIO",
-      "keyColor": "cyan",
+      "key": "  Audio",
+      "keyColor": "cyan"
     },
     {
       "type": "player",
       "key": "│ ├󰥠",
-      "keyColor": "cyan",
+      "keyColor": "cyan"
     },
     {
       "type": "media",
       "key": "│ └󰝚",
       "keyColor": "cyan",
+      "format": "{combined~0,30}"
     },
     {
       "type": "custom",
-      "format": "\u001b[90m╰─────────────────────────────   ──────────────────────────────╯",
+      "format": "╰─────────────────────────────   ──────────────────────────────╯",
+      "outputColor": "cyan"
     },
     {
       "type": "colors",
       "paddingLeft": 24,
-      "symbol": "circle",
+      "symbol": "circle"
     },
-    "break",
-  ],
+    "break"
+  ]
 }

@@ -1,4 +1,4 @@
-// Vencord a33e81d
+// Vencord 21e6178
 // Standalone: true
 // Platform: Universal
 // Updater Disabled: false

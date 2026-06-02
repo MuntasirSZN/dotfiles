@@ -4,7 +4,7 @@
   signingkey = E7FE5EC876734CA2
 
 [credential]
-  helper = /usr/local/bin/git-credential-manager
+  helper = /etc/profiles/per-user/muntasir/bin/git-credential-manager
   credentialStore = gpg
 
 [credential "https://dev.azure.com"]
@@ -23,6 +23,7 @@
   fsync = none
   whitespace = error  # treat incorrect whitespace as errors
   excludesfile = /home/muntasir/.gitignore_global
+	fsmonitor = true
 [interactive]
   diffFilter = delta --color-only
 
@@ -71,7 +72,6 @@
   autoSetupRemote = true  # easier to push new branches
   default = current  # push only current branch by default
   followTags = true  # push also tags
-  gpgSign = false  # my remotes doesn't support sign pushes
 
 [pull]
   rebase = true
@@ -91,3 +91,7 @@
 
 [url "git@github.com:"]
   insteadOf = "gh:"
+[credential "https://salsa.debian.org"]
+	provider = generic
+[feature]
+	manyFiles = true

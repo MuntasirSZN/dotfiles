@@ -1,7 +1,6 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
+"$schema" = "https://starship.rs/config-schema.json"
 format = """
-$os \
+$os\
 $username\
 $directory\
 $git_branch\
@@ -19,22 +18,20 @@ $docker_context\
 $time\
 $fill$cmd_duration\
 $line_break$character"""
-
-continuation_prompt = '[❯❯](bright-black)'
-
-palette = 'catppuccin_mocha'
+continuation_prompt = "[❯❯](bright-black)"
+palette = "catppuccin_mocha"
 
 [palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
+color_fg0 = "#fbf1c7"
+color_bg1 = "#3c3836"
+color_bg3 = "#665c54"
+color_blue = "#458588"
+color_aqua = "#689d6a"
+color_green = "#98971a"
+color_orange = "#d65d0e"
+color_purple = "#b16286"
+color_red = "#cc241d"
+color_yellow = "#d79921"
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -87,12 +84,14 @@ CentOS = "[](fg:#9ECE26)"
 Debian = "[󰣚](fg:#d70a53)"
 Redhat = "[󱄛](fg:#ee0000)"
 RedHatEnterprise = "[󱄛](fg:#ee0000)"
+CachyOS = "[󰣇](fg:#1793d1)"
+NixOS = "[ ](#34D1BF)"
 
 [username]
 show_always = true
 style_user = "fg:text"
 style_root = "fg:text"
-format = '[ $user ]($style)'
+format = "[ $user ]($style)"
 
 [directory]
 style = "fg:peach"
@@ -110,86 +109,86 @@ truncation_symbol = "…/"
 [git_branch]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol $branch ](fg:green)]($style)'
+format = "[[ $symbol $branch ](fg:green)]($style)"
 
 [git_status]
 style = "fg:teal"
-format = '[[($all_status$ahead_behind )](fg:green)]($style)'
+format = "[[($all_status$ahead_behind )](fg:green)]($style)"
 
 [nodejs]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#3c873a)]($style)'
+format = "[[ $symbol( $version) ](fg:#3c873a)]($style)"
 
 [c]
 symbol = " "
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#00599d)]($style)'
+format = "[[ $symbol( $version) ](fg:#00599d)]($style)"
 
 [rust]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#f54b01)]($style)'
+format = "[[ $symbol( $version) ](fg:#f54b01)]($style)"
 
 [golang]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#75e0fd)]($style)'
+format = "[[ $symbol( $version) ](fg:#75e0fd)]($style)"
 
 [php]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#777bb3)]($style)'
+format = "[[ $symbol( $version) ](fg:#777bb3)]($style)"
 
 [java]
 symbol = " "
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#5283a3)]($style)'
+format = "[[ $symbol( $version) ](fg:#5283a3)]($style)"
 
 [kotlin]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#9f38f7)]($style)'
+format = "[[ $symbol( $version) ](fg:#9f38f7)]($style)"
 
 [haskell]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#5e5086)]($style)'
+format = "[[ $symbol( $version) ](fg:#5e5086)]($style)"
 
 [python]
 symbol = ""
 style = "fg:teal"
-format = '[[ $symbol( $version) ](fg:#ffdf59)]($style)'
+format = "[[ $symbol( $version) ](fg:#ffdf59)]($style)"
 
 [docker_context]
 symbol = ""
 style = "fg:mantle"
-format = '[[ $symbol( $context) ](fg:#83a598)]($style)'
+format = "[[ $symbol( $context) ](fg:#83a598)]($style)"
 
 [time]
 disabled = false
 time_format = "%I:%M %p"
 style = "fg:peach"
-format = '[[  $time ](fg:purple)]($style)'
+format = "[[  $time ](fg:purple)]($style)"
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[❯](bold fg:green)'
-error_symbol = '[❯](bold fg:red)'
-vimcmd_symbol = '[❮](bold fg:creen)'
-vimcmd_replace_one_symbol = '[❮](bold fg:purple)'
-vimcmd_replace_symbol = '[❮](bold fg:purple)'
-vimcmd_visual_symbol = '[❮](bold fg:lavender)'
+success_symbol = "[❯](bold fg:green)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:creen)"
+vimcmd_replace_one_symbol = "[❮](bold fg:purple)"
+vimcmd_replace_symbol = "[❮](bold fg:purple)"
+vimcmd_visual_symbol = "[❮](bold fg:lavender)"
 
 [cmd_duration]
 min_time = 0
-format = '  [  $duration](bold blue)'
+format = "  [  $duration](bold blue)"
 disabled = false
 
 [fill]
-symbol = ' .'
-style = 'fg:surface2'
+symbol = " ."
+style = "fg:surface2"
 disabled = false

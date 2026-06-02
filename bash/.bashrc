@@ -189,3 +189,9 @@ alias pbpaste="xsel --output --clipboard"
 export PATH="$PATH:/home/muntasir/.lmstudio/bin"
 # End of LM Studio CLI section
 
+[[ $PS1 &&
+  ! ${BASH_COMPLETION_VERSINFO:-} &&
+  -f /usr/share/bash-completion/bash_completion ]] &&
+    . /usr/share/bash-completion/bash_completion
+
+export XDG_DATA_HOME="/home/muntasir/.local/share"

@@ -56,7 +56,7 @@
             "enabled": false
         },
         "WebRichPresence (arRPC)": {
-            "enabled": false
+            "enabled": true
         },
         "BANger": {
             "enabled": false
@@ -93,7 +93,8 @@
         "BetterSettings": {
             "enabled": true,
             "disableFade": true,
-            "eagerLoad": true
+            "eagerLoad": true,
+            "organizeMenu": true
         },
         "BetterUploadButton": {
             "enabled": true
@@ -254,9 +255,6 @@
             "logEdits": true,
             "logDeletes": true,
             "inlineEdits": true
-        },
-        "MessageTags": {
-            "enabled": false
         },
         "MoreCommands": {
             "enabled": false
@@ -476,14 +474,16 @@
                 {
                     "find": "",
                     "replace": "",
-                    "onlyIfIncludes": ""
+                    "onlyIfIncludes": "",
+                    "id": "c4fb376b-83c6-473f-bcab-44b0f5a7155c"
                 }
             ],
             "regexRules": [
                 {
                     "find": "",
                     "replace": "",
-                    "onlyIfIncludes": ""
+                    "onlyIfIncludes": "",
+                    "id": "6ebcc4ae-01ad-4306-a31c-8c6a80651ac6"
                 }
             ]
         },
@@ -570,7 +570,8 @@
         },
         "Settings": {
             "enabled": true,
-            "settingsLocation": "aboveNitro"
+            "settingsLocation": "aboveNitro",
+            "includeVencordInfoWhenCopying": true
         },
         "SupportHelper": {
             "enabled": true
@@ -638,6 +639,30 @@
         },
         "ExpressionCloner": {
             "enabled": false
+        },
+        "DisableDeepLinks": {
+            "enabled": true
+        },
+        "CopyStickerLinks": {
+            "enabled": false
+        },
+        "ImageFilename": {
+            "enabled": false
+        },
+        "CustomCommands": {
+            "enabled": false
+        },
+        "AutoDNDWhilePlaying": {
+            "enabled": false
+        },
+        "CharacterCounter": {
+            "enabled": false
+        },
+        "MoreQuickReactions": {
+            "enabled": false
+        },
+        "NoMiddleClickPaste": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -650,7 +675,11 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1749167062972
+        "settingsSyncVersion": 1779806574390
     },
-    "eagerPatches": false
+    "eagerPatches": false,
+    "uiElements": {
+        "chatBarButtons": {},
+        "messagePopoverButtons": {}
+    }
 }

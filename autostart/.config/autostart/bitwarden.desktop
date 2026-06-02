@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=2025.4.2
+Name=Bitwarden
+Comment=Bitwarden startup script
+Exec=bitwarden
+StartupNotify=false
+Terminal=false
