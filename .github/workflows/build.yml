@@ -18,6 +18,6 @@ jobs:
           name: muntasirszn
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
 
-      - run: nix flake check
+      - run: nix flake check ./nixos/.config/nixos
 
-      - run: nix build .#nixosConfigurations.nixos.config.system.build.toplevel
+      - run: nix build ./nixos/.config/nixos#nixosConfigurations.nixos.config.system.build.toplevel
