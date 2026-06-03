@@ -23,7 +23,7 @@
   fsync = none
   whitespace = error  # treat incorrect whitespace as errors
   excludesfile = /home/muntasir/.gitignore_global
-	fsmonitor = true
+  fsmonitor = true
 [interactive]
   diffFilter = delta --color-only
 
@@ -92,6 +92,6 @@
 [url "git@github.com:"]
   insteadOf = "gh:"
 [credential "https://salsa.debian.org"]
-	provider = generic
+  provider = generic
 [feature]
-	manyFiles = true
+  manyFiles = true
