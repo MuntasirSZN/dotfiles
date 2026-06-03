@@ -86,6 +86,7 @@
     cachix
     nh
     kdePackages.kdeconnect-kde
+    udisks
   ];
   i18n.inputMethod = {
     type = "fcitx5";

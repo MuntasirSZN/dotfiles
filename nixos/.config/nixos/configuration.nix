@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
   findutils-name =
@@ -16,9 +16,10 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    inputs.cachyos-settings.nixosModules.default
   ];
   boot = {
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     loader = {
       limine = {
         enable = true;
@@ -57,9 +58,6 @@ in
     };
   };
 
-  zramSwap = {
-    enable = true;
-  };
   security = {
     tpm2.enable = true;
     rtkit.enable = true;
@@ -230,7 +228,16 @@ in
     enableRedistributableFirmware = true;
   };
   services = {
-    earlyoom.enable = true;
+    ananicy = {
+      enable = true;
+      package = pkgs.ananicy-cpp;
+      rulesProvider = pkgs.ananicy-rules-cachyos;
+    };
+    earlyoom = {
+      enable = true;
+      freeMemThreshold = 10;
+      freeSwapThreshold = 50;
+    };
     ntpd-rs.enable = true;
     fstrim.enable = true;
     dnscrypt-proxy = {
@@ -299,7 +306,10 @@ in
       xdg-desktop-portal-gtk
     ];
     config = {
-      hyprland.default = [ "hyprland" "gtk" ];
+      hyprland.default = [
+        "hyprland"
+        "gtk"
+      ];
     };
   };
 
@@ -333,6 +343,17 @@ in
   nixpkgs.config.permittedInsecurePackages = [
     "electron-39.8.10"
   ];
+
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.default
+  ];
+
+  cachyos.settings = {
+    enable = true;
+    timesyncd.enable = false;
+    networkManager.enable = false;
+    debuginfod.enable = false;
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

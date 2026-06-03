@@ -206,7 +206,9 @@
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "spotlightSectionViewModes": {},
-  "appDrawerSectionViewModes": {},
+  "appDrawerSectionViewModes": {
+    "apps": "list"
+  },
   "niriOverviewOverlayEnabled": true,
   "dankLauncherV2Size": "compact",
   "dankLauncherV2BorderEnabled": false,
@@ -360,7 +362,7 @@
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
-  "notificationCompactMode": true,
+  "notificationCompactMode": false,
   "notificationPopupPosition": 0,
   "notificationAnimationSpeed": 1,
   "notificationCustomAnimationDuration": 400,
@@ -431,10 +433,15 @@
       "showOnLastDisplay": true,
       "leftWidgets": [
         "launcherButton",
-        "focusedWindow",
+        {
+          "id": "focusedWindow",
+          "enabled": true,
+          "focusedWindowCompactMode": true
+        },
         {
           "id": "music",
-          "enabled": true
+          "enabled": true,
+          "mediaSize": 1
         }
       ],
       "centerWidgets": [

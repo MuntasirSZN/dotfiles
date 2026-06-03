@@ -80,6 +80,7 @@ jq = "latest"
 git-cliff = "latest"
 opencode = "latest"
 "github:can1357/oh-my-pi" = "latest"
+protoc = "latest"
 
 [settings]
 lockfile = true
