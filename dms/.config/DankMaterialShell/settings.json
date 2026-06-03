@@ -457,11 +457,11 @@
           "enabled": true
         },
         {
-          "id": "cpuUsage",
+          "id": "memUsage",
           "enabled": true
         },
         {
-          "id": "memUsage",
+          "id": "cpuUsage",
           "enabled": true
         },
         {
