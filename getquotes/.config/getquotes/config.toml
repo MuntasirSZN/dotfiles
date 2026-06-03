@@ -1,0 +1,21 @@
+#:schema https://raw.githubusercontent.com/MuntasirSZN/getquotes/refs/heads/main/config.schema.json
+
+authors = [
+  "Mahatma Gandhi",
+  "Albert Einstein",
+  "Martin Luther King, Jr.",
+  "Leonardo da Vinci",
+  "Walt Disney",
+  "Edgar Allan Poe",
+  "Sigmund Freud",
+  "Thomas A. Edison",
+  "Robin Williams",
+  "Steve Jobs",
+]
+max_tries = 30
+log_file = "getquotes.log"
+rainbow_mode = false
+layout = "box"
+box_corners = "rounded"
+theme_color = "#94e2d5"
+author_style = "#89b4fa"

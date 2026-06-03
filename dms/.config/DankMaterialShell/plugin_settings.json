@@ -1,0 +1,11 @@
+{
+  "usbManager": {
+    "enabled": true
+  },
+  "dankNotepadModule": {
+    "enabled": true
+  },
+  "dankKDEConnect": {
+    "enabled": true
+  }
+}

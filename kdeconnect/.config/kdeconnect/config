@@ -1,0 +1,4 @@
+[General]
+disabled_providers=AsyncLinkProvider
+keyAlgorithm=EC
+name=nixos

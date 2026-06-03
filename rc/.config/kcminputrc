@@ -1,0 +1,9 @@
+[Keyboard]
+NumLock=0
+
+[Libinput][0][14373][ USB OPTICAL MOUSE]
+PointerAccelerationProfile=1
+
+[Mouse]
+cursorSize=32
+cursorTheme=Windows
