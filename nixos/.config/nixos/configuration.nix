@@ -44,9 +44,6 @@ in
       "systemd.show_status=auto"
       "i915.fastboot=1"
     ];
-    kernel.sysctl = {
-      "vm.swappiness" = 150;
-    };
     plymouth = {
       enable = true;
       theme = "cross_hud";
