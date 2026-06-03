@@ -19,7 +19,13 @@ in
     inputs.cachyos-settings.nixosModules.default
   ];
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3.override {
+      autofdo = true;
+      kcfi = true;
+      performanceGovernor = true;
+      bbr3 = true;
+      acpiCall = true;
+    };
     loader = {
       limine = {
         enable = true;
