@@ -9,6 +9,7 @@
   imports = [
     inputs.zen-browser.homeModules.beta
     inputs.spicetify-nix.homeManagerModules.spicetify
+    inputs.nix-index-database.homeModules.default
   ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -87,6 +88,10 @@
     nh
     kdePackages.kdeconnect-kde
     udisks
+    zip
+    unzip
+    file
+    killall
   ];
   i18n.inputMethod = {
     type = "fcitx5";

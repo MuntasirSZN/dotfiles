@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 let
   findutils-name =
@@ -19,7 +24,20 @@ in
     inputs.cachyos-settings.nixosModules.default
   ];
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+    kernelPackages =
+      let
+        cachyos = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.system};
+        myKernel = cachyos.linux-cachyos-bore-lto-x86_64-v3.override {
+          bbr3 = true;
+          performanceGovernor = true;
+          kcfi = true;
+          autofdo = true;
+          acpiCall = true;
+        };
+      in
+      cachyos.linuxPackages-cachyos-bore-lto-x86_64-v3.override {
+        kernel = myKernel;
+      };
     loader = {
       limine = {
         enable = true;
@@ -154,6 +172,31 @@ in
     wget
     sbctl
     stow
+    nspr
+    nss
+    atk
+    at-spi2-atk
+    cups
+    dbus
+    expat
+    gtk3
+    libdrm
+    libgbm
+    libxkbcommon
+    mesa
+    pango
+    udev
+    libx11
+    libxcomposite
+    libxdamage
+    libxext
+    libxfixes
+    libxrandr
+    libxtst
+    libxcb
+    glib
+    cairo
+    gdk-pixbuf
   ];
 
   programs = {
@@ -204,7 +247,6 @@ in
         libjack2
         libpulseaudio
         pipewire
-        libGL
         udev
         vulkan-loader
         glib
@@ -213,6 +255,23 @@ in
         openssl
         libxtst
         freetype
+        nspr
+        nss
+        atk
+        at-spi2-atk
+        cups
+        dbus
+        expat
+        libdrm
+        libgbm
+        libxkbcommon
+        mesa
+        pango
+        libxcomposite
+        libxdamage
+        libxcb
+        cairo
+        gdk-pixbuf
       ];
     };
   };
@@ -224,11 +283,58 @@ in
     graphics.enable = true;
     enableRedistributableFirmware = true;
   };
+
+  # Enable systemd's cpu controller for the cgroup2 root at boot. Without this,
+  # /sys/fs/cgroup/cgroup.subtree_control is missing `cpu` when ananicy-cpp
+  # starts, so its cgroup check fails and it disables cgroup support entirely
+  # ("Cgroups are not available on this platform"). Once any service later
+  # enables cpu in subtree_control the daemon works again, which is why a
+  # post-boot `systemctl restart` is fine. NixOS only sets
+  # DefaultIOAccounting/DefaultIPAccounting by default; Memory/Tasks get
+  # enabled elsewhere, but CPU does not.
+  systemd.settings.Manager.DefaultCPUAccounting = true;
+
+  # Enable the cpu controller on the root cgroup before the daemon execs.
+  # systemd's DefaultCPUAccounting= true and per-unit CPUAccounting= true do
+  # NOT eagerly add `cpu` to /sys/fs/cgroup/cgroup.subtree_control, and a
+  # per-unit setting only grants the read-only accounting interface
+  # (cpu.stat/cpu.pressure) — ananicy-cpp's startup probe reads
+  # cgroup.controllers on a freshly-mkdir'd top-level cgroup, which is empty
+  # until `cpu` is in the root's subtree_control. Writing `+cpu` is
+  # idempotent.
+  systemd.services.ananicy-cpp.serviceConfig.ExecStartPre =
+    let
+      pre = pkgs.writeShellScript "ananicy-cpp-cgroup-pre" "echo +cpu > /sys/fs/cgroup/cgroup.subtree_control";
+    in
+    [ "${pre}" ];
+
+  # Clean up the cgroup dirs ananicy-cpp creates so the next start is silent
+  # (otherwise it warns "cgroup cpu80 already exists, ignoring" on every
+  # restart). rmdir --ignore-fail-on-non-empty is a no-op if a process is
+  # still in the cgroup.
+  systemd.services.ananicy-cpp.serviceConfig.ExecStopPost =
+    let
+      cleanup = pkgs.writeShellScript "ananicy-cpp-cgroup-cleanup" ''
+        for d in /sys/fs/cgroup/cpu80 /sys/fs/cgroup/cpu85 /sys/fs/cgroup/cpu90; do
+          [ -e "$d" ] && rmdir --ignore-fail-on-non-empty "$d" 2>/dev/null
+        done
+      '';
+    in
+    [ "${cleanup}" ];
   services = {
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
       rulesProvider = pkgs.ananicy-rules-cachyos;
+      # Upstream ananicy-cpp logs `add_pid_to_cgroup: cgroup error: couldn't add
+      # task to cgroup /sys/fs/cgroup/cgroup.procs (Invalid argument)` for kernel
+      # threads (migration/N, idle_inject/N) under cgroup v2. The kernel rejects
+      # moving kthreads out of their current cgroup, and the upstream maintainer
+      # marks it WONTFIX (gitlab work items #36, #66). Disable the workaround;
+      # nixpkgs hard-codes it as `true` (not mkOptionDefault), so mkForce is
+      # required. The nixpkgs module should be using mkOptionDefault; tracked
+      # upstream as a separate concern.
+      settings.cgroup_realtime_workaround = lib.mkForce false;
     };
     earlyoom = {
       enable = true;
