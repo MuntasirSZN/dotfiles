@@ -24,20 +24,15 @@ in
     inputs.cachyos-settings.nixosModules.default
   ];
   boot = {
-    kernelPackages =
-      let
-        cachyos = inputs.nix-cachyos-kernel.legacyPackages.${pkgs.system};
-        myKernel = cachyos.linux-cachyos-bore-lto-x86_64-v3.override {
-          bbr3 = true;
-          performanceGovernor = true;
-          kcfi = true;
-          autofdo = true;
-          acpiCall = true;
-        };
-      in
-      cachyos.linuxPackages-cachyos-bore-lto-x86_64-v3.override {
-        kernel = myKernel;
-      };
+    kernelPackages = pkgs.linuxPackagesFor (
+      (pkgs.cachyosKernels.linux-cachyos-bore-lto-x86_64-v3).override {
+        bbr3 = true;
+        performanceGovernor = true;
+        kcfi = true;
+        autofdo = true;
+        acpiCall = true;
+      }
+    );
     loader = {
       limine = {
         enable = true;
