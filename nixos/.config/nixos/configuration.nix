@@ -30,7 +30,6 @@ in
         performanceGovernor = true;
         kcfi = true;
         autofdo = true;
-        acpiCall = true;
       }
     );
     loader = {
