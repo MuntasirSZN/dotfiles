@@ -20,14 +20,14 @@
    },
    "theme": {
       "dark": {
-         "name": "catppuccin-mocha"
+         "name": "matugen"
       }
    },
    "telemetry": {
       "system_info": true
    },
    "launcher_window": {
-      "opacity": 0.8,
+      "opacity": 0.7,
       "client_side_decorations": {
          "enabled": true
       }

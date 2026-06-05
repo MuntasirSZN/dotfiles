@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "muntasir";
@@ -48,10 +52,6 @@
   xdg.autostart.enable = true;
 
   home.packages = with pkgs; [
-    git
-    curl
-    wget
-    vim
     ghostty
     zsh
     imagemagick
@@ -78,6 +78,7 @@
     bitwarden-desktop
     bitwarden-cli
     nautilus
+    nautilus-open-any-terminal
     networkmanagerapplet
     adw-gtk3
     ddcutil
@@ -88,10 +89,19 @@
     nh
     kdePackages.kdeconnect-kde
     udisks
-    zip
-    unzip
-    file
-    killall
+    amberol
+    celluloid
+    gnome-calculator
+    thunderbird
+    (pass.withExtensions (exts: [
+      exts.pass-otp
+    ]))
+    emacs
+    doppler
+    gvfs
+    jmtpfs
+    simple-mtpfs
+    libmtp
   ];
   i18n.inputMethod = {
     type = "fcitx5";

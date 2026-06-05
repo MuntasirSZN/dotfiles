@@ -8,7 +8,7 @@ eval "$(/home/muntasir/.local/bin/mise activate zsh)"
 
 if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH="/home/muntasir/.zsh/completions:$FPATH"; fi
 
-export PATH="$PATH:$HOME/.spicetify:$HOME/.turso:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin"
+export PATH="$PATH:$HOME/.spicetify:$HOME/.turso:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$HOME/.adb/platform-tools"
 
 compinit
 
@@ -162,11 +162,6 @@ alias clock="tty-clock -tcBrsSC 6"
 # Set xdg-open as open command
 alias open=xdg-open
 
-alias ai-enable='source ~/.local/bin/ai-enable'
-alias aur-enable='source ~/.local/bin/aur-enable'
-alias pop-enable='source ~/.local/bin/pop-enable'
-alias gemini-enable='source ~/.local/bin/gemini-enable'
-
 alias ltree="eza --tree --level=2  --icons --git --git-ignore"
 
 export GLAMOUR_STYLE="/home/muntasir/.config/glow/catppucin-mocha.json"
@@ -215,8 +210,6 @@ alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
 # Transient prompt
 source ~/.zsh/transient-prompt.zsh
 
-source ~/.local/bin/bw-enable
-
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
@@ -232,12 +225,16 @@ eval "$(atuin init zsh)"
 eval $(batman --export-env)
 
 eval "$(zoxide init --cmd cd zsh)"
-#
-# export CC="clang"
-# export CXX="clang++"
+
+export CC="clang"
+export CXX="clang++"
 
 # Must be at the end of .zshrc
 compinit
 
 export GOPATH="/home/muntasir/.go"
 export NH_FLAKE="/home/muntasir/.config/nixos#nixos"
+
+if [[ -o interactive ]] && command -v doppler >/dev/null 2>&1; then
+  eval "$(doppler secrets download --no-file --format env 2>/dev/null)"
+fi

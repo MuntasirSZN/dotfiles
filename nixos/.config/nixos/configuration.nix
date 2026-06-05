@@ -142,9 +142,6 @@ in
       "video"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      tree
-    ];
   };
   environment.systemPackages = with pkgs; [
     jdk21
@@ -191,6 +188,16 @@ in
     glib
     cairo
     gdk-pixbuf
+    git
+    curl
+    wget
+    vim
+    zip
+    unzip
+    file
+    killall
+    tree
+    wl-clipboard-rs
   ];
 
   programs = {
@@ -316,6 +323,7 @@ in
     in
     [ "${cleanup}" ];
   services = {
+    gvfs.enable = true;
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
@@ -371,9 +379,7 @@ in
       compositor = {
         name = "hyprland";
         customConfig = ''
-          env = HYPRCURSOR_THEME,Windows
           env = XCURSOR_THEME,Windows
-          env = HYPRCURSOR_SIZE,24
           env = XCURSOR_SIZE,24
         '';
       };
@@ -434,7 +440,7 @@ in
     }
   ];
 
-  # I hate this. Kills entire cgroups.
+  # I use earlyoom.
   systemd.oomd.enable = false;
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -447,8 +453,11 @@ in
 
   cachyos.settings = {
     enable = true;
+    # I use ntpd-rs
     timesyncd.enable = false;
+    # I use dnscrypt-proxy
     networkManager.enable = false;
+    # Not needed on nixos?
     debuginfod.enable = false;
   };
 
