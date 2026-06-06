@@ -8,5 +8,18 @@
   "dankKDEConnect": {
     "enabled": true,
     "selectedDeviceId": "28a7c12a593a46f49027de9aeb2f2498"
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "=",
+    "persistHistoryOnFile": true
+  },
+  "prayerTimes": {
+    "enabled": true,
+    "school": "1",
+    "lat": "22.364982",
+    "lon": "91.776410",
+    "use12H": true,
+    "iconOnly": false
   }
 }

@@ -99,9 +99,11 @@
       "width": 50
     },
     {
-      "id": "audioOutput",
+      "id": "diskUsage",
       "enabled": true,
-      "width": 50
+      "width": 50,
+      "instanceId": "mq2f695udhkyyme2mby",
+      "mountPath": "/"
     },
     {
       "id": "audioInput",
@@ -109,7 +111,7 @@
       "width": 50
     },
     {
-      "id": "nightMode",
+      "id": "audioOutput",
       "enabled": true,
       "width": 50
     },
@@ -140,6 +142,11 @@
     },
     {
       "id": "plugin_dankKDEConnect",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "nightMode",
       "enabled": true,
       "width": 50
     }
@@ -279,8 +286,16 @@
   "brightnessDevicePins": {},
   "wifiNetworkPins": {},
   "bluetoothDevicePins": {},
-  "audioInputDevicePins": {},
-  "audioOutputDevicePins": {},
+  "audioInputDevicePins": {
+    "preferredInput": [
+      "alsa_input.usb-Generic_Meeting_N_earphone_20210726905926-00.analog-stereo"
+    ]
+  },
+  "audioOutputDevicePins": {
+    "preferredOutput": [
+      "alsa_output.usb-Generic_Meeting_N_earphone_20210726905926-00.analog-stereo"
+    ]
+  },
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -461,6 +476,10 @@
       "rightWidgets": [
         {
           "id": "systemTray",
+          "enabled": true
+        },
+        {
+          "id": "prayerTimes",
           "enabled": true
         },
         {

@@ -115,4 +115,52 @@
       qt6Packages.fcitx5-configtool
     ];
   };
+  systemd.user.services.rclone-google = {
+    Unit = {
+      Description = "Rclone Google Drive Mount";
+      After = [ "network-online.target" ];
+      Wants = [ "network-online.target" ];
+    };
+
+    Service = {
+      Type = "notify";
+      ExecStart = "${pkgs.rclone}/bin/rclone mount 'Google Muntasir:' %h/google --vfs-cache-mode full";
+      ExecStop = "${pkgs.fuse}/bin/fusermount -u %h/google";
+      Restart = "on-failure";
+      RestartSec = 10;
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+  systemd.user.services.vdirsyncer-sync = {
+    Unit = {
+      Description = "Run vdirsyncer sync";
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
+    };
+  };
+  systemd.user.timers.vdirsyncer-sync = {
+    Unit = {
+      Description = "Run vdirsyncer sync every 5 minutes";
+    };
+    Timer = {
+      OnBootSec = "1min";
+      OnUnitActiveSec = "5min";
+      Persistent = true;
+    };
+    Install = {
+      WantedBy = [ "timers.target" ];
+    };
+  };
+
+  # Otherwise xdg-desktop-portal-gtk doesn't work
+  home.file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text =
+    ''
+    [Service]
+    UnsetEnvironment=NIX_XDG_DESKTOP_PORTAL_DIR
+    '';
 }

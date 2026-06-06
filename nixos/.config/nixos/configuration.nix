@@ -32,11 +32,34 @@ in
         autofdo = true;
       }
     );
-    loader = {
-      limine = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+      autoGenerateKeys.enable = true;
+      autoEnrollKeys = {
         enable = true;
-        efiSupport = true;
-        secureBoot.enable = true;
+        autoReboot = true;
+      };
+      measuredBoot = {
+        enable = true;
+        pcrs = [
+          0
+          2
+          4
+          7
+        ];
+      };
+      configurationLimit = 8;
+      settings = {
+        editor = false;
+      };
+      bootCounting = {
+        initialTries = 3;
+      };
+    };
+    loader = {
+      systemd-boot = {
+        enable = lib.mkForce false;
       };
       timeout = 2;
       efi.canTouchEfiVariables = true;
@@ -198,6 +221,7 @@ in
     killall
     tree
     wl-clipboard-rs
+    dmidecode
   ];
 
   programs = {
@@ -323,6 +347,58 @@ in
     in
     [ "${cleanup}" ];
   services = {
+    kanata = {
+      enable = true;
+      keyboards.mykeyboard = {
+        extraDefCfg = ''
+          process-unmapped-keys yes
+        '';
+        config = ''
+          (defsrc
+            caps a s d f j k l ;
+          )
+          (defvar
+            tap-time 150
+            hold-time 200
+          )
+
+          (defalias
+            escctrl (tap-hold 100 100 esc lctl)
+            a (tap-hold $tap-time $hold-time a lmet)
+            s (tap-hold $tap-time $hold-time s lalt)
+            d (tap-hold $tap-time $hold-time d lsft)
+            f (tap-hold $tap-time $hold-time f lctl)
+            j (tap-hold $tap-time $hold-time j rctl)
+            k (tap-hold $tap-time $hold-time k rsft)
+            l (tap-hold $tap-time $hold-time l ralt)
+            ; (tap-hold $tap-time $hold-time ; rmet)
+          )
+
+          (deflayer base
+            @escctrl @a @s @d @f @j @k @l @;
+          )
+        '';
+      };
+    };
+    snapper = {
+      configs.home = {
+        SUBVOLUME = "/home";
+
+        TIMELINE_CREATE = true;
+        TIMELINE_CLEANUP = true;
+
+        TIMELINE_LIMIT_HOURLY = 24;
+        TIMELINE_LIMIT_DAILY = 7;
+        TIMELINE_LIMIT_WEEKLY = 4;
+        TIMELINE_LIMIT_MONTHLY = 12;
+      };
+    };
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [ "/" ];
+    };
+    fwupd.enable = true;
     gnome.gnome-online-accounts.enable = true;
     gvfs.enable = true;
     ananicy = {

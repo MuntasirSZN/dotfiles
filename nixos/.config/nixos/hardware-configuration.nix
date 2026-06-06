@@ -67,22 +67,22 @@
       ];
     };
 
-    "/.snapshots" = {
-      device = "/dev/mapper/nix-root";
+    "/home" = {
+      device = "/dev/mapper/nix-home";
       fsType = "btrfs";
       options = [
-        "subvol=@snapshots"
+        "subvol=@home"
         "noatime"
         "discard=async"
         "compress=zstd:2"
       ];
     };
 
-    "/home" = {
+    "/home/.snapshots" = {
       device = "/dev/mapper/nix-home";
       fsType = "btrfs";
       options = [
-        "subvol=@home"
+        "subvol=@.snapshots"
         "noatime"
         "discard=async"
         "compress=zstd:2"
