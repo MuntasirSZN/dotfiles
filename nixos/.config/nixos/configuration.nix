@@ -323,6 +323,7 @@ in
     in
     [ "${cleanup}" ];
   services = {
+    gnome.gnome-online-accounts.enable = true;
     gvfs.enable = true;
     ananicy = {
       enable = true;

@@ -93,15 +93,16 @@
     celluloid
     gnome-calculator
     thunderbird
-    (pass.withExtensions (exts: [
-      exts.pass-otp
-    ]))
     emacs
     doppler
     gvfs
     jmtpfs
     simple-mtpfs
     libmtp
+    gnome-online-accounts-gtk
+    keepassxc
+    rclone-browser
+    rclone
   ];
   i18n.inputMethod = {
     type = "fcitx5";
