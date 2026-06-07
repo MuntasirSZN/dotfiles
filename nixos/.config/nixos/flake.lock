@@ -42,11 +42,11 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1780418433,
-        "narHash": "sha256-PVWFuWeSpWZSJ0cs9ru/osZuBIGbspbSgSxECW/y/XE=",
+        "lastModified": 1780818456,
+        "narHash": "sha256-LMeIiYASJSDCPrRPwLEJ1pSrUdAgJEPV5Agy5Su0USI=",
         "owner": "Daaboulex",
         "repo": "cachyos-settings-nix",
-        "rev": "f9734684f313e771d6cbeb1e817e94651a24d358",
+        "rev": "8807ca479fd64a8c7a6ec81e8cc3c0b55c858da3",
         "type": "github"
       },
       "original": {
@@ -312,11 +312,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1780210899,
-        "narHash": "sha256-4axz3OBPTKa6LIkXV8n0lc63MQU+et2CB5DGobEAi6k=",
+        "lastModified": 1780816331,
+        "narHash": "sha256-0BYqs8yKWkOz2Q7+SP18N5E5gmDKSo6LSxIVIa0wWes=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "97df9dc0b7c924344b793a15c1e8e4522ebb854e",
+        "rev": "1a2ea89c917781e88508d9fd2b507f2d2a0e173c",
         "type": "github"
       },
       "original": {
