@@ -75,8 +75,6 @@
     dgop
     libsForQt5.qt5ct
     qt6Packages.qt6ct
-    bitwarden-desktop
-    bitwarden-cli
     nautilus
     nautilus-open-any-terminal
     networkmanagerapplet
@@ -158,9 +156,14 @@
   };
 
   # Otherwise xdg-desktop-portal-gtk doesn't work
-  home.file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text =
-    ''
+  home.file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text = ''
     [Service]
     UnsetEnvironment=NIX_XDG_DESKTOP_PORTAL_DIR
+  '';
+  # No tray icon fix
+  home.file.".config/systemd/user/app-org.keepassxc.KeePassXC@autostart.service.d/override.conf".text =
+    ''
+      [Service]
+      ExecCondition=${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "" "KDE:GNOME:COSMIC"
     '';
 }

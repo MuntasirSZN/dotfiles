@@ -222,6 +222,33 @@ in
     tree
     wl-clipboard-rs
     dmidecode
+
+    (pkgs.stdenvNoCC.mkDerivation {
+      pname = "windows-cursor-theme";
+      version = "unstable";
+
+      src = ./assets/Windows;
+
+      dontPatch = true;
+      dontConfigure = true;
+      dontBuild = true;
+
+      installPhase = ''
+        runHook preInstall
+
+        mkdir -p $out/share/icons/Windows
+        cp -a index.theme cursor.theme $out/share/icons/Windows/
+        cp -a cursors $out/share/icons/Windows/
+
+        runHook postInstall
+      '';
+
+      meta = with pkgs.lib; {
+        description = "Windows-style Xcursor theme (Taken from Windows-Cursor-Concept-v2)";
+        license = licenses.unfree;
+        platforms = platforms.unix;
+      };
+    })
   ];
 
   programs = {
@@ -449,6 +476,7 @@ in
     pipewire = {
       enable = true;
       pulse.enable = true;
+      alsa.enable = true;
     };
     libinput.enable = true;
     displayManager.dms-greeter = {
@@ -457,7 +485,12 @@ in
         name = "hyprland";
         customConfig = ''
           env = XCURSOR_THEME,Windows
-          env = XCURSOR_SIZE,24
+          env = XCURSOR_SIZE,25
+          env = DMS_RUN_GREETER,1
+
+          misc {
+            disable_hyprland_logo = true
+          }
         '';
       };
       configHome = "/home/muntasir";
@@ -519,10 +552,6 @@ in
 
   # I use earlyoom.
   systemd.oomd.enable = false;
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
-  ];
 
   nixpkgs.overlays = [
     inputs.nix-cachyos-kernel.overlays.default
