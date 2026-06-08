@@ -55,11 +55,17 @@
       lanzaboote,
       ...
     }@inputs:
+    let
+      devLib = import ./lib { lib = nixpkgs.lib; };
+    in
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs;
+            inherit (devLib) devClosure;
+          };
           modules = [
             ./hardware-configuration.nix
             ./configuration.nix
@@ -70,7 +76,10 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.muntasir = import ./home.nix;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = {
+                inherit inputs;
+                inherit (devLib) devClosure;
+              };
             }
           ];
         };

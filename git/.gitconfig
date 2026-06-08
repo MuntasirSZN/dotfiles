@@ -95,3 +95,9 @@
   provider = generic
 [feature]
   manyFiles = true
+[maintenance]
+	repo = /home/muntasir/.dotfiles
+	repo = /home/muntasir/Projects/rustowl-up
+	repo = /home/muntasir/Projects/zellij
+	repo = /home/muntasir/Projects/grub
+	repo = /home/muntasir/Projects/wl-clipboard-rs

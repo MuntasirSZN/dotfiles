@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  devClosure,
   ...
 }:
 
@@ -51,58 +52,62 @@
   };
   xdg.autostart.enable = true;
 
-  home.packages = with pkgs; [
-    ghostty
-    zsh
-    imagemagick
-    fzf
-    vivid
-    zed-editor
-    clang
-    nwg-look
-    cava
-    pavucontrol
-    nil
-    nixd
-    cmake
-    gnumake
-    git-credential-manager
-    vicinae
-    matugen
-    khal
-    vdirsyncer
-    wtype
-    dgop
-    libsForQt5.qt5ct
-    qt6Packages.qt6ct
-    nautilus
-    nautilus-open-any-terminal
-    networkmanagerapplet
-    adw-gtk3
-    ddcutil
-    (discord.override {
-      withVencord = true;
-    })
-    cachix
-    nh
-    kdePackages.kdeconnect-kde
-    udisks
-    amberol
-    celluloid
-    gnome-calculator
-    thunderbird
-    emacs
-    eask-cli
-    doppler
-    gvfs
-    jmtpfs
-    simple-mtpfs
-    libmtp
-    gnome-online-accounts-gtk
-    keepassxc
-    rclone-browser
-    rclone
-  ];
+  home.packages =
+    let
+      topLevel = with pkgs; [
+        ghostty
+        zsh
+        imagemagick
+        fzf
+        vivid
+        zed-editor
+        clang
+        nwg-look
+        cava
+        pavucontrol
+        nil
+        nixd
+        cmake
+        gnumake
+        git-credential-manager
+        vicinae
+        matugen
+        khal
+        vdirsyncer
+        wtype
+        dgop
+        libsForQt5.qt5ct
+        qt6Packages.qt6ct
+        nautilus
+        nautilus-open-any-terminal
+        networkmanagerapplet
+        adw-gtk3
+        ddcutil
+        (discord.override {
+          withVencord = true;
+        })
+        cachix
+        nh
+        kdePackages.kdeconnect-kde
+        udisks
+        amberol
+        celluloid
+        gnome-calculator
+        thunderbird
+        emacs
+        eask-cli
+        doppler
+        gvfs
+        jmtpfs
+        simple-mtpfs
+        libmtp
+        gnome-online-accounts-gtk
+        keepassxc
+        rclone-browser
+        rclone
+      ];
+    in
+    topLevel ++ devClosure topLevel;
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;

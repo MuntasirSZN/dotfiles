@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   lib,
+  devClosure,
   ...
 }:
 
@@ -17,6 +18,94 @@ let
     + builtins.concatStringsSep "" (
       builtins.genList (_: "_") (builtins.stringLength pkgs.diffutils.version)
     );
+
+  # Canonical list of top-level system packages. This is THE source of truth:
+  # `systemPackages` adds their `.dev` outputs, and `nix-ld` puts them on the
+  # dynamic linker path. Add/remove here, not in the nested duplicate lists.
+  topLevel = with pkgs; [
+    jdk21
+    glfw
+    openal
+    alsa-lib
+    libjack2
+    libpulseaudio
+    pipewire
+    libGL
+    libx11
+    libxcursor
+    libxext
+    libxrandr
+    libxxf86vm
+    udev
+    vulkan-loader
+    vim
+    wget
+    sbctl
+    stow
+    nspr
+    nss
+    atk
+    at-spi2-atk
+    cups
+    dbus
+    expat
+    gtk3
+    libdrm
+    libgbm
+    libxkbcommon
+    mesa
+    pango
+    udev
+    libx11
+    libxcomposite
+    libxdamage
+    libxext
+    libxfixes
+    libxrandr
+    libxtst
+    libxcb
+    glib
+    cairo
+    gdk-pixbuf
+    git
+    curl
+    wget
+    vim
+    zip
+    unzip
+    file
+    killall
+    tree
+    wl-clipboard-rs
+    dmidecode
+
+    (pkgs.stdenvNoCC.mkDerivation {
+      pname = "windows-cursor-theme";
+      version = "unstable";
+
+      src = ./assets/Windows;
+
+      dontPatch = true;
+      dontConfigure = true;
+      dontBuild = true;
+
+      installPhase = ''
+        runHook preInstall
+
+        mkdir -p $out/share/icons/Windows
+        cp -a index.theme cursor.theme $out/share/icons/Windows/
+        cp -a cursors $out/share/icons/Windows/
+
+        runHook postInstall
+      '';
+
+      meta = with pkgs.lib; {
+        description = "Windows-style Xcursor theme (Taken from Windows-Cursor-Concept-v2)";
+        license = licenses.unfree;
+        platforms = platforms.unix;
+      };
+    })
+  ];
 in
 {
   imports = [
@@ -166,90 +255,7 @@ in
     ];
     shell = pkgs.zsh;
   };
-  environment.systemPackages = with pkgs; [
-    jdk21
-    glfw
-    openal
-    alsa-lib
-    libjack2
-    libpulseaudio
-    pipewire
-    libGL
-    libx11
-    libxcursor
-    libxext
-    libxrandr
-    libxxf86vm
-    udev
-    vulkan-loader
-    vim
-    wget
-    sbctl
-    stow
-    nspr
-    nss
-    atk
-    at-spi2-atk
-    cups
-    dbus
-    expat
-    gtk3
-    libdrm
-    libgbm
-    libxkbcommon
-    mesa
-    pango
-    udev
-    libx11
-    libxcomposite
-    libxdamage
-    libxext
-    libxfixes
-    libxrandr
-    libxtst
-    libxcb
-    glib
-    cairo
-    gdk-pixbuf
-    git
-    curl
-    wget
-    vim
-    zip
-    unzip
-    file
-    killall
-    tree
-    wl-clipboard-rs
-    dmidecode
-
-    (pkgs.stdenvNoCC.mkDerivation {
-      pname = "windows-cursor-theme";
-      version = "unstable";
-
-      src = ./assets/Windows;
-
-      dontPatch = true;
-      dontConfigure = true;
-      dontBuild = true;
-
-      installPhase = ''
-        runHook preInstall
-
-        mkdir -p $out/share/icons/Windows
-        cp -a index.theme cursor.theme $out/share/icons/Windows/
-        cp -a cursors $out/share/icons/Windows/
-
-        runHook postInstall
-      '';
-
-      meta = with pkgs.lib; {
-        description = "Windows-style Xcursor theme (Taken from Windows-Cursor-Concept-v2)";
-        license = licenses.unfree;
-        platforms = platforms.unix;
-      };
-    })
-  ];
+  environment.systemPackages = topLevel ++ devClosure topLevel;
 
   programs = {
     kdeconnect.enable = true;
@@ -281,50 +287,7 @@ in
     };
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [
-        libx11
-        libxcursor
-        libxrandr
-        libxi
-        libxext
-        libxrender
-        libxfixes
-        libxinerama
-        libxxf86vm
-        libGL
-        jdk21
-        glfw
-        openal
-        alsa-lib
-        libjack2
-        libpulseaudio
-        pipewire
-        udev
-        vulkan-loader
-        glib
-        gtk3
-        zlib
-        openssl
-        libxtst
-        freetype
-        nspr
-        nss
-        atk
-        at-spi2-atk
-        cups
-        dbus
-        expat
-        libdrm
-        libgbm
-        libxkbcommon
-        mesa
-        pango
-        libxcomposite
-        libxdamage
-        libxcb
-        cairo
-        gdk-pixbuf
-      ];
+      libraries = topLevel;
     };
   };
   environment.variables = {

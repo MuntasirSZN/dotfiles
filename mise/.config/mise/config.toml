@@ -21,7 +21,6 @@ pandoc = "latest"
 "cargo:pay-respects" = "latest"
 rust-analyzer = "latest"
 starship = "latest"
-yazi = "latest"
 zoxide = "latest"
 "pipx:zizmor" = "latest"
 hyperfine = "latest"
@@ -81,6 +80,7 @@ git-cliff = "latest"
 opencode = "latest"
 "github:can1357/oh-my-pi" = "latest"
 protoc = "latest"
+superfile = "latest"
 
 [settings]
 lockfile = true
