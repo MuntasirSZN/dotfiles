@@ -81,6 +81,7 @@ opencode = "latest"
 "github:can1357/oh-my-pi" = "latest"
 protoc = "latest"
 superfile = "latest"
+tmux = "latest"
 
 [settings]
 lockfile = true

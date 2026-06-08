@@ -238,3 +238,11 @@ export NH_FLAKE="/home/muntasir/.config/nixos#nixos"
 if [[ -o interactive ]] && command -v doppler >/dev/null 2>&1; then
   eval "$(doppler secrets download --no-file --format env 2>/dev/null)"
 fi
+
+# pnpm
+export PNPM_HOME="/home/muntasir/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

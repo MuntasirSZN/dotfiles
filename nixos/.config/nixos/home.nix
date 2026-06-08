@@ -39,7 +39,7 @@
       enable = true;
       enabledExtensions = with extensions; [
         adblockify
-        fullAppDisplayMod
+        fullScreen
       ];
       enabledCustomApps = with apps; [
         marketplace
