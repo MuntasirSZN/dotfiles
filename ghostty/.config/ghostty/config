@@ -10,8 +10,6 @@ gtk-titlebar = false
 
 resize-overlay = never
 
-gtk-single-instance = true
-
 custom-shader = shaders/cursor_smear.glsl
 
 theme = catppuccin-mocha.conf
@@ -64,5 +62,5 @@ shell-integration = detect
 shell-integration-features = cursor,sudo,title,no-cursor
 keybind = shift+enter=text:\n
 
-# Rando stuff
+# Random stuff
 gtk-single-instance = true

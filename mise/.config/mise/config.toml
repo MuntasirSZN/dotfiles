@@ -82,6 +82,8 @@ opencode = "latest"
 protoc = "latest"
 superfile = "latest"
 tmux = "latest"
+zig = "latest"
+deno = "latest"
 
 [settings]
 lockfile = true

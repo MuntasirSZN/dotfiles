@@ -35,7 +35,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='nano'
 else
-	export EDITOR='vim'
+	export EDITOR='zeditor --wait'
 fi
 
 # System Info On Terminal Open

@@ -7,26 +7,28 @@
 }:
 
 let
-  findutils-name =
-    "finduutils"
-    + builtins.concatStringsSep "" (
-      builtins.genList (_: "_") (builtins.stringLength pkgs.findutils.version)
-    );
-
-  diffutils-name =
-    "diffuutils"
-    + builtins.concatStringsSep "" (
-      builtins.genList (_: "_") (builtins.stringLength pkgs.diffutils.version)
-    );
-
-  # Canonical list of top-level system packages. This is THE source of truth:
-  # `systemPackages` adds their `.dev` outputs, and `nix-ld` puts them on the
-  # dynamic linker path. Add/remove here, not in the nested duplicate lists.
   topLevel = with pkgs; [
+    openssl
+    qt6.qtbase
+    qt6.qmake
+    qt6.qttools
+    qt6.qtwayland
+    kdePackages.qt5compat
+    graphene
+    libGLX
+    pkg-config
+    libsoup_3
+    webkitgtk_6_0
+    qt6.qtwebengine
+    qt6.qtmultimedia
+    qt6.qtdeclarative
+    qt6.qtwebchannel
+    qt6.qtpositioning
     jdk21
     glfw
     openal
     alsa-lib
+    alsa-utils
     libjack2
     libpulseaudio
     pipewire
@@ -46,10 +48,11 @@ let
     nss
     atk
     at-spi2-atk
-    cups
     dbus
     expat
     gtk3
+    gtk4
+    harfbuzz
     libdrm
     libgbm
     libxkbcommon
@@ -244,6 +247,16 @@ in
       nerd-fonts.ubuntu
       nerd-fonts.jetbrains-mono
     ];
+
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        sansSerif = [ "Noto Sans" ];
+        serif = [ "Noto Serif" ];
+        monospace = [ "Noto Sans Mono" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
   };
 
   users.users.muntasir = {
@@ -252,6 +265,7 @@ in
       "wheel"
       "networkmanager"
       "video"
+      "input"
     ];
     shell = pkgs.zsh;
   };
@@ -287,12 +301,43 @@ in
     };
     nix-ld = {
       enable = true;
+      # No filter — include all topLevel packages. The QMAKE wrapper
+      # (environment.sessionVariables.QMAKE) handles build-time .prl
+      # discovery and CXXFLAGS provides explicit include paths, so nix-ld
+      # no longer conflicts with qmake's prefix derivation. Adding Qt
+      # packages here is required for runtime resolution of non-RUNPATH
+      # binaries built by cargo/rustc.
       libraries = topLevel;
     };
   };
   environment.variables = {
     CC = "clang";
     CXX = "clang++";
+    # qt-build-utils only includes module directories under qtbase's prefix.
+    # On NixOS each Qt module lives in a separate store path, so modules
+    # like Multimedia and WebEngine are missed. Add their include dirs
+    # explicitly so cc-rs passes them to the C++ compiler.
+    # qt-build-utils's include_paths constructs ${QT_INSTALL_HEADERS}/Qt{module}
+    # for each module. For modules in qtbase (Core, Gui, Widgets, etc.) these
+    # exist under qtbase's own include dir. For modules in separate Nix store
+    # paths (Multimedia, WebEngine) they don't, so the headers are never added.
+    # The forwarding headers (<QMediaPlayer>, <QWebEngineHistory>) then pull
+    # in sub-includes with module-qualified paths like <QtMultimedia/foo.h> or
+    # <QtWebEngineCore/foo.h>. Provide both the module subdirectory (for the
+    # forwarding header itself) and the base include dir (for the qualified
+    # includes inside it).
+    CXXFLAGS = lib.concatStringsSep " " [
+      # Module subdirectories — for bare includes like <QMediaPlayer>
+      "-I${pkgs.qt6.qtmultimedia}/include/QtMultimedia"
+      "-I${pkgs.qt6.qtmultimedia}/include/QtMultimediaWidgets"
+      "-I${pkgs.qt6.qtwebengine}/include/QtWebEngineCore"
+      "-I${pkgs.qt6.qtwebengine}/include/QtWebEngineWidgets"
+      # Base include dirs — for qualified includes like <QtMultimedia/foo.h>
+      "-I${pkgs.qt6.qtmultimedia}/include"
+      "-I${pkgs.qt6.qtwebengine}/include"
+      # GL headers
+      "-I${pkgs.libglvnd.dev}/include"
+    ];
   };
   hardware = {
     graphics.enable = true;
@@ -337,6 +382,24 @@ in
     in
     [ "${cleanup}" ];
   services = {
+    upower.enable = true;
+    printing = {
+      enable = true;
+      listenAddresses = [ "*:631" ];
+      allowFrom = [ "all" ];
+      browsing = true;
+      defaultShared = true;
+      openFirewall = true;
+    };
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+      publish = {
+       enable = true;
+       userServices = true;
+     };
+    };
     kanata = {
       enable = true;
       keyboards.mykeyboard = {
@@ -345,7 +408,7 @@ in
         '';
         config = ''
           (defsrc
-            caps a s d f j k l ;
+            caps j k l ;
           )
           (defvar
             tap-time 150
@@ -354,10 +417,6 @@ in
 
           (defalias
             escctrl (tap-hold 100 100 esc lctl)
-            a (tap-hold $tap-time $hold-time a lmet)
-            s (tap-hold $tap-time $hold-time s lalt)
-            d (tap-hold $tap-time $hold-time d lsft)
-            f (tap-hold $tap-time $hold-time f lctl)
             j (tap-hold $tap-time $hold-time j rctl)
             k (tap-hold $tap-time $hold-time k rsft)
             l (tap-hold $tap-time $hold-time l ralt)
@@ -365,7 +424,7 @@ in
           )
 
           (deflayer base
-            @escctrl @a @s @d @f @j @k @l @;
+            @escctrl @j @k @l @;
           )
         '';
       };
@@ -489,36 +548,74 @@ in
     };
   };
 
-  system.replaceDependencies.replacements = [
-    # add uutils when mv is fixed
-    # findutils
-    {
-      # applications
-      oldDependency = pkgs.findutils;
-      newDependency = pkgs.symlinkJoin {
-        # Make the name length match so it builds
-        name = findutils-name;
-        paths = [ pkgs.uutils-findutils ];
-      };
-    }
-    # diffutils
-    {
-      # applications
-      oldDependency = pkgs.diffutils;
-      newDependency = pkgs.symlinkJoin {
-        # Make the name length match so it builds
-        name = diffutils-name;
-        paths = [ pkgs.uutils-diffutils ];
-      };
-    }
-  ];
-
   # I use earlyoom.
   systemd.oomd.enable = false;
+
+  # qt-build-utils's link_qt_library looks for .prl files in
+  # QT_INSTALL_LIBS (qtbase's lib dir). Multimedia and WebEngine live in
+  # separate Nix store paths, so those .prl files aren't found. Symlink them
+  # into a merged tmpfs directory and point QMAKE at it.
+  systemd.tmpfiles.settings."qt6-libs" =
+    let
+      link =
+        pkg: ext: modules:
+        builtins.foldl' lib.recursiveUpdate { } (
+          map (m: {
+            "/run/qt6-lib/libQt6${m}.${ext}" = {
+              L.argument = "${pkg}/lib/libQt6${m}.${ext}";
+            };
+          }) modules
+        );
+      all = pkg: modules: lib.recursiveUpdate (link pkg "prl" modules) (link pkg "so" modules);
+    in
+    lib.recursiveUpdate
+      (all pkgs.qt6.qtbase [
+        "Core"
+        "Gui"
+        "Widgets"
+        "OpenGLWidgets"
+        "OpenGL"
+        "Network"
+      ])
+      (
+        lib.recursiveUpdate
+          (all pkgs.qt6.qtmultimedia [
+            "Multimedia"
+            "MultimediaWidgets"
+          ])
+          (
+            all pkgs.qt6.qtwebengine [
+              "WebEngineCore"
+              "WebEngineWidgets"
+            ]
+          )
+      );
 
   nixpkgs.overlays = [
     inputs.nix-cachyos-kernel.overlays.default
   ];
+
+  environment.sessionVariables = {
+    PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
+    # qt-build-utils's cargo_link_libraries emits rustc-link-lib for all
+    # Qt modules but only sets rustc-link-search for qtbase's lib dir.
+    # Append extra lib dirs so the linker finds Multimedia/WebEngine libs.
+    # rustc-link-search points to /run/qt6-lib (via QMAKE wrapper), which
+    # only has .prl symlinks, not the actual .so files. Add all Qt lib dirs
+    # explicitly so the linker finds the shared libraries.
+    LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH:${pkgs.qt6.qtbase}/lib:${pkgs.qt6.qtmultimedia}/lib:${pkgs.qt6.qtwebengine}/lib:${pkgs.qt6.qtdeclarative}/lib:${pkgs.qt6.qtwebchannel}/lib:${pkgs.qt6.qtpositioning}/lib";
+    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
+    # qt-build-utils uses qmake -query QT_INSTALL_LIBS to locate .prl files.
+    # Our tmpfiles rule puts symlinks at /run/qt6-lib; this wrapper returns
+    # that path for the LIBS query and delegates everything else to real qmake.
+    QMAKE = "${pkgs.writeShellScriptBin "qmake-wrapper" ''
+      if [ "$1" = "-query" ] && [ "$2" = "QT_INSTALL_LIBS" ]; then
+        echo "/run/qt6-lib"
+      else
+        exec "${pkgs.qt6.qtbase}/bin/qmake" "$@"
+      fi
+    ''}/bin/qmake-wrapper";
+  };
 
   cachyos.settings = {
     enable = true;

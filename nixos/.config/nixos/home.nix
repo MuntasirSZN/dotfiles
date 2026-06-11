@@ -55,6 +55,7 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        libnotify
         ghostty
         zsh
         imagemagick
@@ -105,6 +106,7 @@
         keepassxc
         rclone-browser
         rclone
+        nixfmt
       ];
     in
     topLevel ++ devClosure topLevel;
@@ -116,6 +118,7 @@
       fcitx5-gtk
       catppuccin-fcitx5
       fcitx5-m17n
+      fcitx5-openbangla-keyboard
       qt6Packages.fcitx5-configtool
     ];
   };
