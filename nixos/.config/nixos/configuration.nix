@@ -8,6 +8,12 @@
 
 let
   topLevel = with pkgs; [
+    libsForQt5.qtstyleplugin-kvantum
+    adwaita-icon-theme
+    hicolor-icon-theme
+    libsForQt5.qtsvg
+    qt6.qtimageformats
+    qt6.qtsvg
     openssl
     qt6.qtbase
     qt6.qmake
@@ -301,12 +307,6 @@ in
     };
     nix-ld = {
       enable = true;
-      # No filter — include all topLevel packages. The QMAKE wrapper
-      # (environment.sessionVariables.QMAKE) handles build-time .prl
-      # discovery and CXXFLAGS provides explicit include paths, so nix-ld
-      # no longer conflicts with qmake's prefix derivation. Adding Qt
-      # packages here is required for runtime resolution of non-RUNPATH
-      # binaries built by cargo/rustc.
       libraries = topLevel;
     };
   };
@@ -396,9 +396,9 @@ in
       nssmdns4 = true;
       openFirewall = true;
       publish = {
-       enable = true;
-       userServices = true;
-     };
+        enable = true;
+        userServices = true;
+      };
     };
     kanata = {
       enable = true;
