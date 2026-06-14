@@ -12,8 +12,8 @@
 @define-color error_bg_color #ffb4ab;
 @define-color error_fg_color #690005;
 /* Follow material spec (also I think looks nicer) */
-@define-color accent_fg_color #0e2f60;
-@define-color accent_bg_color #acc7ff;
+@define-color accent_fg_color #102f60;
+@define-color accent_bg_color #adc6ff;
 /* Use surface instead of background */
 @define-color window_bg_color #111318;
 @define-color window_fg_color #e2e2e9;
@@ -22,17 +22,17 @@
 @define-color view_fg_color #e2e2e9;
 @define-color headerbar_bg_color #111318;
 @define-color headerbar_fg_color #e2e2e9;
-@define-color sidebar_bg_color #1e2025;
+@define-color sidebar_bg_color #1e1f25;
 @define-color sidebar_fg_color #e2e2e9;
 /* There is only like one application I know that uses this, and there isn't a good way to get
 a color between surface and surface container so I think just giving this surface is a good enough fallback*/
 @define-color secondary_sidebar_bg_color #111318;
 @define-color secondary_sidebar_fg_color #e2e2e9;
-@define-color card_bg_color #1e2025;
+@define-color card_bg_color #1e1f25;
 @define-color card_fg_color #e2e2e9;
-@define-color overview_bg_color #1e2025;
+@define-color overview_bg_color #1e1f25;
 @define-color overview_fg_color #e2e2e9;
-@define-color popover_bg_color #1e2025;
+@define-color popover_bg_color #1e1f25;
 @define-color popover_fg_color #e2e2e9;
 @define-color dialog_bg_color #111318;
 @define-color dialog_fg_color #e2e2e9;

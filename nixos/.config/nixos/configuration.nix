@@ -124,14 +124,7 @@ in
     inputs.cachyos-settings.nixosModules.default
   ];
   boot = {
-    kernelPackages = pkgs.linuxPackagesFor (
-      (pkgs.cachyosKernels.linux-cachyos-bore-lto-x86_64-v3).override {
-        bbr3 = true;
-        performanceGovernor = true;
-        kcfi = true;
-        autofdo = true;
-      }
-    );
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";
@@ -455,7 +448,7 @@ in
     ananicy = {
       enable = true;
       package = pkgs.ananicy-cpp;
-      rulesProvider = pkgs.ananicy-rules-cachyos;
+      rulesProvider = pkgs.ananicy-rules-cachyos_git;
       # Upstream ananicy-cpp logs `add_pid_to_cgroup: cgroup error: couldn't add
       # task to cgroup /sys/fs/cgroup/cgroup.procs (Invalid argument)` for kernel
       # threads (migration/N, idle_inject/N) under cgroup v2. The kernel rejects
@@ -593,10 +586,6 @@ in
           )
       );
 
-  nixpkgs.overlays = [
-    inputs.nix-cachyos-kernel.overlays.default
-  ];
-
   environment.sessionVariables = {
     PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
     # qt-build-utils's cargo_link_libraries emits rustc-link-lib for all
@@ -627,6 +616,10 @@ in
     networkManager.enable = false;
     # Not needed on nixos?
     debuginfod.enable = false;
+  };
+
+  chaotic = {
+    appmenu-gtk3-module.enable = true;
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

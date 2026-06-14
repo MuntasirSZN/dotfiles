@@ -21,11 +21,11 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     cachyos-settings = {
       url = "github:Daaboulex/cachyos-settings-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,6 +53,7 @@
       nixpkgs,
       home-manager,
       lanzaboote,
+      chaotic,
       ...
     }@inputs:
     let
@@ -69,7 +70,7 @@
           modules = [
             ./hardware-configuration.nix
             ./configuration.nix
-
+            chaotic.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             {
