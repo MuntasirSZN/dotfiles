@@ -36,7 +36,6 @@
       "type": "os",
       "key": " Distro",
       "keyColor": "yellow",
-      "format": "Arch Linux"
     },
     {
       "type": "kernel",

@@ -8,7 +8,9 @@
 
 let
   topLevel = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
+    pciutils
+    usbutils
+    flite
     adwaita-icon-theme
     hicolor-icon-theme
     libsForQt5.qtsvg
@@ -30,7 +32,7 @@ let
     qt6.qtdeclarative
     qt6.qtwebchannel
     qt6.qtpositioning
-    jdk21
+    jdk25
     glfw
     openal
     alsa-lib

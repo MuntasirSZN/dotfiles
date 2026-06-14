@@ -55,6 +55,7 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        ferium
         libnotify
         ghostty
         zsh
@@ -135,6 +136,22 @@
       ExecStop = "${pkgs.fuse}/bin/fusermount -u %h/google";
       Restart = "on-failure";
       RestartSec = 10;
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+  systemd.user.services.openbangla = {
+    Unit = {
+      Description = "Run OpenBangla";
+    };
+
+    Service = {
+      Type = "simple"; # or omit entirely
+      ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
+      Restart = "on-failure";
+      RestartSec = "10s";
     };
 
     Install = {
