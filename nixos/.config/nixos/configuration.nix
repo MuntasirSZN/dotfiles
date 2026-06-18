@@ -8,6 +8,8 @@
 
 let
   topLevel = with pkgs; [
+    docker-compose
+    cups
     pciutils
     usbutils
     flite
@@ -267,12 +269,14 @@ in
       "networkmanager"
       "video"
       "input"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
   environment.systemPackages = topLevel ++ devClosure topLevel;
 
   programs = {
+    gamemode.enable = true;
     kdeconnect.enable = true;
     seahorse.enable = true;
     hyprland = {
@@ -335,7 +339,15 @@ in
     ];
   };
   hardware = {
-    graphics.enable = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        intel-compute-runtime
+        vpl-gpu-rt
+      ];
+    };
     enableRedistributableFirmware = true;
   };
 
@@ -377,6 +389,7 @@ in
     in
     [ "${cleanup}" ];
   services = {
+    thermald.enable = true;
     upower.enable = true;
     printing = {
       enable = true;
@@ -620,6 +633,11 @@ in
 
   chaotic = {
     appmenu-gtk3-module.enable = true;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
   };
 
   # This option defines the first version of NixOS you have installed on this particular machine,

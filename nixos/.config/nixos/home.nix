@@ -82,6 +82,8 @@
         qt6Packages.qt6ct
         nautilus
         nautilus-open-any-terminal
+        evince
+        loupe
         networkmanagerapplet
         adw-gtk3
         ddcutil
