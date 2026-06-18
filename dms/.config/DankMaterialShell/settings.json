@@ -103,7 +103,7 @@
       "enabled": true,
       "width": 50,
       "instanceId": "mq2f695udhkyyme2mby",
-      "mountPath": "/"
+      "mountPath": "/home"
     },
     {
       "id": "audioInput",
@@ -376,7 +376,7 @@
   "hideBrightnessSlider": false,
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
-  "notificationTimeoutCritical": 0,
+  "notificationTimeoutCritical": 15000,
   "notificationCompactMode": false,
   "notificationPopupPosition": 0,
   "notificationAnimationSpeed": 1,

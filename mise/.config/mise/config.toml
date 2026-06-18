@@ -2,7 +2,6 @@
 "aqua:nodejs/node" = "latest"
 gh = "latest"
 direnv = "latest"
-pnpm = "latest"
 uv = "latest"
 bat = "latest"
 dust = "latest"

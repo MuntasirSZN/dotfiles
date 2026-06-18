@@ -21,5 +21,12 @@
     "lon": "91.776410",
     "use12H": true,
     "iconOnly": false
+  },
+  "extendedNetworkToggle": {
+    "enabled": true
+  },
+  "wallpaperCarousel": {
+    "enabled": true,
+    "wallpaperDirectory": "/home/muntasir/Pictures/Wallpapers/wallpapers"
   }
 }
