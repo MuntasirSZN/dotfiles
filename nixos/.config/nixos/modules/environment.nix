@@ -52,6 +52,8 @@
     QMAKE = "${pkgs.writeShellScriptBin "qmake-wrapper" ''
       if [ "$1" = "-query" ] && [ "$2" = "QT_INSTALL_LIBS" ]; then
         echo "/run/qt6-lib"
+      elif [ "$1" = "-query" ] && [ "$2" = "QT_INSTALL_HEADERS" ]; then
+        echo "${pkgs.qt6.qtbase}/include"
       else
         exec "${pkgs.qt6.qtbase}/bin/qmake" "$@"
       fi
