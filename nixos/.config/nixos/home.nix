@@ -55,7 +55,6 @@
   home.packages =
     let
       topLevel = with pkgs; [
-        ferium
         libnotify
         ghostty
         zsh

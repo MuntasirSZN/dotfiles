@@ -7,6 +7,8 @@
 
 {
   services = {
+    flatpak.enable = true;
+
     thermald.enable = true;
     upower.enable = true;
 

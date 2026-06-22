@@ -34,6 +34,10 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -54,6 +58,7 @@
       home-manager,
       lanzaboote,
       chaotic,
+      disko,
       ...
     }@inputs:
     let
@@ -68,6 +73,8 @@
             inherit (devLib) devClosure;
           };
           modules = [
+            disko.nixosModules.disko
+            ./disks.nix
             ./hardware-configuration.nix
             ./configuration.nix
             chaotic.nixosModules.default

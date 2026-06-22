@@ -13,7 +13,6 @@ let
     cups
     pciutils
     usbutils
-    flite
     adwaita-icon-theme
     hicolor-icon-theme
     libsForQt5.qtsvg
@@ -35,7 +34,6 @@ let
     qt6.qtdeclarative
     qt6.qtwebchannel
     qt6.qtpositioning
-    jdk25
     glfw
     openal
     alsa-lib
