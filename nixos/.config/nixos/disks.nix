@@ -13,7 +13,6 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                device = "/dev/disk/by-uuid/2D42-8F93";
                 mountpoint = "/boot";
                 mountOptions = [
                   "fmask=0022"
@@ -48,7 +47,6 @@
             size = "100%";
             content = {
               type = "btrfs";
-              device = "/dev/mapper/nix-root";
               subvolumes = {
                 "@" = {
                   mountpoint = "/";
@@ -81,7 +79,6 @@
             size = "270G";
             content = {
               type = "btrfs";
-              device = "/dev/mapper/nix-home";
               subvolumes = {
                 "@home" = {
                   mountpoint = "/home";
@@ -106,9 +103,6 @@
             size = "16G";
             content = {
               type = "swap";
-              device = "/dev/mapper/nix-swap";
-              # Avoid `blkid` warning on the swap LV
-              discardPolicy = "once";
             };
           };
         };
