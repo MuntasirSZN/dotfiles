@@ -27,6 +27,7 @@ jobs:
           nix run github:Mic92/nix-fast-build -- \
             --skip-cached \
             --cachix-cache muntasirszn \
+            --option 'accept-flake-config' 'true' \
             --flake "./nixos/.config/nixos#nixosConfigurations.nixos.config.system.build.toplevel"
         env:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
