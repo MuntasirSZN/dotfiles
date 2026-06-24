@@ -55,7 +55,7 @@
   home.packages =
     let
       topLevel = with pkgs; [
-        rustdesk-flutter
+        rustdesk
         sqlite
         texliveBasic
         tectonic
