@@ -11,11 +11,22 @@ jobs:
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31.10.6
-
-      - uses: cachix/cachix-action@5f2d7c5294214f71b873db4b969586b980625e71 # v17
+      - name: Free disk space for Nix 💽
+        uses: wimpysworld/nothing-but-nix@687c797a730352432950c707ab493fcc951818d7 # v10
         with:
-          name: muntasirszn
-          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+          hatchet-protocol: cleave
 
-      - run: nix flake check ./nixos/.config/nixos -L --show-trace
+      - name: Install Nix ❄️
+        uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31.10.6
+        with:
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build NixOS system 🏗️
+        run: |
+          nix run github:Mic92/nix-fast-build -- \
+            --skip-cached \
+            --cachix-cache muntasirszn \
+            --flake "./nixos/.config/nixos#nixosConfigurations.nixos.config.system.build.toplevel"
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
