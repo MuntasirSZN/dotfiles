@@ -60,7 +60,6 @@
       "quiet"
       "udev.log_level=3"
       "systemd.show_status=auto"
-      "i915.fastboot=1"
     ];
 
     plymouth = {

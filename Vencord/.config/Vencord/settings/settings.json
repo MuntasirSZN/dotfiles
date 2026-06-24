@@ -3,7 +3,10 @@
     "autoUpdateNotification": true,
     "useQuickCss": true,
     "themeLinks": [],
-    "enabledThemes": [],
+    "enabledThemes": [
+        "DiscordPlus.theme.css",
+        "FrostedGlass.theme.css"
+    ],
     "enableReactDevtools": false,
     "frameless": false,
     "transparent": false,
@@ -675,7 +678,7 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1779806574390
+        "settingsSyncVersion": 1782305371588
     },
     "eagerPatches": false,
     "uiElements": {

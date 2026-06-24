@@ -1,16 +1,17 @@
 { lib }:
 
 let
-  inherit (lib) isDerivation filter unique concatMap;
+  inherit (lib)
+    isDerivation
+    filter
+    unique
+    concatMap
+    ;
 
   # A package has a "real" `dev` output when the `dev` output is a different
   # store path from `out`. Most applications have `dev = out`; libraries that
   # split outputs (gtk4, glib, cairo, pipewire, ...) have a distinct one.
-  hasRealDev =
-    p:
-    isDerivation p
-    && p ? dev
-    && p.dev.outPath != p.outPath;
+  hasRealDev = p: isDerivation p && p ? dev && p.dev.outPath != p.outPath;
 
   # Direct build / propagated inputs of a single derivation. We deliberately
   # don't walk transitive deps: NixOS / Home Manager already materialise
@@ -24,10 +25,9 @@ let
     ++ (p.propagatedNativeBuildInputs or [ ]);
 
   # The set we look at: top-level packages + their direct inputs.
-  candidates = topLevel: unique (filter isDerivation (
-    topLevel
-    ++ concatMap directInputs (filter isDerivation topLevel)
-  ));
+  candidates =
+    topLevel:
+    unique (filter isDerivation (topLevel ++ concatMap directInputs (filter isDerivation topLevel)));
 
 in
 {

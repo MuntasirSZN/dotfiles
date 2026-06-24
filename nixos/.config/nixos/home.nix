@@ -55,6 +55,12 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        rustdesk-flutter
+        sqlite
+        texliveBasic
+        tectonic
+        statix
+        ghostscript
         libnotify
         ghostty
         zsh
@@ -149,14 +155,14 @@
     };
 
     Service = {
-      Type = "simple"; # or omit entirely
+      Type = "simple";
       ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
       Restart = "on-failure";
       RestartSec = "10s";
     };
 
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = [ "graphical-session.target" ];
     };
   };
   systemd.user.services.vdirsyncer-sync = {

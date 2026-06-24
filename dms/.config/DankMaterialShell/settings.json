@@ -170,7 +170,7 @@
   "workspaceUrgentColorMode": "default",
   "workspaceFocusedBorderEnabled": false,
   "workspaceFocusedBorderColor": "primary",
-  "workspaceFocusedBorderThickness": 2,
+  "workspaceFocusedBorderThickness": 1,
   "workspaceNameIcons": {},
   "waveProgressEnabled": true,
   "scrollTitleEnabled": true,
@@ -462,7 +462,8 @@
       "centerWidgets": [
         {
           "id": "clock",
-          "enabled": true
+          "enabled": true,
+          "clockCompactMode": false
         },
         {
           "id": "workspaceSwitcher",
@@ -488,7 +489,8 @@
         },
         {
           "id": "cpuUsage",
-          "enabled": true
+          "enabled": true,
+          "minimumWidth": true
         },
         {
           "id": "usbManager",
@@ -623,8 +625,89 @@
   ],
   "systemMonitorVariants": [],
   "desktopWidgetPositions": {},
-  "desktopWidgetGridSettings": {},
-  "desktopWidgetInstances": [],
+  "desktopWidgetGridSettings": {
+    "HDMI-A-1": {
+      "size": 10
+    }
+  },
+  "desktopWidgetInstances": [
+    {
+      "id": "dw_1782192597707_ws278birj",
+      "widgetType": "desktopClock",
+      "name": "Desktop Clock",
+      "enabled": true,
+      "config": {
+        "style": "analog",
+        "transparency": 0.75,
+        "colorMode": "primary",
+        "customColor": "#ffffff",
+        "showDate": false,
+        "showAnalogNumbers": false,
+        "showAnalogSeconds": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "clickThrough": true,
+        "showOnOverlay": false,
+        "syncPositionAcrossScreens": true
+      },
+      "positions": {
+        "_synced": {
+          "width": 200,
+          "height": 200,
+          "x": 0.4479166666666667,
+          "y": 0.4074074074074074
+        }
+      }
+    },
+    {
+      "id": "dw_1782192715143_1isjc0xg8",
+      "widgetType": "systemMonitor",
+      "name": "System Monitor",
+      "enabled": true,
+      "config": {
+        "showHeader": true,
+        "transparency": 0.8,
+        "colorMode": "primary",
+        "customColor": "#ffffff",
+        "showCpu": true,
+        "showCpuGraph": true,
+        "showCpuTemp": true,
+        "showGpuTemp": true,
+        "gpuPciId": "8086:4692",
+        "showMemory": true,
+        "showMemoryGraph": true,
+        "showNetwork": true,
+        "showNetworkGraph": true,
+        "showDisk": true,
+        "showTopProcesses": true,
+        "topProcessCount": 3,
+        "topProcessSortBy": "memory",
+        "layoutMode": "list",
+        "graphInterval": 60,
+        "displayPreferences": [
+          "all"
+        ],
+        "clickThrough": true,
+        "syncPositionAcrossScreens": true,
+        "showOnOverlay": false
+      },
+      "positions": {
+        "HDMI-A-1": {
+          "width": 320,
+          "height": 480,
+          "x": 1582.76953125,
+          "y": 73.55859375
+        },
+        "_synced": {
+          "x": 0.8293355305989584,
+          "y": 0.057830584490740744,
+          "width": 320,
+          "height": 480
+        }
+      }
+    }
+  ],
   "desktopWidgetGroups": [],
   "builtInPluginSettings": {
     "dms_settings_search": {

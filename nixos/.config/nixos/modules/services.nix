@@ -14,7 +14,7 @@
 
     printing = {
       enable = true;
-      listenAddresses = [ "*:631" ];
+      listenAddresses = [ "0.0.0.0:631" ];
       allowFrom = [ "all" ];
       browsing = true;
       defaultShared = true;
