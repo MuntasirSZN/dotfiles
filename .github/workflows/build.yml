@@ -18,16 +18,57 @@ jobs:
 
       - name: Install Nix ❄️
         uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31.10.6
-        with:
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
       - name: Build NixOS system 🏗️
+        env:
+          NIX_CONFIG: access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
         run: |
+          # ---- extract + merge caches ----
+          settings_json=$(nix eval ./nixos/.config/nixos#nixosConfigurations.nixos.config.nix.settings --json 2>/dev/null)
+          flake_json=$(nix eval --impure --expr '(import (toString ./nixos/.config/nixos/flake.nix)).nixConfig' --json 2>/dev/null)
+
+          merged_json=$(echo "$settings_json" "$flake_json" | jq -s '
+            .[0] as $settings |
+            .[1] as $flake |
+            {
+              substituters: (($settings.substituters // []) + ($flake."extra-substituters" // []) | unique),
+              "trusted-public-keys": (($settings."trusted-public-keys" // []) + ($flake."extra-trusted-public-keys" // []) | unique),
+              "experimental-features": ($settings."experimental-features" // ["nix-command", "flakes"]),
+              "accept-flake-config": ($settings."accept-flake-config" // true)
+            }
+          ')
+
+          cache_config=$(echo "$merged_json" | jq -r '
+            to_entries | map(
+              if (.value | type) == "null" or ((.value | type) == "array" and (.value | length) == 0) then empty
+              else
+                (if .key == "substituters" then "extra-substituters"
+                 elif .key == "trusted-public-keys" then "extra-trusted-public-keys"
+                 elif .key == "experimental-features" then "extra-experimental-features"
+                 else .key end)
+                + " = " +
+                (if (.value | type) == "array" then (.value | join(" "))
+                 elif (.value | type) == "boolean" then (if .value then "true" else "false" end)
+                 elif (.value | type) == "number" then (.value | tostring)
+                 else .value
+                 end)
+              end
+            ) | .[]
+          ')
+
+          # Full config with access-tokens + merged caches
+          full_config="access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}"$'\n'"${cache_config}"
+
+          # Export for subsequent steps
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | od -A n -t x1 | tr -d ' \n')
+          echo "NIX_CONFIG<<$EOF" >> "$GITHUB_ENV"
+          echo "$full_config" >> "$GITHUB_ENV"
+          echo "$EOF" >> "$GITHUB_ENV"
+
+          # ---- build (same step, use full_config for current process) ----
+          NIX_CONFIG="$full_config" \
           nix run github:Mic92/nix-fast-build -- \
             --skip-cached \
             --cachix-cache muntasirszn \
-            --option 'accept-flake-config' 'true' \
             --flake "./nixos/.config/nixos#nixosConfigurations.nixos.config.system.build.toplevel"
-        env:
-          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}

@@ -16,13 +16,13 @@ jobs:
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
+            accept-flake-config = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@834c491b2ece4de0bbd00d85214bb5e83b4da5c6 # v28
         with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
           path-to-flake-dir: 'nixos/.config/nixos/'
-          nix-options: --accept-flake-config
           pr-title: "chore: update flake.lock" # Title of PR to be created
           pr-labels: |                  # Labels to be set on the PR
             dependencies
