@@ -88,10 +88,13 @@
             "enabled": true
         },
         "BetterRoleDot": {
-            "enabled": false
+            "enabled": true,
+            "bothStyles": false,
+            "copyRoleColorInProfilePopout": false
         },
         "BetterSessions": {
-            "enabled": false
+            "enabled": true,
+            "backgroundCheck": false
         },
         "BetterSettings": {
             "enabled": true,
@@ -158,7 +161,8 @@
             "enabled": false
         },
         "Experiments": {
-            "enabled": false
+            "enabled": true,
+            "toolbarDevMenu": false
         },
         "F8Break": {
             "enabled": false
@@ -181,7 +185,7 @@
             "nitroFirst": true
         },
         "FavoriteEmojiFirst": {
-            "enabled": false
+            "enabled": true
         },
         "FavoriteGifSearch": {
             "enabled": false
@@ -596,7 +600,7 @@
             "enabled": true
         },
         "FixImagesQuality": {
-            "enabled": false
+            "enabled": true
         },
         "StickerPaste": {
             "enabled": false
@@ -608,7 +612,7 @@
             "enabled": false
         },
         "FixSpotifyEmbeds": {
-            "enabled": false
+            "enabled": true
         },
         "FixYoutubeEmbeds": {
             "enabled": true
@@ -635,7 +639,8 @@
             "enabled": false
         },
         "IrcColors": {
-            "enabled": false
+            "enabled": true,
+            "memberListColors": true
         },
         "BadgeAPI": {
             "enabled": true
@@ -666,6 +671,9 @@
         },
         "NoMiddleClickPaste": {
             "enabled": false
+        },
+        "ConcatenatedComponentExtractor": {
+            "enabled": true
         }
     },
     "notifications": {
@@ -678,7 +686,7 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1782305371588
+        "settingsSyncVersion": 1782378136926
     },
     "eagerPatches": false,
     "uiElements": {

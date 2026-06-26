@@ -5,7 +5,7 @@
 {
   imports =
     let
-      # Auto-generated hardware config (disk layout, filesystems, etc.)
+      # Hardware configuration (disks, filesystems, etc.)
       base = [ ./hardware-configuration.nix ];
       # Thematic modules (boot, networking, services, etc.)
       thematic = [ ./modules ];
