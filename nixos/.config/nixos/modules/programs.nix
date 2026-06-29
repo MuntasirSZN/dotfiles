@@ -19,7 +19,7 @@
     dms-shell = {
       enable = true;
       quickshell.package = pkgs.quickshell;
-      enableSystemMonitoring = false;
+      enableSystemMonitoring = true;
       systemd = {
         enable = true;
         restartIfChanged = true;
