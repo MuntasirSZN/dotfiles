@@ -144,11 +144,6 @@
       "id": "plugin_dankKDEConnect",
       "enabled": true,
       "width": 50
-    },
-    {
-      "id": "nightMode",
-      "enabled": true,
-      "width": 50
     }
   ],
   "showWorkspaceIndex": true,
