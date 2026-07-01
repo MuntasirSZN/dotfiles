@@ -1,5 +1,5 @@
 # Hostname, network management, DNS.
-{ ... }:
+_:
 
 {
   networking = {

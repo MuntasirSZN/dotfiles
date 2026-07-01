@@ -6,11 +6,92 @@
 }:
 
 {
-  home.username = "muntasir";
-  home.homeDirectory = "/home/muntasir";
+  home = {
+    username = "muntasir";
+    homeDirectory = "/home/muntasir";
 
-  home.stateVersion = "26.05";
-  home.enableNixpkgsReleaseCheck = false;
+    stateVersion = "26.05";
+    enableNixpkgsReleaseCheck = false;
+
+    packages =
+      let
+        topLevel = with pkgs; [
+          rustdesk
+          sqlite
+          texliveBasic
+          tectonic
+          statix
+          ghostscript
+          libnotify
+          ghostty
+          zsh
+          imagemagick
+          fzf
+          vivid
+          clang
+          nwg-look
+          cava
+          pavucontrol
+          cmake
+          gnumake
+          git-credential-manager
+          vicinae
+          matugen
+          khal
+          vdirsyncer
+          wtype
+          dgop
+          libsForQt5.qt5ct
+          qt6Packages.qt6ct
+          nautilus
+          nautilus-open-any-terminal
+          evince
+          loupe
+          networkmanagerapplet
+          adw-gtk3
+          ddcutil
+          (discord.override {
+            withVencord = true;
+          })
+          cachix
+          nh
+          kdePackages.kdeconnect-kde
+          udisks
+          amberol
+          celluloid
+          gnome-calculator
+          thunderbird
+          emacs
+          eask-cli
+          doppler
+          gvfs
+          jmtpfs
+          simple-mtpfs
+          libmtp
+          gnome-online-accounts-gtk
+          keepassxc
+          rclone-browser
+          rclone
+          nixfmt
+        ];
+      in
+      topLevel ++ devClosure topLevel;
+
+    # Otherwise xdg-desktop-portal-gtk doesn't work
+    file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text = ''
+      [Service]
+      UnsetEnvironment=NIX_XDG_DESKTOP_PORTAL_DIR
+    '';
+    # No tray icon fix
+    file.".config/systemd/user/app-org.keepassxc.KeePassXC@autostart.service.d/override.conf" = {
+      text = ''
+        [Service]
+        ExecCondition=${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "" "KDE:GNOME:COSMIC"
+        ExecStartPre=${pkgs.coreutils-full}/bin/sleep 5
+      '';
+      force = true;
+    };
+  };
   imports = [
     inputs.zen-browser.homeModules.beta
     inputs.spicetify-nix.homeManagerModules.spicetify
@@ -51,73 +132,6 @@
     };
   };
   xdg.autostart.enable = true;
-
-  home.packages =
-    let
-      topLevel = with pkgs; [
-        rustdesk
-        sqlite
-        texliveBasic
-        tectonic
-        statix
-        ghostscript
-        libnotify
-        ghostty
-        zsh
-        imagemagick
-        fzf
-        vivid
-        zed-editor
-        clang
-        nwg-look
-        cava
-        pavucontrol
-        nil
-        nixd
-        cmake
-        gnumake
-        git-credential-manager
-        vicinae
-        matugen
-        khal
-        vdirsyncer
-        wtype
-        dgop
-        libsForQt5.qt5ct
-        qt6Packages.qt6ct
-        nautilus
-        nautilus-open-any-terminal
-        evince
-        loupe
-        networkmanagerapplet
-        adw-gtk3
-        ddcutil
-        (discord.override {
-          withVencord = true;
-        })
-        cachix
-        nh
-        kdePackages.kdeconnect-kde
-        udisks
-        amberol
-        celluloid
-        gnome-calculator
-        thunderbird
-        emacs
-        eask-cli
-        doppler
-        gvfs
-        jmtpfs
-        simple-mtpfs
-        libmtp
-        gnome-online-accounts-gtk
-        keepassxc
-        rclone-browser
-        rclone
-        nixfmt
-      ];
-    in
-    topLevel ++ devClosure topLevel;
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
@@ -130,76 +144,67 @@
       qt6Packages.fcitx5-configtool
     ];
   };
-  systemd.user.services.rclone-google = {
-    Unit = {
-      Description = "Rclone Google Drive Mount";
-      After = [ "network-online.target" ];
-      Wants = [ "network-online.target" ];
-    };
+  systemd = {
+    user = {
+      services = {
+        rclone-google = {
+          Unit = {
+            Description = "Rclone Google Drive Mount";
+            After = [ "network-online.target" ];
+            Wants = [ "network-online.target" ];
+          };
 
-    Service = {
-      Type = "notify";
-      ExecStart = "${pkgs.rclone}/bin/rclone mount 'Google Muntasir:' %h/google --vfs-cache-mode full";
-      ExecStop = "${pkgs.fuse}/bin/fusermount -u %h/google";
-      Restart = "on-failure";
-      RestartSec = 10;
-    };
+          Service = {
+            Type = "notify";
+            ExecStart = "${pkgs.rclone}/bin/rclone mount 'Google Muntasir:' %h/google --vfs-cache-mode full";
+            ExecStop = "${pkgs.fuse}/bin/fusermount -u %h/google";
+            Restart = "on-failure";
+            RestartSec = 10;
+          };
 
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
-  systemd.user.services.openbangla = {
-    Unit = {
-      Description = "Run OpenBangla";
-    };
+          Install = {
+            WantedBy = [ "default.target" ];
+          };
+        };
+        openbangla = {
+          Unit = {
+            Description = "Run OpenBangla";
+          };
 
-    Service = {
-      Type = "simple";
-      ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
-      Restart = "on-failure";
-      RestartSec = "10s";
-    };
+          Service = {
+            Type = "simple";
+            ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
+            Restart = "on-failure";
+            RestartSec = "10s";
+          };
 
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
+          Install = {
+            WantedBy = [ "graphical-session.target" ];
+          };
+        };
+        vdirsyncer-sync = {
+          Unit = {
+            Description = "Run vdirsyncer sync";
+          };
+          Service = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
+          };
+        };
+      };
+      timers.vdirsyncer-sync = {
+        Unit = {
+          Description = "Run vdirsyncer sync every 5 minutes";
+        };
+        Timer = {
+          OnBootSec = "1min";
+          OnUnitActiveSec = "5min";
+          Persistent = true;
+        };
+        Install = {
+          WantedBy = [ "timers.target" ];
+        };
+      };
     };
-  };
-  systemd.user.services.vdirsyncer-sync = {
-    Unit = {
-      Description = "Run vdirsyncer sync";
-    };
-    Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
-    };
-  };
-  systemd.user.timers.vdirsyncer-sync = {
-    Unit = {
-      Description = "Run vdirsyncer sync every 5 minutes";
-    };
-    Timer = {
-      OnBootSec = "1min";
-      OnUnitActiveSec = "5min";
-      Persistent = true;
-    };
-    Install = {
-      WantedBy = [ "timers.target" ];
-    };
-  };
-
-  # Otherwise xdg-desktop-portal-gtk doesn't work
-  home.file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text = ''
-    [Service]
-    UnsetEnvironment=NIX_XDG_DESKTOP_PORTAL_DIR
-  '';
-  # No tray icon fix
-  home.file.".config/systemd/user/app-org.keepassxc.KeePassXC@autostart.service.d/override.conf" = {
-    text = ''
-      [Service]
-      ExecCondition=${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "" "KDE:GNOME:COSMIC"
-      ExecStartPre=${pkgs.coreutils-full}/bin/sleep 5
-    '';
-    force = true;
   };
 }

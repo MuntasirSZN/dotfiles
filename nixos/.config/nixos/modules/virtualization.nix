@@ -1,5 +1,5 @@
 # Virtualisation (Docker) configuration.
-{ ... }:
+_:
 
 {
   virtualisation.docker = {

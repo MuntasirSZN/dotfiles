@@ -1,5 +1,5 @@
 # Security-related options.
-{ ... }:
+_:
 
 {
   security = {

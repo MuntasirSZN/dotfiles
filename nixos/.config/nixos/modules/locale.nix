@@ -1,5 +1,5 @@
 # Time zone, locale, console settings.
-{ ... }:
+_:
 
 {
   time.timeZone = "Asia/Dhaka";

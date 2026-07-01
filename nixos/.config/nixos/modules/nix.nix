@@ -1,5 +1,5 @@
 # Nix daemon settings and nixpkgs configuration.
-{ ... }:
+_:
 
 {
   nix.settings = {

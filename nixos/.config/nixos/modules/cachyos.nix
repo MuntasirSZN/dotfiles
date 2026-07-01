@@ -1,5 +1,5 @@
 # CachyOS settings module.
-{ ... }:
+_:
 
 {
   cachyos.settings = {

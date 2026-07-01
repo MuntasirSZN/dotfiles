@@ -62,7 +62,7 @@
       ...
     }@inputs:
     let
-      devLib = import ./lib { lib = nixpkgs.lib; };
+      devLib = import ./lib { inherit (nixpkgs) lib; };
     in
     {
       nixosConfigurations = {
@@ -81,12 +81,14 @@
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.muntasir = import ./home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
-                inherit (devLib) devClosure;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.muntasir = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit (devLib) devClosure;
+                };
               };
             }
           ];
