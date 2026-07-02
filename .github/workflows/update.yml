@@ -1,16 +1,24 @@
 name: update-flake-lock
-on:
-  workflow_dispatch: # allows manual triggering
-  schedule:
-    - cron: '0 0 * * *' # runs nightly at midnight
 
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
       - name: Install Nix
         uses: cachix/install-nix-action@8aa03977d8d733052d78f4e008a241fd1dbf36b3 # v31.10.6
         with:
@@ -18,17 +26,32 @@ jobs:
             experimental-features = nix-command flakes
             accept-flake-config = true
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
       - name: Update flake.lock
+        id: update
         uses: DeterminateSystems/update-flake-lock@834c491b2ece4de0bbd00d85214bb5e83b4da5c6 # v28
         with:
           token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
-          path-to-flake-dir: 'nixos/.config/nixos/'
-          pr-title: "chore: update flake.lock" # Title of PR to be created
-          pr-labels: |                  # Labels to be set on the PR
+          path-to-flake-dir: nixos/.config/nixos/
+          pr-title: "chore: update flake.lock"
+          pr-labels: |
             dependencies
             automated
-      - uses: reitermarkus/automerge@634d0a4b51134c163eee182ac9aa79133eb33e8d # v2.8.0
-        with:
-          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
-          merge-method: squash
-          pull-request: ${{ github.event.inputs.pull-request }}
+
+      - name: Enable auto-merge
+        if: steps.update.outputs.pull-request-number != ''
+        run: |
+          case "$PR_NUMBER" in
+            ''|*[!0-9]*)
+              echo "Invalid pull request number: $PR_NUMBER" >&2
+              exit 1
+              ;;
+          esac
+          gh pr merge \
+            "$PR_NUMBER" \
+            --auto \
+            --squash \
+            --delete-branch
+        env:
+          PR_NUMBER: ${{ steps.update.outputs.pull-request-number }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
