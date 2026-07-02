@@ -41,10 +41,17 @@ jobs:
       - name: Enable auto-merge
         if: steps.update.outputs.pull-request-number != ''
         run: |
+          case "$PR_NUMBER" in
+            ''|*[!0-9]*)
+              echo "Invalid pull request number: $PR_NUMBER" >&2
+              exit 1
+              ;;
+          esac
           gh pr merge \
-            "${{ steps.update.outputs.pull-request-number }}" \
+            "$PR_NUMBER" \
             --auto \
             --squash \
             --delete-branch
         env:
+          PR_NUMBER: ${{ steps.update.outputs.pull-request-number }}
           GH_TOKEN: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
