@@ -2,5 +2,7 @@
 _:
 
 {
-  chaotic.appmenu-gtk3-module.enable = true;
+  chaotic = {
+    appmenu-gtk3-module.enable = true;
+  };
 }

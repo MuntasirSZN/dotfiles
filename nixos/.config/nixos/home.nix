@@ -13,6 +13,14 @@
     stateVersion = "26.05";
     enableNixpkgsReleaseCheck = false;
 
+    pointerCursor = {
+      gtk.enable = true;
+      x11.enable = true;
+      package = pkgs.callPackage ./pkgs/windows-cursor-theme { };
+      name = "Windows";
+      size = 25;
+    };
+
     packages =
       let
         topLevel = with pkgs; [
@@ -99,8 +107,10 @@
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = true;
-    systemd.enableXdgAutostart = true;
+    systemd = {
+      enable = true;
+      enableXdgAutostart = true;
+    };
     extraConfig = ''
       source = main.conf
     '';

@@ -8,7 +8,7 @@ eval "$(/home/muntasir/.local/bin/mise activate zsh)"
 
 if [[ ":$FPATH:" != *":/home/muntasir/.zsh/completions:"* ]]; then export FPATH="/home/muntasir/.zsh/completions:$FPATH"; fi
 
-export PATH="$PATH:$HOME/.spicetify:$HOME/.turso:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$HOME/.adb/platform-tools"
+export PATH="$PATH:$HOME/.spicetify:$HOME/.turso:$HOME/.cargo/bin:$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$HOME/.adb/platform-tools:$HOME/.local/share/nvim/mason/bin"
 
 compinit
 

@@ -13,6 +13,7 @@
         vpl-gpu-rt
       ];
     };
+    cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
   };
 }

@@ -56,6 +56,7 @@ let
     nspr
     nss
     atk
+    mesa
     at-spi2-atk
     dbus
     expat
@@ -65,7 +66,6 @@ let
     libdrm
     libgbm
     libxkbcommon
-    mesa
     pango
     libx11
     libxcomposite
@@ -90,32 +90,7 @@ let
     wl-clipboard-rs
     dmidecode
 
-    (pkgs.stdenvNoCC.mkDerivation {
-      pname = "windows-cursor-theme";
-      version = "unstable";
-
-      src = ../assets/Windows;
-
-      dontPatch = true;
-      dontConfigure = true;
-      dontBuild = true;
-
-      installPhase = ''
-        runHook preInstall
-
-        mkdir -p $out/share/icons/Windows
-        cp -a index.theme cursor.theme $out/share/icons/Windows/
-        cp -a cursors $out/share/icons/Windows/
-
-        runHook postInstall
-      '';
-
-      meta = with pkgs.lib; {
-        description = "Windows-style Xcursor theme (Taken from Windows-Cursor-Concept-v2)";
-        license = licenses.unfree;
-        platforms = platforms.unix;
-      };
-    })
+    (pkgs.callPackage ../pkgs/windows-cursor-theme { })
   ];
 
   devLib = import ../lib { inherit lib; };
