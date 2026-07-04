@@ -1,5 +1,5 @@
 # style name or JSON path (default "auto")
-style: "/home/muntasir/.config/glow/catppucin-mocha.json"
+style: "/home/muntasir/.config/glow/catppuccin-mocha.json"
 # mouse support (TUI-mode only)
 mouse: false
 # use pager to display markdown

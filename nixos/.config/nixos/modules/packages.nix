@@ -8,6 +8,7 @@
 
 let
   topLevel = with pkgs; [
+    fish
     collabora-desktop
     docker-compose
     cups

@@ -24,6 +24,7 @@
     packages =
       let
         topLevel = with pkgs; [
+          entr
           rustdesk
           sqlite
           texliveBasic

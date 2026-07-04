@@ -64,6 +64,7 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 # Fzf
 source ~/.zsh/fzf-git.sh
 KEYTIMEOUT=100
+#START FROM HERE
 export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -147,16 +148,6 @@ alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 alias cat="bat --paging=never"
 
-rm -rf /tmp/hypr
-ln -s $XDG_RUNTIME_DIR/hypr /tmp/hypr
-
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XCURSOR_THEME="Bibata-Modern-Ice"
-export CM_LAUNCHER="rofi"
-
-current_cursor_theme=$(dconf read /org/gnome/desktop/interface/cursor-theme)
-
 alias clock="tty-clock -tcBrsSC 6"
 
 # Set xdg-open as open command
@@ -203,9 +194,6 @@ rfv() (
 		--preview-window '~4,+{2}+4/3,<80(up)' \
 		--query "$*"
 )
-
-
-alias autoremove='sudo pacman -Rcns $(pacman -Qdtq)'
 
 # Transient prompt
 source ~/.zsh/transient-prompt.zsh
