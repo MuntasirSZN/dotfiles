@@ -4,6 +4,7 @@ return {
   opts = {
     servers = {
       fish_lsp = {},
+      ty = {},
     },
   },
 }
