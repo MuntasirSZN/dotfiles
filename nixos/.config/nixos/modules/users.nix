@@ -11,6 +11,6 @@
       "input"
       "docker"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 }

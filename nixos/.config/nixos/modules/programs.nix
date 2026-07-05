@@ -32,7 +32,7 @@
     };
 
     mtr.enable = true;
-    zsh.enable = true;
+    fish.enable = true;
     bash.enable = true;
 
     gnupg.agent = {

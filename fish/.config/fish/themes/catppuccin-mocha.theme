@@ -1,0 +1,112 @@
+# name: 'Catppuccin Mocha'
+# url: 'https://github.com/catppuccin/fish'
+# Modified to match fsh (fast-syntax-highlighting) default theme colors
+# with user's path overlay (underline instead of magenta)
+#
+# fsh ANSI → catppuccin-mocha:
+#   none      → #cdd6f4 (text)
+#   red       → #f38ba8
+#   green     → #a6e3a1
+#   yellow    → #f9e2af
+#   blue      → #89b4fa
+#   magenta   → #cba6f7
+#   cyan      → #89dceb
+#   black     → #45475a
+#
+# Differences (fish limitations):
+#   - No globbing highlight (fsh: blue,bold)
+#   - No variable highlight (fsh: color 113)
+#   - No history-expansion highlight (fsh: blue,bold)
+#   - No path separator color
+#   - No italic support
+
+[light]
+# preferred_background: eff1f5
+fish_color_normal 4c4f69
+fish_color_command 40a02b
+fish_color_param 4c4f69
+fish_color_keyword dc8a78
+fish_color_quote dc8a78
+fish_color_redirection 4c4f69
+fish_color_end 4c4f69
+fish_color_comment 6c6f85
+fish_color_error --bold d20f39
+fish_color_gray 9ca0b0
+fish_color_selection --background=ccd0da
+fish_color_search_match --background=ccd0da
+fish_color_option 04a5e5
+fish_color_operator 4c4f69
+fish_color_escape 04a5e5
+fish_color_autosuggestion 9ca0b0
+fish_color_cancel --bold d20f39
+fish_color_valid_path --underline
+fish_color_cwd df8e1d
+fish_color_user 179299
+fish_color_host 1e66f5
+fish_color_host_remote 40a02b
+fish_color_status --bold d20f39
+fish_pager_color_progress 9ca0b0
+fish_pager_color_prefix ea76cb
+fish_pager_color_completion 4c4f69
+fish_pager_color_description 9ca0b0
+
+[dark]
+# preferred_background: 1e1e2e
+# fsh base
+fish_color_normal cdd6f4
+fish_color_command a6e3a1
+fish_color_param cdd6f4
+fish_color_keyword f9e2af
+fish_color_quote f9e2af
+fish_color_redirection cdd6f4
+fish_color_end cdd6f4
+fish_color_comment 45475a
+fish_color_error --bold f38ba8
+fish_color_gray 6c7086
+fish_color_selection --background=313244
+fish_color_search_match --background=313244
+fish_color_option 89dceb
+fish_color_operator cdd6f4
+fish_color_escape 89dceb
+fish_color_autosuggestion 6c7086
+fish_color_cancel --bold f38ba8
+fish_color_valid_path --underline
+fish_color_cwd f9e2af
+fish_color_user 94e2d5
+fish_color_host a6e3a1
+fish_color_host_remote a6e3a1
+fish_color_status --bold f38ba8
+fish_pager_color_progress 6c7086
+fish_pager_color_prefix f5c2e7
+fish_pager_color_completion cdd6f4
+fish_pager_color_description 6c7086
+
+[unknown]
+# preferred_background: 1e1e2e
+fish_color_normal cdd6f4
+fish_color_command a6e3a1
+fish_color_param cdd6f4
+fish_color_keyword f9e2af
+fish_color_quote f9e2af
+fish_color_redirection cdd6f4
+fish_color_end cdd6f4
+fish_color_comment 45475a
+fish_color_error --bold f38ba8
+fish_color_gray 6c7086
+fish_color_selection --background=313244
+fish_color_search_match --background=313244
+fish_color_option 89dceb
+fish_color_operator cdd6f4
+fish_color_escape 89dceb
+fish_color_autosuggestion 6c7086
+fish_color_cancel --bold f38ba8
+fish_color_valid_path --underline
+fish_color_cwd f9e2af
+fish_color_user 94e2d5
+fish_color_host a6e3a1
+fish_color_host_remote a6e3a1
+fish_color_status --bold f38ba8
+fish_pager_color_progress 6c7086
+fish_pager_color_prefix f5c2e7
+fish_pager_color_completion cdd6f4
+fish_pager_color_description 6c7086

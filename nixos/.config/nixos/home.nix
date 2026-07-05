@@ -33,7 +33,6 @@
           ghostscript
           libnotify
           ghostty
-          zsh
           imagemagick
           fzf
           vivid
