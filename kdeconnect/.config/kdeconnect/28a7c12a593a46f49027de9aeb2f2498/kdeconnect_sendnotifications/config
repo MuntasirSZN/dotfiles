@@ -1,10 +1,11 @@
 [applications]
 1\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x16\0T\0h\0u\0n\0\x64\0\x65\0r\0\x62\0i\0r\0\x64\0\0\0\0\x1\xff\xff\xff\xff)
-2\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x16\0n\0o\0t\0i\0\x66\0y\0-\0s\0\x65\0n\0\x64\0\0\0\0\x1\xff\xff\xff\xff)
-3\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x6\0\x44\0M\0S\0\0\0\0\x1\xff\xff\xff\xff)
-4\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x1a\0P\0r\0\x61\0y\0\x65\0r\0 \0W\0i\0\x64\0g\0\x65\0t\0\0\0\0\x1\xff\xff\xff\xff)
-5\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0*\0N\0\x65\0t\0w\0o\0r\0k\0M\0\x61\0n\0\x61\0g\0\x65\0r\0 \0\x41\0p\0p\0l\0\x65\0t\0\0\0\0\x1\xff\xff\xff\xff)
-6\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x6\0Z\0\x65\0n\0\0\0\0\x1\xff\xff\xff\xff)
-7\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\xe\0\x64\0i\0s\0\x63\0o\0r\0\x64\0\0\0\0\x1\xff\xff\xff\xff)
+2\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0*\0N\0\x65\0t\0w\0o\0r\0k\0M\0\x61\0n\0\x61\0g\0\x65\0r\0 \0\x41\0p\0p\0l\0\x65\0t\0\0\0\0\x1\xff\xff\xff\xff)
+3\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x6\0Z\0\x65\0n\0\0\0\0\x1\xff\xff\xff\xff)
+4\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x16\0n\0o\0t\0i\0\x66\0y\0-\0s\0\x65\0n\0\x64\0\0\0\0\x1\xff\xff\xff\xff)
+5\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x1a\0P\0r\0\x61\0y\0\x65\0r\0 \0W\0i\0\x64\0g\0\x65\0t\0\0\0\0\x1\xff\xff\xff\xff)
+6\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x6\0\x44\0M\0S\0\0\0\0\x1\xff\xff\xff\xff)
+7\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\x16\0K\0\x44\0\x45\0 \0\x43\0o\0n\0n\0\x65\0\x63\0t\0\0\0\x14\0k\0\x64\0\x65\0\x63\0o\0n\0n\0\x65\0\x63\0t\x1\xff\xff\xff\xff)
 8\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\0\0\0\0\0\x1\xff\xff\xff\xff)
-size=8
+9\value=@Variant(\0\0\0\x7f\0\0\0\x15NotifyingApplication\0\0\0\0\xe\0\x64\0i\0s\0\x63\0o\0r\0\x64\0\0\0\0\x1\xff\xff\xff\xff)
+size=9
