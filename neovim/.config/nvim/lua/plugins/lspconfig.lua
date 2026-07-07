@@ -5,6 +5,9 @@ return {
     servers = {
       fish_lsp = {},
       ty = {},
+      cssls = {},
+      css_variables = {},
+      cssmodules_ls = {},
     },
   },
 }

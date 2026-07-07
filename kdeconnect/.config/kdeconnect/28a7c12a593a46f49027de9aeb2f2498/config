@@ -1,4 +1,5 @@
 [Plugins]
+kdeconnect_mprisremoteEnabled=false
 kdeconnect_screensaver_inhibitEnabled=true
 kdeconnect_sendnotificationsEnabled=true
 kdeconnect_shareinputdevicesEnabled=true

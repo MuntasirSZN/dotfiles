@@ -24,6 +24,8 @@
     packages =
       let
         topLevel = with pkgs; [
+          ffmpeg-full
+          yt-dlp
           entr
           rustdesk
           sqlite
@@ -184,6 +186,7 @@
           Service = {
             Type = "simple";
             ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
+            ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 5";
             Restart = "on-failure";
             RestartSec = "10s";
           };
