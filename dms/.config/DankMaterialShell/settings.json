@@ -295,7 +295,7 @@
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
   "terminalsAlwaysDark": false,
-  "muxType": "zellij",
+  "muxType": "tmux",
   "muxUseCustomCommand": false,
   "muxCustomCommand": "",
   "muxSessionFilter": "",
@@ -423,7 +423,8 @@
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
     "HDMI-A-1": {
-      "bitdepth": 10
+      "bitdepth": 10,
+      "colorManagement": "auto"
     }
   },
   "displayProfiles": {},

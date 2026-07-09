@@ -24,7 +24,6 @@
     packages =
       let
         topLevel = with pkgs; [
-          ffmpeg-full
           yt-dlp
           entr
           rustdesk
@@ -186,7 +185,8 @@
           Service = {
             Type = "simple";
             ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
-            ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 5";
+            ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 8";
+            ExecCondition="${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition '' 'KDE:GNOME:COSMIC'";
             Restart = "on-failure";
             RestartSec = "10s";
           };

@@ -5,6 +5,7 @@ return {
     servers = {
       fish_lsp = {},
       ty = {},
+      tombi = {},
       cssls = {},
       css_variables = {},
       cssmodules_ls = {},

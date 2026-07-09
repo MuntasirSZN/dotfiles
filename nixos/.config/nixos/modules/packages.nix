@@ -8,6 +8,7 @@
 
 let
   topLevel = with pkgs; [
+    ffmpeg-full
     fish
     collabora-desktop
     docker-compose
