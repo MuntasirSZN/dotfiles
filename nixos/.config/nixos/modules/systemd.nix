@@ -8,22 +8,6 @@
 {
   systemd = {
     services = {
-      surge = {
-        description = "Blazing fast TUI download manager built in Go.";
-        wantedBy = [ "multi-user.target" ];
-        unitConfig = {
-          ConditionFileIsExecutable = "/home/muntasir/.local/share/mise/installs/go/1.26.5/bin/Surge";
-          StartLimitIntervalSec = 5;
-          StartLimitBurst = 10;
-        };
-        serviceConfig = {
-          ExecStart = "/home/muntasir/.local/share/mise/installs/go/1.26.5/bin/Surge service __run";
-          Restart = "always";
-          RestartSec = 120;
-          EnvironmentFile = "-/etc/sysconfig/surge";
-        };
-      };
-
       # Enable the cpu controller on the root cgroup before the daemon execs.
       # systemd's DefaultCPUAccounting= true and per-unit CPUAccounting= true do
       # NOT eagerly add `cpu` to /sys/fs/cgroup/cgroup.subtree_control, and a
