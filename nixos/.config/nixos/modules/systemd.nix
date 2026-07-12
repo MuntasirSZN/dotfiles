@@ -7,6 +7,51 @@
 
 {
   systemd = {
+    services = {
+      surge = {
+        description = "Blazing fast TUI download manager built in Go.";
+        wantedBy = [ "multi-user.target" ];
+        unitConfig = {
+          ConditionFileIsExecutable = "/home/muntasir/.local/share/mise/installs/go/1.26.5/bin/Surge";
+          StartLimitIntervalSec = 5;
+          StartLimitBurst = 10;
+        };
+        serviceConfig = {
+          ExecStart = "/home/muntasir/.local/share/mise/installs/go/1.26.5/bin/Surge service __run";
+          Restart = "always";
+          RestartSec = 120;
+          EnvironmentFile = "-/etc/sysconfig/surge";
+        };
+      };
+
+      # Enable the cpu controller on the root cgroup before the daemon execs.
+      # systemd's DefaultCPUAccounting= true and per-unit CPUAccounting= true do
+      # NOT eagerly add `cpu` to /sys/fs/cgroup/cgroup.subtree_control, and a
+      # per-unit setting only grants the read-only accounting interface
+      # (cpu.stat/cpu.pressure) — ananicy-cpp's startup probe reads
+      # cgroup.controllers on a freshly-mkdir'd top-level cgroup, which is empty
+      # until `cpu` is in the root's subtree_control. Writing `+cpu` is
+      # idempotent.
+      ananicy-cpp.serviceConfig.ExecStartPre =
+        let
+          pre = pkgs.writeShellScript "ananicy-cpp-cgroup-pre" "echo +cpu > /sys/fs/cgroup/cgroup.subtree_control";
+        in
+        [ "${pre}" ];
+
+      # Clean up the cgroup dirs ananicy-cpp creates so the next start is silent
+      # (otherwise it warns "cgroup cpu80 already exists, ignoring" on every
+      # restart). rmdir --ignore-fail-on-non-empty is a no-op if a process is
+      # still in the cgroup.
+      ananicy-cpp.serviceConfig.ExecStopPost =
+        let
+          cleanup = pkgs.writeShellScript "ananicy-cpp-cgroup-cleanup" ''
+            for d in /sys/fs/cgroup/cpu80 /sys/fs/cgroup/cpu85 /sys/fs/cgroup/cpu90; do
+              [ -e "$d" ] && rmdir --ignore-fail-on-non-empty "$d" 2>/dev/null
+            done
+          '';
+        in
+        [ "${cleanup}" ];
+    };
     # Enable systemd's cpu controller for the cgroup2 root at boot. Without this,
     # /sys/fs/cgroup/cgroup.subtree_control is missing `cpu` when ananicy-cpp
     # starts, so its cgroup check fails and it disables cgroup support entirely
@@ -16,34 +61,6 @@
     # DefaultIOAccounting/DefaultIPAccounting by default; Memory/Tasks get
     # enabled elsewhere, but CPU does not.
     settings.Manager.DefaultCPUAccounting = true;
-
-    # Enable the cpu controller on the root cgroup before the daemon execs.
-    # systemd's DefaultCPUAccounting= true and per-unit CPUAccounting= true do
-    # NOT eagerly add `cpu` to /sys/fs/cgroup/cgroup.subtree_control, and a
-    # per-unit setting only grants the read-only accounting interface
-    # (cpu.stat/cpu.pressure) — ananicy-cpp's startup probe reads
-    # cgroup.controllers on a freshly-mkdir'd top-level cgroup, which is empty
-    # until `cpu` is in the root's subtree_control. Writing `+cpu` is
-    # idempotent.
-    services.ananicy-cpp.serviceConfig.ExecStartPre =
-      let
-        pre = pkgs.writeShellScript "ananicy-cpp-cgroup-pre" "echo +cpu > /sys/fs/cgroup/cgroup.subtree_control";
-      in
-      [ "${pre}" ];
-
-    # Clean up the cgroup dirs ananicy-cpp creates so the next start is silent
-    # (otherwise it warns "cgroup cpu80 already exists, ignoring" on every
-    # restart). rmdir --ignore-fail-on-non-empty is a no-op if a process is
-    # still in the cgroup.
-    services.ananicy-cpp.serviceConfig.ExecStopPost =
-      let
-        cleanup = pkgs.writeShellScript "ananicy-cpp-cgroup-cleanup" ''
-          for d in /sys/fs/cgroup/cpu80 /sys/fs/cgroup/cpu85 /sys/fs/cgroup/cpu90; do
-            [ -e "$d" ] && rmdir --ignore-fail-on-non-empty "$d" 2>/dev/null
-          done
-        '';
-      in
-      [ "${cleanup}" ];
 
     # I use earlyoom.
     oomd.enable = false;
