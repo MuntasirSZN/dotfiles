@@ -14,6 +14,7 @@
     enableNixpkgsReleaseCheck = false;
 
     pointerCursor = {
+      enable = true;
       gtk.enable = true;
       x11.enable = true;
       package = pkgs.callPackage ./pkgs/windows-cursor-theme { };
@@ -24,6 +25,15 @@
     packages =
       let
         topLevel = with pkgs; [
+          # kani CBMC solvers
+          cadical
+          minisat
+          kissat
+          z3
+          bitwuzla
+          cvc5
+          perf
+          libllvm
           yt-dlp
           entr
           rustdesk
@@ -186,7 +196,7 @@
             Type = "simple";
             ExecStart = "${pkgs.openbangla-keyboard}/bin/openbangla-gui --tray";
             ExecStartPre = "${pkgs.coreutils-full}/bin/sleep 8";
-            ExecCondition="${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition '' 'KDE:GNOME:COSMIC'";
+            ExecCondition = "${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition '' 'KDE:GNOME:COSMIC'";
             Restart = "on-failure";
             RestartSec = "10s";
           };
