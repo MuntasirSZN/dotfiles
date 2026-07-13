@@ -149,13 +149,15 @@
       compositor = {
         name = "hyprland";
         customConfig = ''
-          env = XCURSOR_THEME,Windows
-          env = XCURSOR_SIZE,25
-          env = DMS_RUN_GREETER,1
+          hl.env("XCURSOR_THEME", "Windows")
+          hl.env("XCURSOR_SIZE", 25)
+          hl.env("DMS_RUN_GREETER", 1)
 
-          misc {
-            disable_hyprland_logo = true
-          }
+          hl.config({
+            misc = {
+              disable_hyprland_logo = true,
+            },
+          })
         '';
       };
       configHome = "/home/muntasir";

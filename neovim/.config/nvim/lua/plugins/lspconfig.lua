@@ -9,6 +9,7 @@ return {
       cssls = {},
       css_variables = {},
       cssmodules_ls = {},
+      harper_ls = {},
     },
   },
 }

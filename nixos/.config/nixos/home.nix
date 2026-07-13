@@ -123,10 +123,8 @@
       enableXdgAutostart = true;
     };
     extraConfig = ''
-      source = main.conf
+      require("main")
     '';
-    # Change when dms uses lua (remove)
-    configType = "hyprlang";
   };
 
   programs = {
