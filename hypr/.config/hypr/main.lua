@@ -213,12 +213,6 @@ hl.window_rule({ match = { class = "^(Brave-browser(-beta|-dev|-unstable)?)$" },
 hl.window_rule({ match = { class = "^([Tt]horium-browser|[Cc]achy-browser)$" }, tag = "browser" })
 hl.window_rule({ match = { class = "^(zen-alpha|zen|zen-beta)$" }, tag = "browser" })
 
--- Notif tags mapping
-hl.window_rule({
-	match = { class = "^(swaync-control-center|swaync-notification-window|swaync-client|class)$" },
-	tag = "notif",
-})
-
 -- Terminal tags mapping
 hl.window_rule({ match = { class = "^(Alacritty|kitty|kitty-dropterm|com.mitchellh.ghostty)$" }, tag = "terminal" })
 
