@@ -16,7 +16,6 @@ hl.config({
 		follow_mouse = 1,
 		repeat_rate = 50,
 		repeat_delay = 300,
-
 		sensitivity = 0,
 		left_handed = false,
 		float_switch_override_focus = false,
@@ -54,7 +53,7 @@ hl.config({
 	decoration = {
 		rounding = 12,
 		active_opacity = 1.0,
-		inactive_opacity = 1.0,
+		inactive_opacity = 0.95,
 		blur = {
 			enabled = true,
 			size = 6,
@@ -338,7 +337,7 @@ hl.window_rule({ match = { class = "^(yad)$" }, float = true, center = true, siz
 hl.window_rule({ match = { class = "^(hyprland-donate-screen)$" }, float = true, center = true })
 
 -- Opacity
-hl.window_rule({ match = { tag = "browser" }, opacity = "0.9 0.8" })
+hl.window_rule({ match = { tag = "browser" }, opacity = "0.9 0.9" })
 hl.window_rule({ match = { tag = "projects" }, opacity = "0.9 0.8" })
 hl.window_rule({ match = { tag = "im" }, opacity = "0.94 0.86" })
 hl.window_rule({ match = { tag = "multimedia" }, opacity = "0.94 0.86" })
@@ -379,7 +378,12 @@ hl.layer_rule({ match = { namespace = "^vicinae" }, no_anim = true, blur = true,
 hl.layer_rule({
 	match = { namespace = "^dms:.*" },
 	blur = true,
-	ignore_alpha = 0.7,
+	ignore_alpha = 0.5,
+})
+hl.layer_rule({
+	match = { namespace = "^quickshell.*" },
+	blur = true,
+	ignore_alpha = 0.5,
 })
 
 require("dms.colors")

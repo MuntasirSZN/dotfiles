@@ -25,7 +25,8 @@
     packages =
       let
         topLevel = with pkgs; [
-          # kani CBMC solvers
+          aflplusplus
+          # Kani CBMC solvers
           cadical
           minisat
           kissat
@@ -96,7 +97,7 @@
       in
       topLevel ++ devClosure topLevel;
 
-    # Otherwise xdg-desktop-portal-gtk doesn't work
+    # Otherwise, xdg-desktop-portal-gtk doesn't work
     file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text = ''
       [Service]
       UnsetEnvironment=NIX_XDG_DESKTOP_PORTAL_DIR

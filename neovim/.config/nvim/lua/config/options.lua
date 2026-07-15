@@ -24,6 +24,7 @@ opt.fillchars = {
 opt.grepprg = "rg --vimgrep"
 opt.relativenumber = false
 opt.smoothscroll = true
+opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
 
 vim.diagnostic.config({
   underline = true,

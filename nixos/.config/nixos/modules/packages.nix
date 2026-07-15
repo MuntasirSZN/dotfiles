@@ -89,7 +89,7 @@ let
     file
     killall
     tree
-    wl-clipboard-rs
+    wl-clipboard
     dmidecode
 
     (pkgs.callPackage ../pkgs/windows-cursor-theme { })

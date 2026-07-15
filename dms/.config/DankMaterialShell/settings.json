@@ -7,7 +7,7 @@
   "matugenContrast": 0,
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
-  "popupTransparency": 0.9,
+  "popupTransparency": 0.75,
   "dockTransparency": 1,
   "widgetBackgroundColor": "sch",
   "widgetBackgroundCustomColor": "#6750A4",
@@ -38,7 +38,7 @@
   "useFahrenheit": false,
   "windSpeedUnit": "kmh",
   "nightModeEnabled": false,
-  "animationSpeed": 0,
+  "animationSpeed": 1,
   "customAnimationDuration": 200,
   "syncComponentAnimationSpeeds": true,
   "popoutAnimationSpeed": 1,
@@ -333,9 +333,9 @@
       "hideAfterInactiveMs": 0
     },
     "hyprland": {
-      "hideOnKeyPress": true,
+      "hideOnKeyPress": false,
       "hideOnTouch": false,
-      "inactiveTimeout": 1
+      "inactiveTimeout": 0
     },
     "dwl": {
       "cursorHideTimeout": 0
@@ -583,9 +583,9 @@
   },
   "displayProfiles": {},
   "activeDisplayProfile": {
-    "hyprland": "auto_cbfba5f0"
+    "hyprland": "profile_1783960595259_rkjiu82"
   },
-  "displayProfileAutoSelect": true,
+  "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
   "connectedFrameBarStyleBackups": {},
@@ -797,7 +797,7 @@
       "enabled": true,
       "config": {
         "style": "analog",
-        "transparency": 0.75,
+        "transparency": 0.65,
         "colorMode": "primary",
         "customColor": "#ffffff",
         "showDate": false,

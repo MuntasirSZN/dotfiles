@@ -9,7 +9,14 @@ return {
       cssls = {},
       css_variables = {},
       cssmodules_ls = {},
-      harper_ls = {},
+      just = {},
+      harper_ls = {
+        settings = {
+          ["harper-ls"] = {
+            userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+          },
+        },
+      },
     },
   },
 }

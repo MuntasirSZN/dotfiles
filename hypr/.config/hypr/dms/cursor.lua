@@ -4,10 +4,3 @@ hl.env("HYPRCURSOR_THEME", "Windows")
 hl.env("XCURSOR_THEME", "Windows")
 hl.env("HYPRCURSOR_SIZE", "25")
 hl.env("XCURSOR_SIZE", "25")
-
-hl.config({
-	cursor = {
-		hide_on_key_press = true,
-		inactive_timeout = 1,
-	},
-})

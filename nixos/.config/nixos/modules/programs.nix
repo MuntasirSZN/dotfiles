@@ -1,9 +1,14 @@
 # Programs configuration (Hyprland, dms-shell, ZSH, GPG, nix-ld, etc.).
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   dmsPkg = pkgs.dms-shell;
-  systemQtMm = pkgs.qt6.qtmultimedia;  # 6.11.1 — works
+  systemQtMm = pkgs.qt6.qtmultimedia; # 6.11.1 — works
 
   # Patch dms wrapper: replace kde's qtmultimedia (6.11.0) paths with
   # system qt6.qtmultimedia (6.11.1).  The 6.11.0 multimedia plugins
