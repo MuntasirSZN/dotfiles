@@ -51,7 +51,7 @@ if status is-interactive
     set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 
     if type -q doppler
-        doppler secrets download --no-file --format fish 2>/dev/null | source
+        doppler secrets download --no-file --format env | sed 's/^export //; s/^/set -gx /; s/=/ /' | source
     end
 
     fish_add_path \

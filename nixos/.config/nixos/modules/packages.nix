@@ -87,10 +87,55 @@ let
     zip
     unzip
     file
-    killall
+    psmisc
+    lsof
     tree
     wl-clipboard
     dmidecode
+    pv
+    which
+    bc
+    jq
+    rsync
+    strace
+    ltrace
+    tcpdump
+    netcat-openbsd
+    socat
+    bind.dnsutils
+    whois
+    htop
+    iotop
+    sysstat
+    smartmontools
+    dosfstools
+    ntfs3g
+    exfat
+    btrfs-progs
+    time
+    units
+    parallel
+    moreutils
+    expect
+    dialog
+    xxd
+    lm_sensors
+    acpi
+    p7zip
+    rar
+    unrar
+    lz4
+    ethtool
+    hostname
+    lshw
+    lsscsi
+    net-tools
+    nvme-cli
+    patch
+    sg3_utils
+    squashfsTools
+    man-pages
+    man-pages-posix
 
     (pkgs.callPackage ../pkgs/windows-cursor-theme { })
   ];

@@ -19,5 +19,6 @@
     ./cachyos.nix
     ./chaotic.nix
     ./virtualization.nix
+    ./documentation.nix
   ];
 }

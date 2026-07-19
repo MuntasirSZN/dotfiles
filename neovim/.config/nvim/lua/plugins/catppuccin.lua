@@ -28,7 +28,6 @@ return {
       dim_inactive = {
         enabled = true,
       },
-      default_integrations = true,
       auto_integrations = true,
       custom_highlights = function(palette)
         local groups = {
@@ -54,6 +53,10 @@ return {
         return groups
       end,
       integrations = {
+        gitsigns = true,
+        mini = {
+          enabled = true,
+        },
         illuminate = {
           lsp = false,
         },
@@ -66,6 +69,7 @@ return {
         },
         snacks = {
           indent_scope_color = "lavender",
+          enabled = true,
         },
       },
     },

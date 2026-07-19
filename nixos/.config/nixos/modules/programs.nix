@@ -50,7 +50,6 @@ in
   programs = {
     gamemode.enable = true;
     kdeconnect.enable = true;
-    seahorse.enable = true;
 
     hyprland = {
       enable = true;

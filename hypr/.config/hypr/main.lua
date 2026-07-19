@@ -374,6 +374,7 @@ hl.window_rule({
 })
 hl.window_rule({ match = { class = "^(zoom)$" }, float = true })
 hl.window_rule({ match = { title = "^(PineconeMC).*$" }, opacity = "0.9" })
+hl.window_rule({ match = { class = "^discord$" }, opacity = 0.75 })
 hl.layer_rule({ match = { namespace = "^vicinae" }, no_anim = true, blur = true, ignore_alpha = 0 })
 hl.layer_rule({
 	match = { namespace = "^dms:.*" },

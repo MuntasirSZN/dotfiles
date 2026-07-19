@@ -4,8 +4,7 @@
   signingkey = E7FE5EC876734CA2
 
 [credential]
-  helper = /etc/profiles/per-user/muntasir/bin/git-credential-manager
-  credentialStore = gpg
+  helper = keepassxc --group \"git credentials\"
 
 [credential "https://dev.azure.com"]
   useHttpPath = true

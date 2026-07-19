@@ -125,7 +125,6 @@
       };
     };
 
-    gnome.gnome-keyring.enable = true;
     openssh.enable = true;
 
     xserver = {

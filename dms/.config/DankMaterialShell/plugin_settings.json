@@ -31,5 +31,14 @@
   },
   "quickCapture": {
     "enabled": true
+  },
+  "screenCaptureToolbar": {
+    "enabled": true,
+    "videoFormat": "mp4",
+    "recordMic": true,
+    "videoQuality": "high",
+    "stdout": true,
+    "pipeCommand": "satty -f -",
+    "captureMode": "interactive"
   }
 }

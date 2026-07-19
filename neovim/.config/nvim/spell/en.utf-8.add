@@ -11,6 +11,7 @@ SSE4
 WASM32
 afl
 branchless
+comparator
 normalizer
 preprocesses
 rs

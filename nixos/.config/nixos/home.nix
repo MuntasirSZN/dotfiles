@@ -25,6 +25,10 @@
     packages =
       let
         topLevel = with pkgs; [
+          satty
+          slurp
+          gpu-screen-recorder
+          azure-cli
           aflplusplus
           # Kani CBMC solvers
           cadical
@@ -40,6 +44,7 @@
           rustdesk
           sqlite
           texliveBasic
+          biber
           tectonic
           statix
           ghostscript
@@ -54,7 +59,7 @@
           pavucontrol
           cmake
           gnumake
-          git-credential-manager
+          git-credential-keepassxc
           vicinae
           matugen
           khal
@@ -129,6 +134,10 @@
   };
 
   programs = {
+    keepassxc = {
+      autostart = true;
+      enable = true;
+    };
     home-manager.enable = true;
     zen-browser = {
       enable = true;
@@ -189,6 +198,7 @@
         openbangla = {
           Unit = {
             Description = "Run OpenBangla";
+            After = [ "dms.service" ];
           };
 
           Service = {

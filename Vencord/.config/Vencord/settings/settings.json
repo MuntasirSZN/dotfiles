@@ -5,7 +5,8 @@
     "themeLinks": [],
     "enabledThemes": [
         "DiscordPlus.theme.css",
-        "FrostedGlass.theme.css"
+        "FrostedGlass.theme.css",
+        "dank-discord.css"
     ],
     "enableReactDevtools": false,
     "frameless": false,
@@ -161,7 +162,7 @@
             "enabled": false
         },
         "Experiments": {
-            "enabled": true,
+            "enabled": false,
             "toolbarDevMenu": false
         },
         "F8Break": {
@@ -600,7 +601,8 @@
             "enabled": true
         },
         "FixImagesQuality": {
-            "enabled": true
+            "enabled": true,
+            "originalImagesInChat": false
         },
         "StickerPaste": {
             "enabled": false
@@ -640,7 +642,10 @@
         },
         "IrcColors": {
             "enabled": true,
-            "memberListColors": true
+            "memberListColors": true,
+            "lightness": 70,
+            "applyColorOnlyInDms": false,
+            "applyColorOnlyToUsersWithoutColor": false
         },
         "BadgeAPI": {
             "enabled": true
@@ -686,11 +691,12 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1782378136926
+        "settingsSyncVersion": 1784382485707
     },
     "eagerPatches": false,
     "uiElements": {
         "chatBarButtons": {},
         "messagePopoverButtons": {}
-    }
+    },
+    "windowsMaterial": "none"
 }

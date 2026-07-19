@@ -9,3 +9,6 @@ hl.window_rule({ match = { class = "^com.mitchellh.ghostty$" }, opacity = 0.8 })
 
 -- DMS-RULE: id=wr_1783865286482734489, name=com.danklinux.dms
 hl.window_rule({ match = { class = "^com.danklinux.dms$" }, opacity = 0.8 })
+
+-- DMS-RULE: id=wr_1784381992967144968, name=discord
+hl.window_rule({ match = { class = "^discord$" }, opacity = 0.7 })
