@@ -59,7 +59,7 @@ stdenv.mkDerivation rec {
     owner = "CodSpeedHQ";
     repo = "valgrind-codspeed";
     rev = "refs/tags/${version}";
-    hash = "sha256-axg/m6YxQC8opl2WAExTNO6w5Gc0hKXJBnZuhIsaWJo=";
+    hash = "sha256-iSeNAbaX0U8d6rlSXbvZb/aAvEegaVo3dMgfcO27xbU=";
   };
 
   nativeBuildInputs = [
