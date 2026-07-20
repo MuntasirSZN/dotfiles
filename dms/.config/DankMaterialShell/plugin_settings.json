@@ -39,6 +39,7 @@
     "videoQuality": "high",
     "stdout": true,
     "pipeCommand": "satty -f -",
-    "captureMode": "interactive"
+    "captureMode": "interactive",
+    "videoMonitor": "Focused"
   }
 }

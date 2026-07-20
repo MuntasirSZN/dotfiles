@@ -90,7 +90,6 @@
           eask-cli
           doppler
           gvfs
-          jmtpfs
           simple-mtpfs
           libmtp
           gnome-online-accounts-gtk
@@ -199,6 +198,7 @@
           Unit = {
             Description = "Run OpenBangla";
             After = [ "dms.service" ];
+            PartOf = [ "dms.service" ];
           };
 
           Service = {
@@ -211,7 +211,7 @@
           };
 
           Install = {
-            WantedBy = [ "graphical-session.target" ];
+            WantedBy = [ "dms.service" ];
           };
         };
         vdirsyncer-sync = {
