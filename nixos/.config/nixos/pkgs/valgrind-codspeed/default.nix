@@ -26,7 +26,7 @@ let
       owner = "capstone-engine";
       repo = "capstone";
       rev = "refs/tags/${version}";
-      hash = "sha256-O/0+cIX78Pq3X7FFQGe/c0uwvr6bZwr3zndRkiCTSOk=";
+      hash = "sha256-VGqqrixg7LaqRWTAEBzpC+gUTchncz3Oa2pSq8GLskI=";
     };
 
     nativeBuildInputs = [ cmake gnumake gcc ];
@@ -53,7 +53,7 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "valgrind-codspeed";
-  version = "3.26.0-codspeed6";
+  version = "3.26.0-0codspeed6";
 
   src = fetchFromGitHub {
     owner = "CodSpeedHQ";
