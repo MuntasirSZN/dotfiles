@@ -10,6 +10,7 @@
   pkg-config,
   cmake,
   python3,
+  perl,
 }:
 
 let
@@ -70,6 +71,7 @@ stdenv.mkDerivation rec {
     gcc
     pkg-config
     python3
+    perl
   ];
 
   # Valgrind tool objects link -nodefaultlibs and run without glibc's %fs TLS,
