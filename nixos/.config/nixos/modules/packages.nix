@@ -138,6 +138,8 @@ let
     man-pages-posix
 
     (pkgs.callPackage ../pkgs/windows-cursor-theme { })
+
+    (pkgs.callPackage ../pkgs/valgrind-codspeed { })
   ];
 
   devLib = import ../lib { inherit lib; };
