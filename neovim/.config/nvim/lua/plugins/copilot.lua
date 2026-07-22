@@ -28,6 +28,7 @@ return {
       end,
       server = {
         type = "binary",
+        custom_server_filepath = vim.fn.stdpath("data") .. "/mason/bin/copilot-language-server",
       },
     })
   end,

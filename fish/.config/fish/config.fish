@@ -1,6 +1,5 @@
 fish_config theme choose catppuccin-mocha --color-theme=dark
 
-/home/muntasir/.local/bin/mise activate fish | source
 zoxide init --cmd cd fish | source
 atuin init fish | source
 batpipe | source
@@ -29,7 +28,7 @@ if status is-interactive
     # Key sequence timeout (zsh KEYTIMEOUT=100 = 1s, fish is ms)
     set -g fish_escape_delay_ms 1000
 
-    set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /home/muntasir/.local/share/mise/installs/github-eth-p-bat-extras/latest/bin/batman"
+    set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /etc/profiles/per-user/muntasir/bin/batman"
     set -gx MANROFFOPT -c
     set -gx BUN_INSTALL "$HOME/.bun"
     set -gx GLAMOUR_STYLE "/home/muntasir/.config/glow/catppuccin-mocha.json"

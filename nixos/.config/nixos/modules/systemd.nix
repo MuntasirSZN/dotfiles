@@ -8,6 +8,9 @@
 {
   systemd = {
     services = {
+      # It's not a company PC or something. Also, I get this weird error
+      # no more space left on device, so its useless anyway. (Tried clearing the tpm)
+      "systemd-pcrlogin@".enable = false;
       # Enable the cpu controller on the root cgroup before the daemon execs.
       # systemd's DefaultCPUAccounting= true and per-unit CPUAccounting= true do
       # NOT eagerly add `cpu` to /sys/fs/cgroup/cgroup.subtree_control, and a

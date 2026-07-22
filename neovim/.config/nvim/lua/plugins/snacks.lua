@@ -26,7 +26,7 @@ return {
         cache.last_modified = current_mod_time
       end
       -- NOTE: Check for tmux environment, as if not tmux then
-      -- the ascii art will jump down, fix is to add a line of spaces at the end
+      -- the ASCII art will jump down, fix is to add a line of spaces at the end
       if vim.fn.exists("$TMUX") == 0 then
         cache.ascii_art = cache.ascii_art .. "\n                                                                     "
       end

@@ -136,6 +136,7 @@ let
     squashfsTools
     man-pages
     man-pages-posix
+    libsecret
 
     (pkgs.callPackage ../pkgs/windows-cursor-theme { })
 

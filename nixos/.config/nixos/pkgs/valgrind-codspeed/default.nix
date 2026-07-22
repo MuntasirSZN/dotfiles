@@ -30,7 +30,11 @@ let
       hash = "sha256-VGqqrixg7LaqRWTAEBzpC+gUTchncz3Oa2pSq8GLskI=";
     };
 
-    nativeBuildInputs = [ cmake gnumake gcc ];
+    nativeBuildInputs = [
+      cmake
+      gnumake
+      gcc
+    ];
 
     cmakeFlags = [
       "-DCAPSTONE_ARCHITECTURE_DEFAULT=OFF"
@@ -84,7 +88,8 @@ stdenv.mkDerivation rec {
 
   configureFlags = [
     "--with-capstone=${capstone}"
-  ] ++ lib.optional stdenv.hostPlatform.isx86_64 "--enable-only64bit";
+  ]
+  ++ lib.optional stdenv.hostPlatform.isx86_64 "--enable-only64bit";
 
   preConfigure = ''
     ./autogen.sh

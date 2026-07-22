@@ -25,6 +25,32 @@
     packages =
       let
         topLevel = with pkgs; [
+          vivify
+          glab
+          croc
+          binaryen
+          bat-extras.batpipe
+          bat-extras.batman
+          bat-extras.batgrep
+          nodejs_latest
+          pinact
+          zig
+          tmux
+          superfile
+          protobuf
+          opencode
+          mold
+          python3
+          btop
+          yq
+          github-cli
+          glow
+          go
+          pandoc
+          lazygit
+          fastfetch
+          lazydocker
+          direnv
           satty
           slurp
           gpu-screen-recorder

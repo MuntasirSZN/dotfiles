@@ -10,9 +10,11 @@ SSE2
 SSE4
 WASM32
 afl
+ascii
 branchless
 comparator
 normalizer
+pc
 preprocesses
 rs
 simd128

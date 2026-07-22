@@ -48,6 +48,14 @@ in
   ];
 
   programs = {
+    neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+      withNodeJs = true;
+      withPython3 = true;
+    };
     gamemode.enable = true;
     kdeconnect.enable = true;
 
@@ -84,5 +92,9 @@ in
       enable = true;
       libraries = config.custom.packages.system;
     };
+  };
+
+  environment.sessionVariables = {
+    LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
   };
 }
