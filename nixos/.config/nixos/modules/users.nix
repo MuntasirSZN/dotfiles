@@ -10,6 +10,7 @@
       "video"
       "input"
       "docker"
+      "ydotool"
     ];
     shell = pkgs.fish;
   };

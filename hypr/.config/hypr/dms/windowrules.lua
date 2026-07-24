@@ -15,3 +15,6 @@ hl.window_rule({ match = { class = "^discord$" }, opacity = 0.7 })
 
 -- DMS-RULE: id=wr_1784482529862478848, name=com.rtosta.zapzap
 hl.window_rule({ match = { class = "^com.rtosta.zapzap$" }, opacity = 0.8 })
+
+-- DMS-RULE: id=wr_1784819019436443309, name=org.gnome.Evince
+hl.window_rule({ match = { class = "^org.gnome.Evince$" }, opacity = 0.79 })
