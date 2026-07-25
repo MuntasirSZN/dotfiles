@@ -25,6 +25,11 @@
     packages =
       let
         topLevel = with pkgs; [
+          lua
+          luarocks
+          ast-grep
+          sqlfluff
+          typstyle
           vivify
           glab
           croc
