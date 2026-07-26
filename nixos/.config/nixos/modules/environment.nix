@@ -7,8 +7,9 @@
 
 {
   environment.variables = {
-    CC = "clang";
-    CXX = "clang++";
+    CC = "/home/muntasir/.cargo/bin/kache clang";
+    CXX = "/home/muntasir/.cargo/bin/kache clang++";
+    CFLAGS = "-fuse-ld=mold";
     # qt-build-utils only includes module directories under qtbase's prefix.
     # On NixOS each Qt module lives in a separate store path, so modules
     # like Multimedia and WebEngine are missed. Add their include dirs
@@ -33,11 +34,24 @@
       "-I${pkgs.qt6.qtwebengine}/include"
       # GL headers
       "-I${pkgs.libglvnd.dev}/include"
+      "-fuse-ld=mold"
     ];
   };
 
   environment.sessionVariables = {
+    LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
+    VALGRIND_REQUESTS_VALGRIND_INCLUDE = "${pkgs.callPackage ../pkgs/valgrind-codspeed { }}/include";
     PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";
+    AR = "llvm-ar";
+    NM = "llvm-nm";
+    RANLIB = "llvm-ranlib";
+    STRIP = "llvm-strip";
+    OBJCOPY = "llvm-objcopy";
+    OBJDUMP = "llvm-objdump";
+    READELF = "llvm-readelf";
+    ADDR2LINE = "llvm-addr2line";
+    STRINGS = "llvm-strings";
+    SIZE = "llvm-size";
     # qt-build-utils's cargo_link_libraries emits rustc-link-lib for all
     # Qt modules but only sets rustc-link-search for qtbase's lib dir.
     # Append extra lib dirs so the linker finds Multimedia/WebEngine libs.
