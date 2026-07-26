@@ -45,7 +45,6 @@
           protobuf
           opencode
           mold
-          python3
           btop
           yq
           github-cli
