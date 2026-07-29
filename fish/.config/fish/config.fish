@@ -10,7 +10,10 @@ function starship_transient_prompt_func
 end
 
 if status is-interactive
-
+    herdr 2>/dev/null
+    for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.fish
+        test -r "$_f"; and source "$_f"; and break
+    end
     fastfetch
     getquotes --offline
     fzf --fish | source
@@ -59,6 +62,7 @@ if status is-interactive
         "$HOME/.cargo/bin" \
         "$HOME/bin" \
         "$HOME/.local/bin" \
+        "$GOPATH/bin" \
         /usr/local/bin \
         /usr/bin \
         "$HOME/.adb/platform-tools" \

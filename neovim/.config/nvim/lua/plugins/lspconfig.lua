@@ -10,6 +10,7 @@ return {
       css_variables = {},
       cssmodules_ls = {},
       just = {},
+      ast_grep = {},
       harper_ls = {
         settings = {
           ["harper-ls"] = {

@@ -34,6 +34,15 @@
    },
    "favorites": [],
    "providers": {
+      "@tonka3000/store.raycast.youtube": {
+         "preferences": {
+            "griditemsize": "5",
+            "primaryaction": "detail",
+            "showRecentChannels": true,
+            "showRecentVideos": true,
+            "view": "grid"
+         }
+      },
       "applications": {
          "entrypoints": {
             "zen-beta": {

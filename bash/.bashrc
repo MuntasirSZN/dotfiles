@@ -30,11 +30,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-  debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
 xterm-color | *-256color) color_prompt=yes ;;
@@ -59,49 +54,9 @@ fi
 # The following block is surrounded by two delimiters.
 # These delimiters must not be modified. Thanks.
 # START KALI CONFIG VARIABLES
-PROMPT_ALTERNATIVE=twoline
 NEWLINE_BEFORE_PROMPT=no
 # STOP KALI CONFIG VARIABLES
-
-if [ "$color_prompt" = yes ]; then
-  # override default virtualenv indicator in prompt
-  VIRTUAL_ENV_DISABLE_PROMPT=1
-
-  prompt_color='\[\033[;32m\]'
-  info_color='\[\033[1;34m\]'
-  prompt_symbol=㉿
-  if [ "$EUID" -eq 0 ]; then # Change prompt colors for root user
-    prompt_color='\[\033[;94m\]'
-    info_color='\[\033[1;31m\]'
-    # Skull emoji for root terminal
-    prompt_symbol=💀
-  fi
-  case "$PROMPT_ALTERNATIVE" in
-  twoline)
-    PS1=$prompt_color'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')}('$info_color'\u'$prompt_symbol'\h'$prompt_color')-[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└─'$info_color'\$\[\033[0m\] '
-    ;;
-  oneline)
-    PS1='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }${debian_chroot:+($debian_chroot)}'$info_color'\u@\h\[\033[00m\]:'$prompt_color'\[\033[01m\]\w\[\033[00m\]\$ '
-    ;;
-  backtrack)
-    PS1='${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV)) }${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-  esac
-  unset prompt_color
-  unset info_color
-  unset prompt_symbol
-else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm* | rxvt* | Eterm | aterm | kterm | gnome* | alacritty)
-  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-  ;;
-*) ;;
-esac
 
 [ "$NEWLINE_BEFORE_PROMPT" = yes ] && PROMPT_COMMAND="PROMPT_COMMAND=echo"
 
@@ -157,8 +112,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export HOMEBREW_NO_ENV_HINTS=1
 # FZF
 eval "$(fzf --bash)"
 # Bat
@@ -171,14 +124,13 @@ alias fd='fdfind'
 export PATH="/home/muntasir/.local/bin:$PATH"
 
 export PATH="$PATH:/home/muntasir/julia-1.10.4/bin"
-echo "Shell Is Bash"
 eval "$(starship init bash)"
 
 # pnpm
 export PNPM_HOME="/home/muntasir/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 alias pbcopy="xsel --input --clipboard"
@@ -192,6 +144,6 @@ export PATH="$PATH:/home/muntasir/.lmstudio/bin"
 [[ $PS1 &&
   ! ${BASH_COMPLETION_VERSINFO:-} &&
   -f /usr/share/bash-completion/bash_completion ]] &&
-    . /usr/share/bash-completion/bash_completion
+  . /usr/share/bash-completion/bash_completion
 
 export XDG_DATA_HOME="/home/muntasir/.local/share"
