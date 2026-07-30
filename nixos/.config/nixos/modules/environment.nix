@@ -58,8 +58,7 @@
     # rustc-link-search points to /run/qt6-lib (via QMAKE wrapper), which
     # only has .prl symlinks, not the actual .so files. Add all Qt lib dirs
     # explicitly so the linker finds the shared libraries.
-    LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH:${pkgs.qt6.qtbase}/lib:${pkgs.qt6.qtmultimedia}/lib:${pkgs.qt6.qtwebengine}/lib:${pkgs.qt6.qtdeclarative}/lib:${pkgs.qt6.qtwebchannel}/lib:${pkgs.qt6.qtpositioning}/lib";
-    LD_LIBRARY_PATH = "$NIX_LD_LIBRARY_PATH";
+    LIBRARY_PATH = "${pkgs.qt6.qtbase}/lib:${pkgs.qt6.qtmultimedia}/lib:${pkgs.qt6.qtwebengine}/lib:${pkgs.qt6.qtdeclarative}/lib:${pkgs.qt6.qtwebchannel}/lib:${pkgs.qt6.qtpositioning}/lib";
     # qt-build-utils uses qmake -query QT_INSTALL_LIBS to locate .prl files.
     # Our tmpfiles rule puts symlinks at /run/qt6-lib; this wrapper returns
     # that path for the LIBS query and delegates everything else to real qmake.
