@@ -93,15 +93,6 @@
       enable = true;
       package = pkgs.ananicy-cpp;
       rulesProvider = pkgs.ananicy-rules-cachyos_git;
-      # Upstream ananicy-cpp logs `add_pid_to_cgroup: cgroup error: couldn't add
-      # task to cgroup /sys/fs/cgroup/cgroup.procs (Invalid argument)` for kernel
-      # threads (migration/N, idle_inject/N) under cgroup v2. The kernel rejects
-      # moving kthreads out of their current cgroup, and the upstream maintainer
-      # marks it WONTFIX (gitlab work items #36, #66). Disable the workaround;
-      # nixpkgs hard-codes it as `true` (not mkOptionDefault), so mkForce is
-      # required. The nixpkgs module should be using mkOptionDefault; tracked
-      # upstream as a separate concern.
-      settings.cgroup_realtime_workaround = lib.mkForce false;
     };
 
     earlyoom = {

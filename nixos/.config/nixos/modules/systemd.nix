@@ -1,6 +1,5 @@
 # Systemd tweaks, oomd, tmpfiles, ananicy-cpp cgroup hooks.
 {
-  lib,
   pkgs,
   ...
 }:
