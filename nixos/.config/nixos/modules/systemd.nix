@@ -51,45 +51,5 @@
 
     # I use earlyoom.
     oomd.enable = false;
-
-    # qt-build-utils's link_qt_library looks for .prl files in
-    # QT_INSTALL_LIBS (qtbase's lib dir). Multimedia and WebEngine live in
-    # separate Nix store paths, so those .prl files aren't found. Symlink them
-    # into a merged tmpfs directory and point QMAKE at it.
-    tmpfiles.settings."qt6-libs" =
-      let
-        link =
-          pkg: ext: modules:
-          builtins.foldl' lib.recursiveUpdate { } (
-            map (m: {
-              "/run/qt6-lib/libQt6${m}.${ext}" = {
-                L.argument = "${pkg}/lib/libQt6${m}.${ext}";
-              };
-            }) modules
-          );
-        all = pkg: modules: lib.recursiveUpdate (link pkg "prl" modules) (link pkg "so" modules);
-      in
-      lib.recursiveUpdate
-        (all pkgs.qt6.qtbase [
-          "Core"
-          "Gui"
-          "Widgets"
-          "OpenGLWidgets"
-          "OpenGL"
-          "Network"
-        ])
-        (
-          lib.recursiveUpdate
-            (all pkgs.qt6.qtmultimedia [
-              "Multimedia"
-              "MultimediaWidgets"
-            ])
-            (
-              all pkgs.qt6.qtwebengine [
-                "WebEngineCore"
-                "WebEngineWidgets"
-              ]
-            )
-        );
   };
 }

@@ -7,6 +7,10 @@
 
 {
   services = {
+    geoclue2.enable = true;
+    udev.packages = with pkgs; [
+      steam-devices-udev-rules
+    ];
     flatpak.enable = true;
 
     thermald.enable = true;

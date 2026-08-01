@@ -15,5 +15,6 @@
     };
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
+    facter.reportPath = ../facter.json;
   };
 }

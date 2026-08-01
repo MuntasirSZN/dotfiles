@@ -137,11 +137,6 @@
       in
       topLevel ++ devClosure topLevel;
 
-    # Otherwise, xdg-desktop-portal-gtk doesn't work
-    file.".config/systemd/user/xdg-desktop-portal.service.d/env-override.conf".text = ''
-      [Service]
-      UnsetEnvironment=NIX_XDG_DESKTOP_PORTAL_DIR
-    '';
     # No tray icon fix
     file.".config/systemd/user/app-org.keepassxc.KeePassXC@autostart.service.d/override.conf" = {
       text = ''
@@ -184,7 +179,6 @@
       enable = true;
       enabledExtensions = with extensions; [
         adblockify
-        fullScreen
       ];
       enabledCustomApps = with apps; [
         marketplace

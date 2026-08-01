@@ -53,6 +53,39 @@
         monospace = [ "Noto Sans Mono" ];
         emoji = [ "Noto Color Emoji" ];
       };
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
+
+          <!-- Bengali sans-serif -->
+          <match target="pattern">
+            <test name="lang" compare="contains">
+              <string>bn</string>
+            </test>
+            <test qual="any" name="family">
+              <string>sans-serif</string>
+            </test>
+            <edit name="family" mode="prepend">
+              <string>SutonnyOMJ</string>
+            </edit>
+          </match>
+
+          <!-- Bengali monospace -->
+          <match target="pattern">
+            <test name="lang" compare="contains">
+              <string>bn</string>
+            </test>
+            <test qual="any" name="family">
+              <string>monospace</string>
+            </test>
+            <edit name="family" mode="prepend">
+              <string>Noto Sans Bengali</string>
+            </edit>
+          </match>
+
+        </fontconfig>
+      '';
     };
   };
 }

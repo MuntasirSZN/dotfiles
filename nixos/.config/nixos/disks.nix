@@ -75,7 +75,7 @@
             };
           };
           home = {
-            size = "270G";
+            size = "359.9G";
             content = {
               type = "btrfs";
               subvolumes = {
