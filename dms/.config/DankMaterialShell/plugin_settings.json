@@ -41,5 +41,8 @@
     "pipeCommand": "satty -f -",
     "captureMode": "interactive",
     "videoMonitor": "Focused"
+  },
+  "githubNotifier": {
+    "enabled": true
   }
 }
