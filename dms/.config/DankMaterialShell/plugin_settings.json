@@ -43,6 +43,9 @@
     "videoMonitor": "Focused"
   },
   "githubNotifier": {
+    "enabled": false
+  },
+  "audioInhibit": {
     "enabled": true
   }
 }
