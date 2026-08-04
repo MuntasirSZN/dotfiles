@@ -47,5 +47,10 @@
   },
   "audioInhibit": {
     "enabled": true
+  },
+  "dmsThemeSync": {
+    "enabled": true,
+    "uniformListBg": true,
+    "qtStyle": "Fusion"
   }
 }
