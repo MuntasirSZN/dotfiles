@@ -28,6 +28,8 @@ if status is-interactive
         set -gx EDITOR nvim
     end
 
+    alias gearlever="flatpak run it.mijorus.gearlever"
+
     # Key sequence timeout (zsh KEYTIMEOUT=100 = 1s, fish is ms)
     set -g fish_escape_delay_ms 1000
 

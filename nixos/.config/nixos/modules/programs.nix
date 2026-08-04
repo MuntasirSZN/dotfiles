@@ -7,6 +7,10 @@
 
 {
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
     ydotool.enable = true;
     neovim = {
       enable = true;
