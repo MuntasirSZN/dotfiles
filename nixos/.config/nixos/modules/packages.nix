@@ -8,6 +8,7 @@
 
 let
   topLevel = with pkgs; [
+    nur.repos.ilya-fedin.qt6ct
     ffmpeg-full
     fish
     collabora-desktop
@@ -31,6 +32,7 @@ let
     pkg-config
     libsoup_3
     webkitgtk_6_0
+    webkitgtk_4_1
     qt6.qtwebengine
     qt6.qtmultimedia
     qt6.qtdeclarative

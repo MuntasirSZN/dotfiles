@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/beta";
       inputs = {
@@ -59,6 +63,7 @@
       lanzaboote,
       chaotic,
       disko,
+      nur,
       ...
     }@inputs:
     let
@@ -73,6 +78,7 @@
             inherit (devLib) devClosure;
           };
           modules = [
+            nur.modules.nixos.default
             disko.nixosModules.disko
             ./disks.nix
             ./hardware-configuration.nix

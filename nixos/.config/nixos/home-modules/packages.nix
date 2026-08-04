@@ -1,4 +1,8 @@
-{ pkgs, devClosure, ... }:
+{
+  pkgs,
+  devClosure,
+  ...
+}:
 
 {
   home.packages =
@@ -82,7 +86,6 @@
         wtype
         dgop
         libsForQt5.qt5ct
-        qt6Packages.qt6ct
         nautilus
         nautilus-open-any-terminal
         evince
