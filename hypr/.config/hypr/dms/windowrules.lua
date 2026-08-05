@@ -21,3 +21,6 @@ hl.window_rule({ match = { class = "^org.gnome.Evince$" }, opacity = 0.79 })
 
 -- DMS-RULE: id=wr_1785815955391981808, name=t3code
 hl.window_rule({ match = { class = "^t3code$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1785935195078914384, name=com.usebottles.bottles
+hl.window_rule({ match = { class = "^com.usebottles.bottles$" }, opacity = 0.75 })

@@ -51,6 +51,7 @@
   "dmsThemeSync": {
     "enabled": true,
     "uniformListBg": true,
-    "qtStyle": "Fusion"
+    "qtStyle": "Fusion",
+    "syncFlatpak": true
   }
 }
