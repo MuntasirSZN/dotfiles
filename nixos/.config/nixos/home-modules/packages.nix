@@ -8,6 +8,8 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        gdb
+        lldb
         gst_all_1.gstreamer
         gst_all_1.gst-plugins-base
         gst_all_1.gst-plugins-good

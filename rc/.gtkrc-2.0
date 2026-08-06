@@ -4,9 +4,9 @@
 include "/home/muntasir/.gtkrc-2.0.mine"
 gtk-theme-name="adw-gtk3-dark"
 gtk-icon-theme-name="WhiteSur-dark"
-gtk-font-name="Geist  10"
+gtk-font-name="Geist 11"
 gtk-cursor-theme-name="Windows"
-gtk-cursor-theme-size=32
+gtk-cursor-theme-size=25
 gtk-toolbar-style=3
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
 gtk-button-images=1
