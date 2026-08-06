@@ -52,6 +52,7 @@
     "enabled": true,
     "uniformListBg": true,
     "qtStyle": "Fusion",
-    "syncFlatpak": true
+    "syncFlatpak": true,
+    "backupEnabled": false
   }
 }
