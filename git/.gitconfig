@@ -1,7 +1,7 @@
 [user]
   email = muntasir.joypurhat@gmail.com
   name = MuntasirSZN
-  signingkey = E7FE5EC876734CA2
+	signingKey = DAF9E3E03AA870A9E1807AE1E7FE5EC876734CA2
 
 [credential]
   helper = keepassxc --group \"git credentials\"
@@ -44,7 +44,7 @@
   interHunkContext = 10  # merge near hunks in diffs
 
 [commit]
-  gpgsign = true
+	gpgSign = true
   template = ~/.gitmessage
 
 [credential "https://github.com"]
@@ -95,3 +95,5 @@
   provider = generic
 [feature]
   manyFiles = true
+[tag]
+	forceSignAnnotated = true

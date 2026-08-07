@@ -1,6 +1,5 @@
 # All system services.
 {
-  lib,
   pkgs,
   ...
 }:
