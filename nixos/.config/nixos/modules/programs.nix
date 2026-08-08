@@ -19,7 +19,6 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
-      extest.enable = true;
     };
     obs-studio = {
       enable = true;
