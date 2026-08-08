@@ -7,6 +7,28 @@
 
 {
   programs = {
+    # capSysNice isnt enabled, causes failed to inherit capabilities: Operation not permitted.
+    # Ananicy-cpp with cachyos-rules is enough, it nices it automatically.
+    gamescope = {
+      enable = true;
+      enableWsi = true;
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      extest.enable = true;
+    };
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.obs-vaapi
+        obs-studio-plugins.obs-vkcapture
+        obs-studio-plugins.input-overlay
+      ];
+    };
     appimage = {
       enable = true;
       binfmt = true;

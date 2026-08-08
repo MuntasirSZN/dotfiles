@@ -8,6 +8,11 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        lsfg-vk
+        lsfg-vk-ui
+        vkbasalt
+        lutris
+        mangohud
         gdb
         lldb
         gst_all_1.gstreamer
