@@ -13,9 +13,6 @@ require("dms.binds")
 require("dms.binds-user")
 require("dms.windowrules")
 
--- DMS_STARTUP_BEGIN
 hl.on("hyprland.start", function()
-	hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-	hl.exec_cmd("systemctl --user start hyprland-session.target")
+	hl.exec_cmd("dbus-update-activation-environment --systemd SSH_AUTH_SOCK")
 end)
--- DMS_STARTUP_END

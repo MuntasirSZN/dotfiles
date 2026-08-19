@@ -71,7 +71,8 @@ if status is-interactive
         "$HOME/.adb/platform-tools" \
         "$HOME/.local/share/nvim/mason/bin" \
         "$BUN_INSTALL/bin" \
-        "$PNPM_HOME/bin"
+        "$PNPM_HOME/bin" \
+        "$PNPM_HOME"
     bind escape,escape 'set -l cmd (commandline -c); commandline -r "sudo $cmd"'
 end
 

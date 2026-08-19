@@ -24,3 +24,6 @@ hl.window_rule({ match = { class = "^t3code$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=wr_1786116850796171897, name=net.lutris.Lutris
 hl.window_rule({ match = { class = "^net.lutris.Lutris$" }, opacity = 0.9 })
+
+-- DMS-RULE: id=wr_1786260944188401855, name=gamescope
+hl.window_rule({ match = { class = "^gamescope$" }, no_blur = true, opaque = true })

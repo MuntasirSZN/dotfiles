@@ -52,7 +52,7 @@
                   mountOptions = [
                     "noatime"
                     "discard=async"
-                    "compress=zstd:2"
+                    "compress=zstd:3"
                   ];
                 };
                 "@nix" = {
@@ -60,7 +60,7 @@
                   mountOptions = [
                     "noatime"
                     "discard=async"
-                    "compress=zstd:2"
+                    "compress=zstd:3"
                   ];
                 };
                 "@log" = {
@@ -68,7 +68,7 @@
                   mountOptions = [
                     "noatime"
                     "discard=async"
-                    "compress=zstd:2"
+                    "compress=zstd:3"
                   ];
                 };
               };
@@ -84,7 +84,7 @@
                   mountOptions = [
                     "noatime"
                     "discard=async"
-                    "compress=zstd:2"
+                    "compress=zstd:3"
                   ];
                 };
                 "@.snapshots" = {
@@ -92,7 +92,7 @@
                   mountOptions = [
                     "noatime"
                     "discard=async"
-                    "compress=zstd:2"
+                    "compress=zstd:3"
                   ];
                 };
               };

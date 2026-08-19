@@ -21,13 +21,13 @@ let
   # only — drops non-target instruction printers that reference libc symbols.
   capstone = stdenv.mkDerivation rec {
     pname = "capstone";
-    version = "5.0.5";
+    version = "5.0.9";
 
     src = fetchFromGitHub {
       owner = "capstone-engine";
       repo = "capstone";
       rev = "refs/tags/${version}";
-      hash = "sha256-VGqqrixg7LaqRWTAEBzpC+gUTchncz3Oa2pSq8GLskI=";
+      hash = "sha256-uAiiKWKGjEATPE0Xc3g+aOLCz5ffIlDmf+7jaGwaZ4I=";
     };
 
     nativeBuildInputs = [
