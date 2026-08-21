@@ -4,6 +4,7 @@ zoxide init --cmd cd fish | source
 atuin init fish | source
 batpipe | source
 direnv hook fish | source
+fnm env --use-on-cd --shell fish | source
 
 function starship_transient_prompt_func
     starship module character

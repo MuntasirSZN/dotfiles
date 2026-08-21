@@ -33,7 +33,6 @@
         bat-extras.batpipe
         bat-extras.batman
         bat-extras.batgrep
-        nodejs_latest
         pinact
         zig
         tmux
@@ -86,7 +85,6 @@
         cmake
         gnumake
         git-credential-keepassxc
-        vicinae
         matugen
         khal
         vdirsyncer
