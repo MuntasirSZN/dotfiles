@@ -1,49 +1,49 @@
 {
   "ui": {
-    "border_primary": "#b9c3ff",
-    "border_secondary": "#c3c5dd",
-    "header_background": "#b9c3ff",
-    "header_text": "#202c61",
-    "footer_background": "#121318",
-    "footer_text": "#c6c5d0",
-    "text_primary": "#e3e1e9",
-    "text_secondary": "#c6c5d0",
-    "text_accent": "#b9c3ff",
-    "selection_background": "#b9c3ff",
-    "selection_text": "#202c61"
+    "border_primary": "#a1cafd",
+    "border_secondary": "#bbc7db",
+    "header_background": "#a1cafd",
+    "header_text": "#003259",
+    "footer_background": "#111418",
+    "footer_text": "#c3c6cf",
+    "text_primary": "#e1e2e8",
+    "text_secondary": "#c3c6cf",
+    "text_accent": "#a1cafd",
+    "selection_background": "#a1cafd",
+    "selection_text": "#003259"
   },
   "charts": {
-    "network_download": "#b9c3ff",
-    "network_upload": "#384379",
-    "network_line": "#c3c5dd",
-    "cpu_core_low": "#384379",
-    "cpu_core_medium": "#b9c3ff",
-    "cpu_core_high": "#e5bad8",
-    "disk_read": "#b9c3ff",
-    "disk_write": "#384379"
+    "network_download": "#a1cafd",
+    "network_upload": "#1b4975",
+    "network_line": "#bbc7db",
+    "cpu_core_low": "#1b4975",
+    "cpu_core_medium": "#a1cafd",
+    "cpu_core_high": "#d7bee4",
+    "disk_read": "#a1cafd",
+    "disk_write": "#1b4975"
   },
   "progress_bars": {
-    "memory_low": "#384379",
-    "memory_medium": "#b9c3ff",
-    "memory_high": "#e5bad8",
-    "disk_low": "#384379",
-    "disk_medium": "#b9c3ff",
-    "disk_high": "#e5bad8",
-    "cpu_low": "#384379",
-    "cpu_medium": "#b9c3ff",
-    "cpu_high": "#e5bad8",
-    "progress_background": "#1f1f25"
+    "memory_low": "#1b4975",
+    "memory_medium": "#a1cafd",
+    "memory_high": "#d7bee4",
+    "disk_low": "#1b4975",
+    "disk_medium": "#a1cafd",
+    "disk_high": "#d7bee4",
+    "cpu_low": "#1b4975",
+    "cpu_medium": "#a1cafd",
+    "cpu_high": "#d7bee4",
+    "progress_background": "#1d2024"
   },
   "temperature": {
-    "cold": "#384379",
-    "warm": "#b9c3ff",
-    "hot": "#e5bad8",
+    "cold": "#1b4975",
+    "warm": "#a1cafd",
+    "hot": "#d7bee4",
     "danger": "#ffb4ab"
   },
   "status": {
     "success": "#22C55E",
     "warning": "#F59E0B",
     "error": "#ffb4ab",
-    "info": "#b9c3ff"
+    "info": "#a1cafd"
   }
 }

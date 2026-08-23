@@ -8,16 +8,22 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-luminous
       oo7-portal
     ];
     config = {
       hyprland = {
         default = [
           "hyprland"
+          "luminous"
           "gtk"
         ];
         "org.freedesktop.impl.portal.Secret" = [
           "oo7-portal"
+        ];
+        "org.freedesktop.impl.portal.Settings" = [
+          "luminous"
+          "gtk"
         ];
       };
     };
