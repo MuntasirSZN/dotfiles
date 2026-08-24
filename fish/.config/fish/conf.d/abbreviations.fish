@@ -5,11 +5,6 @@
 # Note: 'noglob' entries converted to plain commands.
 # Fish has no noglob builtin; quote glob characters manually.
 
-# FIXME (zsh-specific constructs that need manual attention):
-#   gk/gke — &! is zsh background+disown; use &; disown
-#   gtl   — defines a bash function inline; not portable to fish
-#   npmE  — bash-style PATH=value; use 'set -gx PATH (npm bin) $PATH' instead
-
 # Git helper functions used by abbreviations
 function git_current_branch
     git branch --show-current 2>/dev/null
@@ -24,6 +19,10 @@ function git_main_branch
     else
         echo $branch[1]
     end
+end
+
+function gtl --description 'List tags matching pattern, newest version first'
+    git tag --sort=-v:refname -n --list "$argv[1]*"
 end
 
 abbr --add ... '../..'
@@ -148,8 +147,6 @@ abbr --add ghh 'git help'
 abbr --add gignore 'git update-index --assume-unchanged'
 abbr --add gignored 'git ls-files -v | grep "^[[:lower:]]"'
 abbr --add git-svn-dcommit-push 'git svn dcommit && git push github (git_main_branch):svntrunk'
-abbr --add gk 'gitk --all --branches &!'
-abbr --add gke 'gitk --all (git log --walk-reflogs --pretty=%h) &!'
 abbr --add gl 'git pull'
 abbr --add glg 'git log --stat'
 abbr --add glgg 'git log --graph'
@@ -252,7 +249,7 @@ abbr --add gswc 'git switch --create'
 abbr --add gswd 'git switch (git_develop_branch)'
 abbr --add gswm 'git switch (git_main_branch)'
 abbr --add gta 'git tag --annotate'
-abbr --add gtl 'gtl(){ git tag --sort=-v:refname -n --list "${1}*" }; gtl'
+abbr --add gtl gtl
 abbr --add gts 'git tag --sign'
 abbr --add gtv 'git tag | sort -V'
 abbr --add gunignore 'git update-index --no-assume-unchanged'
@@ -280,7 +277,7 @@ abbr --add lT 'eza -gl -snewest'
 abbr --add ltree 'eza --tree --level=2  --icons --git --git-ignore'
 abbr --add md 'mkdir -p'
 abbr --add npmD 'npm i -D '
-abbr --add npmE 'PATH="(npm bin)":"$PATH"'
+abbr --add npmE 'set -gx PATH (npm bin) $PATH'
 abbr --add npmF 'npm i -f'
 abbr --add npmg 'npm i -g '
 abbr --add npmi 'npm info'
@@ -299,27 +296,6 @@ abbr --add npmt 'npm test'
 abbr --add npmU 'npm update'
 abbr --add npmV 'npm -v'
 abbr --add open xdg-open
-abbr --add pacfiles 'pacman -F'
-abbr --add pacfileupg 'sudo pacman -Fy'
-abbr --add pacin 'sudo pacman -S'
-abbr --add pacins 'sudo pacman -U'
-abbr --add pacinsd 'sudo pacman -S --asdeps'
-abbr --add paclean 'sudo pacman -Sc'
-abbr --add pacloc 'pacman -Qi'
-abbr --add paclocs 'pacman -Qs'
-abbr --add paclr 'sudo pacman -Scc'
-abbr --add pacls 'pacman -Ql'
-abbr --add paclsorphans 'sudo pacman -Qdt'
-abbr --add pacmanallkeys 'sudo pacman-key --refresh-keys'
-abbr --add pacmir 'sudo pacman -Syy'
-abbr --add pacown 'pacman -Qo'
-abbr --add pacre 'sudo pacman -R'
-abbr --add pacrem 'sudo pacman -Rns'
-abbr --add pacrep 'pacman -Si'
-abbr --add pacreps 'pacman -Ss'
-abbr --add pacrmorphans 'sudo pacman -Rs (pacman -Qtdq)'
-abbr --add pacupd 'sudo pacman -Sy'
-abbr --add pacupg 'sudo pacman -Syu'
 abbr --add pbcopy wl-copy
 abbr --add pbpaste wl-paste
 abbr --add pip pip
@@ -357,7 +333,3 @@ abbr --add uvsu 'uv sync --upgrade'
 abbr --add uvtr 'uv tree'
 abbr --add uvup 'uv self update'
 abbr --add uvv 'uv venv'
-abbr --add zi zinit
-abbr --add zini zinit
-abbr --add zpl zinit
-abbr --add zplg zinit

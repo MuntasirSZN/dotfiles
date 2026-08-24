@@ -323,7 +323,7 @@
   ],
   "networkPreference": "auto",
   "iconThemeDark": "WhiteSur-dark",
-  "iconThemeLight": "System Default",
+  "iconThemeLight": "WhiteSur-light",
   "iconThemePerMode": false,
   "lastAppliedIconTheme": "WhiteSur-dark",
   "cursorSettings": {

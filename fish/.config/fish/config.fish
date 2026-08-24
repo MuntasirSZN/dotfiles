@@ -50,8 +50,6 @@ if status is-interactive
     --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
     --color=selected-bg:#45475a \
     "
-    set -gx CC clang
-    set -gx CXX clang++
     set -gx GOPATH "$HOME/.go"
     set -gx NH_FLAKE "$HOME/.config/nixos#nixos"
     set -gx PNPM_HOME "$HOME/.local/share/pnpm"
