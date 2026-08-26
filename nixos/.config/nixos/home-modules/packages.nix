@@ -8,7 +8,6 @@
   home.packages =
     let
       topLevel = with pkgs; [
-        sshs
         lsfg-vk
         lsfg-vk-ui
         vkbasalt

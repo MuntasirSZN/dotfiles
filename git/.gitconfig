@@ -1,6 +1,6 @@
 [user]
   email = muntasir.joypurhat@gmail.com
-  name = MuntasirSZN
+  name = Muntasir Mahmud
 	signingKey = DAF9E3E03AA870A9E1807AE1E7FE5EC876734CA2
 
 [credential]
@@ -46,9 +46,6 @@
 [commit]
 	gpgSign = true
   template = ~/.gitmessage
-
-[credential "https://github.com"]
-  username = MuntasirSZN
 
 [remote "origin"]
   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*

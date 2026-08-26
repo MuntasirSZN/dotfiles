@@ -58,13 +58,13 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "valgrind-codspeed";
-  version = "3.26.0-0codspeed6";
+  version = "3.26.0-0codspeed7";
 
   src = fetchFromGitHub {
     owner = "CodSpeedHQ";
     repo = "valgrind-codspeed";
     rev = "refs/tags/${version}";
-    hash = "sha256-iSeNAbaX0U8d6rlSXbvZb/aAvEegaVo3dMgfcO27xbU=";
+    hash = "sha256-VWFuQezqYE+F7IXFs5X1t7LfKp/7P1LyOAR6Yg7ur7w=";
   };
 
   nativeBuildInputs = [

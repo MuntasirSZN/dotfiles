@@ -26,6 +26,7 @@
         obs-studio-plugins.obs-vaapi
         obs-studio-plugins.obs-vkcapture
         obs-studio-plugins.input-overlay
+        obs-studio-plugins.obs-multi-rtmp
       ];
     };
     appimage = {
