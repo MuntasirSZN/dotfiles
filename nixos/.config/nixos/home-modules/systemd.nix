@@ -52,28 +52,6 @@
           WantedBy = [ "dms.service" ];
         };
       };
-      vdirsyncer-sync = {
-        Unit = {
-          Description = "Run vdirsyncer sync";
-        };
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${pkgs.vdirsyncer}/bin/vdirsyncer sync";
-        };
-      };
-    };
-    timers.vdirsyncer-sync = {
-      Unit = {
-        Description = "Run vdirsyncer sync every 5 minutes";
-      };
-      Timer = {
-        OnBootSec = "1min";
-        OnUnitActiveSec = "5min";
-        Persistent = true;
-      };
-      Install = {
-        WantedBy = [ "timers.target" ];
-      };
     };
   };
 }

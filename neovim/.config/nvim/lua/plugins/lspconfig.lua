@@ -11,6 +11,15 @@ return {
       cssmodules_ls = {},
       just = {},
       ast_grep = {},
+      nil_ls = {
+        settings = {
+          nil_ls = {
+            formatting = {
+              command = { "nixfmt" },
+            },
+          },
+        },
+      },
       harper_ls = {
         settings = {
           ["harper-ls"] = {

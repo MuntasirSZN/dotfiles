@@ -7,7 +7,7 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    kernelPackages = pkgs.linuxPackages_cachyos-bore;
 
     lanzaboote = {
       enable = true;

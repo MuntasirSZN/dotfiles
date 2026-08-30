@@ -27,3 +27,6 @@ hl.window_rule({ match = { class = "^net.lutris.Lutris$" }, opacity = 0.9 })
 
 -- DMS-RULE: id=wr_1786260944188401855, name=gamescope
 hl.window_rule({ match = { class = "^gamescope$" }, no_blur = true, opaque = true })
+
+-- DMS-RULE: id=wr_1788084234955106789, name=com.danklinux.dankcalendar
+hl.window_rule({ match = { class = "^com.danklinux.dankcalendar$" }, opacity = 0.85 })

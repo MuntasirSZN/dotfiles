@@ -31,7 +31,7 @@
   "mangoTrackpadNaturalScrolling": true,
   "firstDayOfWeek": -1,
   "showWeekNumber": false,
-  "calendarBackend": "auto",
+  "calendarBackend": "dankcal",
   "clockFormat": "auto",
   "showSeconds": false,
   "padHours12Hour": true,

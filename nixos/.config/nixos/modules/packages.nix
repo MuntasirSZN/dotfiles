@@ -9,6 +9,7 @@
 let
   topLevel = with pkgs; [
     nur.repos.ilya-fedin.qt6ct
+    nur.repos.RossSmyth.c2rust
     ffmpeg-full
     fish
     collabora-desktop
@@ -143,7 +144,6 @@ let
     # List by default
     zlib
     zstd
-    stdenv.cc.cc
     curl
     openssl
     attr

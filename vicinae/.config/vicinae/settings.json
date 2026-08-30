@@ -56,13 +56,6 @@
             "arguments_terminal_type": "ghostty"
          }
       },
-      "@knoopx/store.vicinae.nix": {
-         "preferences": {
-            "homeManagerOptionsUrl": "https://home-manager-options.extranix.com/data/options-master.json",
-            "searchUrl": "https://search.nixos.org/backend/latest-48-nixos-unstable/_search",
-            "githubToken": ""
-         }
-      },
       "@system7/store.vicinae.keepassxc": {
          "preferences": {
             "database": "/home/muntasir/google/Passwords.kdbx",

@@ -50,7 +50,6 @@ if status is-interactive
     --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
     --color=selected-bg:#45475a \
     "
-    set -gx GOPATH "$HOME/.go"
     set -gx NH_FLAKE "$HOME/.config/nixos#nixos"
     set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 
@@ -64,7 +63,6 @@ if status is-interactive
         "$HOME/.cargo/bin" \
         "$HOME/bin" \
         "$HOME/.local/bin" \
-        "$GOPATH/bin" \
         /usr/local/bin \
         /usr/bin \
         "$HOME/.adb/platform-tools" \

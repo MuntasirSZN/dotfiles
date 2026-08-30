@@ -8,6 +8,7 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        # surge-downloader
         git-lfs
         lsfg-vk
         lsfg-vk-ui
@@ -39,13 +40,11 @@
         tmux
         superfile
         protobuf
-        opencode
         mold
         btop
         yq
         github-cli
         glow
-        go
         pandoc
         lazygit
         fastfetch
@@ -87,8 +86,6 @@
         gnumake
         git-credential-keepassxc
         matugen
-        khal
-        vdirsyncer
         wtype
         dgop
         libsForQt5.qt5ct
@@ -121,6 +118,7 @@
         rclone-browser
         rclone
         nixfmt
+        hyprland-qt-support
       ];
     in
     topLevel ++ devClosure topLevel;
