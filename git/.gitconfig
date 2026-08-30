@@ -2,19 +2,12 @@
   email = muntasir.joypurhat@gmail.com
   name = Muntasir Mahmud
 	signingKey = DAF9E3E03AA870A9E1807AE1E7FE5EC876734CA2
-
 [credential]
   helper = keepassxc --group \"git credentials\"
-
-[credential "https://dev.azure.com"]
-  useHttpPath = true
-
 [init]
   defaultBranch = main
-
 [include]
   path = ~/.config/delta/themes/catppuccin.gitconfig
-
 [core]
   pager = delta
   autocrlf = input  # keep newlines as in input
@@ -25,7 +18,6 @@
   fsmonitor = true
 [interactive]
   diffFilter = delta --color-only
-
 [delta]
   navigate = true
   features = catppuccin-mocha
@@ -33,64 +25,51 @@
   true-color = always
   dark = true
   line-numbers = true
-
 [merge]
   conflictstyle = zdiff3
-
 [diff]
   colorMoved = default
   context = 3  # less context in diffs
   renames = copies  # detect copies as renames in diffs
   interHunkContext = 10  # merge near hunks in diffs
-
+[checkout]
+  defaultRemote = origin
 [commit]
 	gpgSign = true
   template = ~/.gitmessage
-
 [remote "origin"]
   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
-
 [advice]
   addEmptyPathspec = false
   pushNonFastForward = false
   statusHints = false
-
 [log]
   abbrevCommit = true  # short commits
   graphColors = blue,yellow,cyan,magenta,green,red
-
 [status]
   branch = true
   short = true
   showStash = true
   showUntrackedFiles = all  # show individual untracked files
-
 [push]
   autoSetupRemote = true  # easier to push new branches
   default = current  # push only current branch by default
   followTags = true  # push also tags
-
 [pull]
   rebase = true
-
 [submodule]
   fetchJobs = 16
-
 [rebase]
   autoStash = true
-
 [color "branch"]
   current  = magenta
   local    = default
   remote   = yellow
   upstream = green
   plain    = blue
-
 [url "git@github.com:"]
   insteadOf = "gh:"
-[credential "https://salsa.debian.org"]
-  provider = generic
 [feature]
   manyFiles = true
 [tag]
-	forceSignAnnotated = true
+  forceSignAnnotated = true

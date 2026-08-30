@@ -54,7 +54,10 @@
       enable = true;
       withUWSM = false;
     };
-
+    dank-calendar = {
+      enable = true;
+      systemd.enable = true;
+    };
     dms-shell = {
       enable = true;
       quickshell.package = pkgs.quickshell;

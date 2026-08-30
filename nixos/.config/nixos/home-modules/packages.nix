@@ -8,6 +8,7 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        git-lfs
         lsfg-vk
         lsfg-vk-ui
         vkbasalt

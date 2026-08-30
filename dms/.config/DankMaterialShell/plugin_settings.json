@@ -43,7 +43,12 @@
     "captureMode": "interactive",
     "videoMonitor": "Focused",
     "showAdvancedSettings": true,
-    "videoCustomPath": "~/Videos/Screencasts"
+    "videoCustomPath": "~/Videos/Screencasts",
+    "videoCodec": "av1_hdr",
+    "audioCodec": "opus",
+    "enableAudioRecorder": true,
+    "audioBitrate": "128k",
+    "copyPathOnCapture": false
   },
   "githubNotifier": {
     "enabled": false
@@ -57,5 +62,8 @@
     "qtStyle": "Fusion",
     "syncFlatpak": true,
     "backupEnabled": false
+  },
+  "discordVoice": {
+    "enabled": true
   }
 }

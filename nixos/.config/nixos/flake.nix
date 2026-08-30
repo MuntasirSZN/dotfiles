@@ -42,6 +42,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dcal = {
+      url = "github:AvengeMedia/dankcalendar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -64,6 +68,7 @@
       chaotic,
       disko,
       nur,
+      dcal,
       ...
     }@inputs:
     let
@@ -86,6 +91,7 @@
             chaotic.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
+            dcal.nixosModules.dankcalendar
             {
               home-manager = {
                 useGlobalPkgs = true;
