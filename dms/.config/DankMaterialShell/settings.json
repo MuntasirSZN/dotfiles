@@ -294,7 +294,7 @@
   "dankLauncherV2IncludeFilesInAll": false,
   "dankLauncherV2IncludeFoldersInAll": false,
   "launcherUseOverlayLayer": false,
-  "launcherStyle": "full",
+  "launcherStyle": "spotlight",
   "spotlightBarShowModeChips": false,
   "keybindsFloatingWindow": false,
   "useAutoLocation": true,
