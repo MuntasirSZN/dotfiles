@@ -91,7 +91,7 @@
             chaotic.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
-            dcal.nixosModules.dankcalendar
+            dcal.nixosModules.dank-calendar
             {
               home-manager = {
                 useGlobalPkgs = true;
