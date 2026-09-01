@@ -6,6 +6,15 @@
 
 {
   services = {
+    usbguard = {
+      enable = true;
+      dbus.enable = true;
+      restoreControllerDeviceState = true;
+      IPCAllowedUsers = [
+        "root"
+        "muntasir"
+      ];
+    };
     geoclue2.enable = true;
     udev.packages = with pkgs; [
       steam-devices-udev-rules

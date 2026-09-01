@@ -8,7 +8,7 @@
   home.packages =
     let
       topLevel = with pkgs; [
-        # surge-downloader
+        surge-downloader
         git-lfs
         lsfg-vk
         lsfg-vk-ui

@@ -1,5 +1,6 @@
 .crush
 /memory:
+/local:
 /docs/superpowers
 .worktrees/
 /.superpowers

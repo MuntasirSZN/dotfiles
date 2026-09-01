@@ -30,3 +30,6 @@ hl.window_rule({ match = { class = "^gamescope$" }, no_blur = true, opaque = tru
 
 -- DMS-RULE: id=wr_1788084234955106789, name=com.danklinux.dankcalendar
 hl.window_rule({ match = { class = "^com.danklinux.dankcalendar$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1788169893387405532, name=gcr-prompter
+hl.window_rule({ match = { class = "^gcr-prompter$" }, opacity = 0.85 })

@@ -16,6 +16,9 @@
                 mountpoint = "/boot";
                 mountOptions = [
                   "umask=0077"
+                  "noexec"
+                  "nosuid"
+                  "nodev"
                 ];
               };
             };
