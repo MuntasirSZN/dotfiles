@@ -8,6 +8,8 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        go
+        playerctl
         surge-downloader
         git-lfs
         lsfg-vk
@@ -106,7 +108,6 @@
         amberol
         celluloid
         gnome-calculator
-        thunderbird
         emacs
         eask-cli
         doppler

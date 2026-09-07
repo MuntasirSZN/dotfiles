@@ -7,8 +7,6 @@
 {
   environment = {
     variables = {
-      CC = "/home/muntasir/.cargo/bin/kache clang";
-      CXX = "/home/muntasir/.cargo/bin/kache clang++";
       CFLAGS = "-fuse-ld=mold";
     };
 

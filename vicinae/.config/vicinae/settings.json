@@ -12,9 +12,13 @@
    "$schema": "https://vicinae.com/schemas/config.json",
    "close_on_focus_loss": true,
    "pop_to_root_on_close": false,
+   "activate_on_single_click": true,
    "encrypt_sensitive_data": false,
    "keybinding": "vim",
    "search_files_in_root": false,
+   "tray": {
+      "enabled": true
+   },
    "font": {
       "normal": {
          "family": "Geist"
@@ -63,6 +67,15 @@
             "userInterfaceFavicon": false
          }
       },
+      "@tonka3000/store.raycast.youtube": {
+         "preferences": {
+            "griditemsize": "5",
+            "primaryaction": "detail",
+            "showRecentChannels": true,
+            "showRecentVideos": true,
+            "view": "list"
+         }
+      },
       "applications": {
          "entrypoints": {
             "zen-beta": {
@@ -76,6 +89,12 @@
                "enabled": true
             },
             "inspect-local-storage": {
+               "enabled": true
+            },
+            "oauth-token-store": {
+               "enabled": true
+            },
+            "search-builtin-icons": {
                "enabled": true
             }
          }

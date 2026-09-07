@@ -61,7 +61,10 @@
     "uniformListBg": true,
     "qtStyle": "Fusion",
     "syncFlatpak": true,
-    "backupEnabled": false
+    "backupEnabled": false,
+    "folderColorBaseThemeDark": "",
+    "folderColorBaseThemeLight": "",
+    "folderColorBaseTheme": ""
   },
   "discordVoice": {
     "enabled": true

@@ -11,6 +11,7 @@ return {
       cssmodules_ls = {},
       just = {},
       ast_grep = {},
+      qmlls = {},
       nil_ls = {
         settings = {
           nil_ls = {

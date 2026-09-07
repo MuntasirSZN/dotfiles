@@ -25,8 +25,10 @@ if status is-interactive
 
     if set -q SSH_CONNECTION
         set -gx EDITOR nano
+        set -gx TERM xterm-256color
     else
         set -gx EDITOR nvim
+        set -gx TERM xterm-ghostty
     end
 
     alias gearlever="flatpak run it.mijorus.gearlever"
@@ -35,6 +37,7 @@ if status is-interactive
     set -g fish_escape_delay_ms 1000
 
     set -gx GITHUB_TOKEN (gh auth token)
+    set -gx GOPATH "$HOME/.go"
     set -gx MANPAGER "env BATMAN_IS_BEING_MANPAGER=yes bash /etc/profiles/per-user/muntasir/bin/batman"
     set -gx MANROFFOPT -c
     set -gx BUN_INSTALL "$HOME/.bun"
@@ -58,11 +61,13 @@ if status is-interactive
     end
 
     fish_add_path \
+        "$HOME/.local/lib/kache/shims" \
         "$HOME/.spicetify" \
         "$HOME/.turso" \
         "$HOME/.cargo/bin" \
         "$HOME/bin" \
         "$HOME/.local/bin" \
+        "$HOME/.go/bin" \
         /usr/local/bin \
         /usr/bin \
         "$HOME/.adb/platform-tools" \

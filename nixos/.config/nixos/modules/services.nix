@@ -1,6 +1,7 @@
 # All system services.
 {
   pkgs,
+  lib,
   ...
 }:
 
@@ -21,7 +22,7 @@
     ];
     flatpak.enable = true;
 
-    # Comment when version is greater that 2.5.12
+    # Uncomment when version is greater that 2.5.12
     # It doesn't even start, stderr: Non-mobile platform, exiting....
     # https://github.com/intel/thermal_daemon/issues/589
     # thermald.enable = true;
@@ -104,6 +105,13 @@
       enable = true;
       package = pkgs.ananicy-cpp;
       rulesProvider = pkgs.ananicy-rules-cachyos_git;
+      settings = {
+        apply_latnice = true;
+        check_freq = 15;
+        loglevel = "info";
+        log_applied_rule = false;
+        cgroup_realtime_workaround = lib.mkForce false;
+      };
     };
 
     earlyoom = {
@@ -161,6 +169,7 @@
           hl.config({
             misc = {
               disable_hyprland_logo = true,
+              disable_splash_rendering = true,
             },
           })
         '';

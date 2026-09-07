@@ -33,3 +33,6 @@ hl.window_rule({ match = { class = "^com.danklinux.dankcalendar$" }, opacity = 0
 
 -- DMS-RULE: id=wr_1788169893387405532, name=gcr-prompter
 hl.window_rule({ match = { class = "^gcr-prompter$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1788773777735113730, name=Vireo
+hl.window_rule({ match = { class = "^co.hyprlab.Vireo$" }, opacity = 0.85 })
