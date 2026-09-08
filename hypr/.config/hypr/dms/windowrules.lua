@@ -19,9 +19,6 @@ hl.window_rule({ match = { class = "^com.rtosta.zapzap$" }, opacity = 0.8 })
 -- DMS-RULE: id=wr_1784819019436443309, name=org.gnome.Evince
 hl.window_rule({ match = { class = "^org.gnome.Evince$" }, opacity = 0.79 })
 
--- DMS-RULE: id=wr_1785815955391981808, name=t3code
-hl.window_rule({ match = { class = "^t3code$" }, opacity = 0.85 })
-
 -- DMS-RULE: id=wr_1786116850796171897, name=net.lutris.Lutris
 hl.window_rule({ match = { class = "^net.lutris.Lutris$" }, opacity = 0.9 })
 
@@ -36,3 +33,6 @@ hl.window_rule({ match = { class = "^gcr-prompter$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=wr_1788773777735113730, name=Vireo
 hl.window_rule({ match = { class = "^co.hyprlab.Vireo$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1788793588949151244, name=org.x.GnomeOnlineAccountsGtk
+hl.window_rule({ match = { class = "^org.x.GnomeOnlineAccountsGtk$" }, opacity = 0.85 })

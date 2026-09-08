@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_kache_global_optspecs
-    string join \n h/help V/version
+    string join \n json h/help V/version
 end
 
 function __fish_kache_needs_command
@@ -24,6 +24,7 @@ function __fish_kache_using_subcommand
     contains -- $cmd[1] $argv
 end
 
+complete -c kache -n "__fish_kache_needs_command" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_needs_command" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c kache -n "__fish_kache_needs_command" -s V -l version -d 'Print version'
 complete -c kache -n "__fish_kache_needs_command" -f -a "cargo" -d 'Run Cargo with canonical duplicate Cargo-home rustflags collapsed once'
@@ -38,33 +39,43 @@ complete -c kache -n "__fish_kache_needs_command" -f -a "save-manifest" -d 'Save
 complete -c kache -n "__fish_kache_needs_command" -f -a "daemon" -d 'Daemon management. With no subcommand, shows daemon status'
 complete -c kache -n "__fish_kache_needs_command" -f -a "monitor" -d 'Live TUI dashboard for monitoring builds'
 complete -c kache -n "__fish_kache_needs_command" -f -a "stats" -d 'Show cache stats summary (non-interactive)'
+complete -c kache -n "__fish_kache_needs_command" -f -a "telemetry" -d 'Write cache counters as OTLP JSON for Kartero to import later'
 complete -c kache -n "__fish_kache_needs_command" -f -a "why-miss" -d 'Diagnose why a specific crate missed the cache'
 complete -c kache -n "__fish_kache_needs_command" -f -a "report" -d 'Generate a detailed build report (json, trace, markdown, or text)'
 complete -c kache -n "__fish_kache_needs_command" -f -a "config" -d 'Open the configuration editor'
 complete -c kache -n "__fish_kache_needs_command" -f -a "install-shims" -d 'Create compiler-name symlinks pointing at kache, for transparent interception by prepending the directory to PATH'
 complete -c kache -n "__fish_kache_needs_command" -f -a "completions" -d 'Generate shell completion scripts'
 complete -c kache -n "__fish_kache_needs_command" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c kache -n "__fish_kache_using_subcommand cargo" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand cargo" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand list" -l sort -d 'Sort by: name, size, hits, age' -r
 complete -c kache -n "__fish_kache_using_subcommand list" -l no-pager -d 'Print directly instead of using a pager'
+complete -c kache -n "__fish_kache_using_subcommand list" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand list" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand gc" -l max-age -d 'Evict entries older than this duration (e.g. 7d, 24h)' -r
 complete -c kache -n "__fish_kache_using_subcommand gc" -l stale-schema -d 'Remove entries from old or unrecorded cache-key schemas'
+complete -c kache -n "__fish_kache_using_subcommand gc" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand gc" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand purge" -l crate-name -d 'Only purge entries for this crate' -r
+complete -c kache -n "__fish_kache_using_subcommand purge" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand purge" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand clean" -l stale -d 'Only tracked targets not seen for this long (for example 14d)' -r
 complete -c kache -n "__fish_kache_using_subcommand clean" -s n -l dry-run -d 'Preview what would be removed without deleting (pairs with --yes)'
 complete -c kache -n "__fish_kache_using_subcommand clean" -s y -l yes -d 'Non-interactive: remove all target/ directories without the selector. For scripts and cron. Preview first with --dry-run'
+complete -c kache -n "__fish_kache_using_subcommand clean" -l tracked -d 'Use target directories remembered by the compiler wrapper'
+complete -c kache -n "__fish_kache_using_subcommand clean" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand clean" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand init" -s y -l yes -d 'Accept all default answers (non-interactive)'
 complete -c kache -n "__fish_kache_using_subcommand init" -l no-service -d 'Do not install the daemon as a login service'
 complete -c kache -n "__fish_kache_using_subcommand init" -l check -d 'Print what would change without modifying anything'
+complete -c kache -n "__fish_kache_using_subcommand init" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand init" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand doctor" -l fix -d 'Auto-fix issues (migrate from sccache, repair config)'
 complete -c kache -n "__fish_kache_using_subcommand doctor" -l purge-sccache -d 'Also remove sccache cache and binary (requires --fix)'
 complete -c kache -n "__fish_kache_using_subcommand doctor" -l verify -d 'Verify cache integrity (entries, blobs, metadata)'
 complete -c kache -n "__fish_kache_using_subcommand doctor" -l checksums -d 'Also verify blob checksums (slower, implies --verify)'
 complete -c kache -n "__fish_kache_using_subcommand doctor" -l repair -d 'Remove corrupted entries (implies --verify)'
+complete -c kache -n "__fish_kache_using_subcommand doctor" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand doctor" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand sync" -l manifest-path -d 'Path to Cargo.toml (default: current directory)' -r
 complete -c kache -n "__fish_kache_using_subcommand sync" -l pull -d 'Only download from the remote (skip uploads)'
@@ -73,10 +84,13 @@ complete -c kache -n "__fish_kache_using_subcommand sync" -l dry-run -d 'Show wh
 complete -c kache -n "__fish_kache_using_subcommand sync" -l all -d 'Pull all remote artifacts (ignore workspace filtering)'
 complete -c kache -n "__fish_kache_using_subcommand sync" -l workspace -d 'Scope the pull listing to workspace members (one LIST per member) instead of one LIST per Cargo.lock dependency crate'
 complete -c kache -n "__fish_kache_using_subcommand sync" -l allow-partial -d 'Allow partial synchronization and exit successfully (code 0) even if some transfers or imports fail'
+complete -c kache -n "__fish_kache_using_subcommand sync" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand sync" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c kache -n "__fish_kache_using_subcommand save-manifest" -l manifest-key -d 'Override manifest key (default: host target triple)' -r
+complete -c kache -n "__fish_kache_using_subcommand save-manifest" -l manifest-key -d 'Override manifest key (default: identity key plus host triple)' -r
 complete -c kache -n "__fish_kache_using_subcommand save-manifest" -l namespace -d 'Shard namespace: target/rustc_hash/profile. If set and Cargo.lock exists, uploads content-addressed shards alongside the monolithic build manifest' -r
+complete -c kache -n "__fish_kache_using_subcommand save-manifest" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand save-manifest" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -f -a "status" -d 'Show daemon status (alias for bare `kache daemon`)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -f -a "run" -d 'Run the daemon server in the foreground'
@@ -87,13 +101,21 @@ complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_
 complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -f -a "uninstall" -d 'Remove the daemon service'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -f -a "log" -d 'Stream daemon logs'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and not __fish_seen_subcommand_from status run start stop restart install uninstall log help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from status" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from status" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from run" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from run" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from start" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from start" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from stop" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from stop" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from restart" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from restart" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from install" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from install" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from uninstall" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from uninstall" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from log" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from log" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "status" -d 'Show daemon status (alias for bare `kache daemon`)'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "run" -d 'Run the daemon server in the foreground'
@@ -104,39 +126,61 @@ complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subc
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "uninstall" -d 'Remove the daemon service'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "log" -d 'Stream daemon logs'
 complete -c kache -n "__fish_kache_using_subcommand daemon; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
-complete -c kache -n "__fish_kache_using_subcommand monitor" -l since -d 'Show events from the last N hours' -r
+complete -c kache -n "__fish_kache_using_subcommand monitor" -l since -d 'Preload events from this window (e.g. 15m, 2h, 7d; a bare number is hours)' -r
+complete -c kache -n "__fish_kache_using_subcommand monitor" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand monitor" -s h -l help -d 'Print help'
-complete -c kache -n "__fish_kache_using_subcommand stats" -l since -d 'Show events from the last N hours (e.g. 24h, 1h, 7d)' -r
+complete -c kache -n "__fish_kache_using_subcommand stats" -l since -d 'Event window (e.g. 15m, 2h, 7d; a bare number is hours)' -r
+complete -c kache -n "__fish_kache_using_subcommand stats" -l root -d 'Select the latest session within this build tree/root' -r -F
+complete -c kache -n "__fish_kache_using_subcommand stats" -l last-build -d 'Report the latest recorded activity session. Sessions may span Cargo commands; events without IDs use a five-minute idle gap per root'
+complete -c kache -n "__fish_kache_using_subcommand stats" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand stats" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and not __fish_seen_subcommand_from write help" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and not __fish_seen_subcommand_from write help" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and not __fish_seen_subcommand_from write help" -f -a "write" -d 'Snapshot live cache counters into `metrics.otlp.json` + `schema_version`'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and not __fish_seen_subcommand_from write help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and __fish_seen_subcommand_from write" -l scenario -d 'Bench scenario this dump belongs to (same string as `kache.bench.project`)' -r
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and __fish_seen_subcommand_from write" -l phase -d 'Bench phase this dump belongs to (`cold`, `warm`, `pull`)' -r
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and __fish_seen_subcommand_from write" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and __fish_seen_subcommand_from write" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and __fish_seen_subcommand_from help" -f -a "write" -d 'Snapshot live cache counters into `metrics.otlp.json` + `schema_version`'
+complete -c kache -n "__fish_kache_using_subcommand telemetry; and __fish_seen_subcommand_from help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c kache -n "__fish_kache_using_subcommand why-miss" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand why-miss" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand report" -l format -d 'Output format: json, trace, perfetto, chrome-trace, markdown, github, text' -r
-complete -c kache -n "__fish_kache_using_subcommand report" -l since -d 'Time window (e.g. 24h, 7d, 1h)' -r
+complete -c kache -n "__fish_kache_using_subcommand report" -l since -d 'Event window (e.g. 15m, 2h, 7d; a bare number is hours)' -r
 complete -c kache -n "__fish_kache_using_subcommand report" -l root -d 'Only include compiler events from this build tree/root' -r -F
 complete -c kache -n "__fish_kache_using_subcommand report" -s o -l output -d 'Write output to a file instead of stdout' -r -F
 complete -c kache -n "__fish_kache_using_subcommand report" -l top -d 'Number of top entries to show' -r
+complete -c kache -n "__fish_kache_using_subcommand report" -l last-build -d 'Report the latest recorded activity session. Sessions may span Cargo commands; events without IDs use a five-minute idle gap per root'
+complete -c kache -n "__fish_kache_using_subcommand report" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand report" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand config" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand config" -s h -l help -d 'Print help'
 complete -c kache -n "__fish_kache_using_subcommand install-shims" -l force -d 'Replace existing entries instead of refusing'
+complete -c kache -n "__fish_kache_using_subcommand install-shims" -l from-path -d 'Also wrap compiler names already on PATH (gcc-13, target triplets)'
+complete -c kache -n "__fish_kache_using_subcommand install-shims" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand install-shims" -s h -l help -d 'Print help'
+complete -c kache -n "__fish_kache_using_subcommand completions" -l json -d 'Machine-readable JSON on stdout (stats, gc, clean, doctor, why-miss, list, daemon status)'
 complete -c kache -n "__fish_kache_using_subcommand completions" -s h -l help -d 'Print help'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "cargo" -d 'Run Cargo with canonical duplicate Cargo-home rustflags collapsed once'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "list" -d 'List cache entries, or show details for one crate'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "gc" -d 'Run garbage collection'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "purge" -d 'Wipe entire cache or entries for a specific crate'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "clean" -d 'Recursively find and remove target/ directories under the current directory'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "init" -d 'Interactive setup: configure cargo wrapper, install and start the daemon'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "doctor" -d 'Diagnose setup issues and verify cache integrity'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "sync" -d 'Synchronize the local cache with its configured remote (pull + push)'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "save-manifest" -d 'Save a build manifest for future prefetch warming'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "daemon" -d 'Daemon management. With no subcommand, shows daemon status'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "monitor" -d 'Live TUI dashboard for monitoring builds'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "stats" -d 'Show cache stats summary (non-interactive)'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "why-miss" -d 'Diagnose why a specific crate missed the cache'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "report" -d 'Generate a detailed build report (json, trace, markdown, or text)'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "config" -d 'Open the configuration editor'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "install-shims" -d 'Create compiler-name symlinks pointing at kache, for transparent interception by prepending the directory to PATH'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "completions" -d 'Generate shell completion scripts'
-complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats why-miss report config install-shims completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "cargo" -d 'Run Cargo with canonical duplicate Cargo-home rustflags collapsed once'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "list" -d 'List cache entries, or show details for one crate'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "gc" -d 'Run garbage collection'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "purge" -d 'Wipe entire cache or entries for a specific crate'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "clean" -d 'Recursively find and remove target/ directories under the current directory'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "init" -d 'Interactive setup: configure cargo wrapper, install and start the daemon'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "doctor" -d 'Diagnose setup issues and verify cache integrity'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "sync" -d 'Synchronize the local cache with its configured remote (pull + push)'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "save-manifest" -d 'Save a build manifest for future prefetch warming'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "daemon" -d 'Daemon management. With no subcommand, shows daemon status'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "monitor" -d 'Live TUI dashboard for monitoring builds'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "stats" -d 'Show cache stats summary (non-interactive)'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "telemetry" -d 'Write cache counters as OTLP JSON for Kartero to import later'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "why-miss" -d 'Diagnose why a specific crate missed the cache'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "report" -d 'Generate a detailed build report (json, trace, markdown, or text)'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "config" -d 'Open the configuration editor'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "install-shims" -d 'Create compiler-name symlinks pointing at kache, for transparent interception by prepending the directory to PATH'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "completions" -d 'Generate shell completion scripts'
+complete -c kache -n "__fish_kache_using_subcommand help; and not __fish_seen_subcommand_from cargo list gc purge clean init doctor sync save-manifest daemon monitor stats telemetry why-miss report config install-shims completions help" -f -a "help" -d 'Print this message or the help of the given subcommand(s)'
 complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "status" -d 'Show daemon status (alias for bare `kache daemon`)'
 complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "run" -d 'Run the daemon server in the foreground'
 complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "start" -d 'Start daemon in background (returns immediately)'
@@ -145,3 +189,4 @@ complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcom
 complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "install" -d 'Install daemon as a system service (launchd/systemd)'
 complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "uninstall" -d 'Remove the daemon service'
 complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from daemon" -f -a "log" -d 'Stream daemon logs'
+complete -c kache -n "__fish_kache_using_subcommand help; and __fish_seen_subcommand_from telemetry" -f -a "write" -d 'Snapshot live cache counters into `metrics.otlp.json` + `schema_version`'
