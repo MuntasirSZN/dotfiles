@@ -11,6 +11,9 @@
       "input"
       "docker"
       "ydotool"
+      "i2c"
+      "render"
+      "uinput"
     ];
     shell = pkgs.fish;
   };

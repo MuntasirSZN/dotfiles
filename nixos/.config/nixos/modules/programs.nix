@@ -41,8 +41,6 @@
     ydotool.enable = true;
     neovim = {
       enable = true;
-      viAlias = true;
-      vimAlias = true;
       defaultEditor = true;
       withNodeJs = true;
       withPython3 = true;
@@ -56,21 +54,25 @@
     };
     dank-calendar = {
       enable = true;
-      systemd.enable = true;
-    };
-    dms-shell = {
-      enable = true;
-      quickshell.package = pkgs.quickshell;
-      enableSystemMonitoring = true;
       systemd = {
         enable = true;
         restartIfChanged = true;
       };
+    };
+    dms-shell = {
+      enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+      enableSystemMonitoring = true;
       enableVPN = true;
       enableDynamicTheming = true;
       enableAudioWavelength = true;
-      enableCalendarEvents = true;
-      enableClipboardPaste = true;
+    };
+    dsearch = {
+      enable = true;
+      systemd.enable = true;
     };
 
     mtr.enable = true;

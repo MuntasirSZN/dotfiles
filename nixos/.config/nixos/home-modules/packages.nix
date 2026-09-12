@@ -88,7 +88,6 @@
         gnumake
         git-credential-keepassxc
         matugen
-        wtype
         dgop
         libsForQt5.qt5ct
         nautilus
