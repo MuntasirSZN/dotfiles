@@ -36,3 +36,12 @@ hl.window_rule({ match = { class = "^co.hyprlab.Vireo$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=wr_1788793588949151244, name=org.x.GnomeOnlineAccountsGtk
 hl.window_rule({ match = { class = "^org.x.GnomeOnlineAccountsGtk$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=dms-floating-windows, name=DMS Floating Windows
+hl.window_rule({ match = { class = "^com.danklinux.dms$" }, float = true })
+
+-- DMS-RULE: id=wr_1789294976423312678, name=org.gnome.NautilusPreviewer
+hl.window_rule({ match = { class = "^org.gnome.NautilusPreviewer$" }, float = true })
+
+-- DMS-RULE: id=wr_1789295294790660622, name=org.gnome.Fractal
+hl.window_rule({ match = { class = "^org.gnome.Fractal$" }, opacity = 0.85 })

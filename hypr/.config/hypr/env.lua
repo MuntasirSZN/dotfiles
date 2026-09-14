@@ -30,6 +30,3 @@ hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx") -- Toolkit Backend Variables
-hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("CLUTTER_BACKEND", "wayland")

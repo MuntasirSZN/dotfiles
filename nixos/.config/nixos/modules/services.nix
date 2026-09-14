@@ -98,7 +98,10 @@
     };
 
     fwupd.enable = true;
-    gnome.gnome-online-accounts.enable = true;
+    gnome = {
+      gnome-online-accounts.enable = true;
+      sushi.enable = true;
+    };
     gvfs.enable = true;
 
     ananicy = {

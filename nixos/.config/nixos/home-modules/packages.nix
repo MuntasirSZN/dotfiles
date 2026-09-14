@@ -8,6 +8,11 @@
   home.packages =
     let
       topLevel = with pkgs; [
+        img2pdf
+        tesseract
+        zbar
+        fractal
+        gnome-maps
         go
         playerctl
         surge-downloader
@@ -52,7 +57,6 @@
         fastfetch
         lazydocker
         direnv
-        satty
         slurp
         gpu-screen-recorder
         azure-cli
@@ -68,7 +72,6 @@
         libllvm
         yt-dlp
         entr
-        rustdesk
         sqlite
         texliveBasic
         biber

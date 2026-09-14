@@ -31,7 +31,13 @@
     "wallpaperDirectory": "/home/muntasir/Pictures/Wallpapers/wallpapers"
   },
   "quickCapture": {
-    "enabled": true
+    "enabled": true,
+    "recordingDirectory": "~/Videos/Screencasts",
+    "recordingBackend": "gpu-screen-recorder",
+    "recordingQuality": "high",
+    "defaultWatermark": true,
+    "watermarkType": "text",
+    "recordMic": true
   },
   "screenCaptureToolbar": {
     "enabled": true,
@@ -64,7 +70,11 @@
     "backupEnabled": false,
     "folderColorBaseThemeDark": "",
     "folderColorBaseThemeLight": "",
-    "folderColorBaseTheme": ""
+    "folderColorBaseTheme": "",
+    "gtkThemeLight": "adw-gtk3-dark",
+    "gtkThemeDark": "adw-gtk3-dark",
+    "qtPlatformTheme": "preserve",
+    "qtSyncMode": "manual"
   },
   "discordVoice": {
     "enabled": true
