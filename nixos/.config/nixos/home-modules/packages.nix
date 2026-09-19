@@ -114,7 +114,6 @@
         eask-cli
         doppler
         gvfs
-        simple-mtpfs
         libmtp
         gnome-online-accounts-gtk
         keepassxc
