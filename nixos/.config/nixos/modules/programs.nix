@@ -65,9 +65,6 @@
         enable = true;
         restartIfChanged = true;
       };
-      enableVPN = true;
-      enableDynamicTheming = true;
-      enableAudioWavelength = true;
     };
     dsearch = {
       enable = true;
