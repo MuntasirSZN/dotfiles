@@ -11,23 +11,39 @@
   "calendarBackend": "dankcal",
   "padHours12Hour": true,
   "customAnimationDuration": 200,
+  "springBounce": 0,
   "barElevationEnabled": false,
   "blurEnabled": true,
   "blurBorderOpacity": 0.1,
   "controlCenterShowMicPercent": true,
   "controlCenterWidgets": [
     {
+      "id": "brightnessSlider",
+      "enabled": true,
+      "width": 100
+    },
+    {
       "id": "volumeSlider",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "brightnessSlider",
+      "id": "inputVolumeSlider",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "inputVolumeSlider",
+      "id": "audioOutput",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "audioInput",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "doNotDisturb",
       "enabled": true,
       "width": 50
     },
@@ -39,22 +55,7 @@
       "mountPath": "/home"
     },
     {
-      "id": "audioInput",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "audioOutput",
-      "enabled": true,
-      "width": 50
-    },
-    {
       "id": "darkMode",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "doNotDisturb",
       "enabled": true,
       "width": 50
     },
@@ -77,6 +78,11 @@
       "id": "plugin_dankKDEConnect",
       "enabled": true,
       "width": 50
+    },
+    {
+      "id": "plugin_quickCapture",
+      "enabled": true,
+      "width": 50
     }
   ],
   "showWorkspaceIndex": true,
@@ -84,6 +90,7 @@
   "showWorkspaceApps": true,
   "workspaceFocusedBorderThickness": 1,
   "mediaUseAlbumArtAccent": true,
+  "appleMusicAnimatedArtEnabled": true,
   "appIdSubstitutions": [],
   "clockDateFormat": "dddd, MMMM d, yyyy",
   "lockDateFormat": "dddd, MMMM d, yyyy",
@@ -114,6 +121,7 @@
   "launcherLogoMode": "os",
   "fontFamily": "Geist",
   "monoFontFamily": "FiraCode Nerd Font",
+  "soundLogin": true,
   "matugenTemplateNiri": false,
   "matugenTemplateMangowc": false,
   "matugenTemplateFirefox": false,
@@ -202,24 +210,7 @@
           "enabled": true
         },
         {
-          "id": "memUsage",
-          "enabled": true
-        },
-        {
-          "id": "cpuUsage",
-          "enabled": true,
-          "minimumWidth": true
-        },
-        {
-          "id": "quickCapture",
-          "enabled": true
-        },
-        {
-          "id": "usbManager",
-          "enabled": true
-        },
-        {
-          "id": "battery",
+          "id": "systemMonitorPlus",
           "enabled": true
         },
         {
@@ -278,7 +269,9 @@
       "shadowOpacity": 60,
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
-      "clickThrough": false
+      "clickThrough": false,
+      "attachToScreenEdge": false,
+      "island": false
     }
   ],
   "desktopClockCustomColor": {
@@ -309,57 +302,36 @@
   },
   "desktopWidgetInstances": [
     {
-      "id": "dw_1782192597707_ws278birj",
-      "widgetType": "desktopClock",
-      "name": "Desktop Clock",
+      "id": "dw_1789489507996_h8bzfv6bi",
+      "widgetType": "modernClock",
+      "name": "Modern Clock",
       "enabled": true,
       "config": {
-        "style": "analog",
-        "transparency": 0.65,
-        "colorMode": "primary",
-        "customColor": "#ffffff",
-        "showDate": false,
-        "showAnalogNumbers": false,
-        "showAnalogSeconds": true,
         "displayPreferences": [
           "all"
         ],
-        "clickThrough": true,
-        "showOnOverlay": false,
-        "syncPositionAcrossScreens": true
+        "scaleWithWidget": false,
+        "useThemeColors": true,
+        "clickThrough": true
       }
     },
     {
-      "id": "dw_1782192715143_1isjc0xg8",
-      "widgetType": "systemMonitor",
-      "name": "System Monitor",
+      "id": "dw_1789489925375_8yzoby8gj",
+      "widgetType": "cavaVisualizer",
+      "name": "Cava Visualizer",
       "enabled": true,
       "config": {
-        "showHeader": true,
-        "transparency": 0.8,
-        "colorMode": "primary",
-        "customColor": "#ffffff",
-        "showCpu": true,
-        "showCpuGraph": true,
-        "showCpuTemp": true,
-        "showGpuTemp": true,
-        "gpuPciId": "8086:4692",
-        "showMemory": true,
-        "showMemoryGraph": true,
-        "showNetwork": true,
-        "showNetworkGraph": true,
-        "showDisk": true,
-        "showTopProcesses": true,
-        "topProcessCount": 3,
-        "topProcessSortBy": "memory",
-        "layoutMode": "list",
-        "graphInterval": 60,
         "displayPreferences": [
           "all"
         ],
-        "clickThrough": true,
-        "syncPositionAcrossScreens": true,
-        "showOnOverlay": false
+        "colorChoice": "surface",
+        "orientation": "horizontal",
+        "vizMode": "bars",
+        "barCount": 30,
+        "barSpacing": 6,
+        "barWidth": 0,
+        "opacity": 95,
+        "clickThrough": true
       }
     }
   ],

@@ -62,11 +62,11 @@
     "dank-qml-common": {
       "flake": false,
       "locked": {
-        "lastModified": 1789851922,
-        "narHash": "sha256-0+ix8DGpRVi4tcsu7u3XA+aw5gUXRZZbGxVu5ZgOWgo=",
+        "lastModified": 1790212412,
+        "narHash": "sha256-K42tXEVWy8EoeuZf2YL5frZnK3rtxPUG5r8vw6HH0q8=",
         "owner": "AvengeMedia",
         "repo": "dank-qml-common",
-        "rev": "6f75d9065b2ff708eb1e91eec30ec5008d1ce3ee",
+        "rev": "971aa3d326cb01e174d34f4dc843719386c6464f",
         "type": "github"
       },
       "original": {
@@ -83,11 +83,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790196594,
-        "narHash": "sha256-H2ihIojLu+FR1GWo1ws/4Lpw5N4tM78QwkMARk0KV9Q=",
+        "lastModified": 1790214656,
+        "narHash": "sha256-dIXQuotufps/E5AMtDhh7k2nacS4BhqZgUd0rycie/w=",
         "owner": "AvengeMedia",
         "repo": "dankcalendar",
-        "rev": "b9ec42c98b5dc2bf282a6b94c09e1164ef161320",
+        "rev": "161be60696e2dc2b80147eb51b46a7a75517d772",
         "type": "github"
       },
       "original": {
@@ -269,11 +269,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790199334,
-        "narHash": "sha256-EAIvpJtPEqxRO8eXLSj/6AqHMDTxxpd+l2PZVG/Pswk=",
+        "lastModified": 1790225410,
+        "narHash": "sha256-BOyZoliWfm/beS4m3FxFKlu5at6npZen1PsWtvzzihk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "aa09c3b459bf536af336393a175f8416adb49fb0",
+        "rev": "4900baf1e219645e4a2acba35723852b2091bc20",
         "type": "github"
       },
       "original": {
@@ -303,6 +303,18 @@
         "owner": "nix-community",
         "repo": "lanzaboote",
         "type": "github"
+      }
+    },
+    "mybase_blocklist": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Tf92PQxsYVZMQlwJASwpRmoENyILcnf/nXNJtH1byws=",
+        "type": "file",
+        "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
       }
     },
     "nix-index-database": {
@@ -370,11 +382,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1790046670,
-        "narHash": "sha256-OJe62m8gZx4xEAQnMcqH1u31/uu4Xf0q2ykAEHZfgrg=",
-        "rev": "6774f7bc253789b113a4f39285dc0fa100abeacc",
+        "lastModified": 1790185690,
+        "narHash": "sha256-EZwz6sR6RLzbKiJJ9QQgXPZ/zA6P8ecfFr/6fwBRfes=",
+        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1077996.6774f7bc2537/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1078696.4975466d3247/nixexprs.tar.zst"
       },
       "original": {
         "type": "tarball",
@@ -389,11 +401,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790213948,
-        "narHash": "sha256-NGYoxXs/W9MmfmMm4x0/vzflfEYUbOea/lDfBa46cuw=",
+        "lastModified": 1790237367,
+        "narHash": "sha256-tFoZi9P+zuTpICSZd5+IuINj+g5EBSwfLCqGew/dcrI=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "1c9c3d4f52cae578eee553f251fc8a3d489c578f",
+        "rev": "c7741633d898fcf8e2d6a8ab034f6c185b4adc0d",
         "type": "github"
       },
       "original": {
@@ -432,6 +444,7 @@
         "disko": "disko",
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
+        "mybase_blocklist": "mybase_blocklist",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",

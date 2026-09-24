@@ -21,9 +21,7 @@
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     cachyos-settings = {
@@ -45,6 +43,10 @@
     dcal = {
       url = "github:AvengeMedia/dankcalendar";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    mybase_blocklist = {
+      url = "https://download.dnscrypt.info/blacklists/domains/mybase.txt";
+      flake = false;
     };
   };
 

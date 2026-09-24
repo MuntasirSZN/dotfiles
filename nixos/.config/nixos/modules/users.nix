@@ -14,6 +14,7 @@
       "i2c"
       "render"
       "uinput"
+      "greeter"
     ];
     shell = pkgs.fish;
   };

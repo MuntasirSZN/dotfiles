@@ -11,6 +11,9 @@ function starship_transient_prompt_func
 end
 
 if status is-interactive
+    if type -q nix-your-shell
+        nix-your-shell fish | source
+    end
     herdr 2>/dev/null
     for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.fish
         test -r "$_f"; and source "$_f"; and break
@@ -85,6 +88,12 @@ function rfg --argument-names editor
         else
           $editor +cw -q {+f}
         end"
+
+    set -l query_args
+    if set -q argv[2]
+        set query_args --query (string join " " $argv[2..])
+    end
+
     fzf --disabled --ansi --multi --style=full \
         --bind "start:$RELOAD" --bind "change:$RELOAD" \
         --bind "enter:become:$OPENER" \
@@ -93,7 +102,7 @@ function rfg --argument-names editor
         --delimiter : \
         --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
         --preview-window '~4,+{2}+4/3,<80(up)' \
-        --query (string join " " $argv[2..])
+        $query_args
 end
 
 function rfn --wraps='rfg nvim'

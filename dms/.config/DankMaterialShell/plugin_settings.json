@@ -78,5 +78,20 @@
   },
   "discordVoice": {
     "enabled": true
+  },
+  "resourceMonitor": {
+    "enabled": true
+  },
+  "systemMonitorPlus": {
+    "enabled": true,
+    "cpuTempEnabled": false,
+    "ramUsageEnabled": true,
+    "gpuTempEnabled": true,
+    "diskPartitionUsageEnabled": false,
+    "networkSpeedEnabled": false,
+    "cpuUsageVisualStyle": "gauge",
+    "ramUsageVisualStyle": "gauge",
+    "gpuTempVisualStyle": "gauge",
+    "gpuTempIconName": ""
   }
 }

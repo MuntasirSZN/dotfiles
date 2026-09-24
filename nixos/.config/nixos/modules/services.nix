@@ -2,6 +2,7 @@
 {
   pkgs,
   lib,
+  inputs,
   ...
 }:
 
@@ -133,7 +134,10 @@
         require_nolog = true;
         require_nofilter = false;
         http3 = true;
-        server_names = [ "cloudflare-security" ];
+        server_names = [
+          "cloudflare-security"
+        ];
+        blocked_names.blocked_names_file = pkgs.writeText "blocklist.txt" "${builtins.readFile inputs.mybase_blocklist}";
 
         listen_addresses = [
           "127.0.0.1:53"

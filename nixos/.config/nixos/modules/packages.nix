@@ -8,6 +8,7 @@
 
 let
   topLevel = with pkgs; [
+    nix-your-shell
     nur.repos.ilya-fedin.qt6ct
     ffmpeg-full
     fish

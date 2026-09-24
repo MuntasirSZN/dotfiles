@@ -19,12 +19,18 @@
    "tray": {
       "enabled": true
    },
+   "global_shortcuts": {
+      "toggle": "control+SPACE"
+   },
    "font": {
       "normal": {
          "family": "Geist"
       }
    },
    "theme": {
+      "light": {
+         "name": "matugen"
+      },
       "dark": {
          "name": "matugen"
       }
@@ -58,6 +64,13 @@
          "preferences": {
             "arguments_terminal": true,
             "arguments_terminal_type": "ghostty"
+         }
+      },
+      "@knoopx/store.vicinae.github": {
+         "preferences": {
+            "defaultIssueFilter": "my",
+            "defaultRepositoryFilter": "my",
+            "numberOfResults": "50"
          }
       },
       "@system7/store.vicinae.keepassxc": {

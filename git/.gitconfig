@@ -28,6 +28,8 @@
 [merge]
   conflictstyle = zdiff3
 [diff]
+  algorithm = histogram
+  mnemonicPrefix = true
   colorMoved = default
   context = 3  # less context in diffs
   renames = copies  # detect copies as renames in diffs
@@ -35,7 +37,8 @@
 [checkout]
   defaultRemote = origin
 [commit]
-	gpgSign = true
+  gpgSign = true
+  verbose = true
   template = ~/.gitmessage
 [remote "origin"]
   fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
@@ -73,3 +76,6 @@
   manyFiles = true
 [tag]
   forceSignAnnotated = true
+  gpgSign = true
+[rerere]
+  enabled = true
