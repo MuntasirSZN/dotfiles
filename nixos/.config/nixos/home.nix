@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 
@@ -32,5 +33,12 @@
       name = "Windows";
       size = 25;
     };
+    extraOutputsToInstall = [
+      "devdoc"
+      "info"
+      "man"
+      "doc"
+      "dev"
+    ];
   };
 }

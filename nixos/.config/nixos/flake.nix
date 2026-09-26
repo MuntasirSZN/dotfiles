@@ -73,16 +73,12 @@
       dcal,
       ...
     }@inputs:
-    let
-      devLib = import ./lib { inherit (nixpkgs) lib; };
-    in
     {
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = {
             inherit inputs;
-            inherit (devLib) devClosure;
           };
           modules = [
             nur.modules.nixos.default
@@ -101,7 +97,6 @@
                 users.muntasir = import ./home.nix;
                 extraSpecialArgs = {
                   inherit inputs;
-                  inherit (devLib) devClosure;
                 };
               };
             }

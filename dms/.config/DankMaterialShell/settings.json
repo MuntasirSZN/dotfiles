@@ -214,6 +214,17 @@
           "enabled": true
         },
         {
+          "id": "battery",
+          "enabled": true,
+          "showBatteryPercent": true,
+          "showBatteryPercentOnlyOnBattery": false,
+          "showBatteryTime": false,
+          "showBatteryTimeOnlyOnBattery": false,
+          "showBatteryPowerCharging": false,
+          "showBatteryPowerDischarging": false,
+          "batteryStyle": "icon"
+        },
+        {
           "id": "notificationButton",
           "enabled": true
         },

@@ -8,6 +8,7 @@
 
 {
   services = {
+    power-profiles-daemon.enable = true;
     usbguard = {
       enable = true;
       dbus.enable = true;
@@ -138,6 +139,9 @@
           "cloudflare-security"
         ];
         blocked_names.blocked_names_file = pkgs.writeText "blocklist.txt" "${builtins.readFile inputs.mybase_blocklist}";
+        allowed_names.allowed_names_file = pkgs.writeText "allowed-names.txt" ''
+          ip-api.com
+        '';
 
         listen_addresses = [
           "127.0.0.1:53"
