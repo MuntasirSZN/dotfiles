@@ -28,7 +28,7 @@
           7
         ];
       };
-      configurationLimit = 8;
+      configurationLimit = 4;
       settings = {
         editor = false;
       };
