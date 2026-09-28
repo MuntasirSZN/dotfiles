@@ -3,6 +3,9 @@ return {
   ---@class PluginLspOpts
   opts = {
     servers = {
+      clangd = {
+        cmd = { "clangd", "--query-driver=/home/muntasir/.local/lib/kache/shims/clang" },
+      },
       fish_lsp = {},
       ty = {},
       tombi = {},

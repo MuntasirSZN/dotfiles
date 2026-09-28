@@ -9,7 +9,6 @@
     tesseract
     zbar
     fractal
-    gnome-maps
     go
     playerctl
     surge-downloader

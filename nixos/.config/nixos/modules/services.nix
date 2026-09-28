@@ -141,6 +141,7 @@
         blocked_names.blocked_names_file = pkgs.writeText "blocklist.txt" "${builtins.readFile inputs.mybase_blocklist}";
         allowed_names.allowed_names_file = pkgs.writeText "allowed-names.txt" ''
           ip-api.com
+          t.co
         '';
 
         listen_addresses = [

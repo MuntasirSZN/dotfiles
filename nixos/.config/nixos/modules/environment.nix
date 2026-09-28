@@ -1,7 +1,6 @@
 # Environment variables and session variables.
 {
   pkgs,
-  lib,
   config,
   ...
 }:
@@ -21,7 +20,6 @@
     };
 
     sessionVariables = {
-      CPATH = lib.strings.makeIncludePath config.custom.packages.system;
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
       VALGRIND_REQUESTS_VALGRIND_INCLUDE = "${pkgs.callPackage ../pkgs/valgrind-codspeed { }}/include";
       PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig";

@@ -40,10 +40,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dcal = {
-      url = "github:AvengeMedia/dankcalendar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     mybase_blocklist = {
       url = "https://download.dnscrypt.info/blacklists/domains/mybase.txt";
       flake = false;
@@ -70,7 +66,6 @@
       chaotic,
       disko,
       nur,
-      dcal,
       ...
     }@inputs:
     {
@@ -89,7 +84,6 @@
             chaotic.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             home-manager.nixosModules.home-manager
-            dcal.nixosModules.dank-calendar
             {
               home-manager = {
                 useGlobalPkgs = true;

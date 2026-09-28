@@ -309,6 +309,7 @@
       (pkgs.callPackage ../pkgs/windows-cursor-theme { })
 
       (pkgs.callPackage ../pkgs/valgrind-codspeed { })
+      dankcalendar
     ];
     description = "Packages to install in system";
   };

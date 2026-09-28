@@ -48,17 +48,7 @@
     gamemode.enable = true;
     kdeconnect.enable = true;
 
-    hyprland = {
-      enable = true;
-      withUWSM = false;
-    };
-    dank-calendar = {
-      enable = true;
-      systemd = {
-        enable = true;
-        restartIfChanged = true;
-      };
-    };
+    hyprland.enable = true;
     dms-shell = {
       enable = true;
       systemd = {

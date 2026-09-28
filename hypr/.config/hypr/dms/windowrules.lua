@@ -45,3 +45,6 @@ hl.window_rule({ match = { class = "^org.gnome.NautilusPreviewer$" }, float = tr
 
 -- DMS-RULE: id=wr_1789295294790660622, name=org.gnome.Fractal
 hl.window_rule({ match = { class = "^org.gnome.Fractal$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1790441993370631993, name=io.gitlab.news_flash.NewsFlash
+hl.window_rule({ match = { class = "^io.gitlab.news_flash.NewsFlash$" }, opacity = 0.9 })

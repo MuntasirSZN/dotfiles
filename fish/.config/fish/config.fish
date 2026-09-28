@@ -50,6 +50,7 @@ if status is-interactive
     set -gx EZA_ICONS_AUTO true
     set -gx LS_COLORS (vivid generate catppuccin-mocha)
     set -gx MANPATH "/usr/local/man:$MANPATH"
+    set -gx HINDSIGHT_API_LLM_PROVIDER groq
     set -gx FZF_DEFAULT_OPTS " \
     --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
     --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -112,3 +113,13 @@ end
 function rfv --wraps='rfg vim'
     rfg vim $argv
 end
+
+# pnpm
+set -gx PNPM_HOME '/home/muntasir/.local/share/pnpm'
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+    set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end
+
+# opencode
+fish_add_path /home/muntasir/.opencode/bin

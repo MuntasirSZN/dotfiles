@@ -59,43 +59,6 @@
         "type": "github"
       }
     },
-    "dank-qml-common": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1790212412,
-        "narHash": "sha256-K42tXEVWy8EoeuZf2YL5frZnK3rtxPUG5r8vw6HH0q8=",
-        "owner": "AvengeMedia",
-        "repo": "dank-qml-common",
-        "rev": "971aa3d326cb01e174d34f4dc843719386c6464f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "dank-qml-common",
-        "type": "github"
-      }
-    },
-    "dcal": {
-      "inputs": {
-        "dank-qml-common": "dank-qml-common",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1790214656,
-        "narHash": "sha256-dIXQuotufps/E5AMtDhh7k2nacS4BhqZgUd0rycie/w=",
-        "owner": "AvengeMedia",
-        "repo": "dankcalendar",
-        "rev": "161be60696e2dc2b80147eb51b46a7a75517d772",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "dankcalendar",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -401,11 +364,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790559825,
-        "narHash": "sha256-krcGXF8ufJDBZQaHvNGu4HcA57SpV9wwlmqLZH+J5bw=",
+        "lastModified": 1790584495,
+        "narHash": "sha256-ItZYCT0y8l/LE9ANJwtHImZeLIeY4h0AMTGjiFAbOH8=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "889a69bf1a1ffc57e559a96dc219a864dc6d7fdb",
+        "rev": "1710ac4098829a41f48d7e89dae2c7d3a2235cf0",
         "type": "github"
       },
       "original": {
@@ -440,7 +403,6 @@
       "inputs": {
         "cachyos-settings": "cachyos-settings",
         "chaotic": "chaotic",
-        "dcal": "dcal",
         "disko": "disko",
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
