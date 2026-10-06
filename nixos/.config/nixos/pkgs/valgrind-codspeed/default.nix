@@ -91,6 +91,18 @@ stdenv.mkDerivation rec {
   ]
   ++ lib.optional stdenv.hostPlatform.isx86_64 "--enable-only64bit";
 
+  # glibc >= 2.44 adds C23 const-generic overload *macros* for strchr/strrchr/strstr
+  # in <string.h>. This file defines its own functions with those names (forwarding
+  # to vgPlain_*, since the tool links -nodefaultlibs), so the macros rewrite the
+  # definitions into _Generic expressions and the build fails. Undefining them is
+  # the only fix: -std=gnu17 does not help because _GNU_SOURCE force-defines
+  # _ISOC23_SOURCE, keeping __GLIBC_USE_ISOC23 on.
+  postPatch = ''
+    substituteInPlace callgrind/cycledecode_capstone.c \
+      --replace-fail '#include <string.h>' \
+        $'#include <string.h>\n#undef strchr\n#undef strrchr\n#undef strstr'
+  '';
+
   preConfigure = ''
     ./autogen.sh
   '';

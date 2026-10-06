@@ -14,7 +14,6 @@
       nur.repos.ilya-fedin.qt6ct
       ffmpeg-full
       fish
-      collabora-desktop
       docker-compose
       cups
       pciutils
