@@ -100,7 +100,7 @@ stdenv.mkDerivation rec {
   postPatch = ''
     substituteInPlace callgrind/cycledecode_capstone.c \
       --replace-fail '#include <string.h>' \
-        "#include <string.h>\n#undef strchr\n#undef strrchr\n#undef strstr"
+        $'#include <string.h>\n#undef strchr\n#undef strrchr\n#undef strstr'
   '';
 
   preConfigure = ''
