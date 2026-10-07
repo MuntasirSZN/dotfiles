@@ -13,9 +13,6 @@ hl.window_rule({ match = { class = "^com.danklinux.dms$" }, opacity = 0.8 })
 -- DMS-RULE: id=wr_1784381992967144968, name=discord
 hl.window_rule({ match = { class = "^discord$" }, opacity = 0.7 })
 
--- DMS-RULE: id=wr_1784482529862478848, name=com.rtosta.zapzap
-hl.window_rule({ match = { class = "^com.rtosta.zapzap$" }, opacity = 0.8 })
-
 -- DMS-RULE: id=wr_1784819019436443309, name=org.gnome.Evince
 hl.window_rule({ match = { class = "^org.gnome.Evince$" }, opacity = 0.79 })
 
@@ -48,3 +45,6 @@ hl.window_rule({ match = { class = "^org.gnome.Fractal$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=wr_1790441993370631993, name=io.gitlab.news_flash.NewsFlash
 hl.window_rule({ match = { class = "^io.gitlab.news_flash.NewsFlash$" }, opacity = 0.9 })
+
+-- DMS-RULE: id=wr_1791302098448274318, name=zapfast
+hl.window_rule({ match = { class = "^zapfast$" }, opacity = 0.85 })
