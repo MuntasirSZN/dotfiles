@@ -1,5 +1,5 @@
 # Nix daemon settings and nixpkgs configuration.
-_:
+{ pkgs, ... }:
 
 {
   nix = {
@@ -17,5 +17,19 @@ _:
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (final: prev: {
+        nautilus = prev.nautilus.overrideAttrs (nprev: {
+          buildInputs =
+            nprev.buildInputs
+            ++ (with pkgs.gst_all_1; [
+              gst-plugins-good
+              gst-plugins-bad
+            ]);
+        });
+      })
+    ];
+  };
 }

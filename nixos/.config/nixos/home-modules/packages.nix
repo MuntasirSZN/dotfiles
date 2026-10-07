@@ -5,6 +5,9 @@
 
 {
   home.packages = with pkgs; [
+    nautilus-python
+    libheif
+    libheif.out
     img2pdf
     tesseract
     zbar
