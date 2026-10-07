@@ -5,7 +5,6 @@
 
 {
   home.packages = with pkgs; [
-    nautilus-python
     libheif
     libheif.out
     img2pdf
@@ -93,7 +92,6 @@
     dgop
     libsForQt5.qt5ct
     nautilus
-    nautilus-open-any-terminal
     evince
     loupe
     networkmanagerapplet

@@ -1,1 +1,1 @@
-/nix/store/vyy4i8asw5w79kn20158qa4k72pq2d4s-home-manager-files/.config/hypr/hyprland.lua
+/nix/store/ikr4vsway53xyg6cqkjbjhs5y27a3m13-home-manager-files/.config/hypr/hyprland.lua
