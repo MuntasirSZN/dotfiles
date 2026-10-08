@@ -65,7 +65,7 @@ if status is-interactive
     end
 
     fish_add_path \
-        "$HOME/.local/lib/kache/shims" \
+        "$HOME/.local/share/mbx/bin" \
         "$HOME/.spicetify" \
         "$HOME/.turso" \
         "$HOME/.cargo/bin" \

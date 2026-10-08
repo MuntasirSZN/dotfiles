@@ -1,8 +1,7 @@
-.crush
 /memory:
 /local:
 /docs/superpowers
-.worktrees/
+/.worktrees
 /.superpowers
 /.serena
 

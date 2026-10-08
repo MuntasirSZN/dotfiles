@@ -8,63 +8,21 @@
   gnumake,
   gcc,
   pkg-config,
-  cmake,
   python3,
   perl,
 }:
 
-let
-  # Capstone for Callgrind per-instruction cycle estimation (--cycle-estimation=yes).
-  # Valgrind tools link -nodefaultlibs and have no glibc %fs TLS, so capstone must
-  # be built without stackprotector (its %fs:0x28 canary faults at runtime) and
-  # without fortify (pulls __*_chk symbols the tool doesn't shim). x86 + arm64
-  # only — drops non-target instruction printers that reference libc symbols.
-  capstone = stdenv.mkDerivation rec {
-    pname = "capstone";
-    version = "5.0.9";
-
-    src = fetchFromGitHub {
-      owner = "capstone-engine";
-      repo = "capstone";
-      rev = "refs/tags/${version}";
-      hash = "sha256-uAiiKWKGjEATPE0Xc3g+aOLCz5ffIlDmf+7jaGwaZ4I=";
-    };
-
-    nativeBuildInputs = [
-      cmake
-      gnumake
-      gcc
-    ];
-
-    cmakeFlags = [
-      "-DCAPSTONE_ARCHITECTURE_DEFAULT=OFF"
-      "-DCAPSTONE_X86_SUPPORT=ON"
-      "-DCAPSTONE_ARM64_SUPPORT=ON"
-    ];
-
-    hardeningDisable = [
-      "stackprotector"
-      "fortify"
-      "fortify3"
-    ];
-
-    meta = with lib; {
-      description = "Capstone disassembly framework (x86 + arm64, static, no hardening)";
-      platforms = platforms.linux;
-      license = licenses.bsd3;
-    };
-  };
-
-in
 stdenv.mkDerivation rec {
   pname = "valgrind-codspeed";
-  version = "3.26.0-0codspeed7";
+  version = "3.26.0-0codspeed8";
 
   src = fetchFromGitHub {
     owner = "CodSpeedHQ";
     repo = "valgrind-codspeed";
     rev = "refs/tags/${version}";
-    hash = "sha256-VWFuQezqYE+F7IXFs5X1t7LfKp/7P1LyOAR6Yg7ur7w=";
+    hash = "sha256-prvMDkZMRyb0ISwwOM9VUHzVgfkOvBx83h7+QpDmQh8=";
+
+    fetchSubmodules = true;
   };
 
   nativeBuildInputs = [
@@ -78,8 +36,6 @@ stdenv.mkDerivation rec {
     perl
   ];
 
-  # Valgrind tool objects link -nodefaultlibs and run without glibc's %fs TLS,
-  # so the toolchain must not inject stack-protector or fortify (__*_chk).
   hardeningDisable = [
     "stackprotector"
     "fortify"
@@ -87,21 +43,8 @@ stdenv.mkDerivation rec {
   ];
 
   configureFlags = [
-    "--with-capstone=${capstone}"
-  ]
-  ++ lib.optional stdenv.hostPlatform.isx86_64 "--enable-only64bit";
-
-  # glibc >= 2.44 adds C23 const-generic overload *macros* for strchr/strrchr/strstr
-  # in <string.h>. This file defines its own functions with those names (forwarding
-  # to vgPlain_*, since the tool links -nodefaultlibs), so the macros rewrite the
-  # definitions into _Generic expressions and the build fails. Undefining them is
-  # the only fix: -std=gnu17 does not help because _GNU_SOURCE force-defines
-  # _ISOC23_SOURCE, keeping __GLIBC_USE_ISOC23 on.
-  postPatch = ''
-    substituteInPlace callgrind/cycledecode_capstone.c \
-      --replace-fail '#include <string.h>' \
-        $'#include <string.h>\n#undef strchr\n#undef strrchr\n#undef strstr'
-  '';
+    "--enable-only64bit"
+  ];
 
   preConfigure = ''
     ./autogen.sh

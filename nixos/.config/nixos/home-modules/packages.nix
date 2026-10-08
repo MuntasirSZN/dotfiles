@@ -5,6 +5,8 @@
 
 {
   home.packages = with pkgs; [
+    shaderc
+    vulkan-tools
     libheif
     libheif.out
     img2pdf

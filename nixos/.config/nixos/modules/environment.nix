@@ -15,10 +15,6 @@
       "doc"
       "dev"
     ];
-    variables = {
-      CFLAGS = "-fuse-ld=mold";
-    };
-
     sessionVariables = {
       LIBCLANG_PATH = "${pkgs.libclang.lib}/lib";
       VALGRIND_REQUESTS_VALGRIND_INCLUDE = "${pkgs.callPackage ../pkgs/valgrind-codspeed { }}/include";
