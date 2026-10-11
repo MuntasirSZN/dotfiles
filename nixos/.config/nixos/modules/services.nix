@@ -80,16 +80,23 @@
     };
 
     snapper = {
+      cleanupInterval = "1h";
+
       configs.home = {
         SUBVOLUME = "/home";
 
         TIMELINE_CREATE = true;
         TIMELINE_CLEANUP = true;
 
-        TIMELINE_LIMIT_HOURLY = 24;
-        TIMELINE_LIMIT_DAILY = 7;
-        TIMELINE_LIMIT_WEEKLY = 4;
-        TIMELINE_LIMIT_MONTHLY = 12;
+        TIMELINE_LIMIT_HOURLY = 1;
+        TIMELINE_LIMIT_DAILY = 1;
+        TIMELINE_LIMIT_WEEKLY = 8;
+        TIMELINE_LIMIT_MONTHLY = 0;
+        TIMELINE_LIMIT_QUARTERLY = 0;
+        TIMELINE_LIMIT_YEARLY = 0;
+
+        NUMBER_CLEANUP = true;
+        NUMBER_LIMIT = 10;
       };
     };
 

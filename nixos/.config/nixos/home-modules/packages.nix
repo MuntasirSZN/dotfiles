@@ -5,7 +5,7 @@
 
 {
   home.packages = with pkgs; [
-    shaderc
+    wtype
     vulkan-tools
     libheif
     libheif.out
