@@ -83,6 +83,11 @@
       "id": "plugin_quickCapture",
       "enabled": true,
       "width": 50
+    },
+    {
+      "id": "plugin_screenkey",
+      "enabled": true,
+      "width": 50
     }
   ],
   "showWorkspaceIndex": true,
@@ -211,6 +216,10 @@
         },
         {
           "id": "systemMonitorPlus",
+          "enabled": true
+        },
+        {
+          "id": "ocrScanner",
           "enabled": true
         },
         {

@@ -35,8 +35,6 @@
     "recordingDirectory": "~/Videos/Screencasts",
     "recordingBackend": "gpu-screen-recorder",
     "recordingQuality": "high",
-    "defaultWatermark": true,
-    "watermarkType": "text",
     "recordMic": true
   },
   "screenCaptureToolbar": {
@@ -93,5 +91,13 @@
     "ramUsageVisualStyle": "gauge",
     "gpuTempVisualStyle": "gauge",
     "gpuTempIconName": ""
+  },
+  "ocrScanner": {
+    "enabled": true,
+    "autoCopy": true,
+    "ocrLanguage": "eng+ben"
+  },
+  "screenkey": {
+    "enabled": true
   }
 }
