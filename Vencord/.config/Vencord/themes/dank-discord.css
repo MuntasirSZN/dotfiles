@@ -13,88 +13,88 @@
 .visual-refresh .theme-dark,
 .visual-refresh .theme-light {
     /* base backgrounds — MD3 elevation: content darkest, chrome lighter */
-    --background-base-low: #131318 !important;
-    --chat-background: #131318 !important;
-    --chat-background-default: #131318 !important;
-    --background-primary: #131318 !important;
-    --bg-base-primary: #131318 !important;
-    --home-background: #131318 !important;
+    --background-base-low: #101418 !important;
+    --chat-background: #101418 !important;
+    --chat-background-default: #101418 !important;
+    --background-primary: #101418 !important;
+    --bg-base-primary: #101418 !important;
+    --home-background: #101418 !important;
 
-    --background-base-lower: #1b1b21 !important;
-    --background-secondary: #1b1b21 !important;
-    --bg-base-secondary: #1b1b21 !important;
-    --custom-channel-members-bg: #1b1b21 !important;
+    --background-base-lower: #181c20 !important;
+    --background-secondary: #181c20 !important;
+    --bg-base-secondary: #181c20 !important;
+    --custom-channel-members-bg: #181c20 !important;
 
-    --background-base-lowest: #1f1f25 !important;
-    --app-frame-background: #1f1f25 !important;
-    --background-tertiary: #1f1f25 !important;
-    --background-secondary-alt: #1f1f25 !important;
-    --bg-base-tertiary: #1f1f25 !important;
-    --__header-bar-background: #1f1f25 !important;
+    --background-base-lowest: #1c2024 !important;
+    --app-frame-background: #1c2024 !important;
+    --background-tertiary: #1c2024 !important;
+    --background-secondary-alt: #1c2024 !important;
+    --bg-base-tertiary: #1c2024 !important;
+    --__header-bar-background: #1c2024 !important;
 
-    --background-surface-high: #2a292f !important;
-    --bg-surface-raised: #2a292f !important;
-    --card-primary-bg: #2a292f !important;
-    --activity-card-background: #2a292f !important;
+    --background-surface-high: #272a2f !important;
+    --bg-surface-raised: #272a2f !important;
+    --card-primary-bg: #272a2f !important;
+    --activity-card-background: #272a2f !important;
 
-    --background-surface-higher: #2a292f !important;
-    --bg-surface-overlay: #2a292f !important;
-    --background-floating: #2a292f !important;
-    --background-nested-floating: #2a292f !important;
-    --autocomplete-bg: #2a292f !important;
+    --background-surface-higher: #272a2f !important;
+    --bg-surface-overlay: #272a2f !important;
+    --background-floating: #272a2f !important;
+    --background-nested-floating: #272a2f !important;
+    --autocomplete-bg: #272a2f !important;
 
-    --background-surface-highest: #35343a !important;
-    --modal-background: #35343a !important;
-    --modal-footer-background: #35343a !important;
-    --background-accent: #35343a !important;
-    --card-secondary-bg: #35343a !important;
-    --user-profile-overlay-background: #35343a !important;
+    --background-surface-highest: #323539 !important;
+    --modal-background: #323539 !important;
+    --modal-footer-background: #323539 !important;
+    --background-accent: #323539 !important;
+    --card-secondary-bg: #323539 !important;
+    --user-profile-overlay-background: #323539 !important;
 
-    --chat-border: color-mix(in srgb, #47464f 50%, transparent) !important;
+    --chat-border: color-mix(in srgb, #42474e 50%, transparent) !important;
 
     /* text */
-    --text-default: #e4e1e9 !important;
-    --text-normal: #e4e1e9 !important;
-    --text-primary: #e4e1e9 !important;
-    --text-strong: #e4e1e9 !important;
-    --header-primary: #e4e1e9 !important;
-    --embed-title: #e4e1e9 !important;
-    --interactive-active: #e4e1e9 !important;
-    --input-text-default: #e4e1e9 !important;
+    --text-default: #e0e2e8 !important;
+    --text-normal: #e0e2e8 !important;
+    --text-primary: #e0e2e8 !important;
+    --text-strong: #e0e2e8 !important;
+    --header-primary: #e0e2e8 !important;
+    --embed-title: #e0e2e8 !important;
+    --interactive-active: #e0e2e8 !important;
+    --input-text-default: #e0e2e8 !important;
 
-    --text-secondary: #c8c5d0 !important;
-    --text-muted: #c8c5d0 !important;
-    --text-subtle: #c8c5d0 !important;
-    --text-tertiary: #c8c5d0 !important;
-    --chat-text-muted: #c8c5d0 !important;
-    --header-secondary: #c8c5d0 !important;
-    --header-muted: #c8c5d0 !important;
-    --text-muted-on-default: #c8c5d0 !important;
-    --text-low-contrast: #c8c5d0 !important;
+    --text-secondary: #c2c7cf !important;
+    --text-muted: #c2c7cf !important;
+    --text-subtle: #c2c7cf !important;
+    --text-tertiary: #c2c7cf !important;
+    --chat-text-muted: #c2c7cf !important;
+    --header-secondary: #c2c7cf !important;
+    --header-muted: #c2c7cf !important;
+    --text-muted-on-default: #c2c7cf !important;
+    --text-low-contrast: #c2c7cf !important;
 
-    --interactive-normal: #c8c5d0 !important;
-    --channels-default: #918f9a !important;
-    --channel-icon: #918f9a !important;
-    --icon-primary: #c8c5d0 !important;
-    --icon-secondary: #c8c5d0 !important;
-    --icon-tertiary: #c8c5d0 !important;
-    --interactive-icon-default: #c8c5d0 !important;
-    --interactive-hover: #e4e1e9 !important;
-    --interactive-icon-hover: #e4e1e9 !important;
-    --interactive-icon-active: #e4e1e9 !important;
-    --interactive-text-hover: #e4e1e9 !important;
-    --interactive-text-active: #e4e1e9 !important;
+    --interactive-normal: #c2c7cf !important;
+    --channels-default: #8c9198 !important;
+    --channel-icon: #8c9198 !important;
+    --icon-primary: #c2c7cf !important;
+    --icon-secondary: #c2c7cf !important;
+    --icon-tertiary: #c2c7cf !important;
+    --interactive-icon-default: #c2c7cf !important;
+    --interactive-hover: #e0e2e8 !important;
+    --interactive-icon-hover: #e0e2e8 !important;
+    --interactive-icon-active: #e0e2e8 !important;
+    --interactive-text-hover: #e0e2e8 !important;
+    --interactive-text-active: #e0e2e8 !important;
 
-    --interactive-muted: #47464f !important;
-    --icon-muted: #918f9a !important;
-    --channel-text-area-placeholder: #918f9a !important;
-    --input-placeholder-text-default: #918f9a !important;
+    --interactive-muted: #42474e !important;
+    --icon-muted: #8c9198 !important;
+    --channel-text-area-placeholder: #8c9198 !important;
+    --input-placeholder-text-default: #8c9198 !important;
 
-    --text-link: #c1c1ff !important;
-    --text-brand: #c1c1ff !important;
-    --control-brand-foreground: #c1c1ff !important;
-    --control-brand-foreground-new: #c1c1ff !important;
-    --badge-text-brand: #c1c1ff !important;
+    --text-link: #9acbfa !important;
+    --text-brand: #9acbfa !important;
+    --control-brand-foreground: #9acbfa !important;
+    --control-brand-foreground-new: #9acbfa !important;
+    --badge-text-brand: #9acbfa !important;
 
     --text-danger: #ffb4ab !important;
     --text-feedback-critical: #ffb4ab !important;
@@ -102,87 +102,87 @@
     --text-feedback-positive: #23a55a !important;
     --text-warning: #f0b232 !important;
     --text-feedback-warning: #f0b232 !important;
-    --text-feedback-info: #c6c4dd !important;
+    --text-feedback-info: #b9c8da !important;
 
     /* interactive state layers — translucent, MD3 opacities */
-    --background-modifier-hover: color-mix(in srgb, #e4e1e9 8%, transparent) !important;
-    --background-mod-subtle: color-mix(in srgb, #e4e1e9 8%, transparent) !important;
-    --bg-mod-faint: color-mix(in srgb, #e4e1e9 8%, transparent) !important;
-    --interactive-background-hover: color-mix(in srgb, #e4e1e9 8%, transparent) !important;
+    --background-modifier-hover: color-mix(in srgb, #e0e2e8 8%, transparent) !important;
+    --background-mod-subtle: color-mix(in srgb, #e0e2e8 8%, transparent) !important;
+    --bg-mod-faint: color-mix(in srgb, #e0e2e8 8%, transparent) !important;
+    --interactive-background-hover: color-mix(in srgb, #e0e2e8 8%, transparent) !important;
 
-    --background-modifier-active: color-mix(in srgb, #e4e1e9 10%, transparent) !important;
-    --background-mod-normal: color-mix(in srgb, #e4e1e9 10%, transparent) !important;
-    --interactive-background-active: color-mix(in srgb, #e4e1e9 10%, transparent) !important;
+    --background-modifier-active: color-mix(in srgb, #e0e2e8 10%, transparent) !important;
+    --background-mod-normal: color-mix(in srgb, #e0e2e8 10%, transparent) !important;
+    --interactive-background-active: color-mix(in srgb, #e0e2e8 10%, transparent) !important;
 
-    --background-modifier-selected: color-mix(in srgb, #c1c1ff 14%, transparent) !important;
-    --background-mod-strong: color-mix(in srgb, #c1c1ff 14%, transparent) !important;
-    --bg-mod-strong: color-mix(in srgb, #c1c1ff 14%, transparent) !important;
-    --interactive-background-selected: color-mix(in srgb, #c1c1ff 14%, transparent) !important;
+    --background-modifier-selected: color-mix(in srgb, #9acbfa 14%, transparent) !important;
+    --background-mod-strong: color-mix(in srgb, #9acbfa 14%, transparent) !important;
+    --bg-mod-strong: color-mix(in srgb, #9acbfa 14%, transparent) !important;
+    --interactive-background-selected: color-mix(in srgb, #9acbfa 14%, transparent) !important;
 
-    --background-modifier-accent: color-mix(in srgb, #e4e1e9 6%, transparent) !important;
-    --background-message-hover: color-mix(in srgb, #e4e1e9 4%, transparent) !important;
-    --message-background-hover: color-mix(in srgb, #e4e1e9 4%, transparent) !important;
+    --background-modifier-accent: color-mix(in srgb, #e0e2e8 6%, transparent) !important;
+    --background-message-hover: color-mix(in srgb, #e0e2e8 4%, transparent) !important;
+    --message-background-hover: color-mix(in srgb, #e0e2e8 4%, transparent) !important;
 
-    --background-message-highlight: color-mix(in srgb, #e9b9d2 10%, transparent) !important;
-    --background-message-highlight-hover: color-mix(in srgb, #e9b9d2 14%, transparent) !important;
-    --message-highlight-background-default: color-mix(in srgb, #e9b9d2 10%, transparent) !important;
-    --message-highlight-background-hover: color-mix(in srgb, #e9b9d2 14%, transparent) !important;
+    --background-message-highlight: color-mix(in srgb, #d2bfe7 10%, transparent) !important;
+    --background-message-highlight-hover: color-mix(in srgb, #d2bfe7 14%, transparent) !important;
+    --message-highlight-background-default: color-mix(in srgb, #d2bfe7 10%, transparent) !important;
+    --message-highlight-background-hover: color-mix(in srgb, #d2bfe7 14%, transparent) !important;
 
-    --background-mentioned: color-mix(in srgb, #c1c1ff 10%, transparent) !important;
-    --background-mentioned-hover: color-mix(in srgb, #c1c1ff 14%, transparent) !important;
-    --message-mentioned-background-default: color-mix(in srgb, #c1c1ff 10%, transparent) !important;
-    --message-mentioned-background-hover: color-mix(in srgb, #c1c1ff 14%, transparent) !important;
-    --mention-background: color-mix(in srgb, #c1c1ff 15%, transparent) !important;
-    --mention-foreground: #c1c1ff !important;
+    --background-mentioned: color-mix(in srgb, #9acbfa 10%, transparent) !important;
+    --background-mentioned-hover: color-mix(in srgb, #9acbfa 14%, transparent) !important;
+    --message-mentioned-background-default: color-mix(in srgb, #9acbfa 10%, transparent) !important;
+    --message-mentioned-background-hover: color-mix(in srgb, #9acbfa 14%, transparent) !important;
+    --mention-background: color-mix(in srgb, #9acbfa 15%, transparent) !important;
+    --mention-foreground: #9acbfa !important;
 
-    --message-reacted-background-default: color-mix(in srgb, #c1c1ff 15%, transparent) !important;
-    --message-reacted-text-default: #e4e1e9 !important;
+    --message-reacted-background-default: color-mix(in srgb, #9acbfa 15%, transparent) !important;
+    --message-reacted-text-default: #e0e2e8 !important;
 
     /* brand ramp — absolute lightness steps, mode-safe */
-    --brand-100: color-mix(in srgb, #c1c1ff 12%, #ffffff) !important;
-    --brand-200: color-mix(in srgb, #c1c1ff 25%, #ffffff) !important;
-    --brand-260: color-mix(in srgb, #c1c1ff 33%, #ffffff) !important;
-    --brand-300: color-mix(in srgb, #c1c1ff 40%, #ffffff) !important;
-    --brand-360: color-mix(in srgb, #c1c1ff 55%, #ffffff) !important;
-    --brand-400: color-mix(in srgb, #c1c1ff 70%, #ffffff) !important;
-    --brand-500: #c1c1ff !important;
-    --brand-560: color-mix(in srgb, #c1c1ff 90%, #000000) !important;
-    --brand-600: color-mix(in srgb, #c1c1ff 85%, #000000) !important;
-    --brand-700: color-mix(in srgb, #c1c1ff 70%, #000000) !important;
-    --brand-800: color-mix(in srgb, #c1c1ff 55%, #000000) !important;
-    --brand-900: color-mix(in srgb, #c1c1ff 40%, #000000) !important;
-    --brand-experiment: #c1c1ff !important;
-    --brand-experiment-360: #c1c1ff !important;
-    --brand-experiment-500: #c1c1ff !important;
-    --blurple-50: #c1c1ff !important;
-    --blue-500: #c1c1ff !important;
+    --brand-100: color-mix(in srgb, #9acbfa 12%, #ffffff) !important;
+    --brand-200: color-mix(in srgb, #9acbfa 25%, #ffffff) !important;
+    --brand-260: color-mix(in srgb, #9acbfa 33%, #ffffff) !important;
+    --brand-300: color-mix(in srgb, #9acbfa 40%, #ffffff) !important;
+    --brand-360: color-mix(in srgb, #9acbfa 55%, #ffffff) !important;
+    --brand-400: color-mix(in srgb, #9acbfa 70%, #ffffff) !important;
+    --brand-500: #9acbfa !important;
+    --brand-560: color-mix(in srgb, #9acbfa 90%, #000000) !important;
+    --brand-600: color-mix(in srgb, #9acbfa 85%, #000000) !important;
+    --brand-700: color-mix(in srgb, #9acbfa 70%, #000000) !important;
+    --brand-800: color-mix(in srgb, #9acbfa 55%, #000000) !important;
+    --brand-900: color-mix(in srgb, #9acbfa 40%, #000000) !important;
+    --brand-experiment: #9acbfa !important;
+    --brand-experiment-360: #9acbfa !important;
+    --brand-experiment-500: #9acbfa !important;
+    --blurple-50: #9acbfa !important;
+    --blue-500: #9acbfa !important;
 
     /* buttons and controls — on-color state layers */
-    --bg-brand: #c1c1ff !important;
-    --background-brand: #c1c1ff !important;
-    --control-primary-background-default: #c1c1ff !important;
-    --control-primary-background-hover: color-mix(in srgb, #c1c1ff 92%, #2a2a60) !important;
-    --control-primary-background-active: color-mix(in srgb, #c1c1ff 85%, #2a2a60) !important;
-    --control-primary-text-default: #2a2a60 !important;
-    --control-primary-text-hover: #2a2a60 !important;
-    --control-primary-text-active: #2a2a60 !important;
-    --control-primary-icon-default: #2a2a60 !important;
-    --control-primary-icon-hover: #2a2a60 !important;
-    --control-primary-icon-active: #2a2a60 !important;
-    --button-filled-brand-background: #c1c1ff !important;
-    --button-filled-brand-background-hover: color-mix(in srgb, #c1c1ff 92%, #2a2a60) !important;
-    --button-filled-brand-background-active: color-mix(in srgb, #c1c1ff 85%, #2a2a60) !important;
-    --button-filled-brand-text: #2a2a60 !important;
+    --bg-brand: #9acbfa !important;
+    --background-brand: #9acbfa !important;
+    --control-primary-background-default: #9acbfa !important;
+    --control-primary-background-hover: color-mix(in srgb, #9acbfa 92%, #003352) !important;
+    --control-primary-background-active: color-mix(in srgb, #9acbfa 85%, #003352) !important;
+    --control-primary-text-default: #003352 !important;
+    --control-primary-text-hover: #003352 !important;
+    --control-primary-text-active: #003352 !important;
+    --control-primary-icon-default: #003352 !important;
+    --control-primary-icon-hover: #003352 !important;
+    --control-primary-icon-active: #003352 !important;
+    --button-filled-brand-background: #9acbfa !important;
+    --button-filled-brand-background-hover: color-mix(in srgb, #9acbfa 92%, #003352) !important;
+    --button-filled-brand-background-active: color-mix(in srgb, #9acbfa 85%, #003352) !important;
+    --button-filled-brand-text: #003352 !important;
 
-    --control-secondary-background-default: #2a292f !important;
-    --control-secondary-background-hover: #35343a !important;
-    --control-secondary-background-active: color-mix(in srgb, #35343a 90%, #e4e1e9) !important;
-    --control-secondary-text-default: #e4e1e9 !important;
-    --button-secondary-background: #2a292f !important;
-    --button-secondary-background-hover: #35343a !important;
-    --button-secondary-background-active: color-mix(in srgb, #35343a 90%, #e4e1e9) !important;
-    --button-secondary-text: #e4e1e9 !important;
-    --redesign-button-secondary-text: #e4e1e9 !important;
+    --control-secondary-background-default: #272a2f !important;
+    --control-secondary-background-hover: #323539 !important;
+    --control-secondary-background-active: color-mix(in srgb, #323539 90%, #e0e2e8) !important;
+    --control-secondary-text-default: #e0e2e8 !important;
+    --button-secondary-background: #272a2f !important;
+    --button-secondary-background-hover: #323539 !important;
+    --button-secondary-background-active: color-mix(in srgb, #323539 90%, #e0e2e8) !important;
+    --button-secondary-text: #e0e2e8 !important;
+    --redesign-button-secondary-text: #e0e2e8 !important;
 
     --button-danger-background: #ffb4ab !important;
     --button-danger-background-hover: color-mix(in srgb, #ffb4ab 92%, #690005) !important;
@@ -199,20 +199,20 @@
     --button-positive-background: #23a55a !important;
     --button-positive-background-hover: color-mix(in srgb, #23a55a 90%, #ffffff) !important;
 
-    --button-outline-primary-text: #e4e1e9 !important;
-    --button-outline-primary-text-hover: #e4e1e9 !important;
-    --button-outline-primary-text-active: #e4e1e9 !important;
-    --button-outline-primary-background-hover: color-mix(in srgb, #e4e1e9 8%, transparent) !important;
-    --button-outline-primary-background-active: color-mix(in srgb, #e4e1e9 10%, transparent) !important;
-    --button-outline-brand-text: #c1c1ff !important;
-    --button-outline-brand-background-hover: color-mix(in srgb, #c1c1ff 10%, transparent) !important;
-    --button-transparent-text: #e4e1e9 !important;
-    --button-transparent-background-hover: color-mix(in srgb, #e4e1e9 8%, transparent) !important;
-    --button-transparent-background-active: color-mix(in srgb, #e4e1e9 10%, transparent) !important;
+    --button-outline-primary-text: #e0e2e8 !important;
+    --button-outline-primary-text-hover: #e0e2e8 !important;
+    --button-outline-primary-text-active: #e0e2e8 !important;
+    --button-outline-primary-background-hover: color-mix(in srgb, #e0e2e8 8%, transparent) !important;
+    --button-outline-primary-background-active: color-mix(in srgb, #e0e2e8 10%, transparent) !important;
+    --button-outline-brand-text: #9acbfa !important;
+    --button-outline-brand-background-hover: color-mix(in srgb, #9acbfa 10%, transparent) !important;
+    --button-transparent-text: #e0e2e8 !important;
+    --button-transparent-background-hover: color-mix(in srgb, #e0e2e8 8%, transparent) !important;
+    --button-transparent-background-active: color-mix(in srgb, #e0e2e8 10%, transparent) !important;
 
-    --redesign-input-control-selected: #c1c1ff !important;
-    --focus-primary: #c1c1ff !important;
-    --__adaptive-focus-ring-color: #c1c1ff !important;
+    --redesign-input-control-selected: #9acbfa !important;
+    --focus-primary: #9acbfa !important;
+    --__adaptive-focus-ring-color: #9acbfa !important;
 
     /* status — keep Discord semantics, theme only offline */
     --status-online: #23a55a !important;
@@ -227,72 +227,72 @@
     --text-status-dnd: #f13f43 !important;
     --icon-status-dnd: #f13f43 !important;
     --status-danger: #f13f43 !important;
-    --status-offline: #918f9a !important;
-    --text-status-offline: #918f9a !important;
-    --icon-status-offline: #918f9a !important;
+    --status-offline: #8c9198 !important;
+    --text-status-offline: #8c9198 !important;
+    --icon-status-offline: #8c9198 !important;
 
     /* feedback, notices, badges */
     --background-feedback-critical: #93000a !important;
     --notice-background-critical: #93000a !important;
     --notice-text-critical: #ffdad6 !important;
     --icon-feedback-critical: #ffb4ab !important;
-    --background-feedback-positive: #414178 !important;
-    --notice-background-positive: #414178 !important;
-    --notice-text-positive: #e2dfff !important;
-    --background-feedback-info: #454559 !important;
-    --notice-background-info: #454559 !important;
-    --notice-text-info: #e2e0f9 !important;
-    --background-feedback-warning: #5f3c51 !important;
-    --notice-background-warning: #5f3c51 !important;
-    --notice-text-warning: #ffd8eb !important;
-    --badge-notification-background: #c1c1ff !important;
-    --background-feedback-notification: #c1c1ff !important;
+    --background-feedback-positive: #0c4a72 !important;
+    --notice-background-positive: #0c4a72 !important;
+    --notice-text-positive: #cde5ff !important;
+    --background-feedback-info: #3a4857 !important;
+    --notice-background-info: #3a4857 !important;
+    --notice-text-info: #d5e4f6 !important;
+    --background-feedback-warning: #4f4061 !important;
+    --notice-background-warning: #4f4061 !important;
+    --notice-text-warning: #eedcff !important;
+    --badge-notification-background: #9acbfa !important;
+    --background-feedback-notification: #9acbfa !important;
     --red-400: #ffb4ab !important;
     --red-430: #ffb4ab !important;
     --red-500: #ffb4ab !important;
 
     /* inputs, code, spoilers */
-    --input-background-default: #35343a !important;
-    --input-background: #35343a !important;
-    --channeltextarea-background: #35343a !important;
-    --deprecated-text-input-bg: #35343a !important;
-    --input-border-default: #47464f !important;
-    --input-border: #47464f !important;
-    --deprecated-text-input-border: #47464f !important;
-    --background-code: #1f1f25 !important;
-    --spoiler-hidden-background: #35343a !important;
-    --spoiler-revealed-background: #1f1f25 !important;
+    --input-background-default: #323539 !important;
+    --input-background: #323539 !important;
+    --channeltextarea-background: #323539 !important;
+    --deprecated-text-input-bg: #323539 !important;
+    --input-border-default: #42474e !important;
+    --input-border: #42474e !important;
+    --deprecated-text-input-border: #42474e !important;
+    --background-code: #1c2024 !important;
+    --spoiler-hidden-background: #323539 !important;
+    --spoiler-revealed-background: #1c2024 !important;
 
     /* scrollbars */
-    --scrollbar-auto-thumb: #47464f !important;
-    --scrollbar-thin-thumb: #47464f !important;
-    --scrollbar-auto-scrollbar-color-thumb: #47464f !important;
+    --scrollbar-auto-thumb: #42474e !important;
+    --scrollbar-thin-thumb: #42474e !important;
+    --scrollbar-auto-scrollbar-color-thumb: #42474e !important;
     --scrollbar-auto-track: transparent !important;
     --scrollbar-thin-track: transparent !important;
     --scrollbar-auto-scrollbar-color-track: transparent !important;
 
     /* borders */
-    --border-faint: color-mix(in srgb, #47464f 30%, transparent) !important;
-    --border-subtle: color-mix(in srgb, #47464f 50%, transparent) !important;
-    --border-muted: #47464f !important;
-    --border-normal: #47464f !important;
-    --border-strong: #918f9a !important;
+    --border-faint: color-mix(in srgb, #42474e 30%, transparent) !important;
+    --border-subtle: color-mix(in srgb, #42474e 50%, transparent) !important;
+    --border-muted: #42474e !important;
+    --border-normal: #42474e !important;
+    --border-strong: #8c9198 !important;
 }
 
 ::selection {
-    background: color-mix(in srgb, #c1c1ff 35%, transparent);
+    background: color-mix(in srgb, #9acbfa 35%, transparent);
 }
 
 .theme-dark .highlight,
 .theme-light .highlight {
-    background: color-mix(in srgb, #c1c1ff 30%, transparent);
+    background: color-mix(in srgb, #9acbfa 30%, transparent);
     color: inherit;
 }
 
 /* unread pills + notification badges → primary */
 .theme-dark span[class*="unreadPill"],
 .theme-light span[class*="unreadPill"] {
-    --interactive-text-active: #c1c1ff !important;
+    --interactive-text-active: #9acbfa !important;
 }
 
 .theme-dark div[class*="numberBadge"],
@@ -319,14 +319,14 @@
 .theme-light [class*="modeButtonActive"],
 .theme-dark [class*="childWrapper"],
 .theme-light [class*="childWrapper"] {
-    --white: #2a2a60 !important;
-    --white-500: #2a2a60 !important;
+    --white: #003352 !important;
+    --white-500: #003352 !important;
 }
 
 /* search pagination: active page number */
 .theme-dark [class*="pageControl"] [class*="activeButton"],
 .theme-light [class*="pageControl"] [class*="activeButton"] {
-    color: #2a2a60 !important;
-    --white: #2a2a60 !important;
-    --white-500: #2a2a60 !important;
+    color: #003352 !important;
+    --white: #003352 !important;
+    --white-500: #003352 !important;
 }

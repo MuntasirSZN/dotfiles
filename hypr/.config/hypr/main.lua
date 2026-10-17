@@ -14,5 +14,5 @@ require("dms.binds-user")
 require("dms.windowrules")
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+	hl.exec_cmd([[PATH="$HOME/.local/bin:$PATH" dbus-update-activation-environment --systemd --all]])
 end)

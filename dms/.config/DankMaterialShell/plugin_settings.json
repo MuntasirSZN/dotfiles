@@ -100,8 +100,9 @@
   "screenkey": {
     "enabled": true,
     "visualizerEnabled": false,
-    "showNormalKeys": false,
+    "showNormalKeys": true,
     "showModifierStatus": false,
-    "showMouseClicks": false
+    "showMouseClicks": false,
+    "macSymbols": false
   }
 }

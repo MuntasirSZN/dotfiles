@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    libinput.bin
     evtest
     wtype
     vulkan-tools
