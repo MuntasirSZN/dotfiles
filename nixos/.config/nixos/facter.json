@@ -525,6 +525,7 @@
         "fpu_exception": false,
         "cpuid_level": 32,
         "write_protect": false,
+        "tlb_size": 4940,
         "clflush_size": 64,
         "cache_alignment": 64,
         "address_sizes": {
@@ -638,14 +639,14 @@
         "sysfs_id": "/class/block/zram0",
         "unix_device_names": [
           "/dev/disk/by-label/zram0",
-          "/dev/disk/by-uuid/44dc24bf-0936-4b4d-9897-905b43d42202",
+          "/dev/disk/by-uuid/91f4e590-dee8-4290-91a5-9c762d85d7c2",
           "/dev/zram0"
         ],
         "resources": [
           {
             "type": "size",
             "unit": "sectors",
-            "value_1": 940544,
+            "value_1": 940032,
             "value_2": 4096
           }
         ]
@@ -844,7 +845,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 7.2.0-cachyos xhci-hcd",
+          "name": "Linux 7.2.9-cachyos xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -858,7 +859,7 @@
           "value": 0
         },
         "serial": "0000:00:14.0",
-        "model": "Linux 7.2.0-cachyos xhci-hcd xHCI Host Controller",
+        "model": "Linux 7.2.9-cachyos xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:14.0/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
         "resources": [
@@ -931,7 +932,7 @@
         },
         "vendor": {
           "hex": "1d6b",
-          "name": "Linux 7.2.0-cachyos xhci-hcd",
+          "name": "Linux 7.2.9-cachyos xhci-hcd",
           "value": 7531
         },
         "device": {
@@ -945,7 +946,7 @@
           "value": 0
         },
         "serial": "0000:00:14.0",
-        "model": "Linux 7.2.0-cachyos xhci-hcd xHCI Host Controller",
+        "model": "Linux 7.2.9-cachyos xhci-hcd xHCI Host Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:14.0/usb2/2-0:1.0",
         "sysfs_bus_id": "2-0:1.0",
         "detail": {
@@ -1496,6 +1497,9 @@
         "sysfs_id": "/devices/pci0000:00/0000:00:14.0/usb1/1-6/1-6:1.1",
         "sysfs_bus_id": "1-6:1.1",
         "unix_device_names": [
+          "/dev/input/by-id/usb-SEMICO_USB_Keyboard-if01-event-kbd",
+          "/dev/input/by-path/pci-0000:00:14.0-usb-0:6:1.1-event-kbd",
+          "/dev/input/by-path/pci-0000:00:14.0-usbv2-0:6:1.1-event-kbd",
           "/dev/input/event9"
         ],
         "resources": [
@@ -2537,7 +2541,7 @@
           },
           "interface_protocol": 0,
           "interface_number": 1,
-          "interface_alternate_setting": 0
+          "interface_alternate_setting": 1
         },
         "hotplug": "usb",
         "driver": "snd-usb-audio",
@@ -3084,8 +3088,8 @@
     "bios": {
       "handle": 0,
       "vendor": "American Megatrends International, LLC.",
-      "version": "F35",
-      "date": "06/12/2026",
+      "version": "F36a",
+      "date": "07/29/2026",
       "features": [
         "PCI supported",
         "BIOS flashable",

@@ -48,3 +48,6 @@ hl.window_rule({ match = { class = "^io.gitlab.news_flash.NewsFlash$" }, opacity
 
 -- DMS-RULE: id=wr_1791302098448274318, name=zapfast
 hl.window_rule({ match = { class = "^zapfast$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1792168883692097926, name=org.keepassxc.KeePassXC
+hl.window_rule({ match = { class = "^org.keepassxc.KeePassXC$" }, opacity = 0.85 })

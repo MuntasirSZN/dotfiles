@@ -98,6 +98,10 @@
     "ocrLanguage": "eng+ben"
   },
   "screenkey": {
-    "enabled": true
+    "enabled": true,
+    "visualizerEnabled": false,
+    "showNormalKeys": false,
+    "showModifierStatus": false,
+    "showMouseClicks": false
   }
 }

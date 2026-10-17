@@ -3,7 +3,7 @@
   name = Muntasir Mahmud
 	signingKey = DAF9E3E03AA870A9E1807AE1E7FE5EC876734CA2
 [credential]
-  helper = keepassxc --group \"git credentials\"
+	helper = /home/muntasir/.git-credential-wrapper
 [init]
   defaultBranch = main
 [include]

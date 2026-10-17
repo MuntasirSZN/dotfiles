@@ -24,10 +24,7 @@
     ];
     flatpak.enable = true;
 
-    # Uncomment when version is greater that 2.5.12
-    # It doesn't even start, stderr: Non-mobile platform, exiting....
-    # https://github.com/intel/thermal_daemon/issues/589
-    # thermald.enable = true;
+    thermald.enable = true;
     upower.enable = true;
 
     printing = {

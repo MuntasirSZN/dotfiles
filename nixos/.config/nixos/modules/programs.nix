@@ -33,9 +33,17 @@
       enable = true;
       binfmt = true;
       package = pkgs.appimage-run.override {
-        extraPkgs = pkgs: [
-          pkgs.icu
-        ];
+        extraPkgs =
+          pkgs: with pkgs; [
+            icu
+            gst_all_1.gstreamer
+            gst_all_1.gst-plugins-base
+            gst_all_1.gst-plugins-good
+            gst_all_1.gst-plugins-bad
+            gst_all_1.gst-plugins-ugly
+            gst_all_1.gst-plugins-rs
+            gst_all_1.gst-libav
+          ];
       };
     };
     ydotool.enable = true;
