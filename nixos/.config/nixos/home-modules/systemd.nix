@@ -1,6 +1,33 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
+  xdg.configFile."systemd/user/dms.service.d/override.conf".text =
+    let
+      home = config.home.homeDirectory;
+      user = config.home.username;
+    in
+    ''
+      [Service]
+      Environment="PATH=${
+        lib.makeSearchPathOutput "bin" "bin" [
+          "${home}/.local"
+          "/run/wrappers"
+          "${home}/.local/share/flatpak/exports"
+          "/var/lib/flatpak/exports"
+          "${home}/.nix-profile"
+          "${home}/.local/state/nix/profile"
+          "/etc/profiles/per-user/${user}"
+          "/nix/var/nix/profiles/default"
+          "/run/current-system/sw"
+        ]
+      }"
+    '';
+
   systemd.user = {
     services = {
       rclone-google = {
