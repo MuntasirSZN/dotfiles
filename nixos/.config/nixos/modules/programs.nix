@@ -81,7 +81,6 @@
         enable = true;
         restartIfChanged = true;
       };
-      portal.enable = true;
     };
 
     mtr.enable = true;
