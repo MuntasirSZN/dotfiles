@@ -20,17 +20,18 @@
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      # nautilus overlay removed temporarily — newer nixpkgs breaks gst-plugins-good/bad refs
-      # (final: prev: {
-      #   nautilus = prev.nautilus.overrideAttrs (nprev: {
-      #     buildInputs =
-      #       nprev.buildInputs
-      #       ++ (with pkgs.gst_all_1; [
-      #         gst-plugins-good
-      #         gst-plugins-bad
-      #       ]);
-      #   });
-      # })
+      (final: prev: {
+        nautilus = prev.nautilus.overrideAttrs (nprev: {
+          buildInputs =
+            nprev.buildInputs
+            ++ (with pkgs.gst_all_1; [
+              gst-plugins-good
+              gst-plugins-bad
+              gst-plugins-ugly
+              gst-libav
+            ]);
+        });
+      })
     ];
   };
 }
