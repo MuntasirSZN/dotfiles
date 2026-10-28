@@ -48,11 +48,7 @@
     consoleLogLevel = 3;
 
     initrd = {
-      verbose = false;
-      systemd = {
-        enable = true;
-        tpm2.enable = true;
-      };
+      systemd.tpm2.enable = true;
       kernelModules = [ "i915" ];
     };
 

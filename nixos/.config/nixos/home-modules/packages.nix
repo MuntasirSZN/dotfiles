@@ -61,7 +61,6 @@
     direnv
     slurp
     gpu-screen-recorder
-    azure-cli
     aflplusplus
     # Kani CBMC solvers
     cadical
@@ -93,7 +92,7 @@
     gnumake
     git-credential-keepassxc
     matugen
-    dgop
+    dux-gop
     libsForQt5.qt5ct
     nautilus
     evince
