@@ -6,10 +6,8 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
       xdg-desktop-portal-luminous
-      dux-files
       oo7-portal
     ];
     config = {
