@@ -40,9 +40,10 @@
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
-      publish = {
-        enable = true;
-        userServices = true;
+      settings.publish = {
+        disable-publishing = false;
+        disable-user-service-publishing = false;
+        publish-addresses = true;
       };
     };
 
@@ -173,7 +174,7 @@
 
     libinput.enable = true;
 
-    displayManager.dms-greeter = {
+    displayManager.dux-greeter = {
       enable = true;
       compositor = {
         name = "hyprland";

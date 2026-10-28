@@ -29,8 +29,8 @@ jobs:
           CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
         run: |
           # ---- extract + merge caches ----
-          settings_json=$(nix eval ./nixos/.config/nixos#nixosConfigurations.nixos.config.nix.settings --json 2>/dev/null)
-          flake_json=$(nix eval --impure --expr '(import (toString ./nixos/.config/nixos/flake.nix)).nixConfig' --json 2>/dev/null)
+          settings_json=$(nix eval ./nixos/.config/nixos#nixosConfigurations.nixos.config.nix.settings --json)
+          flake_json=$(nix eval --impure --expr '(import (toString ./nixos/.config/nixos/flake.nix)).nixConfig' --json)
 
           merged_json=$(echo "$settings_json" "$flake_json" | jq -s '
             .[0] as $settings |

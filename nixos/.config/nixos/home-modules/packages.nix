@@ -93,7 +93,7 @@
     gnumake
     git-credential-keepassxc
     matugen
-    dgop
+    dux-gop
     libsForQt5.qt5ct
     nautilus
     evince
