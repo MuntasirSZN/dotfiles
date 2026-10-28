@@ -21,6 +21,7 @@
         ];
         "org.freedesktop.impl.portal.FileChooser" = [
           "dfiles"
+          "gtk"
         ];
         "org.freedesktop.impl.portal.Secret" = [
           "oo7-portal"
