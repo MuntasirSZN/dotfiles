@@ -66,7 +66,25 @@
     };
     dux-search = {
       enable = true;
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+    };
+    dux-calendar = {
+      enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+    };
+    dux-files = {
+      enable = true;
+      systemd = {
+        enable = true;
+        restartIfChanged = true;
+      };
+      portal.enable = true;
     };
 
     mtr.enable = true;

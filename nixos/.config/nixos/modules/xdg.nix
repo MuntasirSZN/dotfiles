@@ -9,6 +9,7 @@
       xdg-desktop-portal-hyprland
       xdg-desktop-portal-gtk
       xdg-desktop-portal-luminous
+      dux-files
       oo7-portal
     ];
     config = {
@@ -17,6 +18,9 @@
           "hyprland"
           "luminous"
           "gtk"
+        ];
+        "org.freedesktop.impl.portal.FileChooser" = [
+          "dfiles"
         ];
         "org.freedesktop.impl.portal.Secret" = [
           "oo7-portal"
