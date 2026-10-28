@@ -61,7 +61,6 @@
     direnv
     slurp
     gpu-screen-recorder
-    azure-cli
     aflplusplus
     # Kani CBMC solvers
     cadical
