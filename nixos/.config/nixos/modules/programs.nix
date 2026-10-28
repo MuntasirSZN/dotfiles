@@ -66,10 +66,7 @@
     };
     dux-search = {
       enable = true;
-      systemd = {
-        enable = true;
-        restartIfChanged = true;
-      };
+      systemd.enable = true;
     };
     dux-calendar = {
       enable = true;
