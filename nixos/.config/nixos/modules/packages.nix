@@ -307,6 +307,9 @@
       (pkgs.callPackage ../pkgs/windows-cursor-theme { })
 
       (pkgs.callPackage ../pkgs/valgrind-codspeed { })
+      bubblewrap
+      ffmpegthumbnailer
+      poppler-utils
     ];
     description = "Packages to install in system";
   };

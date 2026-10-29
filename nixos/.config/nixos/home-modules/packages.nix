@@ -94,7 +94,6 @@
     matugen
     dux-gop
     libsForQt5.qt5ct
-    nautilus
     evince
     loupe
     networkmanagerapplet

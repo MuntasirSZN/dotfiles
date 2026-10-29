@@ -8,6 +8,7 @@
 
 {
   services = {
+    udisks2.enable = true;
     power-profiles-daemon.enable = true;
     usbguard = {
       enable = true;
@@ -105,10 +106,7 @@
     };
 
     fwupd.enable = true;
-    gnome = {
-      gnome-online-accounts.enable = true;
-      sushi.enable = true;
-    };
+    gnome.gnome-online-accounts.enable = true;
     gvfs.enable = true;
 
     ananicy = {
