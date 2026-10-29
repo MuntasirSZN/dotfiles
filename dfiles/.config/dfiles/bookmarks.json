@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "bookmarks": [
+  {
+   "path": "recent:///",
+   "label": "recent",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir",
+   "label": "muntasir",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Desktop",
+   "label": "Desktop",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Documents",
+   "label": "Documents",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Downloads",
+   "label": "Downloads",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Music",
+   "label": "Music",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Pictures",
+   "label": "Pictures",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Videos",
+   "label": "Videos",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Public",
+   "label": "Public",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Templates",
+   "label": "Templates",
+   "icon": ""
+  },
+  {
+   "path": "/home/muntasir/Projects",
+   "label": "Projects",
+   "icon": ""
+  },
+  {
+   "path": "trash:///",
+   "label": "trash",
+   "icon": ""
+  }
+ ]
+}

@@ -13,6 +13,7 @@
    "close_on_focus_loss": true,
    "pop_to_root_on_close": false,
    "activate_on_single_click": true,
+   "wrap_navigation": true,
    "encrypt_sensitive_data": false,
    "keybinding": "vim",
    "search_files_in_root": false,

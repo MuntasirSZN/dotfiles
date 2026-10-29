@@ -1,0 +1,4 @@
+[cache]
+local_max_size = "30GiB"
+auto_recover_targets = true
+preserve_incremental = false

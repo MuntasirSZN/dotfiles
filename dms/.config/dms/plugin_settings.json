@@ -21,7 +21,7 @@
     "lat": "22.364982",
     "lon": "91.776410",
     "use12H": true,
-    "iconOnly": false
+    "iconOnly": true
   },
   "extendedNetworkToggle": {
     "enabled": true
@@ -35,7 +35,8 @@
     "recordingDirectory": "~/Videos/Screencasts",
     "recordingBackend": "gpu-screen-recorder",
     "recordingQuality": "high",
-    "recordMic": true
+    "recordMic": true,
+    "recordSystemAudio": true
   },
   "screenCaptureToolbar": {
     "enabled": true,
@@ -100,9 +101,10 @@
   "screenkey": {
     "enabled": true,
     "visualizerEnabled": false,
-    "showNormalKeys": true,
+    "showNormalKeys": false,
     "showModifierStatus": false,
-    "showMouseClicks": false,
-    "macSymbols": false
+    "showMouseClicks": true,
+    "macSymbols": false,
+    "showShortcuts": false
   }
 }

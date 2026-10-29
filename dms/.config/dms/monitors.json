@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "configurations": [
+    {
+      "id": "auto_cbfba5f0",
+      "name": "",
+      "outputs": {
+        "HDMI-A-1": {
+          "mode": "1920x1080@60.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {
+            "bitdepth": 10,
+            "colorManagement": "auto"
+          }
+        }
+      }
+    },
+    {
+      "id": "profile_1783960595259_rkjiu82",
+      "name": "default",
+      "outputs": {
+        "HDMI-A-1": {
+          "mode": "1920x1080@100.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": true,
+          "disabled": false,
+          "hyprland": {
+            "bitdepth": 10,
+            "colorManagement": "auto"
+          }
+        }
+      }
+    }
+  ]
+}

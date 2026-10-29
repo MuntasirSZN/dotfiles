@@ -1,4 +1,4 @@
--- DMS Window Rules — managed by DankMaterialShell
+-- DMS Window Rules — managed by Dux Shell
 -- Do not edit manually; changes may be overwritten
 
 -- DMS-RULE: id=wr_1783865154503741417, name=zen-beta
@@ -35,7 +35,7 @@ hl.window_rule({ match = { class = "^co.hyprlab.Vireo$" }, opacity = 0.85 })
 hl.window_rule({ match = { class = "^org.x.GnomeOnlineAccountsGtk$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=dms-floating-windows, name=DMS Floating Windows
-hl.window_rule({ match = { class = "^com.danklinux.dms$" }, float = true })
+hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$" }, float = true })
 
 -- DMS-RULE: id=wr_1789294976423312678, name=org.gnome.NautilusPreviewer
 hl.window_rule({ match = { class = "^org.gnome.NautilusPreviewer$" }, float = true })
@@ -51,3 +51,12 @@ hl.window_rule({ match = { class = "^zapfast$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=wr_1792168883692097926, name=org.keepassxc.KeePassXC
 hl.window_rule({ match = { class = "^org.keepassxc.KeePassXC$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=wr_1793251179787107313, name=dev.duxlabs.files
+hl.window_rule({ match = { class = "^dev.duxlabs.files$" }, float = true, opacity = 0.85, size = { 1300, 800 } })
+
+-- DMS-RULE: id=wr_1793254731438617633, name=dev.duxlabs.calendar
+hl.window_rule({ match = { class = "^dev.duxlabs.calendar$" }, opacity = 0.85 })
+
+-- DMS-RULE: id=dms-window-opaque, name=DMS Window Opaque
+hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$" }, opaque = true })

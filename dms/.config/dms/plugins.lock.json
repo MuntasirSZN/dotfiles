@@ -1,0 +1,50 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "cavaVisualizer": {
+      "repo": "https://github.com/ernestowgg/cava-visualizer",
+      "commit": "2d08bef95bc7cd170ad5730a27791c9af6d80a52"
+    },
+    "dankKDEConnect": {
+      "repo": "https://github.com/duxlabs-dev/dux-plugins",
+      "path": "DankKDEConnect",
+      "commit": "96201bd52b148b311c74eafca3988cc4d0cd0d8f"
+    },
+    "dmsThemeSync": {
+      "repo": "https://github.com/arqueon/dms-theme-sync",
+      "commit": "7b796902cf6e2b39d772594aaf63ae5b2911cb90"
+    },
+    "modernClock": {
+      "repo": "https://github.com/beefsizzle/ModernClockDMS",
+      "commit": "0d11d9fb560547a2589d59e456598f7c94847bae"
+    },
+    "ocrScanner": {
+      "repo": "https://github.com/hthienloc/dms-plugins",
+      "path": "ocrScanner",
+      "commit": "ccb969fe96e36e3c61ca6b0814fbc1573b0e4de0"
+    },
+    "prayerTimes": {
+      "repo": "https://github.com/muadzmo/prayertimes",
+      "commit": "d9ee1b1d51152b1d9ae792281d8e6a9a7f39a86a"
+    },
+    "quickCapture": {
+      "repo": "https://github.com/hthienloc/dms-plugins",
+      "path": "quickCapture",
+      "commit": "ccb969fe96e36e3c61ca6b0814fbc1573b0e4de0"
+    },
+    "screenkey": {
+      "repo": "https://github.com/hthienloc/dms-plugins",
+      "path": "screenkey",
+      "commit": "ccb969fe96e36e3c61ca6b0814fbc1573b0e4de0"
+    },
+    "systemMonitorPlus": {
+      "repo": "https://github.com/Dadangdut33/dms-plugins",
+      "path": "SystemMonitorPlus",
+      "commit": "63fe6b87c497f1f7c2ea61432716817db1c5c3a4"
+    },
+    "wallpaperCarousel": {
+      "repo": "https://github.com/motor-dev/wallpaperCarousel",
+      "commit": "761ecd1b7f347beee9f17909f8334d987c935a1a"
+    }
+  }
+}
