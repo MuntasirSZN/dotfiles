@@ -212,7 +212,7 @@
   "matugenTemplateAlacritty": false,
   "matugenTemplateWezterm": false,
   "matugenTemplateVscode": false,
-  "matugenTemplateEmacs": false,
+  "matugenTemplateEmacs": true,
   "matugenTemplateZed": false,
   "notificationTimeoutCritical": 15000,
   "osdAlwaysShowValue": true,
@@ -253,7 +253,9 @@
         {
           "id": "music",
           "enabled": true,
-          "mediaSize": 1
+          "mediaSize": 1,
+          "mediaShowLyrics": false,
+          "mediaShowCoverArt": false
         }
       ],
       "centerWidgets": [
@@ -569,7 +571,7 @@
     {
       "id": "lock_date",
       "widgetType": "lockDate",
-      "enabled": true,
+      "enabled": false,
       "config": {
         "displayPreferences": [
           "all"
@@ -595,45 +597,19 @@
       }
     },
     {
-      "id": "lock_notifications",
-      "widgetType": "lockNotifications",
-      "enabled": true,
-      "config": {
-        "displayPreferences": [
-          "all"
-        ],
-        "syncPositionAcrossScreens": true,
-        "mode": 3
-      }
-    },
-    {
-      "id": "lock_status",
-      "widgetType": "lockStatus",
-      "enabled": true,
-      "config": {
-        "displayPreferences": [
-          "all"
-        ],
-        "syncPositionAcrossScreens": true,
-        "showMediaPlayer": true,
-        "showWeather": true,
-        "background": false
-      }
-    },
-    {
       "id": "lock_power",
       "widgetType": "lockPower",
-      "enabled": true,
+      "enabled": false,
       "config": {
         "displayPreferences": [
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "shape": "cookie9"
+        "shape": "round"
       }
     },
     {
-      "id": "lw_1793252403335_abms8e0t0",
+      "id": "lw_1793259060120_ja58a48n3",
       "widgetType": "modernClock",
       "name": "Modern Clock",
       "enabled": true,
@@ -645,7 +621,7 @@
       }
     },
     {
-      "id": "lw_1793252477772_j8zhkyq0w",
+      "id": "lw_1793259066410_q8qmoavya",
       "widgetType": "cavaVisualizer",
       "name": "Cava Visualizer",
       "enabled": true,
@@ -653,11 +629,71 @@
         "syncPositionAcrossScreens": true,
         "displayPreferences": [
           "all"
-        ]
+        ],
+        "opacity": 80,
+        "barCount": 30,
+        "vizMode": "bars",
+        "orientation": "horizontal"
+      }
+    },
+    {
+      "id": "lw_1793259081858_x0hp9ert8",
+      "widgetType": "lockNotifications",
+      "name": "Notifications",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "mode": 3
+      }
+    },
+    {
+      "id": "lw_1793259120988_5sy3v74x8",
+      "widgetType": "lockPower",
+      "name": "Power",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "shape": "cookie9"
+      }
+    },
+    {
+      "id": "lw_1793259203711_axjsott24",
+      "widgetType": "lockDate",
+      "name": "Date",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "format": "short",
+        "colorMode": "default",
+        "customColor": "#ffffff"
+      }
+    },
+    {
+      "id": "lw_1793259206135_zzgu38fpc",
+      "widgetType": "lockStatus",
+      "name": "Status",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "showMediaPlayer": true,
+        "showWeather": true,
+        "background": false
       }
     }
   ],
-  "radiusStrength": 38,
+  "radiusStrength": 50,
   "blurBorderEnabled": true,
   "dockConfigs": [
     {
@@ -743,75 +779,111 @@
           "w": 2,
           "h": 2,
           "tone": "primary",
-          "city": false
+          "city": false,
+          "col": 0,
+          "row": 0
         },
         {
           "id": "hourly",
           "w": 2,
           "h": 2,
-          "forecast": "chart"
+          "forecast": "chart",
+          "col": 2,
+          "row": 0
         },
         {
           "id": "sun",
           "w": 1,
           "h": 2,
-          "tone": ""
+          "tone": "",
+          "col": 0,
+          "row": 2
         },
         {
           "id": "moon",
           "w": 1,
           "h": 2,
-          "tone": ""
+          "tone": "",
+          "col": 1,
+          "row": 2
         },
         {
           "id": "humidity",
           "w": 1,
           "h": 2,
           "graphics": true,
-          "tone": ""
+          "tone": "",
+          "col": 2,
+          "row": 2
         },
         {
           "id": "wind",
           "w": 1,
           "h": 2,
           "graphics": true,
-          "tone": ""
+          "tone": "",
+          "col": 1,
+          "row": 4
         },
         {
           "id": "daily",
           "w": 4,
           "h": 2,
-          "forecast": "chart"
+          "forecast": "chart",
+          "col": 0,
+          "row": 6
         },
         {
           "id": "pressure",
           "w": 1,
           "h": 2,
           "graphics": true,
-          "tone": ""
+          "tone": "",
+          "col": 0,
+          "row": 4
         },
         {
           "id": "precipitation",
           "w": 1,
           "h": 2,
           "graphics": true,
-          "tone": ""
+          "tone": "",
+          "col": 3,
+          "row": 2
         },
         {
           "id": "visibility",
           "w": 1,
           "h": 2,
           "graphics": true,
-          "tone": ""
+          "tone": "",
+          "col": 2,
+          "row": 4
         },
         {
           "id": "uv",
           "w": 1,
           "h": 2,
           "graphics": true,
-          "tone": ""
+          "tone": "",
+          "col": 3,
+          "row": 4
         }
-      ]
+      ],
+      "city": true
+    },
+    "disk": {
+      "io": true
+    },
+    "memory": {
+      "swap": true
+    },
+    "calendar": {
+      "weekends": true
+    },
+    "clock": {
+      "date": true,
+      "numbers": true
     }
   },
   "dmsWindowsFloatingSeeded": [
@@ -824,7 +896,7 @@
     {
       "id": "lock_date",
       "widgetType": "lockDate",
-      "enabled": true,
+      "enabled": false,
       "config": {
         "displayPreferences": [
           "all"
@@ -850,29 +922,58 @@
       }
     },
     {
-      "id": "lock_status",
-      "widgetType": "lockStatus",
-      "enabled": true,
+      "id": "lock_power",
+      "widgetType": "lockPower",
+      "enabled": false,
       "config": {
         "displayPreferences": [
           "all"
         ],
         "syncPositionAcrossScreens": true,
-        "showMediaPlayer": true,
-        "showWeather": true,
-        "background": false
+        "shape": "round"
       }
     },
     {
-      "id": "lock_power",
+      "id": "lw_1793259120988_5sy3v74x8",
       "widgetType": "lockPower",
+      "name": "Power",
       "enabled": true,
       "config": {
+        "syncPositionAcrossScreens": true,
         "displayPreferences": [
           "all"
         ],
-        "syncPositionAcrossScreens": true,
         "shape": "cookie9"
+      }
+    },
+    {
+      "id": "lw_1793259203711_axjsott24",
+      "widgetType": "lockDate",
+      "name": "Date",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "format": "short",
+        "colorMode": "default",
+        "customColor": "#ffffff"
+      }
+    },
+    {
+      "id": "lw_1793259206135_zzgu38fpc",
+      "widgetType": "lockStatus",
+      "name": "Status",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "showMediaPlayer": true,
+        "showWeather": true,
+        "background": false
       }
     },
     {
@@ -885,9 +986,29 @@
         ],
         "syncPositionAcrossScreens": true
       }
+    },
+    {
+      "id": "gw_1793288304888_p6558w7hs",
+      "widgetType": "desktopClock",
+      "name": "Clock",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "style": "digital",
+        "transparency": 0,
+        "colorMode": "primary",
+        "customColor": "#ffffff",
+        "showDate": false,
+        "showAnalogNumbers": false,
+        "showAnalogSeconds": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "autoPosition": false
+      }
     }
   ],
-  "lockScreenShowPowerActions": true,
+  "lockScreenShowPowerActions": false,
   "lockScreenVideoEnabled": false,
   "windSpeedUnit": "kmh",
   "hyprlandTilingLayout": "",
@@ -978,5 +1099,36 @@
       "col": 0,
       "row": 2
     }
-  ]
+  ],
+  "lockScreenShowWeather": true,
+  "scrollTitleEnabled": true,
+  "dashTabs": [
+    {
+      "id": "overview",
+      "enabled": true
+    },
+    {
+      "id": "media",
+      "enabled": true
+    },
+    {
+      "id": "wallpaper",
+      "enabled": true
+    },
+    {
+      "id": "weather",
+      "enabled": true
+    },
+    {
+      "id": "wellbeing",
+      "enabled": true
+    },
+    {
+      "id": "notifications",
+      "enabled": true
+    }
+  ],
+  "terminalPalette": "low",
+  "matugenSpec": "2025",
+  "matugenSmartMode": false
 }

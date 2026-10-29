@@ -28,7 +28,8 @@
   },
   "wallpaperCarousel": {
     "enabled": true,
-    "wallpaperDirectory": "/home/muntasir/Pictures/Wallpapers/wallpapers"
+    "wallpaperDirectory": "/home/muntasir/Pictures/Wallpapers/wallpapers",
+    "cornerRadius": 16
   },
   "quickCapture": {
     "enabled": true,
