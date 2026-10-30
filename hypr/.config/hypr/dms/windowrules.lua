@@ -58,5 +58,8 @@ hl.window_rule({ match = { class = "^dev.duxlabs.files$" }, float = true, opacit
 -- DMS-RULE: id=wr_1793254731438617633, name=dev.duxlabs.calendar
 hl.window_rule({ match = { class = "^dev.duxlabs.calendar$" }, opacity = 0.85 })
 
+-- DMS-RULE: id=wr_1793367064162367860, name=meiro
+hl.window_rule({ match = { class = "^meiro$" }, opacity = 0.8 })
+
 -- DMS-RULE: id=dms-window-opaque, name=DMS Window Opaque
 hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$" }, opaque = true })

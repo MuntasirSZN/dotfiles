@@ -663,21 +663,6 @@
       }
     },
     {
-      "id": "lw_1793259203711_axjsott24",
-      "widgetType": "lockDate",
-      "name": "Date",
-      "enabled": true,
-      "config": {
-        "syncPositionAcrossScreens": true,
-        "displayPreferences": [
-          "all"
-        ],
-        "format": "short",
-        "colorMode": "default",
-        "customColor": "#ffffff"
-      }
-    },
-    {
       "id": "lw_1793259206135_zzgu38fpc",
       "widgetType": "lockStatus",
       "name": "Status",
@@ -947,21 +932,6 @@
       }
     },
     {
-      "id": "lw_1793259203711_axjsott24",
-      "widgetType": "lockDate",
-      "name": "Date",
-      "enabled": true,
-      "config": {
-        "syncPositionAcrossScreens": true,
-        "displayPreferences": [
-          "all"
-        ],
-        "format": "short",
-        "colorMode": "default",
-        "customColor": "#ffffff"
-      }
-    },
-    {
       "id": "lw_1793259206135_zzgu38fpc",
       "widgetType": "lockStatus",
       "name": "Status",
@@ -988,7 +958,7 @@
       }
     },
     {
-      "id": "gw_1793288304888_p6558w7hs",
+      "id": "gw_1793362090769_rpyj61jdn",
       "widgetType": "desktopClock",
       "name": "Clock",
       "enabled": true,
@@ -998,7 +968,7 @@
         "transparency": 0,
         "colorMode": "primary",
         "customColor": "#ffffff",
-        "showDate": false,
+        "showDate": true,
         "showAnalogNumbers": false,
         "showAnalogSeconds": true,
         "displayPreferences": [
