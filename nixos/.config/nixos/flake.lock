@@ -30,11 +30,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1793406773,
-        "narHash": "sha256-775PSwTXEf/vLE9wipoPFRAaLDxJjCqwoS5YgAhj+cM=",
+        "lastModified": 1793464836,
+        "narHash": "sha256-cbZIR/Shhssj4Jg2OVPsy+eudhkPxSyNHF/qP3iGZaw=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "78974344de6830f2265380bef9e9149196b80e5e",
+        "rev": "39872b702ff1ac3cdde81558e0f36dd36e4e2ba6",
         "type": "github"
       },
       "original": {
@@ -271,7 +271,7 @@
     "mybase_blocklist": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-pfMtERu5uyrgqtiia0PICh37Z4fVzJwargI7yE80h0A=",
+        "narHash": "sha256-kRFyfRjZOm3dGdjIkH0+sg7GpVb8Lz+6p0RAxKklOV4=",
         "type": "file",
         "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
       },
@@ -364,11 +364,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793414423,
-        "narHash": "sha256-qzCJXfm0k6Da5ObVJ4+2Uzt/cDLAgsxKM0R6iTXGkpA=",
+        "lastModified": 1793497777,
+        "narHash": "sha256-kdLM51F0XX7AKiLgy09eiYHlu8ZRbdJ5vZbc65iDLBo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "aa914d8730ade6e25a88cde91bfe7716fb1b62cd",
+        "rev": "949f2c62c14515a91705275900bc9fda1bfd54b9",
         "type": "github"
       },
       "original": {
