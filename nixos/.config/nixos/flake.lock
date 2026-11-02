@@ -10,11 +10,11 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1793066047,
-        "narHash": "sha256-EqxcLMBxUhlVrYIDklLgLwXFm5+3YaMUwSQdzxAGNVA=",
+        "lastModified": 1793531203,
+        "narHash": "sha256-sIgG3E2ikFfpydTgLBbrPG5bsT3L5XET2mGP0HjYuQM=",
         "owner": "Daaboulex",
         "repo": "cachyos-settings-nix",
-        "rev": "3bc95c190cf4389d2504abd611d7dde5874eb384",
+        "rev": "9ae4d4a60582b9633c3c991a0b7e211475f984d9",
         "type": "github"
       },
       "original": {
@@ -30,11 +30,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1793464836,
-        "narHash": "sha256-cbZIR/Shhssj4Jg2OVPsy+eudhkPxSyNHF/qP3iGZaw=",
+        "lastModified": 1793521359,
+        "narHash": "sha256-zuOGY+12jayYHg4Y1D3Xo5x/jNfgaikSemB3oqNtxEc=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "39872b702ff1ac3cdde81558e0f36dd36e4e2ba6",
+        "rev": "5ea9b4d2d62a5eb4321002a3b0ee1524b86db299",
         "type": "github"
       },
       "original": {
@@ -271,7 +271,7 @@
     "mybase_blocklist": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-kRFyfRjZOm3dGdjIkH0+sg7GpVb8Lz+6p0RAxKklOV4=",
+        "narHash": "sha256-M4bx0pIA3TNw7mhQt6P51HO2QzBoNg/vzXhRH1Fsmn8=",
         "type": "file",
         "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
       },
@@ -287,11 +287,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792915725,
-        "narHash": "sha256-v75hPw5NJ+mRRcwUzKi2OQtVSVv1hgq6ceAlPQB2kEE=",
+        "lastModified": 1793543282,
+        "narHash": "sha256-PHtGxKYM99f8WhGR5YD7iiCiwemKa2wUD4yVI2oALFg=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "93696586f3463024cceb089353539be95a38ae2b",
+        "rev": "cee0f879d338cf08f814210fa6c2b280594ade0a",
         "type": "github"
       },
       "original": {
@@ -364,11 +364,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793497777,
-        "narHash": "sha256-kdLM51F0XX7AKiLgy09eiYHlu8ZRbdJ5vZbc65iDLBo=",
+        "lastModified": 1793587400,
+        "narHash": "sha256-GZlRFNYicMkGgpbdWvpGqC7PKmUP/v5R0RmDajeoxtE=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "949f2c62c14515a91705275900bc9fda1bfd54b9",
+        "rev": "7a48dfef2a847b0a993f5f14e60fce29d91b429e",
         "type": "github"
       },
       "original": {
@@ -443,11 +443,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1792919014,
-        "narHash": "sha256-gJ8uPmQFhJ98X+VWPpD+o0tnQ0nJjbG+Z3QDHcSJKw0=",
+        "lastModified": 1793531264,
+        "narHash": "sha256-rbmfLn4/UWs1mrMJgMEJXMfdhN7o7i++c5jPtUdlP+8=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "f6eb8135c060130150c8fbcc6b7cf5e22e5179d8",
+        "rev": "d818ab64010272bc0072d0c325838a63038796e9",
         "type": "github"
       },
       "original": {
