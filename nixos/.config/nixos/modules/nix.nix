@@ -17,5 +17,10 @@ _:
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    # gtk2 is still pulled in by lutris's FHS environment; nixpkgs marks it
+    # broken and plans to remove it in NixOS 27.05.
+    problems.handlers."gtk+".broken = "warn";
+  };
 }
