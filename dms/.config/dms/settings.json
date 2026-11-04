@@ -289,6 +289,14 @@
           "enabled": true
         },
         {
+          "id": "privacyIndicator",
+          "enabled": true,
+          "overflowMode": "section",
+          "privacyShowMicIcon": false,
+          "privacyShowCameraIcon": false,
+          "privacyShowScreenShareIcon": false
+        },
+        {
           "id": "prayerTimes",
           "enabled": true
         },
@@ -857,9 +865,6 @@
       ],
       "city": true
     },
-    "disk": {
-      "io": true
-    },
     "memory": {
       "swap": true
     },
@@ -869,6 +874,9 @@
     "clock": {
       "date": true,
       "numbers": true
+    },
+    "disk": {
+      "io": true
     }
   },
   "dmsWindowsFloatingSeeded": [
@@ -986,17 +994,10 @@
   "bluetoothMprisEnabled": true,
   "dashCards": [
     {
-      "id": "clock",
-      "w": 2,
-      "h": 1,
-      "col": 3,
-      "row": 0
-    },
-    {
       "id": "weather",
       "w": 1,
       "h": 1,
-      "col": 5,
+      "col": 2,
       "row": 0
     },
     {
@@ -1004,70 +1005,49 @@
       "w": 3,
       "h": 5,
       "col": 3,
-      "row": 2
+      "row": 0
     },
     {
       "id": "calendar",
       "w": 3,
       "h": 3,
       "col": 0,
-      "row": 4
+      "row": 1
     },
     {
       "id": "media",
       "w": 3,
       "h": 1,
       "col": 0,
-      "row": 3
+      "row": 4
+    },
+    {
+      "id": "user",
+      "w": 2,
+      "h": 1,
+      "col": 0,
+      "row": 0
+    },
+    {
+      "id": "network",
+      "w": 2,
+      "h": 1,
+      "col": 0,
+      "row": 5
+    },
+    {
+      "id": "disk",
+      "w": 2,
+      "h": 1,
+      "col": 2,
+      "row": 5
     },
     {
       "id": "wellbeing",
       "w": 2,
       "h": 1,
       "col": 4,
-      "row": 1
-    },
-    {
-      "id": "user",
-      "w": 3,
-      "h": 1,
-      "col": 0,
-      "row": 0
-    },
-    {
-      "id": "cpu",
-      "w": 1,
-      "h": 1,
-      "col": 0,
-      "row": 1
-    },
-    {
-      "id": "sysmon",
-      "w": 2,
-      "h": 1,
-      "col": 2,
-      "row": 1
-    },
-    {
-      "id": "memory",
-      "w": 1,
-      "h": 1,
-      "col": 1,
-      "row": 1
-    },
-    {
-      "id": "network",
-      "w": 2,
-      "h": 1,
-      "col": 1,
-      "row": 2
-    },
-    {
-      "id": "disk",
-      "w": 1,
-      "h": 1,
-      "col": 0,
-      "row": 2
+      "row": 5
     }
   ],
   "lockScreenShowWeather": true,
@@ -1100,5 +1080,7 @@
   ],
   "terminalPalette": "low",
   "matugenSpec": "2025",
-  "matugenSmartMode": false
+  "matugenSmartMode": false,
+  "keybindsFloatingWindow": false,
+  "audioShowStreamDevices": false
 }

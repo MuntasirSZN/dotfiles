@@ -262,7 +262,7 @@ nix_handler = "nh"
 # max_concurrency = 5
 
 # Additional git repositories to pull or fetch
-repos = ["~/Projects/*", "~/.config/DankMaterialShell/plugins/*", "~/.config/reshade-shaders"]
+repos = ["~/Projects/*", "~/.config/dms/plugins/*", "~/.config/reshade-shaders"]
 
 # Set to `false` to skip pulling/fetching the predefined git repos
 # pull_predefined = false

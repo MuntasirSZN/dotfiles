@@ -6,14 +6,13 @@
     enableDefaultPackages = true;
 
     packages = with pkgs; [
-      (pkgs.stdenvNoCC.mkDerivation {
+      (stdenvNoCC.mkDerivation {
         pname = "bijoy-fonts";
         version = "latest";
 
-        src = pkgs.fetchFromGitHub {
+        src = fetchFromGitHub {
           owner = "nazdridoy";
           repo = "bijoyLinux";
-
           rev = "main";
           hash = "sha256-/8vu0gpcu1BEHif/UWwAc1YxcuuEtQ0NQUdP8GcWE+w=";
         };
@@ -50,40 +49,21 @@
       defaultFonts = {
         sansSerif = [ "Noto Sans" ];
         serif = [ "Noto Serif" ];
-        monospace = [ "Noto Sans Mono" ];
+        monospace = [ "Fira Code" ];
         emoji = [ "Noto Color Emoji" ];
       };
       localConf = ''
         <?xml version="1.0"?>
-        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
         <fontconfig>
-
-          <!-- Bengali sans-serif -->
           <match target="pattern">
             <test name="lang" compare="contains">
               <string>bn</string>
             </test>
-            <test qual="any" name="family">
-              <string>sans-serif</string>
-            </test>
-            <edit name="family" mode="prepend">
-              <string>SutonnyOMJ</string>
-            </edit>
-          </match>
-
-          <!-- Bengali monospace -->
-          <match target="pattern">
-            <test name="lang" compare="contains">
-              <string>bn</string>
-            </test>
-            <test qual="any" name="family">
-              <string>monospace</string>
-            </test>
-            <edit name="family" mode="prepend">
+            <edit name="family" mode="prepend" binding="strong">
               <string>Noto Sans Bengali</string>
             </edit>
           </match>
-
         </fontconfig>
       '';
     };
