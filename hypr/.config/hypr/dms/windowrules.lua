@@ -4,9 +4,6 @@
 -- DMS-RULE: id=wr_1783865154503741417, name=zen-beta
 hl.window_rule({ match = { class = "^zen-beta$" }, opacity = 0.85 })
 
--- DMS-RULE: id=wr_1783865262482516658, name=com.mitchellh.ghostty
-hl.window_rule({ match = { class = "^com.mitchellh.ghostty$" }, opacity = 0.8 })
-
 -- DMS-RULE: id=wr_1783865286482734489, name=com.danklinux.dms
 hl.window_rule({ match = { class = "^com.danklinux.dms$" }, opacity = 0.8 })
 
@@ -60,6 +57,9 @@ hl.window_rule({ match = { class = "^dev.duxlabs.calendar$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=wr_1793367064162367860, name=meiro
 hl.window_rule({ match = { class = "^meiro$" }, opacity = 0.8 })
+
+-- DMS-RULE: id=wr_1793888544292611338, name=nwg-look
+hl.window_rule({ match = { class = "^nwg-look$" }, opacity = 0.85 })
 
 -- DMS-RULE: id=dms-window-opaque, name=DMS Window Opaque
 hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.shell|com\\.danklinux\\.dms)$" }, opaque = true })

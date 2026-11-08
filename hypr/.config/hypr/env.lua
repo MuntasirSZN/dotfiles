@@ -12,6 +12,7 @@ hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_ACCESSIBILITY", "1")
 
 -- xwayland apps scale fix (useful if you are use monitor scaling)
 -- 1 is 100% 1.5 is 150%
@@ -30,3 +31,4 @@ hl.env("GTK_THEME", "adw-gtk3-dark")
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx") -- Toolkit Backend Variables
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1")

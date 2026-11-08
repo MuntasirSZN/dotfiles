@@ -44,26 +44,26 @@ hl.config({
 		inactive_opacity = 0.95,
 		blur = {
 			enabled = true,
-			size = 6,
+			size = 4,
 			passes = 2,
-			ignore_opacity = false,
 			new_optimizations = true,
 			xray = false,
 			noise = 0.02,
 			contrast = 1.1,
 			vibrancy = 0.2,
 			vibrancy_darkness = 0.3,
+			popups = true,
 		},
 		shadow = {
 			enabled = true,
 			range = 30,
-			render_power = 5,
-			offset = {
-				0,
-				5,
-			},
+			render_power = 4,
+			offset = { 0, 5 },
 			color = "rgba(00000070)",
 		},
+	},
+	animations = {
+		enabled = true,
 	},
 	misc = {
 		disable_hyprland_logo = true,
@@ -72,7 +72,7 @@ hl.config({
 		mouse_move_enables_dpms = true,
 		enable_swallow = false,
 		swallow_regex = "^(Alacritty|kitty|foot|wezterm|st|st-256color|xterm|com.mitchellh.ghostty)$",
-		focus_on_activate = false,
+		focus_on_activate = true,
 		initial_workspace_tracking = 0,
 		middle_click_paste = false,
 		enable_anr_dialog = true,
@@ -82,7 +82,6 @@ hl.config({
 	},
 	dwindle = {
 		preserve_split = true,
-		special_scale_factor = 0.8,
 	},
 	master = {
 		new_status = "master",

@@ -124,8 +124,9 @@
 
     earlyoom = {
       enable = true;
-      freeMemThreshold = 20;
+      freeMemThreshold = 15;
       freeSwapThreshold = 80;
+      freeMemKillThreshold = 10;
     };
 
     ntpd-rs.enable = true;
