@@ -4,4 +4,8 @@
 /.worktrees
 /.superpowers
 /.serena
-
+# Add when needed, but for the most part, PRODUCT.md and DESIGN.md is not committed for now
+# impeccable stuff
+DESIGN.md
+PRODUCT.md
+/.impeccable

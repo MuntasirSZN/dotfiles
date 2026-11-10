@@ -17,3 +17,5 @@ aliases:
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
 browser:
+color_labels: enabled
+accessible_colors: enabled

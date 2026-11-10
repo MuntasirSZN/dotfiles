@@ -1082,5 +1082,6 @@
   "matugenSpec": "2025",
   "matugenSmartMode": false,
   "keybindsFloatingWindow": false,
-  "audioShowStreamDevices": false
+  "audioShowStreamDevices": false,
+  "spotlightBarShowModeChips": true
 }
