@@ -79,3 +79,5 @@
   gpgSign = true
 [rerere]
   enabled = true
+[maintenance]
+	repo = /home/muntasir/.dotfiles

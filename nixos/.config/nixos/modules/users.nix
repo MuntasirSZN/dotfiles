@@ -15,7 +15,6 @@
       "render"
       "uinput"
       "greeter"
-      "vboxusers"
     ];
     shell = pkgs.fish;
   };

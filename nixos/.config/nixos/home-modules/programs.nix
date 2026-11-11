@@ -4,7 +4,10 @@
   programs = {
     vicinae = {
       enable = true;
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+        autoStart = true;
+      };
     };
     keepassxc = {
       autostart = true;

@@ -147,3 +147,6 @@ export PATH="$PATH:/home/muntasir/.lmstudio/bin"
   . /usr/share/bash-completion/bash_completion
 
 export XDG_DATA_HOME="/home/muntasir/.local/share"
+
+# Vite+ bin (https://viteplus.dev)
+. "/home/muntasir/.config/vite-plus/env"

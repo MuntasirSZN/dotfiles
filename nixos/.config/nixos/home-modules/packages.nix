@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    exiftool
     libinput.bin
     evtest
     wtype
