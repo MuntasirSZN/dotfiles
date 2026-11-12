@@ -1,7 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
-
   # Units from app packages, linked into ~/.local/share/systemd/user (a stable
   # path that survives package upgrades, unlike systemctl --user link).
   systemd.user.packages = [ pkgs.ghostty ];
@@ -13,20 +12,6 @@
         ExecCondition=${pkgs.systemd}/lib/systemd/systemd-xdg-autostart-condition "" "KDE:GNOME:COSMIC"
         ExecStartPre=${pkgs.coreutils-full}/bin/sleep 5
       '';
-      force = true;
-    };
-
-    # Auto-start ghostty's hidden single-instance server at login.
-    #
-    # The unit ships in the ghostty package (share/systemd/user/
-    # app-com.mitchellh.ghostty.service) and is also visible via the per-user
-    # profile share dir, and it can be pulled in on demand through D-Bus
-    # activation (BusName=, plus the package's dbus-1/services file). The wants
-    # link here makes graphical-session.target pull it in at login.
-    # mkOutOfStoreSymlink points at the HM-managed stable path instead of a
-    # /nix/store ghostty-N path, so the link never dangles on ghostty upgrades.
-    ".config/systemd/user/graphical-session.target.wants/app-com.mitchellh.ghostty.service" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/muntasir/.local/share/systemd/user/app-com.mitchellh.ghostty.service";
       force = true;
     };
 

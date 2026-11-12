@@ -2,6 +2,10 @@
 
 {
   programs = {
+    ghostty = {
+      enable = true;
+      systemd.enable = true;
+    };
     vicinae = {
       enable = true;
       systemd = {

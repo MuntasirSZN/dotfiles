@@ -5,6 +5,13 @@
 
 {
   home.packages = with pkgs; [
+    deckcraft
+    gridcraft
+    pdfcraft
+    photocraft
+    wordcraft
+    zapfast
+    gnome-maps
     efibootmgr
     exiftool
     libinput.bin

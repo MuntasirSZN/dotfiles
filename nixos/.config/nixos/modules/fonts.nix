@@ -43,6 +43,7 @@
       rubik
       nerd-fonts.ubuntu
       nerd-fonts.jetbrains-mono
+      open-sans
     ];
 
     fontconfig = {

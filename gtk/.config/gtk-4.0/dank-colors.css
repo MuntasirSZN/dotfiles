@@ -8,32 +8,32 @@
 /* via thairanaru on GitHub: */
 
 /* Destructive colors are basically error colors */
-@define-color destructive_bg_color #f97758;
-@define-color destructive_fg_color #450900;
-@define-color error_bg_color #f97758;
-@define-color error_fg_color #450900;
-@define-color accent_color #f8b89c;
-@define-color accent_fg_color #603521;
-@define-color accent_bg_color #f8b89c;
+@define-color destructive_bg_color #fa746f;
+@define-color destructive_fg_color #490006;
+@define-color error_bg_color #fa746f;
+@define-color error_fg_color #490006;
+@define-color accent_color #b6c6ee;
+@define-color accent_fg_color #304060;
+@define-color accent_bg_color #b6c6ee;
 /* Bare surface is near black in dark schemes; containers keep Adwaita's view < window < sidebar order */
-@define-color window_bg_color #211713;
-@define-color window_fg_color #f9e1d7;
-@define-color view_bg_color #1a110e;
-@define-color view_fg_color #f9e1d7;
-@define-color headerbar_bg_color #211713;
-@define-color headerbar_fg_color #f9e1d7;
-@define-color sidebar_bg_color #281d18;
-@define-color sidebar_fg_color #f9e1d7;
-@define-color secondary_sidebar_bg_color #211713;
-@define-color secondary_sidebar_fg_color #f9e1d7;
-@define-color card_bg_color #281d18;
-@define-color card_fg_color #f9e1d7;
-@define-color overview_bg_color #281d18;
-@define-color overview_fg_color #f9e1d7;
-@define-color popover_bg_color #281d18;
-@define-color popover_fg_color #f9e1d7;
-@define-color dialog_bg_color #211713;
-@define-color dialog_fg_color #f9e1d7;
+@define-color window_bg_color #171a1f;
+@define-color window_fg_color #e3e5f0;
+@define-color view_bg_color #111318;
+@define-color view_fg_color #e3e5f0;
+@define-color headerbar_bg_color #171a1f;
+@define-color headerbar_fg_color #e3e5f0;
+@define-color sidebar_bg_color #1d2026;
+@define-color sidebar_fg_color #e3e5f0;
+@define-color secondary_sidebar_bg_color #171a1f;
+@define-color secondary_sidebar_fg_color #e3e5f0;
+@define-color card_bg_color #1d2026;
+@define-color card_fg_color #e3e5f0;
+@define-color overview_bg_color #1d2026;
+@define-color overview_fg_color #e3e5f0;
+@define-color popover_bg_color #1d2026;
+@define-color popover_fg_color #e3e5f0;
+@define-color dialog_bg_color #171a1f;
+@define-color dialog_fg_color #e3e5f0;
 
 /* Without these, windows flash white on unfocus */
 @define-color headerbar_backdrop_color @window_bg_color;
@@ -49,8 +49,8 @@
 .navigation-sidebar row:selected,
 .navigation-sidebar child:selected,
 .navigation-sidebar flowboxchild:selected {
-  background-color: #503529;
-  color: #dfb7a6;
+  background-color: #343b4d;
+  color: #b7bfd5;
 }
 
 /* END DMS OVERRIDE */
