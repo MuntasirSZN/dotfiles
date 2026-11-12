@@ -5,6 +5,7 @@
 
 {
   home.packages = with pkgs; [
+    efibootmgr
     exiftool
     libinput.bin
     evtest

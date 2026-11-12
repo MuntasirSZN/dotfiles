@@ -20,5 +20,6 @@
     ./chaotic.nix
     ./virtualization.nix
     ./documentation.nix
+    ./filesystem.nix
   ];
 }

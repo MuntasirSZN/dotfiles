@@ -4,6 +4,7 @@
 {
   fonts = {
     enableDefaultPackages = true;
+    fontDir.enable = true;
 
     packages = with pkgs; [
       (stdenvNoCC.mkDerivation {

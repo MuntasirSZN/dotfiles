@@ -225,7 +225,9 @@
     "lock",
     "suspend",
     "restart",
-    "hibernate"
+    "hibernate",
+    "switchuser",
+    "softreboot"
   ],
   "powerMenuGridLayout": true,
   "barConfigs": [
@@ -699,6 +701,7 @@
       "showOnLastDisplay": true,
       "position": 1,
       "mode": "compact",
+      "middleClickAction": "close",
       "taskbarAlign": "center",
       "widgetExpansion": "popout",
       "iconSize": 45,
@@ -763,7 +766,8 @@
   "blurBorderSeeded": true,
   "dashOptions": {
     "media": {
-      "animatedArt": true
+      "animatedArt": true,
+      "cardBackgrounds": true
     },
     "weather": {
       "widgets": [
@@ -1083,5 +1087,17 @@
   "matugenSmartMode": false,
   "keybindsFloatingWindow": false,
   "audioShowStreamDevices": false,
-  "spotlightBarShowModeChips": true
+  "spotlightBarShowModeChips": true,
+  "osdKeyboardLayoutEnabled": true,
+  "weatherProviders": [
+    {
+      "id": "openmeteo",
+      "enabled": true
+    },
+    {
+      "id": "metno",
+      "enabled": true
+    }
+  ],
+  "powerMenuFirmwareSetup": true
 }
