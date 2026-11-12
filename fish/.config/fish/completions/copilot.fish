@@ -1,6 +1,6 @@
 # Print an optspec for argparse to handle cmd's options that are independent of any subcommand.
 function __fish_copilot_global_optspecs
-    string join \n effort= no-remote-export v/version i/interactive= fleet p/prompt= trust-folder s/silent disable-client-telemetry enable-memory model= reasoning-effort= context= auto-tier= enable-reasoning-summaries agent= r/resume= continue n/name= session-id= new-session-id= connect= cloud w/worktree= allow-all-tools allow-all-paths disallow-temp-dir banner screen-reader plain-diff C= log-dir= extension-sdk-path= config-dir= log-level= save-trajectory-output= prefer-version= stream= output-format= share= share-gist add-dir= attachment= disable-mcp-server= disable-builtin-mcps enable-all-github-mcp-tools add-github-mcp-toolset= add-github-mcp-tool= plugin-dir= additional-mcp-config= mcp-github-auth= allow-all-mcp-server-instructions additional-content-exclusion-policies= allow-tool= deny-tool= available-tools= excluded-tools= secret-env-vars= allow-url= deny-url= allow-all-urls allow-all yolo max-autopilot-continues= mode= autopilot plan experimental bash-env= mouse= show-timing server ui-server headless managed-server acp stdio host= disable-remote-sessions remote sync-session= port= session-idle-timeout= auth-token-env= log-interactive-shells print-debug-info collect-debug-logs= collect-debug-logs-output= ahp= ahp-authenticate= environment= host-environment= host-compute-id= host-ahp host-ahp-token= host-ahp-disable-token host-ahp-listen= host-directory= sandbox dynamic-retrieval= enable-mcp-server= max-ai-credits= assisted-approval embedded-host usage-output-file= no-custom-instructions no-auto-update no-ask-user no-color no-experimental no-bash-env no-mouse no-auto-login no-sandbox no-eager-powershell-resolution h/help
+    string join \n effort= no-remote-export v/version i/interactive= fleet p/prompt= trust-folder s/silent disable-client-telemetry enable-memory model= reasoning-effort= context= auto-tier= fusion-tier= enable-reasoning-summaries agent= r/resume= continue n/name= session-id= new-session-id= connect= cloud w/worktree= allow-all-tools allow-all-paths disallow-temp-dir banner screen-reader plain-diff C= log-dir= extension-sdk-path= config-dir= log-level= save-trajectory-output= prefer-version= stream= output-format= share= share-gist add-dir= attachment= disable-mcp-server= disable-builtin-mcps enable-all-github-mcp-tools add-github-mcp-toolset= add-github-mcp-tool= plugin-dir= additional-mcp-config= mcp-github-auth= allow-all-mcp-server-instructions additional-content-exclusion-policies= allow-tool= deny-tool= available-tools= excluded-tools= secret-env-vars= allow-url= deny-url= allow-all-urls allow-all yolo max-autopilot-continues= mode= autopilot plan experimental bash-env= mouse= show-timing server ui-server headless managed-server acp stdio host= disable-remote-sessions remote sync-session= port= session-idle-timeout= auth-token-env= log-interactive-shells print-debug-info collect-debug-logs= collect-debug-logs-output= ahp= ahp-authenticate= environment= host-environment= host-compute-id= host-ahp host-ahp-token= host-ahp-disable-token host-ahp-listen= host-directory= sandbox dynamic-retrieval= enable-mcp-server= max-ai-credits= assisted-approval embedded-host usage-output-file= no-custom-instructions no-auto-update no-ask-user no-color no-experimental no-bash-env no-mouse no-auto-login no-sandbox no-eager-powershell-resolution h/help
 end
 
 function __fish_copilot_needs_command
@@ -27,6 +27,7 @@ end
 complete -c copilot -n "__fish_copilot_needs_command" -s i -l interactive -d 'Start interactive mode and automatically execute this prompt' -r
 complete -c copilot -n "__fish_copilot_needs_command" -s p -l prompt -d 'Execute a prompt in non-interactive mode (exits after completion)' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l model -d 'Set the AI model to use (use \'auto\' to let Copilot pick automatically)' -r -f -a "auto\t''
+fusion\t''
 claude-sonnet-5.5\t''
 claude-sonnet-5\t''
 claude-fable-5.1\t''
@@ -39,26 +40,21 @@ claude-sonnet-4.6\t''
 claude-haiku-5.5\t''
 claude-haiku-4.5\t''
 gpt-6.1-sol\t''
+gpt-6.1-terra\t''
 gpt-6-sol\t''
 gpt-6-luna\t''
 gpt-6-astra\t''
 gpt-5.6-sol\t''
 gpt-5.6-terra\t''
 gpt-5.6-luna\t''
-gpt-5.5\t''
-gpt-5.4\t''
-gpt-5.4-mini\t''
 gpt-5.3-codex\t''
-gpt-5-mini\t''
 mai-code-1.1-flash\t''
 gemini-4-argon\t''
 gemini-3.8-flash\t''
-gemini-3.7-flash\t''
 grok-4.7\t''
 grok-4.6\t''
-grok-4.5\t''
 kimi-k3\t''"
-complete -c copilot -n "__fish_copilot_needs_command" -l reasoning-effort -d 'Set the reasoning effort level' -r -f -a "none\t''
+complete -c copilot -n "__fish_copilot_needs_command" -l reasoning-effort -d 'Set the reasoning effort level; supported levels depend on the model' -r -f -a "none\t''
 minimal\t''
 low\t''
 medium\t''
@@ -67,7 +63,7 @@ xhigh\t''
 max\t''"
 complete -c copilot -n "__fish_copilot_needs_command" -l context -d 'Set the context window tier (overrides persisted setting)' -r -f -a "default\t''
 long_context\t''"
-complete -c copilot -n "__fish_copilot_needs_command" -l auto-tier -d 'Set the Auto routing profile (validated against the available catalog)' -r
+complete -c copilot -n "__fish_copilot_needs_command" -l auto-tier -d 'Set the Auto routing profile by its exact advertised ID (validated against the available catalog)' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l agent -d 'Specify a custom agent to use' -r
 complete -c copilot -n "__fish_copilot_needs_command" -s r -l resume -d 'Resume from a previous session (optionally specify existing session ID, task ID, ID prefix, or name; name matching is exact, case-insensitive)' -r
 complete -c copilot -n "__fish_copilot_needs_command" -s n -l name -d 'Set a name for the new session' -r
@@ -96,7 +92,7 @@ complete -c copilot -n "__fish_copilot_needs_command" -l share -d 'Share session
 complete -c copilot -n "__fish_copilot_needs_command" -l add-dir -d 'Allow file access to a directory and load its .github/skills and .github/agents as trusted configuration (can be used multiple times). A relative path resolves against the session working directory (the --resume/--worktree/-C directory), whatever order the options appear in' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l attachment -d 'Attach a file (image or native document) to the initial prompt; only valid in non-interactive mode (can be used multiple times)' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l disable-mcp-server -d 'Disable a specific MCP server (can be used multiple times)' -r
-complete -c copilot -n "__fish_copilot_needs_command" -l add-github-mcp-toolset -d 'Add a toolset to enable for the GitHub MCP server instead of the default CLI subset (can be used multiple times). Use "all" for all toolsets.' -r
+complete -c copilot -n "__fish_copilot_needs_command" -l add-github-mcp-toolset -d 'Add a toolset to enable for the GitHub MCP server in addition to the default CLI subset (can be used multiple times). Use "default" for the server\'s default toolsets or "all" for all toolsets.' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l add-github-mcp-tool -d 'Add a tool to enable for the GitHub MCP server instead of the default CLI subset (can be used multiple times). Use "*" for all tools.' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l plugin-dir -d 'Load a plugin from a local directory (can be used multiple times). A relative path resolves against the session working directory (the --resume/--worktree/-C directory), whatever order the options appear in' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l additional-mcp-config -d 'Additional MCP servers configuration as JSON string or file path (prefix with @) (can be used multiple times; augments config from ~/.copilot/mcp-config.json for this session). A relative @ path resolves against the session working directory (the --resume/--worktree/-C directory) and a leading ~/ expands to your home directory' -r
@@ -106,7 +102,7 @@ complete -c copilot -n "__fish_copilot_needs_command" -l allow-tool -d 'Tools th
 complete -c copilot -n "__fish_copilot_needs_command" -l deny-tool -d 'Tools the CLI does not have permission to use; will not prompt for permission' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l available-tools -d 'Only these tools will be available to the model' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l excluded-tools -d 'These tools will not be available to the model' -r
-complete -c copilot -n "__fish_copilot_needs_command" -l secret-env-vars -d 'Environment variable names whose values are stripped from shell and MCP server environments and redacted from output (e.g., --secret-env-vars=MY_KEY,OTHER_KEY)' -r
+complete -c copilot -n "__fish_copilot_needs_command" -l secret-env-vars -d 'Environment variable names to remove from shell and MCP server environments. Their values are also masked in some output, such as --output-format json, but a value that reaches a tool result another way still goes to the model and is saved in the session history (e.g., --secret-env-vars=MY_KEY,OTHER_KEY)' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l allow-url -d 'Allow access to specific URLs or domains' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l deny-url -d 'Deny access to specific URLs or domains, takes precedence over --allow-url' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l max-autopilot-continues -d 'Maximum number of continuation messages in autopilot mode' -r
@@ -115,7 +111,7 @@ plan\t''
 autopilot\t''"
 complete -c copilot -n "__fish_copilot_needs_command" -l bash-env -d 'Enable BASH_ENV support for bash shells (on|off)' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l mouse -d 'Enable mouse support in alt screen mode (on|off)' -r
-complete -c copilot -n "__fish_copilot_needs_command" -l host -d 'Host address to bind server to (default: 127.0.0.1)' -r
+complete -c copilot -n "__fish_copilot_needs_command" -l host -d 'Host address to bind server to (default: 127.0.0.1). A non-loopback host (for example 0.0.0.0) requires COPILOT_CONNECTION_TOKEN to be set to a non-empty value, or the server refuses to start.' -r
 complete -c copilot -n "__fish_copilot_needs_command" -l sync-session -d 'Enable or disable read-only account history sync for this run only (omitted: use configured/default behavior). Without a value, enables sync; does not enable incoming control.' -r -f -a "on\t''
 off\t''"
 complete -c copilot -n "__fish_copilot_needs_command" -l port -d 'Port to listen on when in server mode (default: random available port)' -r
@@ -139,12 +135,12 @@ complete -c copilot -n "__fish_copilot_needs_command" -s v -l version -d 'show v
 complete -c copilot -n "__fish_copilot_needs_command" -l fleet -d 'Run the prompt in fleet mode (parallel subagent orchestration); combine with -i, -p, or piped stdin'
 complete -c copilot -n "__fish_copilot_needs_command" -l trust-folder -d 'Trust the resolved working directory\'s configuration for one new prompt-mode session only (no saved trust or tool, path, or URL approvals)'
 complete -c copilot -n "__fish_copilot_needs_command" -s s -l silent -d 'Output only the agent response (no stats), useful for scripting with -p'
-complete -c copilot -n "__fish_copilot_needs_command" -l disable-client-telemetry -d 'Disable telemetry sent by the CLI (does not affect server-side telemetry)'
+complete -c copilot -n "__fish_copilot_needs_command" -l disable-client-telemetry -d 'Disable Copilot-owned GitHub and Entra telemetry (does not affect OpenTelemetry or server-side telemetry)'
 complete -c copilot -n "__fish_copilot_needs_command" -l enable-memory -d 'Enable memory in prompt mode (disabled by default)'
 complete -c copilot -n "__fish_copilot_needs_command" -l enable-reasoning-summaries -d 'Deprecated compatibility flag (accepted but ignored)'
 complete -c copilot -n "__fish_copilot_needs_command" -l continue -d 'Resume the most recent session'
 complete -c copilot -n "__fish_copilot_needs_command" -l cloud -d 'Create a cloud sandbox session and connect to it'
-complete -c copilot -n "__fish_copilot_needs_command" -l allow-all-tools -d 'Allow all tools to run automatically without confirmation; required for non-interactive mode. Run `copilot help environment` for what COPILOT_ALLOW_ALL accepts and what exact "true" grants'
+complete -c copilot -n "__fish_copilot_needs_command" -l allow-all-tools -d 'Allow all tools to run automatically without confirmation. Non-interactive mode cannot ask, so it denies tool requests that no allow rule (or `--assisted-approval`) approves. Run `copilot help environment` for what COPILOT_ALLOW_ALL accepts and what exact "true" grants'
 complete -c copilot -n "__fish_copilot_needs_command" -l allow-all-paths -d 'Disable file path verification and allow access to any path'
 complete -c copilot -n "__fish_copilot_needs_command" -l disallow-temp-dir -d 'Prevent automatic access to the system temporary directory'
 complete -c copilot -n "__fish_copilot_needs_command" -l banner -d 'Show the startup banner'
@@ -177,7 +173,7 @@ complete -c copilot -n "__fish_copilot_needs_command" -l assisted-approval -d 'R
 complete -c copilot -n "__fish_copilot_needs_command" -l embedded-host -d 'Run as an in-process FFI embedded host (Rust engine driven over the C ABI; no stdio/TCP transport)'
 complete -c copilot -n "__fish_copilot_needs_command" -l no-custom-instructions -d 'Disable loading of custom instructions from AGENTS.md and related files'
 complete -c copilot -n "__fish_copilot_needs_command" -l no-auto-update -d 'Disable downloading CLI updates automatically. Copilot then runs the version bundled in the executable you launched rather than a newer previously downloaded one'
-complete -c copilot -n "__fish_copilot_needs_command" -l no-ask-user -d 'Disable the ask_user tool (agent works autonomously without asking questions)'
+complete -c copilot -n "__fish_copilot_needs_command" -l no-ask-user -d 'Disable the ask_user tool (the agent can still ask in its replies, but not through the question form)'
 complete -c copilot -n "__fish_copilot_needs_command" -l no-color -d 'Disable all color output'
 complete -c copilot -n "__fish_copilot_needs_command" -l no-experimental -d 'Disable experimental features'
 complete -c copilot -n "__fish_copilot_needs_command" -l no-bash-env -d 'Disable BASH_ENV support for bash shells'
@@ -207,12 +203,12 @@ complete -c copilot -n "__fish_copilot_needs_command" -f -a "completion" -d 'Gen
 complete -c copilot -n "__fish_copilot_using_subcommand app" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c copilot -n "__fish_copilot_using_subcommand login" -l host -d 'GitHub host URL (default: https://github.com)' -r
 complete -c copilot -n "__fish_copilot_using_subcommand login" -l config-dir -d 'Set the configuration directory (deprecated: use COPILOT_HOME env var)' -r
-complete -c copilot -n "__fish_copilot_using_subcommand login" -l device-code -d 'Authenticate using the OAuth device code flow (default in remote or headless environments)'
+complete -c copilot -n "__fish_copilot_using_subcommand login" -l device-code -d 'Authenticate using the OAuth device code flow (default in remote environments, CI, and non-interactive Linux with no display)'
 complete -c copilot -n "__fish_copilot_using_subcommand login" -l web-flow -d 'Authenticate using the browser (web) flow (default on local desktops)'
 complete -c copilot -n "__fish_copilot_using_subcommand login" -l with-token -d 'Read an authentication token from standard input'
 complete -c copilot -n "__fish_copilot_using_subcommand login" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c copilot -n "__fish_copilot_using_subcommand help" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c copilot -n "__fish_copilot_using_subcommand init" -l disable-client-telemetry -d 'Disable telemetry sent by the CLI (does not affect server-side telemetry)'
+complete -c copilot -n "__fish_copilot_using_subcommand init" -l disable-client-telemetry -d 'Disable Copilot-owned GitHub and Entra telemetry (does not affect OpenTelemetry or server-side telemetry)'
 complete -c copilot -n "__fish_copilot_using_subcommand init" -l sandbox -d 'Run this session\'s shell commands inside the OS-level sandbox for this run only (does not change your saved sandbox setting)'
 complete -c copilot -n "__fish_copilot_using_subcommand init" -l experimental -d 'Enable experimental features'
 complete -c copilot -n "__fish_copilot_using_subcommand init" -l no-sandbox -d 'Disable the OS-level sandbox for this run only (does not change your saved sandbox setting)'
@@ -352,7 +348,7 @@ complete -c copilot -n "__fish_copilot_using_subcommand sandbox; and __fish_seen
 complete -c copilot -n "__fish_copilot_using_subcommand taskbar-selftest" -l strict -d 'Exit non-zero unless tasks.json was actually written'
 complete -c copilot -n "__fish_copilot_using_subcommand taskbar-selftest" -s h -l help -d 'Print help (see more with \'--help\')'
 complete -c copilot -n "__fish_copilot_using_subcommand completion" -s h -l help -d 'Print help (see more with \'--help\')'
-complete -c copilot -l model -r -f -a 'auto claude-sonnet-5.5 claude-sonnet-5 claude-fable-5.1 claude-fable-5 claude-opus-5.5 claude-opus-5 claude-opus-4.8 claude-opus-4.8-fast claude-sonnet-4.6 claude-haiku-5.5 claude-haiku-4.5 gpt-6.1-sol gpt-6-sol gpt-6-luna gpt-6-astra gpt-5.6-sol gpt-5.6-terra gpt-5.6-luna gpt-5.5 gpt-5.4 gpt-5.4-mini gpt-5.3-codex gpt-5-mini mai-code-1.1-flash gemini-4-argon gemini-3.8-flash gemini-3.7-flash grok-4.7 grok-4.6 grok-4.5 kimi-k3'
+complete -c copilot -l model -r -f -a 'auto fusion claude-sonnet-5.5 claude-sonnet-5 claude-fable-5.1 claude-fable-5 claude-opus-5.5 claude-opus-5 claude-opus-4.8 claude-opus-4.8-fast claude-sonnet-4.6 claude-haiku-5.5 claude-haiku-4.5 gpt-6.1-sol gpt-6.1-terra gpt-6-sol gpt-6-luna gpt-6-astra gpt-5.6-sol gpt-5.6-terra gpt-5.6-luna gpt-5.3-codex mai-code-1.1-flash gemini-4-argon gemini-3.8-flash grok-4.7 grok-4.6 kimi-k3'
 complete -c copilot -l reasoning-effort -r -f -a 'none minimal low medium high xhigh max'
 complete -c copilot -l context -r -f -a 'default long_context'
 complete -c copilot -l log-level -r -f -a 'none error warning info debug all default'
@@ -448,11 +444,11 @@ function __copilot_config_candidates
     if test "$mode" = keys
         switch "$scope"
             case user
-                printf '%s\n' 'ahpEnvironment.acceptRemoteConnections' 'ahpEnvironment.allowCreatingNewSessions' 'ahpEnvironment.computeId' 'ahpEnvironment.name' 'ahpEnvironment.publishNewSessionsByDefault' 'ahpEnvironment.requireConnectionBinding' 'allowedUrls' 'askUser' 'assistedApprovalInstructions' 'autoTier' 'autoUpdate' 'autoUpdatesChannel' 'banner' 'bannerStyle' 'bashEnv' 'beep' 'beepOnSchedule' 'commandHistoryMaxSize' 'compactPaste' 'companyAnnouncements' 'connectors' 'contextManagementTools' 'contextTier' 'continueOnAutoMode' 'copyOnCodeBlockClick' 'copyOnSelect' 'customAgents.defaultLocalOnly' 'defaultMode' 'defaultPermissionMode' 'deniedUrls' 'disableAllHooks' 'disabledHooks' 'disabledMcpServers' 'disabledSkills' 'dynamicRetrieval.mcp' 'dynamicRetrieval.skills' 'editorMode' 'effortLevel' 'enableAllGithubMcpTools' 'enabledMcpServers' 'experimental' 'extensions.disabledExtensions' 'extensions.mode' 'feature_flags.enabled' 'footer.showAgent' 'footer.showAiUsed' 'footer.showBranch' 'footer.showCiStatus' 'footer.showCodeChanges' 'footer.showContextWindow' 'footer.showCustom' 'footer.showDirectory' 'footer.showModelEffort' 'footer.showPullRequest' 'footer.showQuota' 'footer.showSandbox' 'footer.showSchedules' 'footer.showUsername' 'footer.showYolo' 'githubMcpInsiders' 'githubMcpTools' 'githubMcpToolsets' 'ide.autoConnect' 'ide.openDiffOnEdit' 'ignoredSkillsLocations' 'imageGeneration' 'imageGenerationWatermark' 'includeCoAuthoredBy' 'inlineImageLiveWindow' 'inlineImages' 'keepAlive' 'memory' 'mergeStrategy' 'model' 'modelProviderId' 'mouse' 'notifications' 'pinnedPrompts' 'planContextTier' 'planEffortLevel' 'planModel' 'planModelProviderId' 'powershellFlags' 'proxyKerberosServicePrincipal' 'proxyUrl' 'remoteExport' 'renderHexColors' 'renderMarkdown' 'respectGitignore' 'sandbox.addCurrentWorkingDirectory' 'sandbox.allowBypass' 'sandbox.allowDevToolAccess' 'sandbox.auth.gh' 'sandbox.auth.git' 'sandbox.credentials.envVars.*.injectHosts' 'sandbox.enabled' 'sandbox.sandboxLspServers' 'sandbox.sandboxMcpServers' 'sandbox.userPolicy.filesystem.deniedPaths' 'sandbox.userPolicy.filesystem.readonlyPaths' 'sandbox.userPolicy.filesystem.readwritePaths' 'sandbox.userPolicy.network.allowedHosts' 'sandbox.userPolicy.network.allowLocalNetwork' 'sandbox.userPolicy.network.allowOutbound' 'sandbox.userPolicy.network.blockedHosts' 'sandbox.userPolicy.network.proxy.url' 'sandbox.userPolicy.network.proxy.username' 'screenReader' 'scrollbar' 'showReasoning' 'showTimestamps' 'showTipsOnStartup' 'showToolDurations' 'sidebar.accentActiveSession' 'sidebar.coloredHints' 'sidebar.enabled' 'sidebar.hoverFocus' 'sidebar.showCloseButton' 'sidebar.showHeaderButtons' 'sidebar.showResumableSessions' 'skillDirectories' 'statusLine.padding' 'statusLine.refreshInterval' 'statusLine.type' 'stayInAutopilot' 'stream' 'subagents.contextManagementTools' 'subagents.maxConcurrency' 'subagents.maxDepth' 'tabs.enabled' 'tabs.hide' 'tabs.sort' 'taskbarPresence' 'terminalNotifications' 'terminalProgress' 'theme' 'toolSearch' 'transcriptView' 'updateTerminalTitle' 'voice.selectedDevice.name' 'voice.selectedDevice.occurrence' 'workflows.logPhaseNames' 'workflows.maxConcurrentRuns' 'worktreeBaseRef' 'worktreePathTemplate'
+                printf '%s\n' 'ahpEnvironment.acceptRemoteConnections' 'ahpEnvironment.allowCreatingNewSessions' 'ahpEnvironment.computeId' 'ahpEnvironment.name' 'ahpEnvironment.publishNewSessionsByDefault' 'ahpEnvironment.requireConnectionBinding' 'aiSecretDetection' 'allowedUrls' 'askUser' 'assistedApprovalInstructions' 'autoTier' 'autoUpdate' 'autoUpdatesChannel' 'banner' 'bannerStyle' 'bashEnv' 'beep' 'beepOnSchedule' 'commandHistoryMaxSize' 'compactPaste' 'companyAnnouncements' 'connectors' 'contextManagementTools' 'contextTier' 'continueOnAutoMode' 'copyOnCodeBlockClick' 'copyOnSelect' 'customAgents.defaultLocalOnly' 'defaultMode' 'defaultPermissionMode' 'deniedUrls' 'disableAllHooks' 'disabledHooks' 'disabledMcpServers' 'disabledSkills' 'dynamicRetrieval.mcp' 'dynamicRetrieval.skills' 'editorMode' 'effortLevel' 'enableAllGithubMcpTools' 'enabledMcpServers' 'experimental' 'extensions.disabledExtensions' 'extensions.mode' 'feature_flags.enabled' 'footer.showAgent' 'footer.showAiUsed' 'footer.showBranch' 'footer.showCiStatus' 'footer.showCodeChanges' 'footer.showContextWindow' 'footer.showCustom' 'footer.showDirectory' 'footer.showModelEffort' 'footer.showPullRequest' 'footer.showQuota' 'footer.showSandbox' 'footer.showSchedules' 'footer.showUsername' 'footer.showYolo' 'fusionTier' 'githubMcpInsiders' 'githubMcpTools' 'githubMcpToolsets' 'ide.autoConnect' 'ide.codeProduct' 'ide.openDiffOnEdit' 'ignoredSkillsLocations' 'imageGeneration' 'imageGenerationWatermark' 'includeCoAuthoredBy' 'inlineImageLiveWindow' 'inlineImages' 'keepAlive' 'memory' 'mergeStrategy' 'model' 'modelProviderId' 'mouse' 'notifications' 'pinnedPrompts' 'planContextTier' 'planEffortLevel' 'planModel' 'planModelProviderId' 'powershellFlags' 'proxyKerberosServicePrincipal' 'proxyUrl' 'remoteExport' 'renderHexColors' 'renderMarkdown' 'respectGitignore' 'sandbox.addCurrentWorkingDirectory' 'sandbox.allowBypass' 'sandbox.allowDevToolAccess' 'sandbox.auth.gh' 'sandbox.auth.git' 'sandbox.credentials.envVars.*.injectHosts' 'sandbox.enabled' 'sandbox.sandboxExtensions' 'sandbox.sandboxLspServers' 'sandbox.sandboxMcpServers' 'sandbox.userPolicy.filesystem.deniedPaths' 'sandbox.userPolicy.filesystem.enumeratePaths' 'sandbox.userPolicy.filesystem.readonlyPaths' 'sandbox.userPolicy.filesystem.readwritePaths' 'sandbox.userPolicy.network.allowedHosts' 'sandbox.userPolicy.network.allowLocalNetwork' 'sandbox.userPolicy.network.allowOutbound' 'sandbox.userPolicy.network.blockedHosts' 'sandbox.userPolicy.network.proxy.url' 'sandbox.userPolicy.network.proxy.username' 'screenReader' 'scrollbar' 'sessionManagementTools.close' 'sessionManagementTools.create' 'sessionManagementTools.enabled' 'sessionManagementTools.list' 'sessionManagementTools.message' 'sessionManagementTools.scope' 'showReasoning' 'showTimestamps' 'showToolDurations' 'sidebar.accentActiveSession' 'sidebar.coloredHints' 'sidebar.ctrlCClosesSession' 'sidebar.enabled' 'sidebar.exitClosesSession' 'sidebar.hoverFocus' 'sidebar.showCloseButton' 'sidebar.showHeaderButtons' 'sidebar.showResumableSessions' 'skillDirectories' 'statusLine.padding' 'statusLine.refreshInterval' 'statusLine.type' 'stayInAutopilot' 'stream' 'subagents.contextManagementTools' 'subagents.maxConcurrency' 'subagents.maxDepth' 'tabs.enabled' 'tabs.hide' 'tabs.sort' 'taskbarPresence' 'terminalNotifications' 'terminalProgress' 'theme' 'toolSearch' 'updateTerminalTitle' 'voice.selectedDevice.name' 'voice.selectedDevice.occurrence' 'workflows.logPhaseNames' 'workflows.maxConcurrentRuns' 'worktreeBaseRef' 'worktreePathTemplate'
             case repo
                 printf '%s\n' 'autoTier' 'companyAnnouncements' 'contextTier' 'deniedUrls' 'disableAllHooks' 'disabledMcpServers' 'disabledSkills' 'effortLevel' 'includeCoAuthoredBy' 'mergeStrategy' 'model' 'modelProviderId' 'respectGitignore' 'skillDirectories'
             case read
-                printf '%s\n' 'ahpEnvironment.acceptRemoteConnections' 'ahpEnvironment.allowCreatingNewSessions' 'ahpEnvironment.computeId' 'ahpEnvironment.name' 'ahpEnvironment.publishNewSessionsByDefault' 'ahpEnvironment.requireConnectionBinding' 'allowedUrls' 'askUser' 'assistedApprovalInstructions' 'autoTier' 'autoUpdate' 'autoUpdatesChannel' 'banner' 'bannerStyle' 'bashEnv' 'beep' 'beepOnSchedule' 'builtInAgents.rubberDuck' 'builtInAgents.rubberDuckAutoInvoke' 'commandHistoryMaxSize' 'compactPaste' 'companyAnnouncements' 'connectors' 'contextManagementTools' 'contextTier' 'continueOnAutoMode' 'copilotUrl' 'copyOnCodeBlockClick' 'copyOnSelect' 'customAgents.defaultLocalOnly' 'defaultMode' 'defaultPermissionMode' 'deniedUrls' 'disableAllHooks' 'disabledHooks' 'disabledMcpServers' 'disabledSkills' 'dynamicRetrieval.mcp' 'dynamicRetrieval.skills' 'editorMode' 'effortLevel' 'enableAllGithubMcpTools' 'enabledMcpServers' 'experimental' 'extensions.disabledExtensions' 'extensions.mode' 'feature_flags.enabled' 'footer.showAgent' 'footer.showAiUsed' 'footer.showBranch' 'footer.showCiStatus' 'footer.showCodeChanges' 'footer.showContextWindow' 'footer.showCustom' 'footer.showDirectory' 'footer.showModelEffort' 'footer.showPullRequest' 'footer.showQuota' 'footer.showSandbox' 'footer.showSchedules' 'footer.showUsername' 'footer.showYolo' 'githubMcpInsiders' 'githubMcpTools' 'githubMcpToolsets' 'ide.autoConnect' 'ide.openDiffOnEdit' 'ignoredSkillsLocations' 'imageGeneration' 'imageGenerationWatermark' 'includeCoAuthoredBy' 'inlineImageLiveWindow' 'inlineImages' 'keepAlive' 'logLevel' 'memory' 'mergeStrategy' 'model' 'modelProviderId' 'mouse' 'notifications' 'permissions.disableAssistedPermissionsMode' 'permissions.disableBypassPermissionsMode' 'pinnedPrompts' 'planContextTier' 'planEffortLevel' 'planModel' 'planModelProviderId' 'powershellFlags' 'proxyKerberosServicePrincipal' 'proxyUrl' 'remoteExport' 'remoteSessions' 'renderHexColors' 'renderMarkdown' 'respectGitignore' 'sandbox.addCurrentWorkingDirectory' 'sandbox.allowBypass' 'sandbox.allowDevToolAccess' 'sandbox.auth.gh' 'sandbox.auth.git' 'sandbox.credentials.envVars.*.injectHosts' 'sandbox.enabled' 'sandbox.sandboxLspServers' 'sandbox.sandboxMcpServers' 'sandbox.userPolicy.experimental.seatbelt.keychainAccess' 'sandbox.userPolicy.filesystem.deniedPaths' 'sandbox.userPolicy.filesystem.readonlyPaths' 'sandbox.userPolicy.filesystem.readwritePaths' 'sandbox.userPolicy.network.allowedHosts' 'sandbox.userPolicy.network.allowLocalNetwork' 'sandbox.userPolicy.network.allowOutbound' 'sandbox.userPolicy.network.blockedHosts' 'sandbox.userPolicy.network.proxy.password' 'sandbox.userPolicy.network.proxy.url' 'sandbox.userPolicy.network.proxy.username' 'sandbox.userPolicy.seatbelt.keychainAccess' 'screenReader' 'scrollbar' 'shellShortcut' 'showReasoning' 'showTimestamps' 'showTipsOnStartup' 'showToolDurations' 'sidebar.accentActiveSession' 'sidebar.coloredHints' 'sidebar.enabled' 'sidebar.hoverFocus' 'sidebar.showCloseButton' 'sidebar.showHeaderButtons' 'sidebar.showResumableSessions' 'skillDirectories' 'statusLine.command' 'statusLine.padding' 'statusLine.refreshInterval' 'statusLine.type' 'stayInAutopilot' 'storeTokenPlaintext' 'stream' 'streamerMode' 'subagents.contextManagementTools' 'subagents.disabledSubagents' 'subagents.maxConcurrency' 'subagents.maxDepth' 'tabs.enabled' 'tabs.hide' 'tabs.sort' 'taskbarPresence' 'telemetry.capture.identity' 'telemetry.capture.policyDetail' 'telemetry.capture.prompts' 'telemetry.capture.responses' 'telemetry.capture.toolArguments' 'telemetry.capture.toolOutput' 'telemetry.captureContent' 'terminalNotifications' 'terminalProgress' 'theme' 'toolSearch' 'transcriptView' 'updateTerminalTitle' 'voice.enabled' 'voice.selectedDevice.name' 'voice.selectedDevice.occurrence' 'voice.selectedModel' 'workflows.defaultLimits.maxAiCredits' 'workflows.defaultLimits.maxConcurrentSubagents' 'workflows.defaultLimits.maxTotalSubagents' 'workflows.defaultLimits.timeoutSeconds' 'workflows.logPhaseNames' 'workflows.maxConcurrentRuns' 'worktreeBaseRef' 'worktreePathTemplate'
+                printf '%s\n' 'ahpEnvironment.acceptRemoteConnections' 'ahpEnvironment.allowCreatingNewSessions' 'ahpEnvironment.computeId' 'ahpEnvironment.name' 'ahpEnvironment.publishNewSessionsByDefault' 'ahpEnvironment.requireConnectionBinding' 'aiSecretDetection' 'allowedUrls' 'askUser' 'assistedApprovalInstructions' 'autoTier' 'autoUpdate' 'autoUpdatesChannel' 'banner' 'bannerStyle' 'bashEnv' 'beep' 'beepOnSchedule' 'builtInAgents.rubberDuck' 'builtInAgents.rubberDuckAutoInvoke' 'commandHistoryMaxSize' 'compactPaste' 'companyAnnouncements' 'connectors' 'contextManagementTools' 'contextTier' 'continueOnAutoMode' 'copilotUrl' 'copyOnCodeBlockClick' 'copyOnSelect' 'customAgents.defaultLocalOnly' 'defaultMode' 'defaultPermissionMode' 'deniedUrls' 'disableAllHooks' 'disabledHooks' 'disabledMcpServers' 'disabledSkills' 'dynamicRetrieval.mcp' 'dynamicRetrieval.skills' 'editorMode' 'effortLevel' 'enableAllGithubMcpTools' 'enabledMcpServers' 'experimental' 'extensions.disabledExtensions' 'extensions.mode' 'feature_flags.enabled' 'footer.showAgent' 'footer.showAiUsed' 'footer.showBranch' 'footer.showCiStatus' 'footer.showCodeChanges' 'footer.showContextWindow' 'footer.showCustom' 'footer.showDirectory' 'footer.showModelEffort' 'footer.showPullRequest' 'footer.showQuota' 'footer.showSandbox' 'footer.showSchedules' 'footer.showUsername' 'footer.showYolo' 'fusionTier' 'githubMcpInsiders' 'githubMcpTools' 'githubMcpToolsets' 'ide.autoConnect' 'ide.codeProduct' 'ide.openDiffOnEdit' 'ignoredSkillsLocations' 'imageGeneration' 'imageGenerationWatermark' 'includeCoAuthoredBy' 'inlineImageLiveWindow' 'inlineImages' 'keepAlive' 'logLevel' 'memory' 'mergeStrategy' 'model' 'modelProviderId' 'mouse' 'notifications' 'permissions.disableAssistedPermissionsMode' 'permissions.disableBypassPermissionsMode' 'pinnedPrompts' 'planContextTier' 'planEffortLevel' 'planModel' 'planModelProviderId' 'powershellFlags' 'proxyKerberosServicePrincipal' 'proxyUrl' 'remoteExport' 'remoteSessions' 'renderHexColors' 'renderMarkdown' 'respectGitignore' 'sandbox.addCurrentWorkingDirectory' 'sandbox.allowBypass' 'sandbox.allowDevToolAccess' 'sandbox.auth.gh' 'sandbox.auth.git' 'sandbox.credentials.envVars.*.injectHosts' 'sandbox.enabled' 'sandbox.sandboxExtensions' 'sandbox.sandboxLspServers' 'sandbox.sandboxMcpServers' 'sandbox.userPolicy.experimental.seatbelt.keychainAccess' 'sandbox.userPolicy.filesystem.deniedPaths' 'sandbox.userPolicy.filesystem.enumeratePaths' 'sandbox.userPolicy.filesystem.readonlyPaths' 'sandbox.userPolicy.filesystem.readwritePaths' 'sandbox.userPolicy.network.allowedHosts' 'sandbox.userPolicy.network.allowLocalNetwork' 'sandbox.userPolicy.network.allowOutbound' 'sandbox.userPolicy.network.blockedHosts' 'sandbox.userPolicy.network.proxy.password' 'sandbox.userPolicy.network.proxy.url' 'sandbox.userPolicy.network.proxy.username' 'sandbox.userPolicy.seatbelt.keychainAccess' 'screenReader' 'scrollbar' 'sessionManagementTools.close' 'sessionManagementTools.create' 'sessionManagementTools.enabled' 'sessionManagementTools.list' 'sessionManagementTools.message' 'sessionManagementTools.scope' 'shellShortcut' 'showReasoning' 'showTimestamps' 'showTipsOnStartup' 'showToolDurations' 'sidebar.accentActiveSession' 'sidebar.coloredHints' 'sidebar.ctrlCClosesSession' 'sidebar.enabled' 'sidebar.exitClosesSession' 'sidebar.hoverFocus' 'sidebar.showCloseButton' 'sidebar.showHeaderButtons' 'sidebar.showResumableSessions' 'skillDirectories' 'statusLine.command' 'statusLine.padding' 'statusLine.refreshInterval' 'statusLine.type' 'stayInAutopilot' 'storeTokenPlaintext' 'stream' 'streamerMode' 'subagents.contextManagementTools' 'subagents.disabledSubagents' 'subagents.maxConcurrency' 'subagents.maxDepth' 'tabs.enabled' 'tabs.hide' 'tabs.sort' 'taskbarPresence' 'telemetry.capture.identity' 'telemetry.capture.policyDetail' 'telemetry.capture.prompts' 'telemetry.capture.responses' 'telemetry.capture.toolArguments' 'telemetry.capture.toolOutput' 'telemetry.captureContent' 'terminalNotifications' 'terminalProgress' 'theme' 'toolSearch' 'updateTerminalTitle' 'voice.enabled' 'voice.selectedDevice.name' 'voice.selectedDevice.occurrence' 'voice.selectedModel' 'workflows.defaultLimits.maxAiCredits' 'workflows.defaultLimits.maxConcurrentSubagents' 'workflows.defaultLimits.maxTotalSubagents' 'workflows.defaultLimits.timeoutSeconds' 'workflows.logPhaseNames' 'workflows.maxConcurrentRuns' 'worktreeBaseRef' 'worktreePathTemplate'
         end
         return
     end
@@ -471,6 +467,9 @@ function __copilot_config_candidates
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
         case 'user:ahpEnvironment.requireConnectionBinding'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:aiSecretDetection'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
         case 'user:allowedUrls'
@@ -611,6 +610,9 @@ function __copilot_config_candidates
         case 'user:footer.showYolo'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
+        case 'user:fusionTier'
+            test "$mode" != remove; or return
+            printf '%s\n' 'standard' 'high' 'max'
         case 'user:githubMcpInsiders'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
@@ -619,6 +621,9 @@ function __copilot_config_candidates
         case 'user:ide.autoConnect'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
+        case 'user:ide.codeProduct'
+            test "$mode" != remove; or return
+            printf '%s\n' 'stable' 'insiders'
         case 'user:ide.openDiffOnEdit'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
@@ -705,6 +710,9 @@ function __copilot_config_candidates
         case 'user:sandbox.enabled'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
+        case 'user:sandbox.sandboxExtensions'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
         case 'user:sandbox.sandboxLspServers'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
@@ -713,6 +721,8 @@ function __copilot_config_candidates
             printf '%s\n' 'true' 'false'
         case 'user:sandbox.userPolicy.filesystem.deniedPaths'
             __fish_complete_path (commandline -ct)
+        case 'user:sandbox.userPolicy.filesystem.enumeratePaths'
+            __fish_complete_directories (commandline -ct)
         case 'user:sandbox.userPolicy.filesystem.readonlyPaths'
             __fish_complete_path (commandline -ct)
         case 'user:sandbox.userPolicy.filesystem.readwritePaths'
@@ -735,13 +745,28 @@ function __copilot_config_candidates
         case 'user:scrollbar'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
+        case 'user:sessionManagementTools.close'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:sessionManagementTools.create'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:sessionManagementTools.enabled'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:sessionManagementTools.list'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:sessionManagementTools.message'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:sessionManagementTools.scope'
+            test "$mode" != remove; or return
+            printf '%s\n' 'all' 'in-process'
         case 'user:showReasoning'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
         case 'user:showTimestamps'
-            test "$mode" != remove; or return
-            printf '%s\n' 'true' 'false'
-        case 'user:showTipsOnStartup'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
         case 'user:showToolDurations'
@@ -753,7 +778,13 @@ function __copilot_config_candidates
         case 'user:sidebar.coloredHints'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
+        case 'user:sidebar.ctrlCClosesSession'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
         case 'user:sidebar.enabled'
+            test "$mode" != remove; or return
+            printf '%s\n' 'true' 'false'
+        case 'user:sidebar.exitClosesSession'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
         case 'user:sidebar.hoverFocus'
@@ -810,9 +841,6 @@ function __copilot_config_candidates
         case 'user:toolSearch'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
-        case 'user:transcriptView'
-            test "$mode" != remove; or return
-            printf '%s\n' 'default' 'concise'
         case 'user:updateTerminalTitle'
             test "$mode" != remove; or return
             printf '%s\n' 'true' 'false'
