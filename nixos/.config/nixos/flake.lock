@@ -10,11 +10,11 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1794490434,
-        "narHash": "sha256-xEYZr3WgCkyQxemUPseN2lHryeQVWwaxsXxZFK3gHxI=",
+        "lastModified": 1794511887,
+        "narHash": "sha256-coBdxGGBHIgNGxhGAM3cKALqFpsS818/GhYCHaZQAKw=",
         "owner": "Daaboulex",
         "repo": "cachyos-settings-nix",
-        "rev": "4c75829fd72caaeebbc1dbf22a7c534fb4dd2537",
+        "rev": "ec21c910c3918fcd4dc8e2be5214905a18b2fa3e",
         "type": "github"
       },
       "original": {
@@ -30,11 +30,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1794474378,
-        "narHash": "sha256-XeLtbEA3Zpx40NtlYFubTre3PA1EPIHj2S8EwJ/tEmU=",
+        "lastModified": 1794515497,
+        "narHash": "sha256-TJh0QCqCp+dmEXmsuJUe3u0MQ81kz7kxI4q7c7lk8ec=",
         "owner": "chaotic-cx",
         "repo": "nyx",
-        "rev": "92f28183ff4ade0f1312fe3166be487a524b0382",
+        "rev": "33ee0e3810518c7cdd58c1f23f9622a47a237fce",
         "type": "github"
       },
       "original": {
@@ -271,7 +271,7 @@
     "mybase_blocklist": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-O2GodkpNFiTwA5wH8Xyn66im1lmggZ35/e5O6KSDmXQ=",
+        "narHash": "sha256-FDNfvoiw/uHnfNVQLPlKK16S9ostwnMG/KLEjb/IPqA=",
         "type": "file",
         "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
       },
@@ -364,11 +364,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794491546,
-        "narHash": "sha256-S9fErsfmuaqqnLwdWSGoWMiXOhdk/jzu4lLOOhJwveM=",
+        "lastModified": 1794540243,
+        "narHash": "sha256-lJKakWakmwS7Hg6qS2QOGbNVAZ33jZnLQzCxeg5phZc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ffe52c4a3a28d40b921daf8808fb3008fdaea5ad",
+        "rev": "83ffb5aa5bdded8456429c6355ef6cb6eb3ffcaf",
         "type": "github"
       },
       "original": {
@@ -469,11 +469,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794489230,
-        "narHash": "sha256-V/At8ERINv7CH3fTqTSn1zhJcv1ORxiGJ/m7AnS96HA=",
+        "lastModified": 1794510026,
+        "narHash": "sha256-ct2ttZvIg3zOCPrwSxj4PeVrCmQFNi/+EVQSorMSFTU=",
         "owner": "Daaboulex",
         "repo": "nix-packaging-standard",
-        "rev": "a1ab56e8f7e21c8ed4acc5f1afdf8720dea808e0",
+        "rev": "d31deba4b9757cac78a4747f444ba20e8a2b0ccd",
         "type": "github"
       },
       "original": {
@@ -508,11 +508,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794356940,
-        "narHash": "sha256-ML+0SjnxlkLAFclntmMJpUBs13IGQNb5BD14jrmWHsw=",
+        "lastModified": 1794495687,
+        "narHash": "sha256-YufvHb7O/52Cp+B9a3HRVO0HluXSEQ75+WMIcU6YPyE=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "a7cac935fd58b6f177d2412ea00c566ed4f0abab",
+        "rev": "46c4140b55328bc3ee32f22c42185bc534998a1d",
         "type": "github"
       },
       "original": {
