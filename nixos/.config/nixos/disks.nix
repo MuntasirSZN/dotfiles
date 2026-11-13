@@ -85,7 +85,7 @@
                 "@home" = {
                   mountpoint = "/home";
                   mountOptions = [
-                    "noatime"
+                    "relatime"
                     "discard=async"
                     "compress=zstd:3"
                   ];
