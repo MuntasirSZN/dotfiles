@@ -5,6 +5,15 @@
 
 {
   home.packages = with pkgs; [
+    newsflash
+    materialgram
+    gearlever
+    gnome-connections
+    qbittorrent
+    stremio-linux-shell
+    zulip
+    zoom-us
+    # filmcraft
     deckcraft
     gridcraft
     pdfcraft
@@ -26,7 +35,6 @@
     fractal
     go
     playerctl
-    surge-downloader
     git-lfs
     lsfg-vk
     lsfg-vk-ui
@@ -103,7 +111,6 @@
     matugen
     dux-gop
     libsForQt5.qt5ct
-    evince
     loupe
     networkmanagerapplet
     adw-gtk3

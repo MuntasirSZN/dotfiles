@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Mister Download Manager
+Exec="/home/muntasir/AppImages/mister_download_manager.appimage" /startup
+Icon=misterdownloadmanager
+Terminal=false
+X-GNOME-Autostart-enabled=true

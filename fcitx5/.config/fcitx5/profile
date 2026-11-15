@@ -4,7 +4,7 @@ Name=Default
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=openbangla
+DefaultIM=m17n_bn_khipro-classic-local
 
 [Groups/0/Items/0]
 # Name
@@ -20,11 +20,17 @@ Name=openbangla
 
 [Groups/0/Items/2]
 # Name
-Name=m17n_bn_bijoyClassic
+Name=m17n_bn_khipro-classic-local
 # Layout
 # Layout=
 
 [Groups/0/Items/3]
+# Name
+Name=m17n_bn_bijoyClassic
+# Layout
+# Layout=
+
+[Groups/0/Items/4]
 # Name
 Name=m17n_bn_bijoyUnicode
 # Layout

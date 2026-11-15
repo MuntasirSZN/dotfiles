@@ -11,6 +11,7 @@
       fcitx5-m17n
       fcitx5-openbangla-keyboard
       qt6Packages.fcitx5-configtool
+      m17n_db
     ];
   };
 }

@@ -170,7 +170,13 @@
       "h": 1
     }
   ],
-  "appIdSubstitutions": [],
+  "appIdSubstitutions": [
+    {
+      "pattern": "",
+      "replacement": "",
+      "type": "exact"
+    }
+  ],
   "clockDateFormat": "dddd, MMMM d, yyyy",
   "lockDateFormat": "dddd, MMMM d, yyyy",
   "appDrawerSectionViewModes": {
@@ -554,11 +560,13 @@
         "colorChoice": "surface",
         "orientation": "horizontal",
         "vizMode": "bars",
-        "barCount": 30,
-        "barSpacing": 6,
+        "barCount": 60,
+        "barSpacing": 3,
         "barWidth": 0,
         "opacity": 95,
-        "clickThrough": true
+        "clickThrough": false,
+        "sensitivity": 100,
+        "channels": "mono"
       }
     }
   ],
@@ -579,20 +587,6 @@
   "configVersion": 42,
   "lockScreenWidgetInstances": [
     {
-      "id": "lock_date",
-      "widgetType": "lockDate",
-      "enabled": false,
-      "config": {
-        "displayPreferences": [
-          "all"
-        ],
-        "syncPositionAcrossScreens": true,
-        "format": "short",
-        "colorMode": "default",
-        "customColor": "#ffffff"
-      }
-    },
-    {
       "id": "lock_auth",
       "widgetType": "lockAuth",
       "enabled": true,
@@ -607,30 +601,6 @@
       }
     },
     {
-      "id": "lock_power",
-      "widgetType": "lockPower",
-      "enabled": false,
-      "config": {
-        "displayPreferences": [
-          "all"
-        ],
-        "syncPositionAcrossScreens": true,
-        "shape": "round"
-      }
-    },
-    {
-      "id": "lw_1793259060120_ja58a48n3",
-      "widgetType": "modernClock",
-      "name": "Modern Clock",
-      "enabled": true,
-      "config": {
-        "syncPositionAcrossScreens": true,
-        "displayPreferences": [
-          "all"
-        ]
-      }
-    },
-    {
       "id": "lw_1793259066410_q8qmoavya",
       "widgetType": "cavaVisualizer",
       "name": "Cava Visualizer",
@@ -641,9 +611,10 @@
           "all"
         ],
         "opacity": 80,
-        "barCount": 30,
+        "barCount": 60,
         "vizMode": "bars",
-        "orientation": "horizontal"
+        "orientation": "horizontal",
+        "barSpacing": 3
       }
     },
     {
@@ -685,6 +656,41 @@
         "showMediaPlayer": true,
         "showWeather": true,
         "background": false
+      }
+    },
+    {
+      "id": "lw_1794648518719_39jctddbj",
+      "widgetType": "desktopClock",
+      "name": "Clock",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "style": "overlap",
+        "transparency": 0,
+        "colorMode": "primary",
+        "customColor": "#ffffff",
+        "showDate": true,
+        "showAnalogNumbers": false,
+        "showAnalogSeconds": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "autoPosition": false
+      }
+    },
+    {
+      "id": "lw_1794730393728_qqbck390t",
+      "widgetType": "lockDate",
+      "name": "Date",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "format": "short",
+        "colorMode": "default",
+        "customColor": "#ffffff"
       }
     }
   ],
@@ -891,21 +897,7 @@
   "avatarRing": "outline",
   "greeterWidgetInstances": [
     {
-      "id": "lock_date",
-      "widgetType": "lockDate",
-      "enabled": false,
-      "config": {
-        "displayPreferences": [
-          "all"
-        ],
-        "syncPositionAcrossScreens": true,
-        "format": "short",
-        "colorMode": "default",
-        "customColor": "#ffffff"
-      }
-    },
-    {
-      "id": "lock_auth",
+      "id": "gw_lock_auth",
       "widgetType": "lockAuth",
       "enabled": true,
       "config": {
@@ -919,19 +911,7 @@
       }
     },
     {
-      "id": "lock_power",
-      "widgetType": "lockPower",
-      "enabled": false,
-      "config": {
-        "displayPreferences": [
-          "all"
-        ],
-        "syncPositionAcrossScreens": true,
-        "shape": "round"
-      }
-    },
-    {
-      "id": "lw_1793259120988_5sy3v74x8",
+      "id": "gw_lw_1793259120988_5sy3v74x8",
       "widgetType": "lockPower",
       "name": "Power",
       "enabled": true,
@@ -944,7 +924,7 @@
       }
     },
     {
-      "id": "lw_1793259206135_zzgu38fpc",
+      "id": "gw_lw_1793259206135_zzgu38fpc",
       "widgetType": "lockStatus",
       "name": "Status",
       "enabled": true,
@@ -970,13 +950,13 @@
       }
     },
     {
-      "id": "gw_1793362090769_rpyj61jdn",
+      "id": "gw_1794729611656_euqx33gg0",
       "widgetType": "desktopClock",
       "name": "Clock",
       "enabled": true,
       "config": {
         "syncPositionAcrossScreens": true,
-        "style": "digital",
+        "style": "overlap",
         "transparency": 0,
         "colorMode": "primary",
         "customColor": "#ffffff",
@@ -988,9 +968,24 @@
         ],
         "autoPosition": false
       }
+    },
+    {
+      "id": "gw_1794730252603_e1vf0ozap",
+      "widgetType": "lockDate",
+      "name": "Date",
+      "enabled": true,
+      "config": {
+        "syncPositionAcrossScreens": true,
+        "displayPreferences": [
+          "all"
+        ],
+        "format": "short",
+        "colorMode": "default",
+        "customColor": "#ffffff"
+      }
     }
   ],
-  "lockScreenShowPowerActions": false,
+  "lockScreenShowPowerActions": true,
   "lockScreenVideoEnabled": false,
   "windSpeedUnit": "kmh",
   "hyprlandTilingLayout": "",
@@ -1099,5 +1094,8 @@
       "enabled": true
     }
   ],
-  "powerMenuFirmwareSetup": true
+  "powerMenuFirmwareSetup": true,
+  "greeterFollowLockScreen": false,
+  "updaterCheckOnStart": true,
+  "updaterNotify": false
 }
