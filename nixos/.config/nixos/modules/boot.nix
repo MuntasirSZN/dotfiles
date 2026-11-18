@@ -9,7 +9,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos-bore;
 
-    boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
+    kernel.sysctl."kernel.perf_event_paranoid" = 1;
 
     lanzaboote = {
       enable = true;

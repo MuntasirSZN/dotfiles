@@ -13,7 +13,7 @@
     stremio-linux-shell
     zulip
     zoom-us
-    # filmcraft
+    filmcraft
     deckcraft
     gridcraft
     pdfcraft
