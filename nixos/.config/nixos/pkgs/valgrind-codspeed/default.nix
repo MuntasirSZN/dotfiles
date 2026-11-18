@@ -14,13 +14,13 @@
 
 stdenv.mkDerivation rec {
   pname = "valgrind-codspeed";
-  version = "3.26.0-0codspeed13";
+  version = "3.26.0-0codspeed14";
 
   src = fetchFromGitHub {
     owner = "CodSpeedHQ";
     repo = "valgrind-codspeed";
     rev = "refs/tags/${version}";
-    hash = "sha256-Sgk8FdUMfk46Z3vVpvkJe8nfacTdnbvmTIdA2YxFjHg=";
+    hash = "sha256-JAf7kVkK0m1WukCxIokq4cJq3PcXGmkdeaIM0rNYdKQ=";
 
     fetchSubmodules = true;
   };
