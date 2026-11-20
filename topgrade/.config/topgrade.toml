@@ -368,7 +368,7 @@ repos = ["~/Projects/*", "~/.config/reshade-shaders"]
 
 [firmware]
 # Offer to update firmware; if false just check for and display available updates
-# upgrade = true
+upgrade = true
 
 [flutter]
 # If this is set to true, the `--force` flag is added to `flutter upgrade`.

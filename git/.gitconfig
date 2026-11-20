@@ -41,7 +41,7 @@
   verbose = true
   template = ~/.gitmessage
 [remote "origin"]
-  fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+  fetch = +refs/pull/*/head:refs/pull/*/head
 [advice]
   addEmptyPathspec = false
   pushNonFastForward = false

@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Units from app packages, linked into ~/.local/share/systemd/user (a stable
-  # path that survives package upgrades, unlike systemctl --user link).
   systemd.user.packages = [ pkgs.ghostty ];
   home.file = {
     # No tray icon fix

@@ -5,10 +5,8 @@
 
 {
   home.packages = with pkgs; [
-    newsflash
     materialgram
     gearlever
-    gnome-connections
     qbittorrent
     stremio-linux-shell
     zulip
