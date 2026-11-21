@@ -271,7 +271,7 @@
     "mybase_blocklist": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-RGccidhhRdeqkBkP+DGmIbOoZwJB1xLw9L4EFGAlUBo=",
+        "narHash": "sha256-TiGRA4IZISIbfY7QKFYpWAefYc1+NNwtZ7IpbyHxdL0=",
         "type": "file",
         "url": "https://download.dnscrypt.info/blacklists/domains/mybase.txt"
       },
@@ -364,11 +364,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795193521,
-        "narHash": "sha256-GWVMxz5G8AlJOvmbBHAug3m2gKA/t0i80Q2bTQgi+z8=",
+        "lastModified": 1795234417,
+        "narHash": "sha256-vCKLGLik7Jtijbyj2ZWMSCWWo8/xzuu79N4QsRVdvZA=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "01248b06319fa7be01d32080ad8a04e711ed238d",
+        "rev": "4e3fadad1139d5cde259329e3349167ec06a8b61",
         "type": "github"
       },
       "original": {
