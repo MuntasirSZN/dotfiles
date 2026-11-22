@@ -543,7 +543,7 @@
         "displayPreferences": [
           "all"
         ],
-        "scaleWithWidget": false,
+        "scaleWithWidget": true,
         "useThemeColors": true,
         "clickThrough": true
       }
@@ -1097,5 +1097,7 @@
   "powerMenuFirmwareSetup": true,
   "greeterFollowLockScreen": false,
   "updaterCheckOnStart": true,
-  "updaterNotify": false
+  "updaterNotify": false,
+  "displayShowDisconnected": true,
+  "displayProfileAutoSelect": true
 }

@@ -1,19 +1,25 @@
+_:
+
 {
   disko.devices = {
     disk = {
       main = {
         type = "disk";
         device = "/dev/nvme0n1";
+
         content = {
           type = "gpt";
+
           partitions = {
             ESP = {
               size = "1G";
               type = "EF00";
+
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+
                 mountOptions = [
                   "umask=0077"
                   "noexec"
@@ -22,15 +28,25 @@
                 ];
               };
             };
+
             luks = {
               size = "100%";
+
               content = {
                 type = "luks";
                 name = "luksroot";
+
                 settings = {
+                  device = "/dev/disk/by-uuid/97f9237e-80d5-472c-8a9d-684fb99772f2";
+
                   allowDiscards = true;
-                  crypttabExtraOpts = [ "tpm2-device=auto" ];
+
+                  crypttabExtraOpts = [
+                    "tpm2-device=auto"
+                    "x-systemd.device-timeout=60s"
+                  ];
                 };
+
                 content = {
                   type = "lvm_pv";
                   vg = "nix";
@@ -41,33 +57,42 @@
         };
       };
     };
+
     lvm_vg = {
       nix = {
         type = "lvm_vg";
+
         lvs = {
           root = {
-            size = "100%";
+            size = "100G";
+
             content = {
               type = "btrfs";
+
               subvolumes = {
                 "@" = {
                   mountpoint = "/";
+
                   mountOptions = [
                     "noatime"
                     "discard=async"
                     "compress=zstd:3"
                   ];
                 };
+
                 "@nix" = {
                   mountpoint = "/nix";
+
                   mountOptions = [
                     "noatime"
                     "discard=async"
                     "compress=zstd:3"
                   ];
                 };
+
                 "@log" = {
                   mountpoint = "/var/log";
+
                   mountOptions = [
                     "noatime"
                     "discard=async"
@@ -77,21 +102,27 @@
               };
             };
           };
+
           home = {
             size = "359.9G";
+
             content = {
               type = "btrfs";
+
               subvolumes = {
                 "@home" = {
                   mountpoint = "/home";
+
                   mountOptions = [
                     "relatime"
                     "discard=async"
                     "compress=zstd:3"
                   ];
                 };
+
                 "@.snapshots" = {
                   mountpoint = "/home/.snapshots";
+
                   mountOptions = [
                     "noatime"
                     "discard=async"
@@ -101,8 +132,10 @@
               };
             };
           };
+
           swap = {
             size = "16G";
+
             content = {
               type = "swap";
             };

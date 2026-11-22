@@ -18,6 +18,7 @@
         "usbhid"
         "usb_storage"
         "sd_mod"
+        "uas"
       ];
     };
     kernelModules = [ "kvm-intel" ];
