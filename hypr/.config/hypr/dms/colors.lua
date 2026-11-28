@@ -4,23 +4,23 @@
 hl.config({
 	general = {
 		col = {
-			active_border = "rgb(9bd0ce)",
-			inactive_border = "rgb(6d7877)",
+			active_border = "rgb(e9b8d8)",
+			inactive_border = "rgb(7f7279)",
 		},
 	},
 	group = {
 		col = {
-			border_active = "rgb(9bd0ce)",
-			border_inactive = "rgb(6d7877)",
-			border_locked_active = "rgb(fa746f)",
-			border_locked_inactive = "rgb(6d7877)",
+			border_active = "rgb(e9b8d8)",
+			border_inactive = "rgb(7f7279)",
+			border_locked_active = "rgb(f97386)",
+			border_locked_inactive = "rgb(7f7279)",
 		},
 		groupbar = {
 			col = {
-				active = "rgb(9bd0ce)",
-				inactive = "rgb(6d7877)",
-				locked_active = "rgb(fa746f)",
-				locked_inactive = "rgb(6d7877)",
+				active = "rgb(e9b8d8)",
+				inactive = "rgb(7f7279)",
+				locked_active = "rgb(f97386)",
+				locked_inactive = "rgb(7f7279)",
 			},
 		},
 	},
@@ -34,9 +34,9 @@ local function themed(key, value)
 	end
 end
 
-themed("decoration.glow.color", "rgba(9bd0ceee)")
-themed("decoration.glow.color_inactive", "rgba(6d7877ee)")
-themed("decoration.blur.acrylic.tint", "rgba(9bd0ce14)")
-themed("decoration.blur.aurora.color1", "rgba(9bd0ce29)")
-themed("decoration.blur.aurora.color2", "rgba(d6eeff7a)")
-themed("decoration.blur.fluid_jar.color", "rgba(9bd0cecc)")
+themed("decoration.glow.color", "rgba(e9b8d8ee)")
+themed("decoration.glow.color_inactive", "rgba(7f7279ee)")
+themed("decoration.blur.acrylic.tint", "rgba(e9b8d814)")
+themed("decoration.blur.aurora.color1", "rgba(e9b8d829)")
+themed("decoration.blur.aurora.color2", "rgba(ebd4ff7a)")
+themed("decoration.blur.fluid_jar.color", "rgba(e9b8d8cc)")
