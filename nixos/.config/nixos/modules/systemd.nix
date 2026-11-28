@@ -17,6 +17,9 @@
       "systemd-pcrlogin@".enable = false;
     };
 
+    # x86sim needs /opt.
+    tmpfiles.rules = [ "d /opt 0755 root root -" ];
+
     # I use earlyoom.
     oomd.enable = false;
   };

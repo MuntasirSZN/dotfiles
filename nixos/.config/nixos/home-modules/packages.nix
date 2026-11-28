@@ -6,7 +6,7 @@
 {
   home.packages = with pkgs; [
     materialgram
-    gearlever
+    # app-manager
     qbittorrent
     stremio-linux-shell
     zulip

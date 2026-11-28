@@ -44,6 +44,43 @@
             gst_all_1.gst-plugins-rs
             gst_all_1.gst-libav
             libayatana-appindicator
+            gcc
+            gcc.cc
+            glibc.dev # swift.org clang wants /usr/lib/gcc/<triple>/<ver> (crtbeginS.o, libgcc) and libc headers
+            git
+            zip
+            unzip
+            pkg-config
+            curl
+            openssl
+            openssl.dev
+            libimobiledevice
+            libimobiledevice.dev
+            libimobiledevice-glue
+            libimobiledevice-glue.dev
+            libplist
+            libplist.dev
+            libusbmuxd
+            usbmuxd
+            libusb1.dev
+            xz.dev
+            zlib.dev
+            bzip2.dev
+            libxml2.dev
+            sqlite.dev
+            curl.dev
+            linuxHeaders
+            (python3.withPackages (ps: [
+              ps.pip
+              ps.virtualenv
+            ]))
+            libxml2
+            sqlite
+            ncurses
+            libedit
+            zlib
+            libuuid
+            stdenv.cc.cc.lib
           ];
       };
     };
