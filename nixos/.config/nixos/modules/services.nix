@@ -118,7 +118,7 @@
         check_freq = 15;
         loglevel = "info";
         log_applied_rule = false;
-        cgroup_realtime_workaround = lib.mkForce false;
+        cgroup_realtime_workaround = false;
       };
     };
 

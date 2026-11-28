@@ -37,7 +37,8 @@
     "recordingBackend": "gpu-screen-recorder",
     "recordingQuality": "high",
     "recordMic": true,
-    "recordSystemAudio": true
+    "recordSystemAudio": true,
+    "doneAction": "both"
   },
   "screenCaptureToolbar": {
     "enabled": true,

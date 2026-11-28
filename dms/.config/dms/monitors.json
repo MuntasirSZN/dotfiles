@@ -39,6 +39,24 @@
           "hyprland": {}
         }
       }
+    },
+    {
+      "id": "auto_5c0596e2",
+      "name": "",
+      "outputs": {
+        "FALLBACK": {
+          "mode": "1920x1080@60.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1,
+          "transform": "Normal",
+          "vrr": true,
+          "disabled": false,
+          "hyprland": {}
+        }
+      }
     }
   ]
 }

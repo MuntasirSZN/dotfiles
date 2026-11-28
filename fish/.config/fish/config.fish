@@ -11,6 +11,7 @@ function starship_transient_prompt_func
 end
 
 if status is-interactive
+    alias x86sim "x86Sim x86sim"
     if type -q nix-your-shell
         nix-your-shell fish | source
     end

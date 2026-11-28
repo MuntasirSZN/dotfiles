@@ -222,3 +222,4 @@ hl.window_rule({
 	match = { class = "^gamescope$" },
 	immediate = true,
 })
+hl.window_rule({ match = { class = "^(com\\.mojang\\.minecraft)$" }, immediate = true })

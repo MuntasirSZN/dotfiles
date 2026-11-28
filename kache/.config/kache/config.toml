@@ -3,3 +3,4 @@ local_max_size = "30GiB"
 auto_recover_targets = true
 trust_daemon_execution = true
 target_liveness = true
+auto_clean_superseded_executables = 2
