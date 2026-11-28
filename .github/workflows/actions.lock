@@ -13,6 +13,9 @@ workflows:
         - 'actions/checkout@v7.0.1'
         - 'cachix/install-nix-action@v32.1.0'
         - 'determinatesystems/update-flake-lock@v29'
+    '.github/workflows/verify.yml':
+        - 'actions/checkout@v7.0.1'
+        - 'github/gh-actions-lock@verify/v0.5.1'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'
@@ -50,6 +53,11 @@ dependencies:
             - 'juliangruber/read-file-action@271ff311a4947af354c6abcd696a306553b9ec18'
             - 'pedrolamas/handlebars-action@2995d7eadacbc8f2f6ab8431a01d84a5fa3b8bb4'
             - 'peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1'
+    'github/gh-actions-lock@verify/v0.5.1':
+        ref: 'verify/v0.5.1'
+        commit: 'sha1-5fa07d19c267d19e29f4341f10fdf7f516375038'
+        owner_id: 9919
+        repo_id: 1217640442
     'juliangruber/read-file-action@271ff311a4947af354c6abcd696a306553b9ec18':
         ref: 'v1.1.8'
         commit: 'sha1-271ff311a4947af354c6abcd696a306553b9ec18'
